@@ -1,10 +1,9 @@
-import { container, circle, vstack, hstack } from 'styled-system/patterns'
+import { circle, vstack, hstack } from 'styled-system/patterns'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const AVATAR_SIZE = 104
 
-const mainStyles = container()
 const introSectionStyles = vstack({
   gap: 10,
   alignItems: 'start',
@@ -16,7 +15,7 @@ const socialLInksStyles = hstack({
 
 export default function Home() {
   return (
-    <div className={mainStyles}>
+    <div>
       <section className={introSectionStyles}>
         <Image
           src="/profile.jpg"
