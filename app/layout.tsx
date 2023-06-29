@@ -59,16 +59,16 @@ function TopNavbar() {
     <nav className={navBarStyles}>
       <ul className={navStyles}>
         <li className={navItemStyles}>
-          <Link href="#">About</Link>
+          <Link href="about">About</Link>
         </li>
         <li className={navItemStyles}>
-          <Link href="#">Blog</Link>
+          <Link href="blog">Blog</Link>
         </li>
         <li className={navItemStyles}>
-          <Link href="#">Projects</Link>
+          <Link href="projects">Projects</Link>
         </li>
         <li className={navItemStyles}>
-          <Link href="#">Stack</Link>
+          <Link href="stack">Stack</Link>
         </li>
       </ul>
     </nav>
