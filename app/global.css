@@ -15,11 +15,13 @@ li {
 }
 
 h1 {
-  font-size: var(--font-sizes-5xl);
-}
-h2 {
   font-size: var(--font-sizes-4xl);
+  font-weight: var(--font-weights-bold);
 }
 h2 {
   font-size: var(--font-sizes-3xl);
+  font-weight: var(--font-weights-semibold);
+}
+h2 {
+  font-size: var(--font-sizes-2xl);
 }

@@ -1,25 +1,41 @@
-import { container, circle } from 'styled-system/patterns'
+import { container, circle, vstack } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 import Image from 'next/image'
 
-const mainStyles = container()
+const AVATAR_SIZE = 120
 
-const nameSectionStyles = css({
-  textAlign: 'start',
+const mainStyles = container()
+const introSectionStyles = vstack({
+  gap: 12,
+  alignItems: 'start',
+  maxWidth: '60vw',
 })
+
 export default function Home() {
   return (
     <div className={mainStyles}>
-      <section className={nameSectionStyles}>
-        <h1>Hi 👋🏻 I&apos;m James</h1>
+      <section className={introSectionStyles}>
         <Image
           src="/profile.jpg"
-          className={circle({ size: 360, border: '2px solid white' })}
-          width={360}
-          height={360}
+          className={circle({ size: AVATAR_SIZE, border: '2px solid white' })}
+          width={AVATAR_SIZE}
+          height={AVATAR_SIZE}
           alt="picture of James"
         />
-        <h2>Full Stack JavaScript Engineer & Experienced Web Enthusiast</h2>
+        <h1>
+          Experienced Full Stack JavaScript Engineer, Developer Advocate, &
+          Design System Enthusiast.
+        </h1>
+        <p>
+          Hey, I&apos;m James and I whisper commands at computers. I am a full
+          stack engineer who particularly loves frontend web development. Over
+          the last decade I&apos;ve been a part of shipping new products to
+          market, scaling Node.js applications, building beautiful UI Design
+          Systems, and working on cross-functional teams with other talented
+          people I can learn from. I&apos;m a lean practitioner, developer
+          advocate, support iterative enhancement, and I believe strongly that
+          no tech talk is complete without memes.
+        </p>
       </section>
     </div>
   )
