@@ -1,18 +1,16 @@
 # Portfolio
 
-Built [Next.js](https://nextjs.org/), [PandaCSS](https://panda-css.com/) & Typescript.
+Built with [Next.js](https://nextjs.org/), [PandaCSS](https://panda-css.com/) & Typescript.
 
 ## Getting Started
 
-To the development server:
+To start the development server:
 
 ```bash
 pnpm dev
 ```
 
 Open [http://localhost:3001](http://localhost:3001) and browse around.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## CI/CD
 
