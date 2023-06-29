@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev --port=3001 --turbo",
     "build": "next build",
-    "start": "next start",
+    "format": "prettier --write .",
     "lint": "next lint",
-    "prepare": "panda codegen"
+    "prepare": "panda codegen",
+    "start": "next start"
   },
   "dependencies": {
     "@types/node": "20.3.2",
@@ -21,6 +22,7 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.5.0"
+    "@pandacss/dev": "^0.5.0",
+    "prettier": "^2.8.8"
   }
 }
