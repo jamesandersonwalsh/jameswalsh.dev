@@ -1,7 +1,7 @@
 @layer reset, base, tokens, recipes, utilities;
 
 body {
-  background-color: var(--colors-slate-900);
+  background-color: var(--colors-slate-950);
 }
 
 h1,
@@ -24,4 +24,7 @@ h2 {
 }
 h2 {
   font-size: var(--font-sizes-2xl);
+}
+p {
+  font-size: var(--font-sizes-lg);
 }

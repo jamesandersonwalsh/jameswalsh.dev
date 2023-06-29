@@ -18,7 +18,7 @@ const mainStyles = container({
 })
 const paperStyles = vstack({
   height: '100vh',
-  bg: 'slate.800',
+  bg: 'slate.900',
   mx: '14rem',
   paddingTop: '2rem',
 })
@@ -36,14 +36,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
 }
 
 const navBarStyles = hstack({
-  bg: 'indigo.800',
+  bg: 'slate.800',
   h: '2.5rem',
   px: '2rem',
   fontWeight: 'normal',
   maxWidth: '30vw',
   borderRadius: 'full',
   borderWidth: '1px',
-  borderColor: 'indigo.900',
+  borderColor: 'slate.700',
 })
 const navStyles = hstack({
   gap: 4,
