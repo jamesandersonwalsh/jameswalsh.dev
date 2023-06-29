@@ -1,4 +1,4 @@
-import { circle, vstack, hstack } from 'styled-system/patterns'
+import { circle, vstack, hstack, divider } from 'styled-system/patterns'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -11,6 +11,9 @@ const introSectionStyles = vstack({
 })
 const socialLInksStyles = hstack({
   gap: 5,
+})
+const dividerStyles = divider({
+  color: 'slate.600',
 })
 
 export default function Home() {
@@ -57,15 +60,16 @@ export default function Home() {
             <Image src="/gmail.svg" width={24} height={24} alt="Gmail Icon" />
           </Link>
         </div>
+        <hr className={dividerStyles} />
         <p>
-          Hey, I&apos;m James & I whisper commands at computers. I am a full
+          Hey, I&apos;m James & I whisper commands at computers. I&apos;m a full
           stack engineer who loves frontend web development. Over the last
           decade I&apos;ve been a part of shipping new products to market,
           scaling Node.js applications, building beautiful UI Design Systems, &
           working on cross-functional teams with other talented people I can
           learn from. I&apos;m a lean practitioner, self-proclaimed developer
-          advocate, andd support iterative enhancement. I believe strongly that
-          no tech talk is complete without memes.
+          advocate, & support iterative enhancement. I believe strongly that no
+          tech talk is complete without memes.
         </p>
       </section>
     </div>

@@ -13,20 +13,20 @@ export const metadata = {
 }
 
 const mainStyles = container({
-  mx: '8rem',
   py: '4rem',
 })
 const paperStyles = vstack({
-  height: '100vh',
   bg: 'slate.900',
   xl: {
     mx: '14rem',
   },
   md: {
+    height: '100vh',
     mx: '8rem',
   },
   sm: {
-    mx: '2rem',
+    mx: '6rem',
+    height: '100%',
   },
   paddingTop: '2rem',
 })
@@ -47,7 +47,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
 const navBarStyles = hstack({
   hideBelow: 'sm',
   bg: 'slate.800',
-  h: '2.5rem',
+  minH: '2rem',
   px: '2rem',
   fontWeight: 'normal',
   lg: {
@@ -68,9 +68,6 @@ const navItemStyles = css({
   alignItems: 'center',
   px: '0.5rem',
   borderRadius: 'md',
-  sm: {
-    fontSize: 'md',
-  },
 })
 function TopNavbar() {
   return (
