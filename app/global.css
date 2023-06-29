@@ -10,3 +10,13 @@ h3,
 h4 {
   color: var(--colors-slate-100);
 }
+
+h1 {
+  font-size: var(--font-sizes-5xl);
+}
+h2 {
+  font-size: var(--font-sizes-4xl);
+}
+h2 {
+  font-size: var(--font-sizes-3xl);
+}
