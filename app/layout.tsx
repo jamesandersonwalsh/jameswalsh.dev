@@ -2,7 +2,7 @@ import './global.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
-import { hstack } from 'styled-system/patterns'
+import { hstack, container } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -12,12 +12,15 @@ export const metadata = {
   description: 'Full Stack Javascript Engineer',
 }
 
+const mainStyles = container({
+  my: '8rem',
+})
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <TopNavbar />
-        <main>{children}</main>
+        <main className={mainStyles}>{children}</main>
       </body>
     </html>
   )
