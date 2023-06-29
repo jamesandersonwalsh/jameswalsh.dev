@@ -1,9 +1,9 @@
 import './global.css'
 import { Inter } from 'next/font/google'
-import Link from 'next/link'
 import { PropsWithChildren } from 'react'
-import { hstack, vstack, container } from 'styled-system/patterns'
-import { css } from 'styled-system/css'
+import { container } from 'styled-system/patterns'
+import { TopNavbar } from '@/components/AppShell/TopNavbar'
+import { Paper } from '@/components/AppShell/Paper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,77 +15,16 @@ export const metadata = {
 const mainStyles = container({
   py: '4rem',
 })
-const paperStyles = vstack({
-  bg: 'slate.900',
-  xl: {
-    mx: '14rem',
-  },
-  md: {
-    height: '100vh',
-    mx: '8rem',
-  },
-  sm: {
-    mx: '6rem',
-    height: '100%',
-  },
-  paddingTop: '2rem',
-})
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body className={inter.className}>
-        <div className={paperStyles}>
+        <Paper>
           <TopNavbar />
           <main className={mainStyles}>{children}</main>
-        </div>
+        </Paper>
       </body>
     </html>
-  )
-}
-
-const navBarStyles = hstack({
-  hideBelow: 'sm',
-  bg: 'slate.800',
-  minH: '2rem',
-  px: '2rem',
-  fontWeight: 'normal',
-  lg: {
-    maxWidth: '40vw',
-  },
-  md: {
-    maxWidth: '70vw',
-  },
-  borderRadius: 'full',
-  borderWidth: '1px',
-  borderColor: 'slate.700',
-})
-const navStyles = hstack({
-  gap: 4,
-})
-const navItemStyles = css({
-  display: 'flex',
-  alignItems: 'center',
-  px: '0.5rem',
-  borderRadius: 'md',
-})
-function TopNavbar() {
-  return (
-    <nav className={navBarStyles}>
-      <ul className={navStyles}>
-        <li className={navItemStyles}>
-          <Link href="about">About</Link>
-        </li>
-        <li className={navItemStyles}>
-          <Link href="blog">Blog</Link>
-        </li>
-        <li className={navItemStyles}>
-          <Link href="projects">Projects</Link>
-        </li>
-        <li className={navItemStyles}>
-          <Link href="stack">Stack</Link>
-        </li>
-      </ul>
-    </nav>
   )
 }
