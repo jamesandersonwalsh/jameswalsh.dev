@@ -1,4 +1,13 @@
-import { circle, vstack, hstack, divider, grid } from 'styled-system/patterns'
+import {
+  circle,
+  vstack,
+  hstack,
+  divider,
+  grid,
+  wrap,
+  stack,
+} from 'styled-system/patterns'
+import { css } from 'styled-system/css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card } from '@/components/Card'
@@ -9,7 +18,6 @@ const AVATAR_SIZE = 104
 const introSectionStyles = vstack({
   gap: 10,
   alignItems: 'start',
-  maxWidth: '60vw',
 })
 const socialLInksStyles = hstack({
   gap: 5,
@@ -18,11 +26,110 @@ const dividerStyles = divider({
   color: 'slate.600',
 })
 const twoColumnGridStyles = grid({
-  columns: 2,
   gap: 2,
+  columns: 2,
 })
 
+const cvListStyles = stack({
+  gap: 4,
+})
+const cvListItemStyles = hstack({
+  gap: 4,
+})
+const companyLogoStyles = circle()
+const dlStyles = wrap({
+  gap: 1,
+  width: '100%',
+})
+const dtStyles = css({
+  display: 'none',
+})
+const ddBoldStyles = css({
+  fontWeight: 'semibold',
+  width: 'full',
+  fontSize: 'md',
+})
+const ddLightStyles = css({
+  fontWeight: 'lighter',
+  fontSize: 'xs',
+})
+const ddDateStyles = css({
+  marginLeft: 'auto',
+  fontSize: 'xs',
+  fontWeight: 'lighter',
+})
+
+interface CVItem {
+  image: React.ReactNode
+  company: string
+  role: string
+  startDate: string
+  endDate: string
+}
+
 export default function Home() {
+  const cvItems: CVItem[] = [
+    {
+      image: (
+        <Image
+          src="/vasion-logo.png"
+          width={36}
+          height={36}
+          alt="Vasion company logo"
+          className={companyLogoStyles}
+        />
+      ),
+      company: 'Vasion',
+      role: 'Staff Software Engineer',
+      startDate: '2022',
+      endDate: 'Present',
+    },
+    {
+      image: (
+        <Image
+          src="/podium-logo.jpg"
+          width={36}
+          height={36}
+          alt="Podium company logo"
+          className={companyLogoStyles}
+        />
+      ),
+      company: 'Podium',
+      role: 'Sr Software Engineer',
+      startDate: '2021',
+      endDate: '2022',
+    },
+    {
+      image: (
+        <Image
+          src="/pluralsight-logo.png"
+          width={36}
+          height={36}
+          alt="Pluralsight company logo"
+          className={companyLogoStyles}
+        />
+      ),
+      company: 'Pluralsight',
+      role: 'Full Stack Software Engineer',
+      startDate: '2016',
+      endDate: '2020',
+    },
+    {
+      image: (
+        <Image
+          src="/maersk-logo.jpg"
+          width={36}
+          height={36}
+          alt="Maersk company logo"
+          className={companyLogoStyles}
+        />
+      ),
+      company: 'Maersk',
+      role: 'Software Engineer',
+      startDate: '2014',
+      endDate: '2016',
+    },
+  ]
   return (
     <div>
       <section className={introSectionStyles}>
@@ -87,11 +194,28 @@ export default function Home() {
               Work
             </Card.Header>
             <Card.Body>
-              <ol>
-                <li>Vasion</li>
-                <li>Podium</li>
-                <li>Pluralsight</li>
-                <li>VisibleCSM</li>
+              <ol className={cvListStyles}>
+                {cvItems.map((cvItem) => (
+                  <li key={cvItem.company} className={cvListItemStyles}>
+                    {cvItem.image}
+                    <dl className={dlStyles}>
+                      <dt className={dtStyles}>Company</dt>
+                      <dd className={ddBoldStyles}>{cvItem.company}</dd>
+                      <dt className={dtStyles}>Role</dt>
+                      <dd className={ddLightStyles}>{cvItem.role}</dd>
+                      <dt className={dtStyles}>Date</dt>
+                      <dd className={ddDateStyles}>
+                        <time dateTime={cvItem.startDate}>
+                          {cvItem.startDate}
+                        </time>
+                        <span aria-hidden="true"> — </span>
+                        <time dateTime={cvItem.startDate}>
+                          {cvItem.endDate}
+                        </time>
+                      </dd>
+                    </dl>
+                  </li>
+                ))}
               </ol>
             </Card.Body>
           </Card>

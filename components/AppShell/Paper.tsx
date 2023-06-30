@@ -22,7 +22,6 @@ const paperStyles = container({
   sm: {
     width: '100vw',
   },
-  paddingTop: '2rem',
 })
 
 export function Paper({ children }: PropsWithChildren) {
