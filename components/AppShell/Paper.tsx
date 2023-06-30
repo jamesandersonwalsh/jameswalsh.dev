@@ -6,10 +6,12 @@ const paperStyles = container({
   flexDirection: 'column',
   alignItems: 'center',
   bg: 'slate.900',
-  height: '100vh',
+  minHeight: '100vh',
   padding: '2rem',
+  borderWidth: '1px',
+  borderColor: 'slate.800',
   xl: {
-    width: '60vw',
+    width: '70vw',
   },
   lg: {
     width: '80vw',
