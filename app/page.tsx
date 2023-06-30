@@ -26,6 +26,7 @@ const dividerStyles = divider({
   color: 'slate.600',
 })
 const twoColumnGridStyles = grid({
+  marginTop: '4rem',
   gap: 2,
   columns: 2,
 })
@@ -175,14 +176,13 @@ export default function Home() {
         </div>
         <hr className={dividerStyles} />
         <p>
-          Hey, I&apos;m James & I whisper commands at computers. I&apos;m a full
-          stack engineer who loves frontend web development. Over the last
-          decade I&apos;ve been a part of shipping new products to market,
-          scaling Node.js applications, building beautiful UI Design Systems, &
-          working on cross-functional teams with other talented people I can
-          learn from. I&apos;m a lean practitioner, self-proclaimed developer
-          advocate, & support iterative enhancement. I believe strongly that no
-          tech talk is complete without memes.
+          Hey, I&apos;m James & I&apos;m a full stack engineer who loves
+          frontend web development. Over the last decade I&apos;ve been a part
+          of shipping new products to market, scaling Node.js applications,
+          building beautiful UI Design Systems, & working on cross-functional
+          teams with other talented people I can learn from. I&apos;m a design
+          system enthusiast, & self-proclaimed developer advocate. I believe
+          that no tech talk is complete without memes.
         </p>
       </section>
       <br />

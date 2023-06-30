@@ -8,7 +8,7 @@ const navBarStyles = hstack({
   minH: '2rem',
   px: '2rem',
   fontWeight: 'normal',
-  width: '400px',
+  width: '360px',
   borderRadius: 'full',
   borderWidth: '1px',
   borderColor: 'slate.700',
