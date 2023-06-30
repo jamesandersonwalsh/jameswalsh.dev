@@ -1,6 +1,8 @@
-import { circle, vstack, hstack, divider } from 'styled-system/patterns'
+import { circle, vstack, hstack, divider, grid } from 'styled-system/patterns'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Card } from '@/components/Card'
+import { BriefcaseIcon } from '@heroicons/react/24/solid'
 
 const AVATAR_SIZE = 104
 
@@ -14,6 +16,10 @@ const socialLInksStyles = hstack({
 })
 const dividerStyles = divider({
   color: 'slate.600',
+})
+const twoColumnGridStyles = grid({
+  columns: 2,
+  gap: 2,
 })
 
 export default function Home() {
@@ -72,6 +78,25 @@ export default function Home() {
           tech talk is complete without memes.
         </p>
       </section>
+      <br />
+      <div className={twoColumnGridStyles}>
+        <div>Articles Placeholder</div>
+        <div>
+          <Card>
+            <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>
+              Work
+            </Card.Header>
+            <Card.Body>
+              <ol>
+                <li>Vasion</li>
+                <li>Podium</li>
+                <li>Pluralsight</li>
+                <li>VisibleCSM</li>
+              </ol>
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
     </div>
   )
 }
