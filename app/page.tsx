@@ -14,6 +14,7 @@ import { Card } from '@/components/Card'
 import { BriefcaseIcon } from '@heroicons/react/24/solid'
 
 const AVATAR_SIZE = 104
+const SOCIAL_ICON_SIZE = 24
 
 const introSectionStyles = vstack({
   gap: 10,
@@ -131,6 +132,7 @@ export default function Home() {
       endDate: '2016',
     },
   ]
+
   return (
     <div>
       <section className={introSectionStyles}>
@@ -139,39 +141,49 @@ export default function Home() {
           className={circle({ size: AVATAR_SIZE })}
           width={AVATAR_SIZE}
           height={AVATAR_SIZE}
-          alt="Picture of James"
+          alt="James profile picture"
         />
         <h1>Full Stack JavaScript Engineer.</h1>
         <div id="social-links" className={socialLInksStyles}>
           <Link href="https://github.com/jimmywalsh">
-            <Image src="/github.svg" width={24} height={24} alt="Github Icon" />
+            <Image
+              src="/github.svg"
+              width={SOCIAL_ICON_SIZE}
+              height={SOCIAL_ICON_SIZE}
+              alt="Github Icon"
+            />
           </Link>
           <Link href="https://www.linkedin.com/in/jamesandersonwalsh/">
             <Image
               src="/linkedin.svg"
-              width={24}
-              height={24}
+              width={SOCIAL_ICON_SIZE}
+              height={SOCIAL_ICON_SIZE}
               alt="LinkedIn Icon"
             />
           </Link>
           <Link href="https://www.instagram.com/jimmy.a.walsh/">
             <Image
               src="/instagram.svg"
-              width={24}
-              height={24}
+              width={SOCIAL_ICON_SIZE}
+              height={SOCIAL_ICON_SIZE}
               alt="Instagram Icon"
             />
           </Link>
           <Link href="https://discordapp.com/users/jimmywalsh">
             <Image
               src="/discord.svg"
-              width={24}
-              height={24}
+              width={SOCIAL_ICON_SIZE}
+              height={SOCIAL_ICON_SIZE}
               alt="Discord Icon"
             />
           </Link>
           <Link href="mailto:jamesandersonwalsh@gmail.com">
-            <Image src="/gmail.svg" width={24} height={24} alt="Gmail Icon" />
+            <Image
+              src="/gmail.svg"
+              width={SOCIAL_ICON_SIZE}
+              height={SOCIAL_ICON_SIZE}
+              alt="Gmail Icon"
+            />
           </Link>
         </div>
         <hr className={dividerStyles} />

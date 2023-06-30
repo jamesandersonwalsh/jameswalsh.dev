@@ -1,6 +1,10 @@
+'use client'
+
 import Link from 'next/link'
-import { hstack } from 'styled-system/patterns'
+import Image from 'next/image'
+import { hstack, circle } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
+import { usePathname } from 'next/navigation'
 
 const navBarStyles = hstack({
   hideBelow: 'sm',
@@ -24,22 +28,42 @@ const navItemStyles = css({
 })
 
 export function TopNavbar() {
+  const pathname = usePathname()
+  const showAvatar = pathname !== '/'
+
   return (
-    <nav className={navBarStyles}>
-      <ul className={navListStyles}>
-        <li className={navItemStyles}>
-          <Link href="about">About</Link>
-        </li>
-        <li className={navItemStyles}>
-          <Link href="blog">Blog</Link>
-        </li>
-        <li className={navItemStyles}>
-          <Link href="projects">Projects</Link>
-        </li>
-        <li className={navItemStyles}>
-          <Link href="stack">Stack</Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <nav className={navBarStyles}>
+        <ul className={navListStyles}>
+          <li className={navItemStyles}>
+            <Link href="about">About</Link>
+          </li>
+          <li className={navItemStyles}>
+            <Link href="blog">Blog</Link>
+          </li>
+          <li className={navItemStyles}>
+            <Link href="projects">Projects</Link>
+          </li>
+          <li className={navItemStyles}>
+            <Link href="stack">Stack</Link>
+          </li>
+        </ul>
+      </nav>
+      {showAvatar ? (
+        <Link href="/">
+          <Image
+            src="/profile.jpg"
+            style={{ left: '4rem', top: '2rem' }}
+            className={circle({
+              maxWidth: 10,
+              maxHeight: 10,
+              cursor: 'pointer',
+            })}
+            fill
+            alt="James profile picture"
+          />
+        </Link>
+      ) : undefined}
+    </>
   )
 }
