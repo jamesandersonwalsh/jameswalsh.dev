@@ -39,7 +39,7 @@ export function TopNavbar() {
             <Link href="about">About</Link>
           </li>
           <li className={navItemStyles}>
-            <Link href="blog">Blog</Link>
+            <Link href="posts">Blog</Link>
           </li>
           <li className={navItemStyles}>
             <Link href="projects">Projects</Link>
@@ -53,13 +53,14 @@ export function TopNavbar() {
         <Link href="/">
           <Image
             src="/profile.jpg"
-            style={{ left: '4rem', top: '2rem' }}
+            style={{ position: 'absolute', left: '4rem', top: '2rem' }}
             className={circle({
               maxWidth: 10,
               maxHeight: 10,
               cursor: 'pointer',
             })}
-            fill
+            width={36}
+            height={36}
             alt="James profile picture"
           />
         </Link>
