@@ -3,9 +3,10 @@ import { css } from 'styled-system/css'
 import { hstack } from 'styled-system/patterns'
 
 const cardStyles = css({
-  borderRadius: 'lg',
-  borderWidth: '1px',
-  borderColor: 'slate.600',
+  borderRadius: '2xl',
+  borderWidth: '2px',
+  borderColor: 'slate.800',
+  boxShadow: 'sm',
   padding: '1.5rem',
   color: 'slate.300',
 })
@@ -17,6 +18,9 @@ export function Card({ children }: PropsWithChildren) {
 const cardHeaderStyles = hstack({
   gap: 3,
 })
+const h3Styles = css({
+  fontSize: 'xl',
+})
 
 type HeaderProps = {
   icon?: React.ReactNode
@@ -25,7 +29,7 @@ function Header({ children, icon }: HeaderProps) {
   return (
     <div className={cardHeaderStyles}>
       {icon}
-      <h3>{children}</h3>
+      <h3 className={h3Styles}>{children}</h3>
     </div>
   )
 }

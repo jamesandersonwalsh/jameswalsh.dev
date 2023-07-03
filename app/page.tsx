@@ -20,6 +20,12 @@ const introSectionStyles = vstack({
   gap: 10,
   alignItems: 'start',
 })
+const headingStyles = css({
+  fontSize: {
+    mdTo2xl: '4xl',
+    smDown: '3xl',
+  },
+})
 const socialLInksStyles = hstack({
   gap: 5,
 })
@@ -36,7 +42,7 @@ const columnGridStyles = grid({
 })
 
 const cvListStyles = stack({
-  gap: 4,
+  gap: 6,
 })
 const cvListItemStyles = hstack({
   gap: 4,
@@ -103,7 +109,7 @@ export default function Home() {
         />
       ),
       company: 'Podium',
-      role: 'Sr Software Engineer',
+      role: 'Senior Software Engineer',
       startDate: '2021',
       endDate: '2022',
     },
@@ -133,7 +139,7 @@ export default function Home() {
         />
       ),
       company: 'Maersk',
-      role: 'Software Engineer',
+      role: 'Junior Software Engineer',
       startDate: '2014',
       endDate: '2016',
     },
@@ -149,7 +155,9 @@ export default function Home() {
           height={AVATAR_SIZE}
           alt="James profile picture"
         />
-        <h1>Full Stack JavaScript Engineer</h1>
+        <h1 className={headingStyles}>
+          Software engineer, UI / UX enthusiast, & developer advocate.
+        </h1>
         <div id="social-links" className={socialLInksStyles}>
           <Link href="https://github.com/jimmywalsh">
             <Image
@@ -193,14 +201,14 @@ export default function Home() {
           </Link>
         </div>
         <hr className={dividerStyles} />
-        <p>
-          Hey, I&apos;m James & I&apos;m a full stack engineer who loves
+        <p className={css({ fontSize: 'lg' })}>
+          I&apos;m James & I&apos;m a Full Stack Javascript Engineer who loves
           frontend web development. Over the last decade I&apos;ve been a part
           of shipping new products to market, scaling Node.js applications,
-          building beautiful UI Design Systems, & working on cross-functional
-          teams with other talented people I can learn from. I&apos;m a design
-          system enthusiast, & self-proclaimed developer advocate. I believe
-          that no tech talk is complete without memes.
+          building beautiful Design Systems, & working on cross-functional teams
+          with other talented people I can learn from. I&apos;m a design system
+          enthusiast, & self-proclaimed developer advocate. I believe that no
+          tech talk is complete without memes.
         </p>
       </section>
       <br />
