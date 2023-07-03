@@ -2,6 +2,10 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=18.16"
+  },
+  "packageManager": "pnpm@8.6.5",
   "scripts": {
     "dev": "next dev --port=3001",
     "dev:force": "rm -rf .next && pnpm dev",
