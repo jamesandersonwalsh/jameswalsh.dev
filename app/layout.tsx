@@ -2,8 +2,8 @@ import './global.css'
 import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 import { container } from 'styled-system/patterns'
-import { TopNavbar } from '@/components/AppShell/TopNavbar'
-import { Paper } from '@/components/AppShell/Paper'
+import { TopNavbar } from '@ui/AppShell/TopNavbar'
+import { Paper } from '@ui/AppShell/Paper'
 
 const inter = Inter({ subsets: ['latin'] })
 

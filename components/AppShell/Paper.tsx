@@ -7,7 +7,10 @@ const paperStyles = container({
   alignItems: 'center',
   bg: 'slate.900',
   minHeight: '100vh',
-  padding: '2rem',
+  padding: {
+    mdTo2xl: '2rem',
+    smDown: '0.5rem',
+  },
   borderWidth: '1px',
   borderColor: 'slate.800',
   xl: {

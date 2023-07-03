@@ -10,7 +10,7 @@ import {
 import { css } from 'styled-system/css'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Card } from '@/components/Card'
+import { Card } from '@ui/Card'
 import { BriefcaseIcon } from '@heroicons/react/24/solid'
 
 const AVATAR_SIZE = 104
@@ -26,10 +26,13 @@ const socialLInksStyles = hstack({
 const dividerStyles = divider({
   color: 'slate.600',
 })
-const twoColumnGridStyles = grid({
+const columnGridStyles = grid({
   marginTop: '4rem',
   gap: 2,
-  columns: 2,
+  columns: {
+    mdTo2xl: 2,
+    sm: 1,
+  },
 })
 
 const cvListStyles = stack({
@@ -52,11 +55,14 @@ const ddBoldStyles = css({
   fontSize: 'md',
 })
 const ddLightStyles = css({
-  fontWeight: 'lighter',
+  fontWeight: 'normal',
   fontSize: 'xs',
 })
 const ddDateStyles = css({
-  marginLeft: 'auto',
+  marginLeft: {
+    mdTo2xl: 'auto',
+    smDown: '0',
+  },
   fontSize: 'xs',
   fontWeight: 'lighter',
 })
@@ -143,7 +149,7 @@ export default function Home() {
           height={AVATAR_SIZE}
           alt="James profile picture"
         />
-        <h1>Full Stack JavaScript Engineer.</h1>
+        <h1>Full Stack JavaScript Engineer</h1>
         <div id="social-links" className={socialLInksStyles}>
           <Link href="https://github.com/jimmywalsh">
             <Image
@@ -198,7 +204,7 @@ export default function Home() {
         </p>
       </section>
       <br />
-      <div className={twoColumnGridStyles}>
+      <div className={columnGridStyles}>
         <div>Articles Placeholder</div>
         <div>
           <Card>
