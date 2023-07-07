@@ -15,6 +15,7 @@ import { BriefcaseIcon } from '@heroicons/react/24/solid'
 
 const AVATAR_SIZE = 104
 const SOCIAL_ICON_SIZE = 24
+const HANDLE = 'jamesandersonwalsh'
 
 const introSectionStyles = vstack({
   gap: 10,
@@ -159,7 +160,7 @@ export default function Home() {
           Software engineer, UI / UX enthusiast, & developer advocate.
         </h1>
         <div id="social-links" className={socialLInksStyles}>
-          <Link href="https://github.com/jimmywalsh">
+          <Link href={`https://github.com/${HANDLE}`}>
             <Image
               src="/github.svg"
               width={SOCIAL_ICON_SIZE}
@@ -167,7 +168,9 @@ export default function Home() {
               alt="Github Icon"
             />
           </Link>
-          <Link href="https://www.linkedin.com/in/jamesandersonwalsh/">
+          <Link
+            href={`https://www.linkedin.com/in/jamesandersonwalsh/${HANDLE}`}
+          >
             <Image
               src="/linkedin.svg"
               width={SOCIAL_ICON_SIZE}
@@ -175,7 +178,7 @@ export default function Home() {
               alt="LinkedIn Icon"
             />
           </Link>
-          <Link href="https://www.instagram.com/jimmy.a.walsh/">
+          <Link href={`https://www.instagram.com/${HANDLE}`}>
             <Image
               src="/instagram.svg"
               width={SOCIAL_ICON_SIZE}
@@ -183,7 +186,7 @@ export default function Home() {
               alt="Instagram Icon"
             />
           </Link>
-          <Link href="https://discordapp.com/users/jimmywalsh">
+          <Link href={`https://discordapp.com/users/${HANDLE}`}>
             <Image
               src="/discord.svg"
               width={SOCIAL_ICON_SIZE}
