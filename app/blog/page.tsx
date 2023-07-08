@@ -8,7 +8,7 @@ const articleListStyles = vstack({
   gap: 14,
   px: '1.5rem',
   borderInlineStart: '1px solid',
-  borderInlineStartColor: 'slate.400',
+  borderInlineStartColor: 'slate.500',
   writingMode: 'horizontal-tb',
 })
 const articleStyles = grid({
@@ -21,6 +21,12 @@ const timeStyles = css({
 })
 const articleBodyStyles = gridItem({
   colSpan: 3,
+  background: 'slate.800',
+  p: '1rem',
+  borderRadius: 'lg',
+  _hover: {
+    cursor: 'pointer',
+  },
 })
 const articleTitleStyles = css({
   fontSize: 'xl',
