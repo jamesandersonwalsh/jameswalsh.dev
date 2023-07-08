@@ -1,8 +1,7 @@
-
 const API_TOKEN = process.env.HASHNODE_API_TOKEN
 const API_HOST = process.env.HASH_NODE_API_HOST
 
-export async function get<T>(reqBody:T) {
+export async function get<T>(reqBody: T) {
   const requestOptions = {
     method: 'POST',
     headers: {
