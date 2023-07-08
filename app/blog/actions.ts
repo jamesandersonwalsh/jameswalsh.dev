@@ -5,6 +5,7 @@ export interface Post {
   title: string
   brief: string
   coverImage: string
+  dateAdded: string
 }
 
 export async function fetchBlogPosts(): Promise<Post[]> {
@@ -15,7 +16,7 @@ export async function fetchBlogPosts(): Promise<Post[]> {
       Authorization: `${process.env.HASHNODE_API_TOKEN}`,
     },
     body: JSON.stringify({
-      query: `query { user(username: "${process.env.HASH_NODE_HANDLE}") { publication { posts { slug title brief coverImage } } } }`,
+      query: `query { user(username: "${process.env.HASH_NODE_HANDLE}") { publication { posts { slug title brief coverImage dateAdded } } } }`,
       variables: {},
     }),
   }
@@ -26,8 +27,9 @@ export async function fetchBlogPosts(): Promise<Post[]> {
     console.info('Successfully retrieved blog posts from hashnode')
 
     return data.user.publication.posts
-  } catch (e) {
-    console.error('Unable to retrieve blog posts due to', e)
+  } catch (err) {
+    console.error('Unable to retrieve blog posts due to', err)
+
     return []
   }
 }

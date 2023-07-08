@@ -12,6 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Card } from '@ui/Card'
 import { BriefcaseIcon } from '@heroicons/react/24/solid'
+import { PageLayout } from '@/components/AppShell/PageLayout'
 
 const AVATAR_SIZE = 104
 const SOCIAL_ICON_SIZE = 24
@@ -20,12 +21,6 @@ const HANDLE = 'jamesandersonwalsh'
 const introSectionStyles = vstack({
   gap: 10,
   alignItems: 'start',
-})
-const headingStyles = css({
-  fontSize: {
-    mdTo2xl: '4xl',
-    smDown: '3xl',
-  },
 })
 const socialLInksStyles = hstack({
   gap: 5,
@@ -156,9 +151,10 @@ export default function Home() {
           height={AVATAR_SIZE}
           alt="James profile picture"
         />
-        <h1 className={headingStyles}>
-          Software engineer, UI / UX enthusiast, & developer advocate.
-        </h1>
+        <PageLayout.Title>
+          Software engineer. Design system enthusiast. Self-proclaimed developer
+          advocate.
+        </PageLayout.Title>
         <div id="social-links" className={socialLInksStyles}>
           <Link href={`https://github.com/${HANDLE}`}>
             <Image
@@ -209,9 +205,8 @@ export default function Home() {
           frontend web development. Over the last decade I&apos;ve been a part
           of shipping new products to market, scaling Node.js applications,
           building beautiful Design Systems, & working on cross-functional teams
-          with other talented people I can learn from. I&apos;m a design system
-          enthusiast, & self-proclaimed developer advocate. I believe that no
-          tech talk is complete without memes.
+          with other talented people I can learn from. I believe that no tech
+          talk is complete without memes.
         </p>
       </section>
       <br />
