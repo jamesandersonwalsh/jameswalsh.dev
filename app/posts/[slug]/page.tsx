@@ -1,3 +1,5 @@
+import 'highlight.js/styles/github-dark.css'
+
 import { PageLayout } from '@/components/AppShell/PageLayout'
 import { fetchBlogPostBySlug } from './actions'
 import format from 'date-fns/format'
