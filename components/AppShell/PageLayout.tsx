@@ -27,6 +27,7 @@ function Title({ children }: PropsWithChildren) {
 
 const contentStyles = vstack({
   marginTop: '2rem',
+  color: 'slate.300',
 })
 function Content({ children }: PropsWithChildren) {
   return <div className={contentStyles}>{children}</div>

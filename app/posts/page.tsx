@@ -3,6 +3,7 @@ import { PageLayout } from '@/components/AppShell/PageLayout'
 import { css } from 'styled-system/css'
 import { fetchBlogPosts } from './actions'
 import format from 'date-fns/format'
+import Link from 'next/link'
 
 const articleListStyles = vstack({
   gap: 14,
@@ -24,9 +25,6 @@ const articleBodyStyles = gridItem({
   background: 'slate.800',
   p: '1rem',
   borderRadius: 'lg',
-  _hover: {
-    cursor: 'pointer',
-  },
 })
 const articleTitleStyles = css({
   fontSize: 'xl',
@@ -54,10 +52,11 @@ export default async function BlogPage() {
               <time className={timeStyles} dateTime={post.dateAdded}>
                 {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
               </time>
-              <div className={articleBodyStyles}>
+              <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
                 <h2 className={articleTitleStyles}>{post.title}</h2>
                 <p className={articleBriefStyles}>{post.brief}</p>
-              </div>
+                <div aria-hidden="true">Read Article ﹥</div>
+              </Link>
             </article>
           </li>
         ))}
