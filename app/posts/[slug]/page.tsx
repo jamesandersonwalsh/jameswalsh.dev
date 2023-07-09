@@ -1,11 +1,11 @@
 import 'highlight.js/styles/github-dark.css'
 
-import { PageLayout } from '@/components/AppShell/PageLayout'
+import { PageLayout } from '@ui/AppShell'
 import { fetchBlogPostBySlug } from './actions'
 import format from 'date-fns/format'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight'
-import { components } from '@/components/mdx/components'
+import { components } from '@ui/mdx/components'
 
 type BlogPostPageProps = {
   params: { slug: string }

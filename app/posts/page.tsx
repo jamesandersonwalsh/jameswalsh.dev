@@ -1,9 +1,10 @@
 import { vstack, grid, gridItem } from 'styled-system/patterns'
-import { PageLayout } from '@/components/AppShell/PageLayout'
 import { css } from 'styled-system/css'
-import { fetchBlogPosts } from './actions'
 import format from 'date-fns/format'
 import Link from 'next/link'
+
+import { PageLayout } from '@ui/AppShell'
+import { fetchBlogPosts } from './actions'
 
 const articleListStyles = vstack({
   gap: 14,

@@ -2,8 +2,7 @@ import './global.css'
 import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 import { container } from 'styled-system/patterns'
-import { TopNavbar } from '@ui/AppShell/TopNavbar'
-import { Paper } from '@ui/AppShell/Paper'
+import { TopNavbar, TopNavMenu, Paper } from '@ui/AppShell'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +21,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className={inter.className}>
         <Paper>
           <TopNavbar />
+          <TopNavMenu />
           <main className={mainStyles}>{children}</main>
         </Paper>
       </body>

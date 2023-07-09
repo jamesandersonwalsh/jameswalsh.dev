@@ -12,7 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Card } from '@ui/Card'
 import { BriefcaseIcon } from '@heroicons/react/24/solid'
-import { PageLayout } from '@/components/AppShell/PageLayout'
+import { PageLayout } from '@ui/AppShell'
 
 const AVATAR_SIZE = 104
 const SOCIAL_ICON_SIZE = 24
