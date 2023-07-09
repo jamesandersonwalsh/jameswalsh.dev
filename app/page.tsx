@@ -29,7 +29,7 @@ const dividerStyles = divider({
   color: 'slate.600',
 })
 const columnGridStyles = grid({
-  marginTop: '4rem',
+  mt: '4rem',
   gap: 2,
   columns: {
     mdTo2xl: 2,
@@ -61,7 +61,7 @@ const ddLightStyles = css({
   fontSize: 'xs',
 })
 const ddDateStyles = css({
-  marginLeft: {
+  ml: {
     mdTo2xl: 'auto',
     smDown: '0',
   },

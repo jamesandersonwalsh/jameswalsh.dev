@@ -7,7 +7,7 @@ const cardStyles = css({
   borderWidth: '2px',
   borderColor: 'slate.800',
   boxShadow: 'sm',
-  padding: '1.5rem',
+  p: '1.5rem',
   color: 'slate.300',
 })
 
@@ -35,7 +35,7 @@ function Header({ children, icon }: HeaderProps) {
 }
 
 const cardBodyStyles = css({
-  marginTop: '1rem',
+  mt: '1rem',
 })
 function Body({ children }: PropsWithChildren) {
   return <div className={cardBodyStyles}>{children}</div>

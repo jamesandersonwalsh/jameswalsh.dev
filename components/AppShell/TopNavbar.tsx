@@ -32,7 +32,7 @@ export function TopNavbar() {
             <Link href="about">About</Link>
           </li>
           <li className={navItemStyles}>
-            <Link href="blog">Posts</Link>
+            <Link href="posts">Posts</Link>
           </li>
           <li className={navItemStyles}>
             <Link href="projects">Projects</Link>

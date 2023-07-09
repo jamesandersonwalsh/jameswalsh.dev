@@ -13,7 +13,10 @@ const articleListStyles = vstack({
   writingMode: 'horizontal-tb',
 })
 const articleStyles = grid({
-  columns: 4,
+  columns: {
+    mdTo2xl: 4,
+    sm: 1,
+  },
   gap: 2,
 })
 const timeStyles = css({
@@ -21,7 +24,10 @@ const timeStyles = css({
   fontSize: 'sm',
 })
 const articleBodyStyles = gridItem({
-  colSpan: 3,
+  colSpan: {
+    mdTo2xl: 3,
+    sm: 1,
+  },
   background: 'slate.800',
   p: '1rem',
   borderRadius: 'lg',
@@ -31,7 +37,7 @@ const articleTitleStyles = css({
   fontWeight: 'semibold',
 })
 const articleBriefStyles = css({
-  paddingTop: '1rem',
+  pt: '1rem',
   fontSize: 'md',
 })
 
@@ -39,6 +45,9 @@ export const metadata = {
   title: 'James Walsh | Blog',
   description: `Articles I've written`,
 }
+export const articlePseudoLink = css({
+  mt: '0.5rem',
+})
 
 export default async function BlogPage() {
   const posts = await fetchBlogPosts()
@@ -55,7 +64,7 @@ export default async function BlogPage() {
               <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
                 <h2 className={articleTitleStyles}>{post.title}</h2>
                 <p className={articleBriefStyles}>{post.brief}</p>
-                <div aria-hidden="true">Read Article ﹥</div>
+                <div aria-hidden="true"> Read Full Article</div>
               </Link>
             </article>
           </li>
