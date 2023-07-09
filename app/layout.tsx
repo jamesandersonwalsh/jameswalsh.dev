@@ -19,6 +19,12 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <header>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
+        ></link>
+      </header>
       <body className={inter.className}>
         <Paper>
           <TopNavbar />
