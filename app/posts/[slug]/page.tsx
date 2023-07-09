@@ -1,6 +1,7 @@
 import { PageLayout } from '@/components/AppShell/PageLayout'
 import { fetchBlogPostBySlug } from './actions'
 import format from 'date-fns/format'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 
 type BlogPostPageProps = {
   params: { slug: string }
@@ -14,7 +15,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         <time dateTime={post.dateAdded}>
           {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
         </time>
-        <div>{post.contentMarkdown}</div>
+        <MDXRemote source={post.contentMarkdown} />
       </article>
     </PageLayout>
   )
