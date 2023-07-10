@@ -23,23 +23,23 @@ const navItemStyles = css({
   borderRadius: 'md',
 })
 
+export const navItems = [
+  { href: 'about', value: 'About' },
+  { href: 'posts', value: 'Posts' },
+  { href: 'projects', value: 'Projects' },
+  { href: 'stack', value: 'stack' },
+]
+
 export function TopNavbar() {
   return (
     <>
       <nav className={navBarStyles}>
         <ul className={navListStyles}>
-          <li className={navItemStyles}>
-            <Link href="about">About</Link>
-          </li>
-          <li className={navItemStyles}>
-            <Link href="posts">Posts</Link>
-          </li>
-          <li className={navItemStyles}>
-            <Link href="projects">Projects</Link>
-          </li>
-          <li className={navItemStyles}>
-            <Link href="stack">Stack</Link>
-          </li>
+          {navItems.map((navItem) => (
+            <li key={navItem.href} className={navItemStyles}>
+              <Link href={navItem.href}>{navItem.value}</Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </>

@@ -1,7 +1,13 @@
 const API_TOKEN = process.env.HASHNODE_API_TOKEN
 const API_HOST = process.env.HASH_NODE_API_HOST
 
-export async function get<T, K>({query, variables }:{ query: T, variables: K }) {
+export async function get<T, K>({
+  query,
+  variables,
+}: {
+  query: T
+  variables: K
+}) {
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -10,7 +16,7 @@ export async function get<T, K>({query, variables }:{ query: T, variables: K }) 
     },
     body: JSON.stringify({
       query,
-      variables
+      variables,
     }),
   }
   const response = await fetch(API_HOST, requestOptions)

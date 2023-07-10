@@ -3,6 +3,6 @@ export interface Post {
   title: string
   brief: string
   coverImage: string
-  dateAdded: string,
+  dateAdded: string
   contentMarkdown: string
 }
