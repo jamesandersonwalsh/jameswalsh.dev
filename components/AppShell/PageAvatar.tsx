@@ -28,6 +28,7 @@ export function PageAvatar() {
         width={avatarNavSize}
         height={avatarNavSize}
         alt="Profile picture"
+        unoptimized
       />
     </Link>
   )

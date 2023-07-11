@@ -11,11 +11,17 @@ import { css } from 'styled-system/css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card } from '@ui/Card'
-import { BriefcaseIcon } from '@heroicons/react/24/solid'
+import {
+  ArrowDownTrayIcon,
+  BriefcaseIcon,
+  EnvelopeIcon,
+} from '@heroicons/react/24/outline'
 import { PageLayout } from '@ui/Layouts'
+import { Button } from '@ui/Button'
 
-const AVATAR_SIZE = 128
+const AVATAR_SIZE = 120
 const SOCIAL_ICON_SIZE = 24
+const CV_LINK = process.env.CV_DOWNLOAD_LINK
 const HANDLE = 'jamesandersonwalsh'
 
 const introSectionStyles = vstack({
@@ -35,6 +41,10 @@ const columnGridStyles = grid({
     mdTo2xl: 2,
     sm: 1,
   },
+})
+
+const rightStack = stack({
+  gap: 6,
 })
 
 const cvListStyles = stack({
@@ -67,6 +77,21 @@ const ddDateStyles = css({
   },
   fontSize: 'xs',
   fontWeight: 'lighter',
+})
+const blogPostDescriptor = css({
+  fontSize: 'sm',
+  fontWeight: 'normal',
+  mb: '1rem',
+})
+const blogLinksList = stack({
+  gap: 4,
+})
+const blogLogoStyles = css({
+  borderRadius: 'md',
+  mr: '16px',
+})
+const cvLogoStyles = css({
+  mr: '16px',
 })
 
 interface CVItem {
@@ -146,14 +171,15 @@ export default function Home() {
       <section className={introSectionStyles}>
         <Image
           src="/profile.jpg"
-          className={circle({ size: AVATAR_SIZE })}
+          className={circle()}
           width={AVATAR_SIZE}
           height={AVATAR_SIZE}
           alt="James profile picture"
+          unoptimized
         />
         <PageLayout.Title>
-          Software engineer. UI enthusiast. Self-proclaimed developer advocate.
-          🤙
+          Software engineer. Self-proclaimed developer advocate. UI/UX
+          enthusiast.
         </PageLayout.Title>
         <div id="social-links" className={socialLInksStyles}>
           <Link href={`https://github.com/${HANDLE}`}>
@@ -201,7 +227,7 @@ export default function Home() {
         </div>
         <hr className={dividerStyles} />
         <p className={css({ fontSize: 'lg' })}>
-          Hey, I&apos;m James! & I&apos;m a Full Stack Javascript Engineer who
+          Hey, I&apos;m James! I&apos;m a Full Stack Javascript Engineer who
           loves frontend web development. Over the last decade I&apos;ve been a
           part of shipping new products to market, scaling Node.js applications,
           building beautiful Design Systems, & working on cross-functional teams
@@ -212,7 +238,52 @@ export default function Home() {
       <br />
       <div className={columnGridStyles}>
         <div>Articles Placeholder</div>
-        <div>
+        <div className={rightStack}>
+          <Card>
+            <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
+              See what I&apos;ve published
+            </Card.Header>
+            <Card.Body>
+              <p className={blogPostDescriptor}>
+                Get notified when I publish new articles, unsubscribe at any
+                time.
+              </p>
+              <ol className={blogLinksList}>
+                <li>
+                  <Button
+                    variant="primary"
+                    as="a"
+                    href="https://jameswalsh.hashnode.dev/newsletter"
+                  >
+                    <Image
+                      src="/hashnode-logo.png"
+                      width={28}
+                      height={28}
+                      alt="hashnode-logo"
+                      className={blogLogoStyles}
+                    />
+                    Subscribe to my newsletter
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    variant="primary"
+                    as="a"
+                    href={`https://dev.to/${HANDLE}`}
+                  >
+                    <Image
+                      src="/dev-to-logo.png"
+                      width={28}
+                      height={28}
+                      alt="dev-to-logo"
+                      className={blogLogoStyles}
+                    />
+                    Follow me over on dev.to
+                  </Button>
+                </li>
+              </ol>
+            </Card.Body>
+          </Card>
           <Card>
             <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>
               Work
@@ -240,6 +311,16 @@ export default function Home() {
                     </dl>
                   </li>
                 ))}
+                <li>
+                  <Button variant="primary" as="a" href={CV_LINK}>
+                    <ArrowDownTrayIcon
+                      className={cvLogoStyles}
+                      width={24}
+                      height={24}
+                    />
+                    Download full CV
+                  </Button>
+                </li>
               </ol>
             </Card.Body>
           </Card>

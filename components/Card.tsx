@@ -19,7 +19,8 @@ const cardHeaderStyles = hstack({
   gap: 3,
 })
 const h3Styles = css({
-  fontSize: 'xl',
+  fontSize: 'md',
+  fontWeight: 'semibold',
 })
 
 type HeaderProps = {
