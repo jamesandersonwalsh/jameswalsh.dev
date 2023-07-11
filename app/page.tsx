@@ -14,7 +14,7 @@ import { Card } from '@ui/Card'
 import { BriefcaseIcon } from '@heroicons/react/24/solid'
 import { PageLayout } from '@ui/AppShell'
 
-const AVATAR_SIZE = 104
+const AVATAR_SIZE = 128
 const SOCIAL_ICON_SIZE = 24
 const HANDLE = 'jamesandersonwalsh'
 
@@ -152,8 +152,8 @@ export default function Home() {
           alt="James profile picture"
         />
         <PageLayout.Title>
-          Software engineer. Design system enthusiast. Self-proclaimed developer
-          advocate.
+          Software engineer. UI platform enthusiast. Self-proclaimed developer
+          advocate. 🤙
         </PageLayout.Title>
         <div id="social-links" className={socialLInksStyles}>
           <Link href={`https://github.com/${HANDLE}`}>

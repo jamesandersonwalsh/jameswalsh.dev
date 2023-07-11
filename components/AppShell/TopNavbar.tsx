@@ -27,7 +27,7 @@ export const navItems = [
   { href: 'about', value: 'About' },
   { href: 'posts', value: 'Posts' },
   { href: 'projects', value: 'Projects' },
-  { href: 'stack', value: 'stack' },
+  { href: 'stack', value: 'Stack' },
 ]
 
 export function TopNavbar() {
