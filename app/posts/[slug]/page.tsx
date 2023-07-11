@@ -1,6 +1,6 @@
 import 'highlight.js/styles/github-dark.css'
 
-import { PageLayout } from '@ui/AppShell'
+import { PageLayout } from '@ui/Layouts'
 import { fetchBlogPostBySlug } from './actions'
 import format from 'date-fns/format'
 import { compileMDX } from 'next-mdx-remote/rsc'

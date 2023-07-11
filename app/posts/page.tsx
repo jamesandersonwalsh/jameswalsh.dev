@@ -3,7 +3,7 @@ import { css } from 'styled-system/css'
 import format from 'date-fns/format'
 import Link from 'next/link'
 
-import { PageLayout } from '@ui/AppShell'
+import { PageLayout } from '@ui/Layouts'
 import { fetchBlogPosts } from './actions'
 
 const articleListStyles = vstack({
