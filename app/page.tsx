@@ -135,7 +135,7 @@ export default function Home() {
         />
       ),
       company: 'Maersk',
-      role: 'Junior Software Engineer',
+      role: 'Software Engineer',
       startDate: '2014',
       endDate: '2016',
     },
