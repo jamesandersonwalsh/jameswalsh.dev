@@ -46,9 +46,6 @@ export const metadata = {
   title: 'James Walsh | Blog',
   description: `Articles I've written`,
 }
-export const articlePseudoLink = css({
-  mt: '0.5rem',
-})
 
 export default async function BlogPage() {
   const posts = await fetchBlogPosts()
