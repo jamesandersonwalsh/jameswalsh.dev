@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev --port=3001",
     "dev:force": "rm -rf .next && pnpm dev",
+    "type-check": "tsc --noEmit --incremental",
     "build": "next build",
     "format": "prettier --write .",
     "lint": "next lint",
