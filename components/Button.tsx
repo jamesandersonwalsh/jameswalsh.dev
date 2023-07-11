@@ -5,6 +5,8 @@ const button = cva({
   base: {
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 'lg',
     boxShadow: 'lg',
     width: '100%',
@@ -42,6 +44,7 @@ type ButtonProps = {
   as?: 'a' | 'button'
   size?: 'sm' | 'md' | 'lg'
   href?: string
+  download?: boolean
 } & PropsWithChildren
 
 export function Button({

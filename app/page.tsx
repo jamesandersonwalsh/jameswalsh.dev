@@ -22,7 +22,6 @@ import { Button } from '@ui/Button'
 
 const AVATAR_SIZE = 120
 const SOCIAL_ICON_SIZE = 24
-const CV_LINK = process.env.CV_DOWNLOAD_LINK
 const HANDLE = 'jamesandersonwalsh'
 
 const introSectionStyles = vstack({
@@ -84,7 +83,7 @@ const blogPostDescriptor = css({
   fontWeight: 'normal',
   mb: '1rem',
 })
-const blogLinksList = stack({
+const blogLinks = hstack({
   gap: 4,
 })
 const blogLogoStyles = css({
@@ -247,38 +246,35 @@ export default function Home() {
             <Card.Body>
               <p className={blogPostDescriptor}>
                 Get notified when I publish new tech-related articles,
-                unsubscribe at any time.
+                unsubscribe at any time. My blog is hosted with Hashnode & made
+                available via RSS.
               </p>
-              <ol className={blogLinksList}>
-                <li>
-                  <Button
-                    variant="primary"
-                    as="a"
-                    href="https://jameswalsh.hashnode.dev/newsletter"
-                  >
-                    <Image
-                      src="/hashnode-logo.png"
-                      width={28}
-                      height={28}
-                      alt="hashnode-logo"
-                      className={blogLogoStyles}
-                    />
-                    Subscribe on Hashnode
-                  </Button>
-                </li>
-                <li>
-                  <Button as="a" href={`https://dev.to/${HANDLE}`}>
-                    <Image
-                      src="/dev-to-logo.png"
-                      width={28}
-                      height={28}
-                      alt="dev-to-logo"
-                      className={blogLogoStyles}
-                    />
-                    Follow me over on DEV
-                  </Button>
-                </li>
-              </ol>
+              <div className={blogLinks}>
+                <Button
+                  variant="primary"
+                  as="a"
+                  href="https://jameswalsh.hashnode.dev/newsletter"
+                >
+                  <Image
+                    src="/hashnode-logo.png"
+                    width={28}
+                    height={28}
+                    alt="hashnode-logo"
+                    className={blogLogoStyles}
+                  />
+                  Hashnode
+                </Button>
+                <Button as="a" href={`https://dev.to/${HANDLE}`}>
+                  <Image
+                    src="/dev-to-logo.png"
+                    width={28}
+                    height={28}
+                    alt="dev-to-logo"
+                    className={blogLogoStyles}
+                  />
+                  Dev.to
+                </Button>
+              </div>
             </Card.Body>
           </Card>
           <Card>
@@ -288,7 +284,7 @@ export default function Home() {
             <Card.Body>
               <p className={blogPostDescriptor}>
                 I am launching a non-technical publication on Substack. Stay
-                tuned for more info!
+                tuned for more info! &nbsp;<i>(coming soon)</i>
               </p>
               <Button as="a" href="https://aboveandbelow.substack.com">
                 <Image
@@ -298,7 +294,7 @@ export default function Home() {
                   alt="hashnode-logo"
                   className={blogLogoStyles}
                 />
-                Substack&nbsp;<i>(coming soon)</i>
+                Substack
               </Button>
             </Card.Body>
           </Card>
@@ -330,7 +326,7 @@ export default function Home() {
                   </li>
                 ))}
                 <li>
-                  <Button variant="primary" as="a" href={CV_LINK}>
+                  <Button variant="primary" as="a" href="resume.docx" download>
                     <ArrowDownTrayIcon
                       className={cvLogoStyles}
                       width={24}
