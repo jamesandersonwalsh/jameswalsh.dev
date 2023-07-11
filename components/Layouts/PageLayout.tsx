@@ -17,8 +17,8 @@ export function PageLayout({ children, title }: PageLayoutProps) {
 
 const headingStyles = css({
   fontSize: {
-    mdTo2xl: '4xl',
-    smDown: '3xl',
+    mdTo2xl: '5xl',
+    smDown: '4xl',
   },
 })
 function Title({ children }: PropsWithChildren) {

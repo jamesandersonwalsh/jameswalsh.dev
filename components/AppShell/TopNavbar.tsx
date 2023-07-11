@@ -29,10 +29,10 @@ const navItemStyles = css({
 })
 
 export const navItems = [
-  { href: 'about', value: 'About' },
-  { href: 'posts', value: 'Posts' },
-  { href: 'projects', value: 'Projects' },
-  { href: 'stack', value: 'Stack' },
+  { href: '/about', value: 'About' },
+  { href: '/posts', value: 'Posts' },
+  { href: '/projects', value: 'Projects' },
+  { href: '/stack', value: 'Stack' },
 ]
 const homeLinkStyles = css({
   mr: 'auto',

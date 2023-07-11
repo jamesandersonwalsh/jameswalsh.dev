@@ -43,7 +43,7 @@ const articleBriefStyles = css({
 })
 
 export const metadata = {
-  title: 'James Walsh | Blog',
+  title: 'Articles - James Walsh',
   description: `Articles I've written`,
 }
 

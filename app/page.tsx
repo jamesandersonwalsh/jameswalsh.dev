@@ -152,8 +152,8 @@ export default function Home() {
           alt="James profile picture"
         />
         <PageLayout.Title>
-          Software engineer. UI platform enthusiast. Self-proclaimed developer
-          advocate. 🤙
+          Software engineer. UI enthusiast. Self-proclaimed developer advocate.
+          🤙
         </PageLayout.Title>
         <div id="social-links" className={socialLInksStyles}>
           <Link href={`https://github.com/${HANDLE}`}>
