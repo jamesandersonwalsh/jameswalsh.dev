@@ -2,7 +2,7 @@ import './global.css'
 import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 import { container } from 'styled-system/patterns'
-import { TopNavbar, TopNavMenu, Paper } from '@ui/AppShell'
+import { TopNavbar, TopNavMenu, Paper, PageAvatar } from '@ui/AppShell'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -12,8 +12,10 @@ export const metadata = {
 }
 
 const mainStyles = container({
-  py: '4rem',
+  py: '3rem',
+  mt: '1rem',
 })
+
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
@@ -24,6 +26,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <TopNavMenu />
           <main className={mainStyles}>{children}</main>
         </Paper>
+        <PageAvatar />
       </body>
     </html>
   )

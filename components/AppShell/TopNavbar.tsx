@@ -1,11 +1,6 @@
-'use client'
-
-import { circle } from 'styled-system/patterns'
 import Link from 'next/link'
 import { hstack } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
-import { usePathname } from 'next/navigation'
-import Image from 'next/image'
 
 const navBarStyles = hstack({
   hideBelow: 'sm',
@@ -34,40 +29,17 @@ export const navItems = [
   { href: '/projects', value: 'Projects' },
   { href: '/stack', value: 'Stack' },
 ]
-const homeLinkStyles = css({
-  mr: 'auto',
-  position: 'absolute',
-  left: '1.5rem',
-  top: '1.5rem',
-})
 
 export function TopNavbar() {
-  const pathname = usePathname()
-  const showAvatar = pathname !== '/'
-  const avatarNavSize = 60
-
   return (
-    <>
-      {showAvatar && (
-        <Link href="/" className={homeLinkStyles}>
-          <Image
-            src="/profile.jpg"
-            className={circle()}
-            width={avatarNavSize}
-            height={avatarNavSize}
-            alt="James profile picture"
-          />
-        </Link>
-      )}
-      <nav className={navBarStyles}>
-        <ul className={navListStyles}>
-          {navItems.map((navItem) => (
-            <li key={navItem.href} className={navItemStyles}>
-              <Link href={navItem.href}>{navItem.value}</Link>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </>
+    <nav className={navBarStyles}>
+      <ul className={navListStyles}>
+        {navItems.map((navItem) => (
+          <li key={navItem.href} className={navItemStyles}>
+            <Link href={navItem.href}>{navItem.value}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   )
 }
