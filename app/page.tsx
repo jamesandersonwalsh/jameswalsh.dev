@@ -36,19 +36,20 @@ const dividerStyles = divider({
 })
 const columnGridStyles = grid({
   mt: '4rem',
-  gap: 2,
+  gap: 6,
   columns: {
     mdTo2xl: 2,
     sm: 1,
   },
 })
 
-const rightStack = stack({
+const rightAndLeftStack = stack({
   gap: 6,
 })
 
 const cvListStyles = stack({
   gap: 6,
+  mb: '0.5rem',
 })
 const cvListItemStyles = hstack({
   gap: 4,
@@ -237,8 +238,7 @@ export default function Home() {
       </section>
       <br />
       <div className={columnGridStyles}>
-        <div>Articles Placeholder</div>
-        <div className={rightStack}>
+        <div className={rightAndLeftStack}>
           <Card>
             <Card.Header icon={<NewspaperIcon width={24} height={24} />}>
               See what I&apos;ve published
@@ -279,12 +279,11 @@ export default function Home() {
           </Card>
           <Card>
             <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
-              Subscribe to my Substack
+              Subscribe on Substack
             </Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                I am launching a non-technical publication on Substack. Stay
-                tuned for more info! &nbsp;<i>(coming soon)</i>
+                My substack will be non-technical (coming soon)
               </p>
               <Button as="a" href="https://aboveandbelow.substack.com">
                 <Image
@@ -298,6 +297,8 @@ export default function Home() {
               </Button>
             </Card.Body>
           </Card>
+        </div>
+        <div className={rightAndLeftStack}>
           <Card>
             <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>
               Work
