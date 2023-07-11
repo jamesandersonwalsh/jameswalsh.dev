@@ -15,6 +15,7 @@ import {
   ArrowDownTrayIcon,
   BriefcaseIcon,
   EnvelopeIcon,
+  NewspaperIcon,
 } from '@heroicons/react/24/outline'
 import { PageLayout } from '@ui/Layouts'
 import { Button } from '@ui/Button'
@@ -240,13 +241,13 @@ export default function Home() {
         <div>Articles Placeholder</div>
         <div className={rightStack}>
           <Card>
-            <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
+            <Card.Header icon={<NewspaperIcon width={24} height={24} />}>
               See what I&apos;ve published
             </Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Get notified when I publish new articles, unsubscribe at any
-                time.
+                Get notified when I publish new tech-related articles,
+                unsubscribe at any time.
               </p>
               <ol className={blogLinksList}>
                 <li>
@@ -262,15 +263,11 @@ export default function Home() {
                       alt="hashnode-logo"
                       className={blogLogoStyles}
                     />
-                    Subscribe to my newsletter
+                    Subscribe on Hashnode
                   </Button>
                 </li>
                 <li>
-                  <Button
-                    variant="primary"
-                    as="a"
-                    href={`https://dev.to/${HANDLE}`}
-                  >
+                  <Button as="a" href={`https://dev.to/${HANDLE}`}>
                     <Image
                       src="/dev-to-logo.png"
                       width={28}
@@ -278,10 +275,31 @@ export default function Home() {
                       alt="dev-to-logo"
                       className={blogLogoStyles}
                     />
-                    Follow me over on dev.to
+                    Follow me over on DEV
                   </Button>
                 </li>
               </ol>
+            </Card.Body>
+          </Card>
+          <Card>
+            <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
+              Subscribe to my Substack
+            </Card.Header>
+            <Card.Body>
+              <p className={blogPostDescriptor}>
+                I am launching a non-technical publication on Substack. Stay
+                tuned for more info!
+              </p>
+              <Button as="a" href="https://aboveandbelow.substack.com">
+                <Image
+                  src="/substack-logo.png"
+                  width={28}
+                  height={28}
+                  alt="hashnode-logo"
+                  className={blogLogoStyles}
+                />
+                Substack&nbsp;<i>(coming soon)</i>
+              </Button>
             </Card.Body>
           </Card>
           <Card>

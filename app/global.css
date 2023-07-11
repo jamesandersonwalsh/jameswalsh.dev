@@ -26,3 +26,11 @@ h3 {
 p {
   color: var(--colors-slate-300);
 }
+
+i {
+  font-style: italics;
+}
+
+b {
+  font-style: bold;
+}
