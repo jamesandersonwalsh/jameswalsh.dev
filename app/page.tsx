@@ -191,9 +191,7 @@ export default function Home() {
               alt="Github Icon"
             />
           </Link>
-          <Link
-            href={`https://www.linkedin.com/in/jamesandersonwalsh/${HANDLE}`}
-          >
+          <Link href={`https://www.linkedin.com/in/${HANDLE}`}>
             <Image
               src="/linkedin.svg"
               width={SOCIAL_ICON_SIZE}
