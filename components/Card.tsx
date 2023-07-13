@@ -1,13 +1,13 @@
 import { PropsWithChildren } from 'react'
 import { css } from 'styled-system/css'
-import { hstack } from 'styled-system/patterns'
+import { hstack, stack, flex } from 'styled-system/patterns'
 
-const cardStyles = css({
+const cardStyles = stack({
   borderRadius: '2xl',
   borderWidth: '2px',
   borderColor: 'slate.800',
   boxShadow: 'sm',
-  p: '1.5rem',
+  p: '1.25rem',
   color: 'slate.300',
 })
 
@@ -37,10 +37,21 @@ function Header({ children, icon }: HeaderProps) {
 
 const cardBodyStyles = css({
   mt: '1rem',
+  fontSize: 'sm',
 })
 function Body({ children }: PropsWithChildren) {
   return <div className={cardBodyStyles}>{children}</div>
 }
 
+const footerStyles = flex({
+  height: '100%',
+  fontSize: 'xs',
+  alignItems: 'end',
+})
+function Footer({ children }: PropsWithChildren) {
+  return <div className={footerStyles}>{children}</div>
+}
+
 Card.Header = Header
 Card.Body = Body
+Card.Footer = Footer

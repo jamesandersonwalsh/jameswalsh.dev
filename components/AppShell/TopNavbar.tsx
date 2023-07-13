@@ -5,7 +5,7 @@ import { css } from 'styled-system/css'
 const navBarStyles = hstack({
   hideBelow: 'sm',
   bg: 'slate.800',
-  minH: '2rem',
+  minH: '2.5rem',
   px: '2rem',
   fontWeight: 'normal',
   width: '360px',

@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation'
 const pageAvatarStyles = css({
   mr: 'auto',
   position: 'absolute',
-  left: '1.5rem',
+  left: '2rem',
   top: '1.5rem',
 })
 export function PageAvatar() {

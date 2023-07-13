@@ -272,7 +272,7 @@ export default function Home() {
                     alt="dev-to-logo"
                     className={blogLogoStyles}
                   />
-                  Dev.to
+                  Dev
                 </Button>
               </div>
             </Card.Body>
