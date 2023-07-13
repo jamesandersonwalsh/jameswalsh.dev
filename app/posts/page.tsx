@@ -57,7 +57,7 @@ export default async function BlogPage() {
   const posts = await fetchBlogPosts()
 
   return (
-    <PageLayout title="Explore my blog">
+    <PageLayout title="Articles about webdev, design, & JavaScript.">
       <ol className={articleListStyles}>
         {posts.map((post) => (
           <li key={post.slug}>

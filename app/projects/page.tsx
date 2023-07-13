@@ -78,7 +78,7 @@ export default function ProjectsPage() {
     },
     {
       title: 'Shopify Integrations',
-      description: `Supported & maintained Shopify API integrations for select high-profile customers, & everyday drop shipping.`,
+      description: `Supported & maintained Shopify API integrations for high-profile customers, & everyday small businesses who drop-ship.`,
       externalLink: {
         title: 'VisibleCSM by Maersk',
         href: 'https://portal.visiblescm.com',
