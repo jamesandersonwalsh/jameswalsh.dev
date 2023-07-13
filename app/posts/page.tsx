@@ -29,7 +29,10 @@ const articleBodyStyles = gridItem({
     mdTo2xl: 3,
     sm: 1,
   },
-  background: 'slate.800',
+  bg: 'slate.800',
+  _hover: {
+    bg: 'slate.700',
+  },
   p: '1rem',
   borderRadius: 'lg',
 })
@@ -40,6 +43,9 @@ const articleTitleStyles = css({
 const articleBriefStyles = css({
   pt: '1rem',
   fontSize: 'md',
+})
+const linkBlurb = css({
+  mt: '1rem',
 })
 
 export const metadata = {
@@ -62,7 +68,9 @@ export default async function BlogPage() {
               <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
                 <h2 className={articleTitleStyles}>{post.title}</h2>
                 <p className={articleBriefStyles}>{post.brief}</p>
-                <div aria-hidden="true"> Read Full Article</div>
+                <div className={linkBlurb} aria-hidden="true">
+                  Read Full Article&nbsp;{`>`}
+                </div>
               </Link>
             </article>
           </li>
