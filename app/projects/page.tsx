@@ -94,9 +94,9 @@ export default function ProjectsPage() {
         <Card>
           <Card.Header>Git Collaborate</Card.Header>
           <Card.Body>
-            What started as a hackathon project in 2016 has grown into an OSS
+            Started as a hackathon project in 2016, git-collaborate is an OSS
             electron app for managing pair programming, including rotating
-            commit messages.
+            commit message authoring.
           </Card.Body>
           <Card.Footer>
             <Link
@@ -109,15 +109,15 @@ export default function ProjectsPage() {
           </Card.Footer>
         </Card>
         <Card>
-          <Card.Header>Shopify Integrations (WIP)</Card.Header>
+          <Card.Header>Shopify Integrations</Card.Header>
           <Card.Body>
-            Supported & maintained Shopify API integrations with ConnectShip for
-            select high-profile customers.
+            Supported & maintained Shopify API integrations for select
+            high-profile customers, & everyday drop shipping.
           </Card.Body>
           <Card.Footer>
-            <Link href="#" className={hstack()}>
+            <Link href="https://portal.visiblescm.com/" className={hstack()}>
               <LinkIcon width={16} />
-              VisibleCSM
+              VisibleCSM by Maersk
             </Link>
           </Card.Footer>
         </Card>
