@@ -1,6 +1,8 @@
 const API_TOKEN = process.env.HASHNODE_API_TOKEN
 const API_HOST = process.env.HASH_NODE_API_HOST
 
+const REVALIDATE_TIMEOUT = 60 * 10
+
 export async function get<T, K>({
   query,
   variables,
@@ -18,6 +20,9 @@ export async function get<T, K>({
       query,
       variables,
     }),
+    next: {
+      revalidate: REVALIDATE_TIMEOUT,
+    },
   }
   const response = await fetch(API_HOST, requestOptions)
 
