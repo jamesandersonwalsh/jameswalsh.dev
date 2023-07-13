@@ -25,8 +25,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <TopNavbar />
           <TopNavMenu />
           <main className={mainStyles}>{children}</main>
+          <PageAvatar />
         </Paper>
-        <PageAvatar />
       </body>
     </html>
   )
