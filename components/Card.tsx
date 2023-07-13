@@ -1,18 +1,49 @@
 import { PropsWithChildren } from 'react'
-import { css } from 'styled-system/css'
-import { hstack, stack, flex } from 'styled-system/patterns'
+import { css, cva } from 'styled-system/css'
+import { hstack, flex } from 'styled-system/patterns'
 
-const cardStyles = stack({
-  borderRadius: '2xl',
-  borderWidth: '2px',
-  borderColor: 'slate.800',
-  boxShadow: 'sm',
-  p: '1.25rem',
-  color: 'slate.300',
+const card = cva({
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    borderRadius: '2xl',
+    p: '1.25rem',
+    color: 'slate.300',
+  },
+  variants: {
+    visual: {
+      solid: {
+        bg: 'slate.800',
+      },
+      ghost: {
+        _hover: {
+          bg: 'slate.800',
+        },
+      },
+      outline: {
+        borderWidth: '2px',
+        borderColor: 'slate.800',
+        boxShadow: 'sm',
+      },
+    },
+  },
 })
 
-export function Card({ children }: PropsWithChildren) {
-  return <section className={cardStyles}>{children}</section>
+type CardProps = {
+  variant?: 'solid' | 'outline' | 'ghost'
+  as?: 'section' | 'a'
+  href?: string
+} & PropsWithChildren
+export function Card({
+  variant = 'outline',
+  as = 'section',
+  children,
+}: CardProps) {
+  return as === 'section' ? (
+    <section className={card({ visual: variant })}>{children}</section>
+  ) : (
+    <a className={card({ visual: variant })}>{children}</a>
+  )
 }
 
 const cardHeaderStyles = hstack({
@@ -47,6 +78,7 @@ const footerStyles = flex({
   height: '100%',
   fontSize: 'xs',
   alignItems: 'end',
+  mt: '1rem',
 })
 function Footer({ children }: PropsWithChildren) {
   return <div className={footerStyles}>{children}</div>

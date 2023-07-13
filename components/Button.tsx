@@ -53,9 +53,9 @@ export function Button({
   size = 'md',
   ...rest
 }: ButtonProps) {
-  if (as === 'button') {
-    return <button className={button({ visual: variant, size })} {...rest} />
-  } else {
-    return <a className={button({ visual: variant, size })} {...rest} />
-  }
+  return as === 'button' ? (
+    <button className={button({ visual: variant, size })} {...rest} />
+  ) : (
+    <a className={button({ visual: variant, size })} {...rest} />
+  )
 }
