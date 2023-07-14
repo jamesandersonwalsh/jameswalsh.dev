@@ -1,7 +1,11 @@
 @layer reset, base, tokens, recipes, utilities;
 
 body {
-  background-color: var(--colors-slate-950);
+  background: conic-gradient(
+    from 90deg at 0 0,
+    var(--colors-slate-950),
+    var(--colors-zinc-800)
+  );
 }
 
 h1,
