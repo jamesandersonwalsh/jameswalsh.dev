@@ -9,6 +9,7 @@ import { fetchBlogPosts } from './actions'
 const articleListStyles = vstack({
   gap: 14,
   px: '1.5rem',
+  mt: '1.5rem',
   borderInlineStart: '1px solid',
   borderInlineStartColor: 'slate.500',
   writingMode: 'horizontal-tb',
@@ -58,24 +59,26 @@ export default async function BlogPage() {
 
   return (
     <PageLayout title="Articles about webdev, design, & JavaScript.">
-      <ol className={articleListStyles}>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <article className={articleStyles}>
-              <time className={timeStyles} dateTime={post.dateAdded}>
-                {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
-              </time>
-              <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
-                <h2 className={articleTitleStyles}>{post.title}</h2>
-                <p className={articleBriefStyles}>{post.brief}</p>
-                <div className={linkBlurb} aria-hidden="true">
-                  Read Full Article&nbsp;{`>`}
-                </div>
-              </Link>
-            </article>
-          </li>
-        ))}
-      </ol>
+      <PageLayout.Content>
+        <ol className={articleListStyles}>
+          {posts.map((post) => (
+            <li key={post.slug}>
+              <article className={articleStyles}>
+                <time className={timeStyles} dateTime={post.dateAdded}>
+                  {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
+                </time>
+                <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
+                  <h2 className={articleTitleStyles}>{post.title}</h2>
+                  <p className={articleBriefStyles}>{post.brief}</p>
+                  <div className={linkBlurb} aria-hidden="true">
+                    Read Full Article&nbsp;{`>`}
+                  </div>
+                </Link>
+              </article>
+            </li>
+          ))}
+        </ol>
+      </PageLayout.Content>
     </PageLayout>
   )
 }

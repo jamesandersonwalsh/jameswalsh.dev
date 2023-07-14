@@ -26,7 +26,7 @@ function Title({ children }: PropsWithChildren) {
 }
 
 const contentStyles = vstack({
-  mt: '2rem',
+  mt: '1rem',
   color: 'slate.300',
 })
 function Content({ children }: PropsWithChildren) {
