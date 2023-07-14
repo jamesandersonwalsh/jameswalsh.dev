@@ -14,25 +14,25 @@ const topNavMenuStyles = css({
   width: '36px',
   borderWidth: '1px solid',
   borderColor: 'slate.100',
-  // TODO: compose this
   ml: 'auto',
   mr: '1rem',
-  // TODO: end compose this
+  mt: '1rem',
   _hover: {
     cursor: 'pointer',
   },
 })
 const menuItemListStyles = vstack({
   width: '90vw',
-  padding: '0.5rem',
+  padding: '0.75rem',
   bg: 'slate.900',
   mx: 'auto',
-  mt: '2rem',
+  mt: '1rem',
   borderRadius: 'lg',
-  gap: 8,
+  gap: 6,
 })
 const menuItemStyles = css({
-  p: '0.33rem',
+  p: '0.25rem',
+  m: '0.25rem',
   width: '100%',
   textAlign: 'center',
   fontWeight: 'medium',
@@ -48,14 +48,13 @@ export function TopNavMenu() {
 
   useEffect(() => {
     const onKeyPress = (event: KeyboardEvent) => {
-      // TODO: fix deprecation warning
-      if (event.keyCode === 27) {
+      if (event.key == 'Escape') {
         closeMenu()
       }
     }
     document.addEventListener('click', closeMenu, false)
     document.addEventListener('keydown', onKeyPress, false)
-    // TODO: one for tabbing out of the menu.
+
     return () => {
       document.removeEventListener('click', closeMenu, false)
       document.removeEventListener('keydown', closeMenu, false)
@@ -68,7 +67,6 @@ export function TopNavMenu() {
   const closeMenu = () => {
     setMenuOpen(false)
   }
-  // TODO: need keydown to handle esc
 
   return (
     <>

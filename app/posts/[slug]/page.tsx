@@ -6,10 +6,16 @@ import format from 'date-fns/format'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight'
 import { components } from '@ui/mdx/components'
+import { css } from 'styled-system/css'
 
 type BlogPostPageProps = {
   params: { slug: string }
 }
+
+const timestampStyles = css({
+  fontWeight: 'medium',
+  fontSize: 'lg',
+})
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const slugAsSentance = params.slug
@@ -39,10 +45,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <PageLayout title={post.title}>
       <article>
-        Published On{' '}
-        <time dateTime={post.dateAdded}>
-          {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
-        </time>
+        <span className={timestampStyles}>
+          Published on{' '}
+          <time dateTime={post.dateAdded}>
+            {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
+          </time>
+        </span>
         {content}
       </article>
     </PageLayout>
