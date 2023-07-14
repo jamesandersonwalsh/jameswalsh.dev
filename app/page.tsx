@@ -49,7 +49,7 @@ const rightAndLeftStack = stack({
 
 const cvListStyles = stack({
   gap: 6,
-  mb: '0.5rem',
+  my: '1.25rem',
 })
 const cvListItemStyles = hstack({
   gap: 4,
