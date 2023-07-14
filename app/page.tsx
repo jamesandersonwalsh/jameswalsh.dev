@@ -49,7 +49,6 @@ const rightAndLeftStack = stack({
 
 const cvListStyles = stack({
   gap: 6,
-  my: '1.25rem',
 })
 const cvListItemStyles = hstack({
   gap: 4,
@@ -277,11 +276,11 @@ export default function Home() {
           </Card>
           <Card>
             <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
-              Subscribe on Substack
+              Subscribe on Substack (coming soon)
             </Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                My substack will be non-technical (coming soon)
+                Personal blog where I share my thoughts on life.
               </p>
               <Button as="a" href="https://aboveandbelow.substack.com">
                 <Image
