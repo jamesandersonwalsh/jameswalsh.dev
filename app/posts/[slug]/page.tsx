@@ -38,6 +38,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     options: {
       mdxOptions: {
         rehypePlugins: [rehypeHighlight],
+        format: 'md',
       },
     },
   })

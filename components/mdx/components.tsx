@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 import { css } from 'styled-system/css'
-import Image, { ImageProps } from 'next/image'
+import { stack } from 'styled-system/patterns'
 
 const h1Styles = css({
   fontSize: '4xl',
@@ -16,15 +16,18 @@ const h3Styles = css({
   fontWeight: 'bolder',
   py: '1rem',
 })
-const orderedListStyles = css({
+const listStyles = {
+  gap: 6,
+  py: '1rem',
+  ml: '1rem',
+}
+const orderedListStyles = stack({
+  ...listStyles,
   listStyle: 'auto',
-  py: '1rem',
-  ml: '1rem',
 })
-const unorderedListStyles = css({
+const unorderedListStyles = stack({
+  ...listStyles,
   listStyle: 'circle',
-  py: '1rem',
-  ml: '1rem',
 })
 const pStyles = css({
   fontSize: 'lg',
@@ -35,19 +38,15 @@ const blockquoteStyles = css({
   my: '1rem',
   px: '1.25rem',
 })
+const inlineCodeStyles = css({
+  bg: 'neutral.700',
+  color: 'neutral.300',
+  borderRadius: 'sm',
+  py: '1px',
+  px: '4px',
+})
 
 export const components = {
-  img: ({ src, height, width, alt, ...rest }: ImageProps) => (
-    // layout="responsive" makes the image fill the container width wise - I find it looks nicer for blog posts
-    <Image
-      layout="responsive"
-      src={src}
-      height={height}
-      width={width}
-      alt={alt}
-      {...rest}
-    />
-  ),
   h1: (props: PropsWithChildren) => (
     <h1 {...props} className={h1Styles}>
       {props.children}
@@ -82,5 +81,10 @@ export const components = {
     <blockquote {...props} className={blockquoteStyles}>
       {props.children}
     </blockquote>
+  ),
+  code: (props: PropsWithChildren) => (
+    <code className={inlineCodeStyles} {...props}>
+      {props.children}
+    </code>
   ),
 }
