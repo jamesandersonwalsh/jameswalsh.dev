@@ -19,22 +19,22 @@ import {
 } from '@heroicons/react/24/outline'
 import { PageLayout } from '@ui/Layouts'
 import { Button } from '@ui/Button'
+import { UnorderedList } from '@ui/List'
 
 const AVATAR_SIZE = 120
-const SOCIAL_ICON_SIZE = 24
 const HANDLE = 'jamesandersonwalsh'
 
-const introSectionStyles = vstack({
+const introSection = vstack({
   gap: 10,
   alignItems: 'start',
 })
-const socialLInksStyles = hstack({
+const socialLinkStack = hstack({
   gap: 5,
 })
-const dividerStyles = divider({
+const pageDivider = divider({
   color: 'slate.600',
 })
-const columnGridStyles = grid({
+const columnGrid = grid({
   mt: '4rem',
   gap: 6,
   columns: {
@@ -42,39 +42,28 @@ const columnGridStyles = grid({
     sm: 1,
   },
 })
-
-const rightAndLeftStack = stack({
+const column = stack({
   gap: 6,
 })
-
-const cvListStyles = stack({
-  gap: 6,
-})
-const cvListItemStyles = hstack({
-  gap: 4,
-})
-const companyLogoStyles = circle()
-const dlStyles = wrap({
+const companyLogo = circle()
+const dl = wrap({
   gap: 1,
   width: '100%',
 })
-const dtStyles = css({
+const dt = css({
   display: 'none',
 })
-const ddBoldStyles = css({
+const ddBold = css({
   fontWeight: 'semibold',
   width: 'full',
   fontSize: 'md',
 })
-const ddLightStyles = css({
+const ddLight = css({
   fontWeight: 'normal',
   fontSize: 'xs',
 })
-const ddDateStyles = css({
-  ml: {
-    mdTo2xl: 'auto',
-    smDown: '0',
-  },
+const ddDate = css({
+  ml: 'auto',
   fontSize: 'xs',
   fontWeight: 'lighter',
 })
@@ -86,11 +75,11 @@ const blogPostDescriptor = css({
 const blogLinks = hstack({
   gap: 4,
 })
-const blogLogoStyles = css({
+const blogLogo = css({
   borderRadius: 'md',
   mr: '16px',
 })
-const cvLogoStyles = css({
+const cvLogo = css({
   mr: '16px',
 })
 
@@ -100,6 +89,11 @@ interface CVItem {
   role: string
   startDate: string
   endDate: string
+}
+interface SocialLink {
+  name: string
+  href: string
+  imgSrc: string
 }
 
 export default function Home() {
@@ -111,7 +105,7 @@ export default function Home() {
           width={36}
           height={36}
           alt="Vasion company logo"
-          className={companyLogoStyles}
+          className={companyLogo}
         />
       ),
       company: 'Vasion',
@@ -126,7 +120,7 @@ export default function Home() {
           width={36}
           height={36}
           alt="Podium company logo"
-          className={companyLogoStyles}
+          className={companyLogo}
         />
       ),
       company: 'Podium',
@@ -141,7 +135,7 @@ export default function Home() {
           width={36}
           height={36}
           alt="Pluralsight company logo"
-          className={companyLogoStyles}
+          className={companyLogo}
         />
       ),
       company: 'Pluralsight',
@@ -156,7 +150,7 @@ export default function Home() {
           width={36}
           height={36}
           alt="Maersk company logo"
-          className={companyLogoStyles}
+          className={companyLogo}
         />
       ),
       company: 'Maersk',
@@ -165,10 +159,32 @@ export default function Home() {
       endDate: '2016',
     },
   ]
+  const socialLinks: SocialLink[] = [
+    {
+      name: 'Github',
+      href: `https://github.com/${HANDLE}`,
+      imgSrc: '/github.svg',
+    },
+    {
+      name: 'LinkedIn',
+      href: `https://www.linkedin.com/in/${HANDLE}`,
+      imgSrc: '/linkedin.svg',
+    },
+    {
+      name: 'Discord',
+      href: `https://discordapp.com/users/${HANDLE}`,
+      imgSrc: `/discord.svg`,
+    },
+    {
+      name: 'Email',
+      href: `mailto:jamesandersonwalsh@gmail.com`,
+      imgSrc: `/gmail.svg`,
+    },
+  ]
 
   return (
     <div>
-      <section className={introSectionStyles}>
+      <section className={introSection}>
         <Image
           src="/profile.jpg"
           className={circle()}
@@ -181,49 +197,14 @@ export default function Home() {
           Software engineer. Self-proclaimed developer advocate. UI/UX
           enthusiast.
         </PageLayout.Title>
-        <div id="social-links" className={socialLInksStyles}>
-          <Link href={`https://github.com/${HANDLE}`}>
-            <Image
-              src="/github.svg"
-              width={SOCIAL_ICON_SIZE}
-              height={SOCIAL_ICON_SIZE}
-              alt="Github Icon"
-            />
-          </Link>
-          <Link href={`https://www.linkedin.com/in/${HANDLE}`}>
-            <Image
-              src="/linkedin.svg"
-              width={SOCIAL_ICON_SIZE}
-              height={SOCIAL_ICON_SIZE}
-              alt="LinkedIn Icon"
-            />
-          </Link>
-          <Link href={`https://www.instagram.com/${HANDLE}`}>
-            <Image
-              src="/instagram.svg"
-              width={SOCIAL_ICON_SIZE}
-              height={SOCIAL_ICON_SIZE}
-              alt="Instagram Icon"
-            />
-          </Link>
-          <Link href={`https://discordapp.com/users/${HANDLE}`}>
-            <Image
-              src="/discord.svg"
-              width={SOCIAL_ICON_SIZE}
-              height={SOCIAL_ICON_SIZE}
-              alt="Discord Icon"
-            />
-          </Link>
-          <Link href="mailto:jamesandersonwalsh@gmail.com">
-            <Image
-              src="/gmail.svg"
-              width={SOCIAL_ICON_SIZE}
-              height={SOCIAL_ICON_SIZE}
-              alt="Gmail Icon"
-            />
-          </Link>
+        <div id="social-links" className={socialLinkStack}>
+          {socialLinks.map(({ name, href, imgSrc }) => (
+            <Link key={name} href={href}>
+              <Image src={imgSrc} width={24} height={24} alt={`${name} Icon`} />
+            </Link>
+          ))}
         </div>
-        <hr className={dividerStyles} />
+        <hr className={pageDivider} />
         <p className={css({ fontSize: 'lg' })}>
           Hey, I&apos;m James! I&apos;m a Full Stack Javascript Engineer who
           loves frontend web development. Over the last decade I&apos;ve been a
@@ -234,8 +215,8 @@ export default function Home() {
         </p>
       </section>
       <br />
-      <div className={columnGridStyles}>
-        <div className={rightAndLeftStack}>
+      <div className={columnGrid}>
+        <div className={column}>
           <Card>
             <Card.Header icon={<NewspaperIcon width={24} height={24} />}>
               See what I&apos;ve published
@@ -257,7 +238,7 @@ export default function Home() {
                     width={28}
                     height={28}
                     alt="hashnode-logo"
-                    className={blogLogoStyles}
+                    className={blogLogo}
                   />
                   Hashnode
                 </Button>
@@ -267,7 +248,7 @@ export default function Home() {
                     width={28}
                     height={28}
                     alt="dev-to-logo"
-                    className={blogLogoStyles}
+                    className={blogLogo}
                   />
                   Dev
                 </Button>
@@ -288,31 +269,30 @@ export default function Home() {
                   width={28}
                   height={28}
                   alt="hashnode-logo"
-                  className={blogLogoStyles}
+                  className={blogLogo}
                 />
                 Substack
               </Button>
             </Card.Body>
           </Card>
         </div>
-        <div className={rightAndLeftStack}>
+        <div className={column}>
           <Card>
             <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>
               Work
             </Card.Header>
             <Card.Body>
-              {/* FEAT: Create a List component for Ordered/Unordered Lists */}
-              <ol className={cvListStyles}>
+              <UnorderedList>
                 {cvItems.map((cvItem) => (
-                  <li key={cvItem.company} className={cvListItemStyles}>
+                  <UnorderedList.ListItem key={cvItem.company}>
                     {cvItem.image}
-                    <dl className={dlStyles}>
-                      <dt className={dtStyles}>Company</dt>
-                      <dd className={ddBoldStyles}>{cvItem.company}</dd>
-                      <dt className={dtStyles}>Role</dt>
-                      <dd className={ddLightStyles}>{cvItem.role}</dd>
-                      <dt className={dtStyles}>Date</dt>
-                      <dd className={ddDateStyles}>
+                    <dl className={dl}>
+                      <dt className={dt}>Company</dt>
+                      <dd className={ddBold}>{cvItem.company}</dd>
+                      <dt className={dt}>Role</dt>
+                      <dd className={ddLight}>{cvItem.role}</dd>
+                      <dt className={dt}>Date</dt>
+                      <dd className={ddDate}>
                         <time dateTime={cvItem.startDate}>
                           {cvItem.startDate}
                         </time>
@@ -322,19 +302,19 @@ export default function Home() {
                         </time>
                       </dd>
                     </dl>
-                  </li>
+                  </UnorderedList.ListItem>
                 ))}
-                <li>
+                <UnorderedList.ListItem>
                   <Button variant="primary" as="a" href="resume.docx" download>
                     <ArrowDownTrayIcon
-                      className={cvLogoStyles}
+                      className={cvLogo}
                       width={24}
                       height={24}
                     />
                     Download full CV
                   </Button>
-                </li>
-              </ol>
+                </UnorderedList.ListItem>
+              </UnorderedList>
             </Card.Body>
           </Card>
         </div>
