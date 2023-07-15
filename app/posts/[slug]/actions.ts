@@ -4,7 +4,7 @@ import { Post } from '../types'
 export async function fetchBlogPostBySlug(slug: string): Promise<Post> {
   try {
     const data = await hashNodeApi.get({
-      query: `query { post(slug: "${slug}", hostname: "https://jameswalsh.hashnode.dev") { slug title brief coverImage dateAdded contentMarkdown } }`,
+      query: `query { post(slug: "${slug}", hostname: "https://jameswalsh.hashnode.dev") { slug title tags { name } coverImage dateAdded contentMarkdown } }`,
       variables: {},
     })
     console.info('Successfully retrieved blog posts from hashnode')

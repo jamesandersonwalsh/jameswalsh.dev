@@ -6,16 +6,31 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight'
 import { components } from '@ui/mdx/components'
 import { css } from 'styled-system/css'
+import { hstack, stack } from 'styled-system/patterns'
 import { TimeFormat } from '@ui/TimeFormat'
+import { Badge } from '@ui/Badge'
+import Image from 'next/image'
+
+const coverImageStyles = css({
+  borderRadius: 'lg',
+  mb: '2rem',
+})
+const timestampStyles = css({
+  // TODO: these timestamp borders should be componentized.
+  borderInlineStart: '2px solid',
+  borderInlineStartColor: 'slate.500',
+  px: '0.5rem',
+  fontWeight: 'medium',
+  fontSize: 'lg',
+})
+const postMetaStyles = stack({
+  width: '100%',
+  gap: 4,
+})
 
 type BlogPostPageProps = {
   params: { slug: string }
 }
-
-const timestampStyles = css({
-  fontWeight: 'medium',
-  fontSize: 'lg',
-})
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const slugAsSentance = params.slug
@@ -44,13 +59,29 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   })
 
   return (
-    <PageLayout title={post.title}>
-      <article>
-        <span className={timestampStyles}>
-          Published on <TimeFormat dateTime={post.dateAdded} />
-        </span>
-        {content}
-      </article>
-    </PageLayout>
+    <>
+      <Image
+        src={post.coverImage}
+        alt="Article cover image"
+        className={coverImageStyles}
+        width={800}
+        height={200}
+      />
+      <PageLayout title={post.title}>
+        <PageLayout.Content>
+          <div className={postMetaStyles}>
+            <span className={timestampStyles}>
+              <TimeFormat dateTime={post.dateAdded} />
+            </span>
+            <span className={hstack({ gap: 2 })}>
+              {post.tags.map((tag) => (
+                <Badge key={tag.name}>{tag.name}</Badge>
+              ))}
+            </span>
+          </div>
+          <article>{content}</article>
+        </PageLayout.Content>
+      </PageLayout>
+    </>
   )
 }
