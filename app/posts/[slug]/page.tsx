@@ -6,12 +6,17 @@ import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight'
 import { components } from '@ui/mdx/components'
 import { css } from 'styled-system/css'
-import { hstack, stack } from 'styled-system/patterns'
+import { hstack, stack, container } from 'styled-system/patterns'
 import { TimeFormat } from '@ui/TimeFormat'
 import { Badge } from '@ui/Badge'
 import Image from 'next/image'
 
+const coverImageContainer = container({
+  width: '100%',
+  height: '400px',
+})
 const coverImageStyles = css({
+  objectFit: 'cover',
   borderRadius: 'lg',
   mb: '2rem',
 })
@@ -60,13 +65,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
-      <Image
-        src={post.coverImage}
-        alt="Article cover image"
-        className={coverImageStyles}
-        width={800}
-        height={200}
-      />
+      <div className={coverImageContainer}>
+        <Image
+          src={post.coverImage}
+          alt="Article cover image"
+          className={coverImageStyles}
+          priority
+          fill
+        />
+      </div>
       <PageLayout title={post.title}>
         <PageLayout.Content>
           <div className={postMetaStyles}>
