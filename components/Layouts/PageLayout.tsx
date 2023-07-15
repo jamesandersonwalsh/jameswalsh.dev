@@ -15,22 +15,22 @@ export function PageLayout({ children, title }: PageLayoutProps) {
   )
 }
 
-const headingStyles = css({
+const title = css({
   fontSize: {
     mdTo2xl: '5xl',
     smDown: '4xl',
   },
 })
 function Title({ children }: PropsWithChildren) {
-  return <h1 className={headingStyles}>{children}</h1>
+  return <h1 className={title}>{children}</h1>
 }
 
-const contentStyles = vstack({
+const content = vstack({
   mt: '1rem',
   color: 'slate.300',
 })
 function Content({ children }: PropsWithChildren) {
-  return <div className={contentStyles}>{children}</div>
+  return <div className={content}>{children}</div>
 }
 
 PageLayout.Title = Title

@@ -59,24 +59,22 @@ export default async function BlogPage() {
 
   return (
     <PageLayout title="Articles about web dev, design, & JavaScript.">
-      <PageLayout.Content>
-        <ol className={articleListStyles}>
-          {posts.map((post) => (
-            <li key={post.slug}>
-              <article className={articleStyles}>
-                <TimeFormat className={timeStyles} dateTime={post.dateAdded} />
-                <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
-                  <h2 className={articleTitleStyles}>{post.title}</h2>
-                  <p className={articleBriefStyles}>{post.brief}</p>
-                  <div className={linkBlurb} aria-hidden="true">
-                    Read Full Article&nbsp;{`>`}
-                  </div>
-                </Link>
-              </article>
-            </li>
-          ))}
-        </ol>
-      </PageLayout.Content>
+      <ol className={articleListStyles}>
+        {posts.map((post) => (
+          <li key={post.slug}>
+            <article className={articleStyles}>
+              <TimeFormat className={timeStyles} dateTime={post.dateAdded} />
+              <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
+                <h2 className={articleTitleStyles}>{post.title}</h2>
+                <p className={articleBriefStyles}>{post.brief}</p>
+                <div className={linkBlurb} aria-hidden="true">
+                  Read Full Article&nbsp;{`>`}
+                </div>
+              </Link>
+            </article>
+          </li>
+        ))}
+      </ol>
     </PageLayout>
   )
 }

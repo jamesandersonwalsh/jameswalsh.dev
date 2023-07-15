@@ -8,7 +8,7 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { Overlay } from '../Overlay'
 
-const topNavMenuStyles = css({
+const topNavMenu = css({
   hideFrom: 'md',
   color: 'slate.50',
   width: '36px',
@@ -21,7 +21,7 @@ const topNavMenuStyles = css({
     cursor: 'pointer',
   },
 })
-const menuItemListStyles = vstack({
+const menuList = vstack({
   width: '90vw',
   padding: '0.75rem',
   bg: 'slate.900',
@@ -30,7 +30,7 @@ const menuItemListStyles = vstack({
   borderRadius: 'lg',
   gap: 6,
 })
-const menuItemStyles = css({
+const menuItem = css({
   p: '0.25rem',
   m: '0.25rem',
   width: '100%',
@@ -70,13 +70,13 @@ export function TopNavMenu() {
 
   return (
     <>
-      <button className={topNavMenuStyles} onClick={toggleMenu}>
+      <button className={topNavMenu} onClick={toggleMenu}>
         <Bars3Icon />
       </button>
       <Overlay isOpen={isMenuOpen}>
-        <ol className={menuItemListStyles} ref={ref}>
+        <ol className={menuList} ref={ref}>
           {navItems.map((navItem) => (
-            <li key={navItem.href} className={menuItemStyles}>
+            <li key={navItem.href} className={menuItem}>
               <Link href={navItem.href}>{navItem.value}</Link>
             </li>
           ))}

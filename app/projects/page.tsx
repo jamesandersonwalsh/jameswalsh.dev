@@ -92,40 +92,38 @@ export default function ProjectsPage() {
 
   return (
     <PageLayout title="Projects I've contributed to that make me smile.">
-      <PageLayout.Content>
-        <p>
-          I&apos;ve enjoyed contributing to many projects over the years, but
-          the following is my professional highlight reel. A couple of them are
-          open-source, if you&apos;d like to learn more.
-        </p>
-        <div className={projectGrid}>
-          {projects.map((project) => (
-            <Link
-              key={project.title}
-              href={project.externalLink.href}
-              className={hstack()}
-            >
-              <Card variant="ghost">
-                <Image
-                  src={project.imageLink}
-                  alt="Project logo"
-                  width={40}
-                  height={40}
-                  className={companyLogo}
-                />
-                <Card.Header>{project.title}</Card.Header>
-                <Card.Body>{project.description}</Card.Body>
-                <Card.Footer>
-                  <div className={hstack()}>
-                    <LinkIcon width={16} />
-                    {project.externalLink.title}
-                  </div>
-                </Card.Footer>
-              </Card>
-            </Link>
-          ))}
-        </div>
-      </PageLayout.Content>
+      <p>
+        I&apos;ve enjoyed contributing to many projects over the years, but the
+        following is my professional highlight reel. A couple of them are
+        open-source, if you&apos;d like to learn more.
+      </p>
+      <div className={projectGrid}>
+        {projects.map((project) => (
+          <Link
+            key={project.title}
+            href={project.externalLink.href}
+            className={hstack()}
+          >
+            <Card variant="ghost">
+              <Image
+                src={project.imageLink}
+                alt="Project logo"
+                width={40}
+                height={40}
+                className={companyLogo}
+              />
+              <Card.Header>{project.title}</Card.Header>
+              <Card.Body>{project.description}</Card.Body>
+              <Card.Footer>
+                <div className={hstack()}>
+                  <LinkIcon width={16} />
+                  {project.externalLink.title}
+                </div>
+              </Card.Footer>
+            </Card>
+          </Link>
+        ))}
+      </div>
     </PageLayout>
   )
 }

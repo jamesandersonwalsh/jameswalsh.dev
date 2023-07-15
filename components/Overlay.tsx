@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { css } from 'styled-system/css'
 
-const overLayStyles = css({
+const overlay = css({
   backdropFilter: 'blur(1px)',
   backgroundColor: 'rgba(0, 0, 0, 0.6)',
   width: '100vw',
@@ -17,5 +17,5 @@ type OverlayProps = {
   isOpen: boolean
 } & PropsWithChildren
 export function Overlay({ children, isOpen }: OverlayProps) {
-  return <>{isOpen && <div className={overLayStyles}>{children}</div>}</>
+  return <>{isOpen && <div className={overlay}>{children}</div>}</>
 }

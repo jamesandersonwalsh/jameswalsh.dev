@@ -2,43 +2,44 @@ import { PropsWithChildren } from 'react'
 import { css } from 'styled-system/css'
 import { stack } from 'styled-system/patterns'
 
-const h1Styles = css({
+const h1 = css({
   fontSize: '4xl',
   py: '2rem',
 })
-const h2Styles = css({
+const h2 = css({
   fontSize: '3xl',
   fontWeight: 'bolder',
   py: '1.5rem',
 })
-const h3Styles = css({
+const h3 = css({
   fontSize: '2xl',
   fontWeight: 'bolder',
   py: '1rem',
 })
-const listStyles = {
+// REFACTOR - Use List component
+const list = {
   gap: 6,
   py: '1rem',
   ml: '1rem',
 }
-const orderedListStyles = stack({
-  ...listStyles,
+const orderedList = stack({
+  ...list,
   listStyle: 'auto',
 })
-const unorderedListStyles = stack({
-  ...listStyles,
+const unorderedList = stack({
+  ...list,
   listStyle: 'circle',
 })
-const pStyles = css({
+const p = css({
   fontSize: 'lg',
 })
-const blockquoteStyles = css({
+const blockquote = css({
   borderInlineStart: '3px solid',
   borderInlineStartColor: 'slate.500',
   my: '1rem',
   px: '1.25rem',
 })
-const inlineCodeStyles = css({
+const inlineCode = css({
   bg: 'neutral.700',
   color: 'neutral.300',
   borderRadius: 'sm',
@@ -49,42 +50,42 @@ const inlineCodeStyles = css({
 export const components = {
   // FIX - Process img for MD/MDX.
   h1: (props: PropsWithChildren) => (
-    <h1 {...props} className={h1Styles}>
+    <h1 {...props} className={h1}>
       {props.children}
     </h1>
   ),
   h2: (props: PropsWithChildren) => (
-    <h2 {...props} className={h2Styles}>
+    <h2 {...props} className={h2}>
       {props.children}
     </h2>
   ),
   h3: (props: PropsWithChildren) => (
-    <h3 {...props} className={h3Styles}>
+    <h3 {...props} className={h3}>
       {props.children}
     </h3>
   ),
   p: (props: PropsWithChildren) => (
-    <p {...props} className={pStyles}>
+    <p {...props} className={p}>
       {props.children}
     </p>
   ),
   ol: (props: PropsWithChildren) => (
-    <ol {...props} className={orderedListStyles}>
+    <ol {...props} className={orderedList}>
       {props.children}
     </ol>
   ),
   ul: (props: PropsWithChildren) => (
-    <ul {...props} className={unorderedListStyles}>
+    <ul {...props} className={unorderedList}>
       {props.children}
     </ul>
   ),
   blockquote: (props: PropsWithChildren) => (
-    <blockquote {...props} className={blockquoteStyles}>
+    <blockquote {...props} className={blockquote}>
       {props.children}
     </blockquote>
   ),
   code: (props: PropsWithChildren) => (
-    <code className={inlineCodeStyles} {...props}>
+    <code className={inlineCode} {...props}>
       {props.children}
     </code>
   ),

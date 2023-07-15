@@ -76,19 +76,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         />
       </div>
       <PageLayout title={post.title}>
-        <PageLayout.Content>
-          <div className={postMetaStyles}>
-            <span className={timestampStyles}>
-              <TimeFormat dateTime={post.dateAdded} />
-            </span>
-            <span className={hstack({ gap: 2 })}>
-              {post.tags.map((tag) => (
-                <Badge key={tag.name}>{tag.name.toLowerCase()}</Badge>
-              ))}
-            </span>
-          </div>
-          <article>{content}</article>
-        </PageLayout.Content>
+        <div className={postMetaStyles}>
+          <span className={timestampStyles}>
+            <TimeFormat dateTime={post.dateAdded} />
+          </span>
+          <span className={hstack({ gap: 2 })}>
+            {post.tags.map((tag) => (
+              <Badge key={tag.name}>{tag.name.toLowerCase()}</Badge>
+            ))}
+          </span>
+        </div>
+        <article>{content}</article>
       </PageLayout>
     </>
   )

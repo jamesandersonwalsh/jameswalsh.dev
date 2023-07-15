@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { container } from 'styled-system/patterns'
 
-const paperStyles = container({
+const paper = container({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -28,5 +28,5 @@ const paperStyles = container({
 })
 
 export function Paper({ children }: PropsWithChildren) {
-  return <div className={paperStyles}>{children}</div>
+  return <div className={paper}>{children}</div>
 }

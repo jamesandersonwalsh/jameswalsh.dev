@@ -48,10 +48,10 @@ export function Card({
   )
 }
 
-const cardHeaderStyles = hstack({
+const cardHeader = hstack({
   gap: 3,
 })
-const h3Styles = css({
+const cardH3 = css({
   fontSize: 'md',
   fontWeight: 'semibold',
 })
@@ -61,29 +61,29 @@ type HeaderProps = {
 } & PropsWithChildren
 function Header({ children, icon }: HeaderProps) {
   return (
-    <div className={cardHeaderStyles}>
+    <div className={cardHeader}>
       {icon}
-      <h3 className={h3Styles}>{children}</h3>
+      <h3 className={cardH3}>{children}</h3>
     </div>
   )
 }
 
-const cardBodyStyles = css({
+const cardBody = css({
   mt: '1rem',
   fontSize: 'sm',
 })
 function Body({ children }: PropsWithChildren) {
-  return <div className={cardBodyStyles}>{children}</div>
+  return <div className={cardBody}>{children}</div>
 }
 
-const footerStyles = flex({
+const cardFooter = flex({
   height: '100%',
   fontSize: 'xs',
   alignItems: 'end',
   mt: '1rem',
 })
 function Footer({ children }: PropsWithChildren) {
-  return <div className={footerStyles}>{children}</div>
+  return <div className={cardFooter}>{children}</div>
 }
 
 Card.Header = Header

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { hstack } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 
-const navBarStyles = hstack({
+const navBar = hstack({
   hideBelow: 'sm',
   bg: 'slate.800',
   minH: '2.5rem',
@@ -13,10 +13,10 @@ const navBarStyles = hstack({
   borderWidth: '1px',
   borderColor: 'slate.700',
 })
-const navListStyles = hstack({
+const navList = hstack({
   gap: 4,
 })
-const navItemStyles = css({
+const navItem = css({
   display: 'flex',
   alignItems: 'center',
   px: '0.5rem',
@@ -32,11 +32,11 @@ export const navItems = [
 
 export function TopNavbar() {
   return (
-    <nav className={navBarStyles}>
-      <ul className={navListStyles}>
-        {navItems.map((navItem) => (
-          <li key={navItem.href} className={navItemStyles}>
-            <Link href={navItem.href}>{navItem.value}</Link>
+    <nav className={navBar}>
+      <ul className={navList}>
+        {navItems.map((item) => (
+          <li key={item.href} className={navItem}>
+            <Link href={item.href}>{item.value}</Link>
           </li>
         ))}
       </ul>
