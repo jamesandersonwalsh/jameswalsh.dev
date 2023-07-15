@@ -1,10 +1,10 @@
 import { vstack, grid, gridItem } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
-import format from 'date-fns/format'
 import Link from 'next/link'
 
 import { PageLayout } from '@ui/Layouts'
 import { fetchBlogPosts } from './actions'
+import { TimeFormat } from '@ui/TimeFormat'
 
 const articleListStyles = vstack({
   gap: 14,
@@ -64,9 +64,7 @@ export default async function BlogPage() {
           {posts.map((post) => (
             <li key={post.slug}>
               <article className={articleStyles}>
-                <time className={timeStyles} dateTime={post.dateAdded}>
-                  {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
-                </time>
+                <TimeFormat className={timeStyles} dateTime={post.dateAdded} />
                 <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
                   <h2 className={articleTitleStyles}>{post.title}</h2>
                   <p className={articleBriefStyles}>{post.brief}</p>

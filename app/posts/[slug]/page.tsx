@@ -2,11 +2,11 @@ import 'highlight.js/styles/github-dark.css'
 
 import { PageLayout } from '@ui/Layouts'
 import { fetchBlogPostBySlug } from './actions'
-import format from 'date-fns/format'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import rehypeHighlight from 'rehype-highlight'
 import { components } from '@ui/mdx/components'
 import { css } from 'styled-system/css'
+import { TimeFormat } from '@ui/TimeFormat'
 
 type BlogPostPageProps = {
   params: { slug: string }
@@ -47,10 +47,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     <PageLayout title={post.title}>
       <article>
         <span className={timestampStyles}>
-          Published on{' '}
-          <time dateTime={post.dateAdded}>
-            {format(new Date(post.dateAdded), 'LLLL dd, yyyy')}
-          </time>
+          Published on <TimeFormat dateTime={post.dateAdded} />
         </span>
         {content}
       </article>
