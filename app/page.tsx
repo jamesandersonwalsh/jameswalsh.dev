@@ -301,6 +301,7 @@ export default function Home() {
               Work
             </Card.Header>
             <Card.Body>
+              {/* FEAT: Create a List component for Ordered/Unordered Lists */}
               <ol className={cvListStyles}>
                 {cvItems.map((cvItem) => (
                   <li key={cvItem.company} className={cvListItemStyles}>

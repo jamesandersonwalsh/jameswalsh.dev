@@ -47,6 +47,7 @@ const inlineCodeStyles = css({
 })
 
 export const components = {
+  // FIX - Process img for MD/MDX.
   h1: (props: PropsWithChildren) => (
     <h1 {...props} className={h1Styles}>
       {props.children}

@@ -30,10 +30,12 @@ const card = cva({
 })
 
 type CardProps = {
+  // FEAT - Create & use Card variants for every single card-like UX on the site.
   variant?: 'solid' | 'outline' | 'ghost'
   as?: 'section' | 'a'
   href?: string
 } & PropsWithChildren
+
 export function Card({
   variant = 'outline',
   as = 'section',

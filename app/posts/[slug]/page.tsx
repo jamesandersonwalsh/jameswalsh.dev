@@ -21,7 +21,7 @@ const coverImageStyles = css({
   mb: '2rem',
 })
 const timestampStyles = css({
-  // TODO: these timestamp borders should be componentized.
+  // REFACTOR - These timestamp borders should be componentized.
   borderInlineStart: '2px solid',
   borderInlineStartColor: 'slate.500',
   px: '0.5rem',
@@ -52,6 +52,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post = await fetchBlogPostBySlug(params.slug)
 
+  // FIX - compileMDX does not parse markdown images correctly.
   const { content } = await compileMDX<{ title: string }>({
     source: post.contentMarkdown,
     components,
@@ -82,7 +83,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </span>
             <span className={hstack({ gap: 2 })}>
               {post.tags.map((tag) => (
-                <Badge key={tag.name}>{tag.name}</Badge>
+                <Badge key={tag.name}>{tag.name.toLowerCase()}</Badge>
               ))}
             </span>
           </div>

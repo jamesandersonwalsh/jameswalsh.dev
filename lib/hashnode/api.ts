@@ -3,6 +3,7 @@ const API_HOST = process.env.HASH_NODE_API_HOST
 
 const REVALIDATE_TIMEOUT = 60 * 10
 
+// REFACTOR - Use gql libraries for Next.js
 export async function get<T, K>({
   query,
   variables,

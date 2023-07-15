@@ -1,3 +1,5 @@
+'use server'
+
 import { hashNodeApi } from '@/lib'
 import { Post } from '../types'
 
