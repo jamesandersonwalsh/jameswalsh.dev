@@ -5,25 +5,20 @@ import Link from 'next/link'
 import { PageLayout } from '@ui/Layouts'
 import { fetchBlogPosts } from './actions'
 import { TimeFormat } from '@ui/TimeFormat'
+import { UnorderedList } from '@/components/List'
 
-const articleListStyles = vstack({
-  gap: 14,
+const articleListContainer = css({
   px: '1.5rem',
   mt: '1.5rem',
   borderInlineStart: '1px solid',
   borderInlineStartColor: 'slate.500',
-  writingMode: 'horizontal-tb',
 })
-const articleStyles = grid({
+const article = grid({
   columns: {
     mdTo2xl: 4,
     sm: 1,
   },
   gap: 2,
-})
-const timeStyles = css({
-  textWrap: 'nowrap',
-  fontSize: 'sm',
 })
 const articleBodyStyles = gridItem({
   colSpan: {
@@ -59,22 +54,24 @@ export default async function BlogPage() {
 
   return (
     <PageLayout title="Articles about web dev, design, & JavaScript.">
-      <ol className={articleListStyles}>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <article className={articleStyles}>
-              <TimeFormat className={timeStyles} dateTime={post.dateAdded} />
-              <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
-                <h2 className={articleTitleStyles}>{post.title}</h2>
-                <p className={articleBriefStyles}>{post.brief}</p>
-                <div className={linkBlurb} aria-hidden="true">
-                  Read Full Article&nbsp;{`>`}
-                </div>
-              </Link>
-            </article>
-          </li>
-        ))}
-      </ol>
+      <div className={articleListContainer}>
+        <UnorderedList>
+          {posts.map((post) => (
+            <UnorderedList.ListItem key={post.slug}>
+              <article className={article}>
+                <TimeFormat size="sm" dateTime={post.dateAdded} />
+                <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
+                  <h2 className={articleTitleStyles}>{post.title}</h2>
+                  <p className={articleBriefStyles}>{post.brief}</p>
+                  <div className={linkBlurb} aria-hidden="true">
+                    Read Full Article&nbsp;{`>`}
+                  </div>
+                </Link>
+              </article>
+            </UnorderedList.ListItem>
+          ))}
+        </UnorderedList>
+      </div>
     </PageLayout>
   )
 }

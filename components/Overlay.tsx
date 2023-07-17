@@ -12,7 +12,6 @@ const overlay = css({
   zIndex: 9, // FIX - Refactor Overlay to use a different stacking context rather than z-index: 9.
 })
 
-// REFACTOR - Hey whats up you guys.
 type OverlayProps = {
   isOpen: boolean
 } & PropsWithChildren

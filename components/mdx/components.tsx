@@ -16,7 +16,7 @@ const h3 = css({
   fontWeight: 'bolder',
   py: '1rem',
 })
-// REFACTOR - Use List component
+
 const list = {
   gap: 6,
   py: '1rem',
