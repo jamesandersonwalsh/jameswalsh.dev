@@ -7,14 +7,14 @@ const paper = container({
   alignItems: 'center',
   bg: 'slate.900',
   minHeight: '100vh',
-  padding: {
+  p: {
     mdTo2xl: '2rem',
     smDown: '0.5rem',
   },
   borderWidth: '1px',
   borderColor: 'slate.800',
-  xl: {
-    width: '70vw',
+  lgTo2xl: {
+    maxWidth: '1248px',
   },
   lg: {
     width: '80vw',

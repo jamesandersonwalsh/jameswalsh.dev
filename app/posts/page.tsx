@@ -1,4 +1,4 @@
-import { vstack, grid, gridItem } from 'styled-system/patterns'
+import { grid, gridItem } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 import Link from 'next/link'
 

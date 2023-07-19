@@ -261,7 +261,9 @@ export default function Home() {
             </Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Personal blog where I share my thoughts on life.
+                Sign up for my newsletter on substack where I publish articles
+                that are non-technical and focus more on life outside of
+                corporate. More info coming soon!
               </p>
               <Button as="a" href="https://aboveandbelow.substack.com">
                 <Image

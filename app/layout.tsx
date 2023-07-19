@@ -1,7 +1,7 @@
 import './global.css'
 import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
-import { container } from 'styled-system/patterns'
+import { flex } from 'styled-system/patterns'
 import { TopNavbar, TopNavMenu, Paper, PageAvatar } from '@ui/AppShell'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -11,7 +11,9 @@ export const metadata = {
   description: 'Full Stack Javascript Engineer',
 }
 
-const mainStyles = container({
+const mainStyles = flex({
+  direction: 'column',
+  alignItems: 'center',
   py: '3rem',
   mt: '1rem',
 })

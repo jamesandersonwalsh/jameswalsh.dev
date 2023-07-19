@@ -13,7 +13,10 @@ import Image from 'next/image'
 
 const coverImageContainer = container({
   width: '100%',
-  height: '400px',
+  height: {
+    mdTo2xl: '400px',
+    smDown: '240px',
+  },
 })
 const coverImageStyles = css({
   objectFit: 'cover',
