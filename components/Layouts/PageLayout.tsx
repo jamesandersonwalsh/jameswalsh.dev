@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { css } from 'styled-system/css'
+import { cva } from 'styled-system/css'
 import { vstack } from 'styled-system/patterns'
 
 type PageLayoutProps = {
@@ -15,14 +15,31 @@ export function PageLayout({ children, title }: PageLayoutProps) {
   )
 }
 
-const title = css({
-  fontSize: {
-    mdTo2xl: '5xl',
-    smDown: '4xl',
+const title = cva({
+  base: {
+    width: '100%',
+    fontSize: {
+      mdTo2xl: '5xl',
+      smDown: '4xl',
+    },
+  },
+  variants: {
+    visual: {
+      left: {
+        textAlign: 'left',
+      },
+      center: {
+        textAlign: 'center',
+      },
+    },
   },
 })
-function Title({ children }: PropsWithChildren) {
-  return <h1 className={title}>{children}</h1>
+
+type TitleProps = {
+  align?: 'left' | 'center'
+} & PropsWithChildren
+function Title({ children, align = 'center' }: TitleProps) {
+  return <h1 className={title({ visual: align })}>{children}</h1>
 }
 
 const content = vstack({
