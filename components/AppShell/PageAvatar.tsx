@@ -25,7 +25,7 @@ export function PageAvatar() {
   return (
     <Link href="/" className={link}>
       <Image
-        src="/profile.jpg"
+        src="/portraits/profile.jpg"
         className={avatar}
         width={avatarNavSize}
         height={avatarNavSize}

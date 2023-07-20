@@ -186,7 +186,7 @@ export default function Home() {
     <div>
       <section className={introSection}>
         <Image
-          src="/profile.jpg"
+          src="/portraits/profile.jpg"
           className={circle()}
           width={AVATAR_SIZE}
           height={AVATAR_SIZE}
