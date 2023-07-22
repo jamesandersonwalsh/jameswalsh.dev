@@ -15,10 +15,6 @@ const sideProfile = css({
 })
 const h2 = css({
   width: '100%',
-  fontSize: {
-    mdTo2xl: '3xl',
-    smDown: 'xl',
-  },
   textAlign: 'left',
 })
 

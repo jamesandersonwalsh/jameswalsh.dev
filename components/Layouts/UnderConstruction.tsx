@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 const container = vstack()
 const h1 = css({
-  fontSize: '4xl',
   my: '2rem',
 })
 const h2 = css({

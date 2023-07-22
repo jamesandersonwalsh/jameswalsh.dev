@@ -3,16 +3,13 @@ import { css } from 'styled-system/css'
 import { stack } from 'styled-system/patterns'
 
 const h1 = css({
-  fontSize: '4xl',
   py: '2rem',
 })
 const h2 = css({
-  fontSize: '3xl',
   fontWeight: 'bolder',
   py: '1.5rem',
 })
 const h3 = css({
-  fontSize: '2xl',
   fontWeight: 'bolder',
   py: '1rem',
 })
