@@ -30,25 +30,25 @@ export default function AboutMeAccordion() {
     <Accordion>
       <Accordion.Item>
         <Accordion.Button onClick={togglePanel('intro')}>
-          Who I Am
+          Who I Am 🤙
         </Accordion.Button>
         <IntroductionPanel isVisible={panelVisibilityState.intro} />
       </Accordion.Item>
       <Accordion.Item>
         <Accordion.Button onClick={togglePanel('gettingStarted')}>
-          How I Got Started
+          How I Got Started 🤓
         </Accordion.Button>
         <GettingStartedPanel isVisible={panelVisibilityState.gettingStarted} />
       </Accordion.Item>
       <Accordion.Item>
         <Accordion.Button onClick={togglePanel('careerGrowth')}>
-          Career Growth
+          Career Growth 💻
         </Accordion.Button>
         <CareerGrowthPanel isVisible={panelVisibilityState.careerGrowth} />
       </Accordion.Item>
       <Accordion.Item>
         <Accordion.Button onClick={togglePanel('today')}>
-          Today
+          Today 🎧
         </Accordion.Button>
         <TodayPanel isVisible={panelVisibilityState.today} />
       </Accordion.Item>
