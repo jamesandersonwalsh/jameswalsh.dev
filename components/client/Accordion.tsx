@@ -83,6 +83,7 @@ function Button({ children, onClick, ...rest }: AccordionButtonProps) {
 
 const panel = css({
   p: '1rem',
+  fontSize: 'lg',
 })
 export type AccordionPanelProps = {
   isVisible?: boolean
