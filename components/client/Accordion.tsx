@@ -1,9 +1,9 @@
 'use client'
 
-import { PropsWithChildren } from 'react'
+import { PropsWithChildren, useState } from 'react'
 import { flex, divider } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
-import { ChevronDownIcon } from '@heroicons/react/24/solid'
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid'
 
 const accordion = flex({
   width: '100%',
@@ -44,17 +44,38 @@ const button = flex({
     cursor: 'pointer',
   },
 })
+
 type AccordionButtonProps = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
 > &
   PropsWithChildren
-function Button({ children, ...rest }: AccordionButtonProps) {
+function Button({ children, onClick, ...rest }: AccordionButtonProps) {
+  const [buttonExpanded, setButtonExpanded] = useState(false)
+
+  const handleOnClick = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    setButtonExpanded(!buttonExpanded)
+    if (onClick) {
+      onClick(event)
+    }
+  }
+
   return (
     <h2 className={h2}>
-      <button className={button} aria-controls="accordion-panel-:rl" {...rest}>
+      <button
+        className={button}
+        onClick={handleOnClick}
+        aria-controls="accordion-panel-:rl"
+        {...rest}
+      >
         <div>{children}</div>
-        <ChevronDownIcon width={24} height={24} />
+        {buttonExpanded ? (
+          <ChevronUpIcon width={24} height={24} />
+        ) : (
+          <ChevronDownIcon width={24} height={24} />
+        )}
       </button>
     </h2>
   )
