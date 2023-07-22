@@ -45,6 +45,7 @@ function Title({ children, align = 'center' }: TitleProps) {
 const content = vstack({
   mt: '1rem',
   color: 'slate.300',
+  width: '100%',
 })
 function Content({ children }: PropsWithChildren) {
   return <div className={content}>{children}</div>
