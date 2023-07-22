@@ -1,9 +1,11 @@
+'use client'
+
 import { PropsWithChildren } from 'react'
-import { flex, stack, divider } from 'styled-system/patterns'
+import { flex, divider } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 import { ChevronDownIcon } from '@heroicons/react/24/solid'
 
-const accordion = stack({
+const accordion = flex({
   width: '100%',
   flexDir: 'column',
   my: '1rem',
@@ -13,7 +15,7 @@ export function Accordion({ children }: PropsWithChildren) {
 }
 
 const accordionItem = css({
-  height: '3rem',
+  height: '100%',
 })
 
 type AccordionItemProps = PropsWithChildren
@@ -28,9 +30,9 @@ function Item({ children }: AccordionItemProps) {
   )
 }
 
-const h2 = flex({
+const h2 = css({
   fontSize: 'xl',
-  height: '100%',
+  py: '1rem',
 })
 const button = flex({
   flexDir: 'row',
@@ -42,10 +44,15 @@ const button = flex({
     cursor: 'pointer',
   },
 })
-function Button({ children }: PropsWithChildren) {
+type AccordionButtonProps = React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> &
+  PropsWithChildren
+function Button({ children, ...rest }: AccordionButtonProps) {
   return (
     <h2 className={h2}>
-      <button className={button} aria-controls="accordion-panel-:rl">
+      <button className={button} aria-controls="accordion-panel-:rl" {...rest}>
         <div>{children}</div>
         <ChevronDownIcon width={24} height={24} />
       </button>
@@ -53,14 +60,20 @@ function Button({ children }: PropsWithChildren) {
   )
 }
 
-type AccordionPanelProps = {
+const panel = css({
+  p: '1rem',
+})
+export type AccordionPanelProps = {
   isVisible?: boolean
 } & PropsWithChildren
 function Panel({ isVisible = false, children }: AccordionPanelProps) {
   if (!isVisible) return
 
-  //  TODO: add aria expanded here.
-  return <div role="region">{children}</div>
+  return (
+    <div className={panel} aria-expanded="true">
+      {children}
+    </div>
+  )
 }
 
 Accordion.Item = Item

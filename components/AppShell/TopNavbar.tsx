@@ -59,7 +59,6 @@ export function TopNavbar() {
       <ul className={navList}>
         {navItems.map((item) => {
           const variant = item.href === pathname ? 'current' : 'default'
-          console.log('pathname:', pathname)
           return (
             <li key={item.href} className={navItem({ visual: variant })}>
               <Link
