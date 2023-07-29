@@ -16,11 +16,6 @@ interface Project {
   imageLink: string
 }
 
-export const metadata = {
-  title: 'James Walsh | Projects',
-  description: `Projects I've worked on`,
-}
-
 const projectGrid = grid({
   mt: '1rem',
   columns: {
@@ -32,6 +27,11 @@ const projectGrid = grid({
   width: '100%',
 })
 const companyLogo = circle({ my: '1rem' })
+
+export const metadata = {
+  title: 'Projects - James Walsh',
+  description: `Projects I've contributed to.`,
+}
 
 export default function ProjectsPage() {
   const projects: Project[] = [

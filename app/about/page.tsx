@@ -3,11 +3,6 @@ import Image from 'next/image'
 import { css } from 'styled-system/css'
 import AboutMeAccordion from './AboutMeAccordion'
 
-export const metadata = {
-  title: 'James Walsh | About',
-  description: `Learn more about me.`,
-}
-
 const sideProfile = css({
   mr: 'auto',
   mb: '2rem',
@@ -17,6 +12,11 @@ const h2 = css({
   width: '100%',
   textAlign: 'left',
 })
+
+export const metadata = {
+  title: 'About - James Walsh',
+  description: `Learn more about me.`,
+}
 
 export default function AboutPage() {
   return (

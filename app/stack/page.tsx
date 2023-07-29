@@ -6,11 +6,6 @@ import { hstack } from 'styled-system/patterns'
 import Image from 'next/image'
 import TimelineCollection from './timelineCollection'
 
-export const metadata = {
-  title: 'James Walsh | Stack',
-  description: 'My tech stack',
-}
-
 const h2 = css({
   fontSize: 'md',
 })
@@ -28,6 +23,12 @@ const p = css({
 const technologyLogo = css({
   borderRadius: 'md',
 })
+
+export const metadata = {
+  title: 'Stack - James Walsh',
+  description: 'Technologies I use & tools I love.',
+}
+
 export default function StackPage() {
   const timelineCollection = TimelineCollection
 
