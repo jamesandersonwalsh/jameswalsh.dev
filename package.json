@@ -12,6 +12,7 @@
     "type-check": "tsc --noEmit --incremental",
     "build": "next build",
     "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "lint": "next lint",
     "prepare": "panda codegen && husky install",
     "start": "next start"
