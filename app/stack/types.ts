@@ -1,6 +1,6 @@
 export type TimelineTypes =
-  | 'frameworks'
-  | 'languages'
+  | 'frontend'
+  | 'backend'
   | 'databases'
   | 'eventing'
   | 'devtools'

@@ -1,39 +1,7 @@
 import { TimelineCollection } from './types'
 
 const TimelineCollection: TimelineCollection = {
-  frameworks: [
-    {
-      title: 'Vue 3',
-      description: `It is a long established fact that a reader will be
-                  distracted by the readable content of a page when looking at
-                  its layout. The point of using Lorem Ipsum is that it has a
-                  more-or-less normal distribution of letters, as opposed to
-                  using 'Content here, content here', making it look like
-                  readable English.`,
-      imageLink: '/logos/tech/vue.png',
-    },
-    {
-      title: 'React',
-      description: `It is a long established fact that a reader will be
-                  distracted by the readable content of a page when looking at
-                  its layout. The point of using Lorem Ipsum is that it has a
-                  more-or-less normal distribution of letters, as opposed to
-                  using 'Content here, content here', making it look like
-                  readable English.`,
-      imageLink: '/logos/tech/react.png',
-    },
-    {
-      title: 'Next.js',
-      description: `It is a long established fact that a reader will be
-                  distracted by the readable content of a page when looking at
-                  its layout. The point of using Lorem Ipsum is that it has a
-                  more-or-less normal distribution of letters, as opposed to
-                  using 'Content here, content here', making it look like
-                  readable English.`,
-      imageLink: '/logos/tech/nextjs-white.png',
-    },
-  ],
-  languages: [
+  frontend: [
     {
       title: 'JavaScript',
       description: `It is a long established fact that a reader will be
@@ -55,7 +23,39 @@ const TimelineCollection: TimelineCollection = {
       imageLink: '/logos/tech/typescript.png',
     },
     {
-      title: 'Node.js',
+      title: 'Vue 3',
+      description: `It is a long established fact that a reader will be
+                  distracted by the readable content of a page when looking at
+                  its layout. The point of using Lorem Ipsum is that it has a
+                  more-or-less normal distribution of letters, as opposed to
+                  using 'Content here, content here', making it look like
+                  readable English.`,
+      imageLink: '/logos/tech/vue.png',
+    },
+    {
+      title: 'React',
+      description: `It is a long established fact that a reader will be
+                  distracted by the readable content of a page when looking at
+                  its layout. The point of using Lorem Ipsum is that it has a
+                  more-or-less normal distribution of letters, as opposed to
+                  using 'Content here, content here', making it look like
+                  readable English.`,
+      imageLink: '/logos/tech/react.png',
+    },
+  ],
+  backend: [
+    {
+      title: 'Next.js',
+      description: `It is a long established fact that a reader will be
+                  distracted by the readable content of a page when looking at
+                  its layout. The point of using Lorem Ipsum is that it has a
+                  more-or-less normal distribution of letters, as opposed to
+                  using 'Content here, content here', making it look like
+                  readable English.`,
+      imageLink: '/logos/tech/nextjs-white.png',
+    },
+    {
+      title: 'Node.js / Express',
       description: `It is a long established fact that a reader will be
                   distracted by the readable content of a page when looking at
                   its layout. The point of using Lorem Ipsum is that it has a
@@ -65,7 +65,7 @@ const TimelineCollection: TimelineCollection = {
       imageLink: '/logos/tech/nodejs.png',
     },
     {
-      title: 'C#/.NET',
+      title: 'C# / .NET Core',
       description: `It is a long established fact that a reader will be
                   distracted by the readable content of a page when looking at
                   its layout. The point of using Lorem Ipsum is that it has a
@@ -97,16 +97,6 @@ const TimelineCollection: TimelineCollection = {
       imageLink: '/logos/tech/postgres.png',
     },
     {
-      title: 'MySQL',
-      description: `It is a long established fact that a reader will be
-                  distracted by the readable content of a page when looking at
-                  its layout. The point of using Lorem Ipsum is that it has a
-                  more-or-less normal distribution of letters, as opposed to
-                  using 'Content here, content here', making it look like
-                  readable English.`,
-      imageLink: '/logos/tech/mysql.png',
-    },
-    {
       title: 'PlanetScale DB',
       description: `It is a long established fact that a reader will be
                   distracted by the readable content of a page when looking at
@@ -115,6 +105,16 @@ const TimelineCollection: TimelineCollection = {
                   using 'Content here, content here', making it look like
                   readable English.`,
       imageLink: '/logos/tech/planetscale-white.png',
+    },
+    {
+      title: 'MySQL',
+      description: `It is a long established fact that a reader will be
+                  distracted by the readable content of a page when looking at
+                  its layout. The point of using Lorem Ipsum is that it has a
+                  more-or-less normal distribution of letters, as opposed to
+                  using 'Content here, content here', making it look like
+                  readable English.`,
+      imageLink: '/logos/tech/mysql.png',
     },
   ],
   eventing: [
@@ -203,6 +203,16 @@ const TimelineCollection: TimelineCollection = {
   ],
   principles: [
     {
+      title: 'Lean Development + Kanban',
+      description: `It is a long established fact that a reader will be
+                  distracted by the readable content of a page when looking at
+                  its layout. The point of using Lorem Ipsum is that it has a
+                  more-or-less normal distribution of letters, as opposed to
+                  using 'Content here, content here', making it look like
+                  readable English.`,
+      imageLink: '/logos/tech/kanban-white.png',
+    },
+    {
       title: 'Atomic Design Principles',
       description: `It is a long established fact that a reader will be
                   distracted by the readable content of a page when looking at
@@ -221,16 +231,6 @@ const TimelineCollection: TimelineCollection = {
                   using 'Content here, content here', making it look like
                   readable English.`,
       imageLink: '/logos/tech/tdd.jpeg',
-    },
-    {
-      title: 'Lean Development',
-      description: `It is a long established fact that a reader will be
-                  distracted by the readable content of a page when looking at
-                  its layout. The point of using Lorem Ipsum is that it has a
-                  more-or-less normal distribution of letters, as opposed to
-                  using 'Content here, content here', making it look like
-                  readable English.`,
-      imageLink: '/logos/tech/kanban-white.png',
     },
   ],
 }
