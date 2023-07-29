@@ -37,6 +37,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: 'Run Build'
+      - name: Run Next Build
         id: run-build
         run: pnpm build
