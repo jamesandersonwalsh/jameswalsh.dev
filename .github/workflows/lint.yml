@@ -1,7 +1,6 @@
 name: Lint
 
 on:
-  - push
   - pull_request
 
 jobs:
@@ -38,10 +37,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: 'Run ESLint'
+      - name: Run ESLint
         id: run-lint
         run: pnpm lint
 
-      - name: 'Run Prettier Check'
+      - name: Run Prettier
         id: run-format-check
         run: pnpm format:check
