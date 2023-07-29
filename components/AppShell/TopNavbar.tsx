@@ -45,9 +45,9 @@ const navItem = cva({
 })
 
 export const navItems = [
-  { href: '/about', value: 'About' },
   { href: '/posts', value: 'Posts' },
   { href: '/projects', value: 'Projects' },
+  { href: '/about', value: 'About' },
   { href: '/stack', value: 'Stack' },
 ]
 
