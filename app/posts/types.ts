@@ -8,7 +8,4 @@ export interface Post {
   contentMarkdown: string
 }
 
-export type PostPreview = Pick<
-  Post,
-  'slug' | 'title' | 'brief' | 'coverImage' | 'dateAdded'
->
+export type PostPreview = Pick<Post, 'slug' | 'title' | 'brief' | 'coverImage' | 'dateAdded'>

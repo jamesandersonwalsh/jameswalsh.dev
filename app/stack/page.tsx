@@ -43,9 +43,7 @@ export default function StackPage() {
 
   return (
     <>
-      <PageLayout.Title align="left">
-        Technologies I use, tools I love, & things I recommend.
-      </PageLayout.Title>
+      <PageLayout.Title align="left">Tech I use, tools I love, & things I recommend.</PageLayout.Title>
       <PageLayout.Content>
         <Timeline>
           {Object.entries(timelineCollection).map(([key, items]) => (

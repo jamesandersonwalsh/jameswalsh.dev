@@ -31,10 +31,7 @@ export default function AboutPage() {
       />
       <PageLayout.Title align="left">Hey, I&apos;m James.</PageLayout.Title>
       <PageLayout.Content>
-        <h2 className={h2}>
-          I live in Salt Lake City, where I write code & enjoy the Great
-          Outdoors.
-        </h2>
+        <h2 className={h2}>I live in Salt Lake City, where I write code & enjoy the Great Outdoors.</h2>
         <AboutMeAccordion />
       </PageLayout.Content>
     </>

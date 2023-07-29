@@ -61,10 +61,7 @@ export function TopNavbar() {
           const variant = item.href === pathname ? 'current' : 'default'
           return (
             <li key={item.href} className={navItem({ visual: variant })}>
-              <Link
-                href={item.href}
-                className={css({ color: 'inherit !important' })}
-              >
+              <Link href={item.href} className={css({ color: 'inherit !important' })}>
                 {item.value}
               </Link>
             </li>

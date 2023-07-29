@@ -1,22 +1,9 @@
-import {
-  circle,
-  vstack,
-  hstack,
-  divider,
-  grid,
-  wrap,
-  stack,
-} from 'styled-system/patterns'
+import { circle, vstack, hstack, divider, grid, wrap, stack } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card } from '@ui/Card'
-import {
-  ArrowDownTrayIcon,
-  BriefcaseIcon,
-  EnvelopeIcon,
-  NewspaperIcon,
-} from '@heroicons/react/24/outline'
+import { ArrowDownTrayIcon, BriefcaseIcon, EnvelopeIcon, NewspaperIcon } from '@heroicons/react/24/outline'
 import { PageLayout } from '@ui/Layouts'
 import { Button } from '@ui/Button'
 import { UnorderedList } from '@ui/List'
@@ -193,10 +180,7 @@ export default function Home() {
           alt="James profile picture"
           unoptimized
         />
-        <PageLayout.Title>
-          Software engineer. Self-proclaimed developer advocate. UI/UX
-          enthusiast.
-        </PageLayout.Title>
+        <PageLayout.Title>Software engineer. Self-proclaimed developer advocate. UI/UX enthusiast.</PageLayout.Title>
         <div id="social-links" className={socialLinkStack}>
           {socialLinks.map(({ name, href, imgSrc }) => (
             <Link key={name} href={href}>
@@ -206,33 +190,24 @@ export default function Home() {
         </div>
         <hr className={pageDivider} />
         <p className={css({ fontSize: 'lg' })}>
-          Hey, I&apos;m James! I&apos;m a Full Stack Javascript Engineer who
-          loves frontend web development. Over the last decade I&apos;ve been a
-          part of shipping new products to market, scaling Node.js applications,
-          building beautiful Design Systems, & working on cross-functional teams
-          with other talented people I can learn from. I believe that no tech
-          talk is complete without memes.
+          Hey, I&apos;m James! I&apos;m a Full Stack Javascript Engineer who loves frontend web development. Over the
+          last decade I&apos;ve been a part of shipping new products to market, scaling Node.js applications, building
+          beautiful Design Systems, & working on cross-functional teams with other talented people I can learn from. I
+          believe that no tech talk is complete without memes.
         </p>
       </section>
       <br />
       <div className={columnGrid}>
         <div className={column}>
           <Card>
-            <Card.Header icon={<NewspaperIcon width={24} height={24} />}>
-              See what I&apos;ve published
-            </Card.Header>
+            <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Get notified when I publish new tech-related articles,
-                unsubscribe at any time. My blog is hosted with Hashnode & made
-                available via RSS.
+                Get notified when I publish new tech-related articles, unsubscribe at any time. My blog is hosted with
+                Hashnode & made available via RSS.
               </p>
               <div className={blogLinks}>
-                <Button
-                  variant="primary"
-                  as="a"
-                  href="https://jameswalsh.hashnode.dev/newsletter"
-                >
+                <Button variant="primary" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
                   <Image
                     src="/logos/blog/hashnode.png"
                     width={28}
@@ -243,13 +218,7 @@ export default function Home() {
                   Hashnode
                 </Button>
                 <Button as="a" href={`https://dev.to/${HANDLE}`}>
-                  <Image
-                    src="/logos/blog/dev-to.png"
-                    width={28}
-                    height={28}
-                    alt="dev-to-logo"
-                    className={blogLogo}
-                  />
+                  <Image src="/logos/blog/dev-to.png" width={28} height={28} alt="dev-to-logo" className={blogLogo} />
                   Dev
                 </Button>
               </div>
@@ -261,18 +230,11 @@ export default function Home() {
             </Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Sign up for my newsletter on substack where I publish articles
-                that are non-technical and focus more on life outside of
-                corporate. More info coming soon!
+                Sign up for my newsletter on substack where I publish articles that are non-technical & focus more on
+                life outside of corporate. More info coming soon!
               </p>
               <Button as="a" href="https://aboveandbelow.substack.com">
-                <Image
-                  src="/logos/blog/substack.png"
-                  width={28}
-                  height={28}
-                  alt="hashnode-logo"
-                  className={blogLogo}
-                />
+                <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
                 Substack
               </Button>
             </Card.Body>
@@ -280,9 +242,7 @@ export default function Home() {
         </div>
         <div className={column}>
           <Card>
-            <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>
-              Work
-            </Card.Header>
+            <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>Work</Card.Header>
             <Card.Body>
               <UnorderedList>
                 {cvItems.map((cvItem) => (
@@ -295,24 +255,16 @@ export default function Home() {
                       <dd className={ddLight}>{cvItem.role}</dd>
                       <dt className={dt}>Date</dt>
                       <dd className={ddDate}>
-                        <time dateTime={cvItem.startDate}>
-                          {cvItem.startDate}
-                        </time>
+                        <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
                         <span aria-hidden="true"> — </span>
-                        <time dateTime={cvItem.startDate}>
-                          {cvItem.endDate}
-                        </time>
+                        <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
                       </dd>
                     </dl>
                   </UnorderedList.ListItem>
                 ))}
                 <UnorderedList.ListItem>
                   <Button variant="primary" as="a" href="resume.docx" download>
-                    <ArrowDownTrayIcon
-                      className={cvLogo}
-                      width={24}
-                      height={24}
-                    />
+                    <ArrowDownTrayIcon className={cvLogo} width={24} height={24} />
                     Download full CV
                   </Button>
                 </UnorderedList.ListItem>

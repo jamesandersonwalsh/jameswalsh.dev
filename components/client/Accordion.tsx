@@ -23,9 +23,7 @@ function Item({ children }: AccordionItemProps) {
   return (
     <>
       <div className={accordionItem}>{children}</div>
-      <div
-        className={divider({ orientation: 'horizontal', color: 'slate.500' })}
-      />
+      <div className={divider({ orientation: 'horizontal', color: 'slate.500' })} />
     </>
   )
 }
@@ -45,17 +43,12 @@ const button = flex({
   },
 })
 
-type AccordionButtonProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
-> &
+type AccordionButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> &
   PropsWithChildren
 function Button({ children, onClick, ...rest }: AccordionButtonProps) {
   const [buttonExpanded, setButtonExpanded] = useState(false)
 
-  const handleOnClick = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => {
+  const handleOnClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setButtonExpanded(!buttonExpanded)
     if (onClick) {
       onClick(event)
@@ -64,18 +57,9 @@ function Button({ children, onClick, ...rest }: AccordionButtonProps) {
 
   return (
     <h2 className={h2}>
-      <button
-        className={button}
-        onClick={handleOnClick}
-        aria-controls="accordion-panel-:rl"
-        {...rest}
-      >
+      <button className={button} onClick={handleOnClick} aria-controls="accordion-panel-:rl" {...rest}>
         <div>{children}</div>
-        {buttonExpanded ? (
-          <ChevronUpIcon width={24} height={24} />
-        ) : (
-          <ChevronDownIcon width={24} height={24} />
-        )}
+        {buttonExpanded ? <ChevronUpIcon width={24} height={24} /> : <ChevronDownIcon width={24} height={24} />}
       </button>
     </h2>
   )

@@ -36,11 +36,7 @@ type CardProps = {
   href?: string
 } & PropsWithChildren
 
-export function Card({
-  variant = 'outline',
-  as = 'section',
-  children,
-}: CardProps) {
+export function Card({ variant = 'outline', as = 'section', children }: CardProps) {
   return as === 'section' ? (
     <section className={card({ visual: variant })}>{children}</section>
   ) : (

@@ -47,12 +47,7 @@ type ButtonProps = {
   download?: boolean
 } & PropsWithChildren
 
-export function Button({
-  variant = 'primary',
-  as = 'button',
-  size = 'md',
-  ...rest
-}: ButtonProps) {
+export function Button({ variant = 'primary', as = 'button', size = 'md', ...rest }: ButtonProps) {
   return as === 'button' ? (
     <button className={button({ visual: variant, size })} {...rest} />
   ) : (

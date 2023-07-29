@@ -70,13 +70,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   return (
     <>
       <div className={coverImageContainer}>
-        <Image
-          src={post.coverImage}
-          alt="Article cover image"
-          className={coverImageStyles}
-          priority
-          fill
-        />
+        <Image src={post.coverImage} alt="Article cover image" className={coverImageStyles} priority fill />
       </div>
       <PageLayout title={post.title}>
         <div className={postMetaStyles}>

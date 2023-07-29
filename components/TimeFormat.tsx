@@ -23,12 +23,7 @@ type TimeFormatProps = {
 } & TimeHTMLAttributes<HTMLTimeElement> &
   PropsWithChildren
 
-export function TimeFormat({
-  dateTime,
-  format = 'LLLL dd, yyyy',
-  size = 'md',
-  ...rest
-}: TimeFormatProps) {
+export function TimeFormat({ dateTime, format = 'LLLL dd, yyyy', size = 'md', ...rest }: TimeFormatProps) {
   const date = new Date(dateTime)
 
   return (
