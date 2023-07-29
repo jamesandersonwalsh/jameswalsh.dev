@@ -24,17 +24,20 @@ export function UnorderedList({ children, ...rest }: PropsWithChildren) {
   )
 }
 
-const listItem = hstack({
-  width: '100%',
-})
+type ListItemProps = {
+  type?: 'vertical' | 'horizontal'
+} & DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>
 
-type ListItemProps = DetailedHTMLProps<
-  LiHTMLAttributes<HTMLLIElement>,
-  HTMLLIElement
->
-export function ListItem(props: ListItemProps) {
-  return <li className={listItem} {...props} />
+export function ListItem({ type = 'horizontal', ...rest }: ListItemProps) {
+  const className =
+    type === 'horizontal'
+      ? hstack({
+          width: '100%',
+        })
+      : vstack({ width: '100%', alignItems: 'baseline' })
+
+  return <li className={className} {...rest} />
 }
 
-OrderedList.ListItem = listItem
+OrderedList.ListItem = ListItem
 UnorderedList.ListItem = ListItem
