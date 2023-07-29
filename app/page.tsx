@@ -101,7 +101,7 @@ export default function Home() {
     {
       image: (
         <Image
-          src="/vasion-logo.png"
+          src="/logos/employers/vasion.png"
           width={36}
           height={36}
           alt="Vasion company logo"
@@ -116,7 +116,7 @@ export default function Home() {
     {
       image: (
         <Image
-          src="/podium-logo.jpg"
+          src="/logos/employers/podium.jpg"
           width={36}
           height={36}
           alt="Podium company logo"
@@ -131,7 +131,7 @@ export default function Home() {
     {
       image: (
         <Image
-          src="/pluralsight-logo.png"
+          src="/logos/employers/pluralsight.png"
           width={36}
           height={36}
           alt="Pluralsight company logo"
@@ -146,7 +146,7 @@ export default function Home() {
     {
       image: (
         <Image
-          src="/maersk-logo.jpg"
+          src="/logos/employers/maersk.jpg"
           width={36}
           height={36}
           alt="Maersk company logo"
@@ -163,22 +163,22 @@ export default function Home() {
     {
       name: 'Github',
       href: `https://github.com/${HANDLE}`,
-      imgSrc: '/github.svg',
+      imgSrc: '/logos/tech/github.svg',
     },
     {
       name: 'LinkedIn',
       href: `https://www.linkedin.com/in/${HANDLE}`,
-      imgSrc: '/linkedin.svg',
+      imgSrc: '/logos/social/linkedin.svg',
     },
     {
       name: 'Discord',
       href: `https://discordapp.com/users/${HANDLE}`,
-      imgSrc: `/discord.svg`,
+      imgSrc: `/logos/social/discord.svg`,
     },
     {
       name: 'Email',
       href: `mailto:jamesandersonwalsh@gmail.com`,
-      imgSrc: `/gmail.svg`,
+      imgSrc: `/logos/social/gmail.svg`,
     },
   ]
 
@@ -186,7 +186,7 @@ export default function Home() {
     <div>
       <section className={introSection}>
         <Image
-          src="/portraits/profile.jpg"
+          src="/portraits/front-profile.jpg"
           className={circle()}
           width={AVATAR_SIZE}
           height={AVATAR_SIZE}
@@ -234,7 +234,7 @@ export default function Home() {
                   href="https://jameswalsh.hashnode.dev/newsletter"
                 >
                   <Image
-                    src="/hashnode-logo.png"
+                    src="/logos/blog/hashnode.png"
                     width={28}
                     height={28}
                     alt="hashnode-logo"
@@ -244,7 +244,7 @@ export default function Home() {
                 </Button>
                 <Button as="a" href={`https://dev.to/${HANDLE}`}>
                   <Image
-                    src="/dev-to-logo.png"
+                    src="/logos/blog/dev-to.png"
                     width={28}
                     height={28}
                     alt="dev-to-logo"
@@ -267,7 +267,7 @@ export default function Home() {
               </p>
               <Button as="a" href="https://aboveandbelow.substack.com">
                 <Image
-                  src="/substack-logo.png"
+                  src="/logos/blog/substack.png"
                   width={28}
                   height={28}
                   alt="hashnode-logo"
