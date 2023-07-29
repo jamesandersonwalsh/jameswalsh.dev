@@ -12,6 +12,7 @@ interface Project {
     title: string
     href: string
   }
+  // TODO: refactor this to be src?
   imageLink: string
 }
 

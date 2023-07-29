@@ -2,6 +2,8 @@ import { Timeline } from '@ui/Timeline'
 import { PageLayout } from '@ui/Layouts'
 import { UnorderedList } from '@/components/List'
 import { css } from 'styled-system/css'
+import { hstack } from 'styled-system/patterns'
+import Image from 'next/image'
 import TimelineCollection from './timelineCollection'
 
 export const metadata = {
@@ -12,12 +14,19 @@ export const metadata = {
 const h2 = css({
   fontSize: 'md',
 })
+const itemTitleContainer = hstack({
+  alignItems: 'self-end',
+  gap: 4,
+})
 const h3 = css({
   fontSize: 'larger',
 })
 const p = css({
   fontSize: 'smaller',
   lineHeight: '1.33rem',
+})
+const technologyLogo = css({
+  borderRadius: 'md',
 })
 export default function StackPage() {
   const timelineCollection = TimelineCollection
@@ -26,7 +35,7 @@ export default function StackPage() {
     frameworks: 'Web Frameworks',
     languages: 'Languages',
     databases: 'Databases',
-    dataMessaging: 'Data Messaging',
+    eventing: 'Data Events',
     devtools: 'Development Tools',
     principles: 'Practices & Principles',
   }
@@ -34,8 +43,7 @@ export default function StackPage() {
   return (
     <>
       <PageLayout.Title align="left">
-        Tech stacks I&apos;m comfortable in, how I like prefer to work, & tools
-        I 💙.
+        Technologies I use, tools I love, & things I recommend.
       </PageLayout.Title>
       <PageLayout.Content>
         <Timeline>
@@ -48,7 +56,16 @@ export default function StackPage() {
                 <UnorderedList>
                   {items.map((item) => (
                     <UnorderedList.ListItem key={item.title} type="vertical">
-                      <h3 className={h3}>{item.title}</h3>
+                      <div className={itemTitleContainer}>
+                        <Image
+                          className={technologyLogo}
+                          width={40}
+                          height={40}
+                          src={item.imageLink}
+                          alt="technology logo"
+                        />
+                        <h3 className={h3}>{item.title}</h3>
+                      </div>
                       <p className={p}>{item.description}</p>
                     </UnorderedList.ListItem>
                   ))}

@@ -10,6 +10,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/vue.png',
     },
     {
       title: 'React',
@@ -19,6 +20,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/react.png',
     },
     {
       title: 'Next.js',
@@ -28,6 +30,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/nextjs-white.png',
     },
   ],
   languages: [
@@ -39,6 +42,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/javascript.png',
     },
     {
       title: 'Typescript',
@@ -48,6 +52,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/typescript.png',
     },
     {
       title: 'Node.js',
@@ -57,6 +62,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/nodejs.png',
     },
     {
       title: 'C#/.NET',
@@ -66,6 +72,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/c-sharp.png',
     },
     {
       title: 'Ruby on Rails',
@@ -75,6 +82,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/rails.png',
     },
   ],
   databases: [
@@ -86,6 +94,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/postgres.png',
     },
     {
       title: 'MySQL',
@@ -95,6 +104,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/mysql.png',
     },
     {
       title: 'PlanetScale DB',
@@ -104,9 +114,10 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/planetscale-white.png',
     },
   ],
-  dataMessaging: [
+  eventing: [
     {
       title: 'Apache Kafka',
       description: `It is a long established fact that a reader will be
@@ -115,6 +126,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/kafka-white.png',
     },
     {
       title: 'RabbitMQ',
@@ -124,6 +136,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/rabbitmq.png',
     },
     {
       title: 'AWS Simple Queue Service',
@@ -133,6 +146,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/sqs.png',
     },
   ],
   devtools: [
@@ -144,6 +158,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/vscode.png',
     },
     {
       title: 'Oh My ZSH',
@@ -153,6 +168,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/ohmyzsh.png',
     },
     {
       title: 'iTerm 2',
@@ -162,6 +178,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/iterm2.png',
     },
     {
       title: 'TablePlus',
@@ -171,6 +188,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/tableplus.png',
     },
     {
       title: 'Insomnia',
@@ -180,6 +198,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/insomnia.png',
     },
   ],
   principles: [
@@ -191,6 +210,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/atomic-design.png',
     },
     {
       title: 'Test-Driven Development',
@@ -200,6 +220,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/tdd.jpeg',
     },
     {
       title: 'Lean Development',
@@ -209,6 +230,7 @@ const TimelineCollection: TimelineCollection = {
                   more-or-less normal distribution of letters, as opposed to
                   using 'Content here, content here', making it look like
                   readable English.`,
+      imageLink: '/logos/tech/kanban-white.png',
     },
   ],
 }
