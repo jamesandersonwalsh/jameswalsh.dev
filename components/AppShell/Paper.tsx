@@ -14,7 +14,7 @@ const paper = container({
   borderWidth: '1px',
   borderColor: 'slate.800',
   lgTo2xl: {
-    maxWidth: '1248px',
+    maxWidth: '1024px',
   },
   lg: {
     width: '80vw',
