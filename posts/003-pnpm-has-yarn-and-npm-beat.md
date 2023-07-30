@@ -60,31 +60,26 @@ That’s right. You can completely uninstall tools like NVM or FNM and have pnpm
 1. You'll want to uninstall both npm and node globally from whatever mechanism you used to install them. Be it `nvm`, `brew`, `choco` or some other means.
 2. Next, you'll want to install pnpm using **[the pnpm install scripts](https://pnpm.io/installation)** mentioned in their documentation. On POSIX machines like Mac & Linux you can run the following:
 
-   **COPY**
-
    ```sh
     curl -fsSL https://get.pnpm.io/install.sh | sh -
 
    ```
 
 3. Once you have a clean fresh machine with pnpm installed, use the `env` command to install the latest LTS version of `node` :
-4. **COPY**
 
    ```sh
       pnpm env use --global lts
 
    ```
 
-5. To make sure everything is installed correctly use the following:
-6. **COPY**
+4. To make sure everything is installed correctly use the following:
 
    ```sh
       pnpm env ls
 
    ```
 
-7. To double-check that your global node version is managed by pnpm directly run:
-8. **COPY**
+5. To double-check that your global node version is managed by pnpm directly run:
 
    ```sh
       which node
@@ -93,9 +88,7 @@ That’s right. You can completely uninstall tools like NVM or FNM and have pnpm
 
    The output should be something like `/<your-home-directory>/Library/pnpm/node`.
 
-9. If you ever want to change your node version as you would normally with NVM you can use the same command mentioned in step 5. In this example pin our global node version to `18.16.1`
-
-   **COPY**
+6. If you ever want to change your node version as you would normally with NVM you can use the same command mentioned in step 5. In this example pin our global node version to `18.16.1`
 
    ```sh
     pnpm env use --global 18.16.1
