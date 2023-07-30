@@ -1,9 +1,10 @@
 import { grid, gridItem } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 import Link from 'next/link'
+import { compareDesc } from 'date-fns'
+import { allPosts } from 'contentlayer/generated'
 
 import { PageLayout } from '@ui/Layouts'
-import { fetchBlogPosts } from './actions'
 import { TimeFormat } from '@ui/TimeFormat'
 import { UnorderedList } from '@/components/List'
 
@@ -44,25 +45,21 @@ const linkBlurb = css({
   mt: '1rem',
 })
 
-export const metadata = {
-  title: 'Articles - James Walsh',
-  description: `Articles I've written`,
-}
-
-export default async function BlogPage() {
-  const posts = await fetchBlogPosts()
+export default function PostsIndexPage() {
+  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
 
   return (
     <PageLayout title="Articles about web dev, design, & JavaScript.">
       <div className={articleListContainer}>
         <UnorderedList>
           {posts.map((post) => (
-            <UnorderedList.ListItem key={post.slug}>
+            <UnorderedList.ListItem key={post.title}>
               <article className={article}>
-                <TimeFormat size="sm" dateTime={post.dateAdded} />
-                <Link href={`posts/${post.slug}`} className={articleBodyStyles}>
+                <TimeFormat size="sm" dateTime={post.date} />
+                <Link href={post.url} className={articleBodyStyles}>
                   <h2 className={articleTitleStyles}>{post.title}</h2>
-                  <p className={articleBriefStyles}>{post.brief}</p>
+                  {/* TODO: can we get briefs through contentlayer? */}
+                  {/* <p className={articleBriefStyles}>{post.brief}</p> */}
                   <div className={linkBlurb} aria-hidden="true">
                     Read Full Article&nbsp;{`>`}
                   </div>

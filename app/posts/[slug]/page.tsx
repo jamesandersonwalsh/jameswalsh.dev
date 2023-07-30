@@ -1,90 +1,34 @@
-import 'highlight.js/styles/github-dark.css'
+import { format, parseISO } from 'date-fns'
+import { allPosts } from 'contentlayer/generated'
 
-import { PageLayout } from '@ui/Layouts'
-import { fetchBlogPostBySlug } from './actions'
-import { compileMDX } from 'next-mdx-remote/rsc'
-import rehypeHighlight from 'rehype-highlight'
-import { components } from '@ui/mdx/components'
-import { css } from 'styled-system/css'
-import { hstack, stack, container } from 'styled-system/patterns'
-import { TimeFormat } from '@ui/TimeFormat'
-import { Badge } from '@ui/Badge'
-import Image from 'next/image'
+export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
-const coverImageContainer = container({
-  width: '100%',
-  height: {
-    mdTo2xl: '400px',
-    smDown: '240px',
-  },
-})
-const coverImageStyles = css({
-  objectFit: 'cover',
-  borderRadius: 'lg',
-  mb: '2rem',
-})
-const timestampStyles = css({
-  // REFACTOR - These timestamp borders should be componentized.
-  borderInlineStart: '2px solid',
-  borderInlineStartColor: 'slate.500',
-  px: '0.5rem',
-  fontWeight: 'medium',
-  fontSize: 'lg',
-})
-const postMetaStyles = stack({
-  width: '100%',
-  gap: 4,
-})
-
-type BlogPostPageProps = {
-  params: { slug: string }
-}
-
-export async function generateMetadata({ params }: BlogPostPageProps) {
-  const slugAsSentance = params.slug
-    .split('-')
-    .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
-    .join(' ')
+export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   return {
-    title: `${slugAsSentance} - James Walsh`,
-    description: 'Article written by James Walsh, published on Hashnode.',
+    title: post.title,
+    // TODO: description: post.description
   }
 }
 
-export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const post = await fetchBlogPostBySlug(params.slug)
+interface PostPageProps {
+  params: { slug: string }
+}
 
-  // FIX - compileMDX does not parse markdown images correctly.
-  const { content } = await compileMDX<{ title: string }>({
-    source: post.contentMarkdown,
-    components,
-    options: {
-      mdxOptions: {
-        rehypePlugins: [rehypeHighlight],
-        format: 'md',
-      },
-    },
-  })
+export default function PostPage({ params }: PostPageProps) {
+  // TODO: move this into action potentially?
+  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   return (
-    <>
-      <div className={coverImageContainer}>
-        <Image src={post.coverImage} alt="Article cover image" className={coverImageStyles} priority fill />
+    <article>
+      <div>
+        <time dateTime={post.date}>{format(parseISO(post.date), 'LLLL d, yyyy')}</time>
+        <h1>{post.title}</h1>
       </div>
-      <PageLayout title={post.title}>
-        <div className={postMetaStyles}>
-          <span className={timestampStyles}>
-            <TimeFormat dateTime={post.dateAdded} />
-          </span>
-          <span className={hstack({ gap: 2 })}>
-            {post.tags.map((tag) => (
-              <Badge key={tag.name}>{tag.name.toLowerCase()}</Badge>
-            ))}
-          </span>
-        </div>
-        <article>{content}</article>
-      </PageLayout>
-    </>
+      <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+    </article>
   )
 }
