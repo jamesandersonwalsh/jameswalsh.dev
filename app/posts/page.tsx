@@ -1,4 +1,3 @@
-import { grid, gridItem } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 import Link from 'next/link'
 import { compareDesc } from 'date-fns'
@@ -6,26 +5,10 @@ import { Post, allPosts } from 'contentlayer/generated'
 
 import { PageLayout } from '@ui/Layouts'
 import { TimeFormat } from '@ui/TimeFormat'
-import { UnorderedList } from '@/components/List'
+import { Timeline } from '@ui/Timeline'
 
-const articleListContainer = css({
-  px: '1.5rem',
-  mt: '1.5rem',
-  borderInlineStart: '1px solid',
-  borderInlineStartColor: 'slate.500',
-})
-const article = grid({
-  columns: {
-    mdTo2xl: 4,
-    sm: 1,
-  },
-  gap: 2,
-})
-const articleBodyStyles = gridItem({
-  colSpan: {
-    mdTo2xl: 3,
-    sm: 1,
-  },
+const articleBody = css({
+  width: '100%',
   bg: 'slate.800',
   _hover: {
     bg: 'slate.700',
@@ -60,24 +43,24 @@ export default function PostsIndexPage() {
 
   return (
     <PageLayout title="Articles about web dev, design, & JavaScript.">
-      <div className={articleListContainer}>
-        <UnorderedList>
-          {posts.map((post) => (
-            <UnorderedList.ListItem key={post.title}>
-              <article className={article}>
-                <TimeFormat size="sm" dateTime={post.publishedAt} />
-                <Link href={post.url} className={articleBodyStyles}>
-                  <h2 className={articleTitleStyles}>{post.title}</h2>
-                  <p className={articleBriefStyles}>{post.brief}</p>
-                  <div className={linkBlurb} aria-hidden="true">
-                    Read Full Article&nbsp;{`>`}
-                  </div>
-                </Link>
-              </article>
-            </UnorderedList.ListItem>
-          ))}
-        </UnorderedList>
-      </div>
+      <Timeline>
+        {posts.map((post) => (
+          <Timeline.Item key={post.title}>
+            <Timeline.LeftElement>
+              <TimeFormat size="sm" dateTime={post.publishedAt} />
+            </Timeline.LeftElement>
+            <Timeline.RightElement>
+              <Link href={post.url} className={articleBody}>
+                <h2 className={articleTitleStyles}>{post.title}</h2>
+                <p className={articleBriefStyles}>{post.brief}</p>
+                <div className={linkBlurb} aria-hidden="true">
+                  Read Full Article&nbsp;{`>`}
+                </div>
+              </Link>
+            </Timeline.RightElement>
+          </Timeline.Item>
+        ))}
+      </Timeline>
     </PageLayout>
   )
 }

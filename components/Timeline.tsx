@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react'
 import { grid, gridItem, stack } from 'styled-system/patterns'
 
 const timeline = stack({
+  width: '100%',
   gap: 10,
   px: '1.5rem',
   mt: '1.5rem',
@@ -9,7 +10,7 @@ const timeline = stack({
   borderInlineStartColor: 'slate.500',
 })
 export function Timeline({ children }: PropsWithChildren) {
-  return <div className={timeline}>{children}</div>
+  return <ol className={timeline}>{children}</ol>
 }
 
 const item = grid({
@@ -19,7 +20,7 @@ const item = grid({
   },
 })
 function Item({ children }: PropsWithChildren) {
-  return <section className={item}>{children}</section>
+  return <li className={item}>{children}</li>
 }
 
 const leftElement = gridItem({
