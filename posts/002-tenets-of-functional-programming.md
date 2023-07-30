@@ -1,0 +1,344 @@
+---
+title: Tenets of Functional Programming
+status: 'published'
+publishedAt: 2020-12-01
+brief: A beginners Guide
+tags:
+  - Functional Programming
+  - JavaScript
+  - Web Development
+  - Beginner Developers
+---
+
+_I originally published this article in Dec of 2020, but has been updated & adapted as time has gone on._
+
+Over the last few years, I've experimented and professionally used a handful of different programming languages. Some of these have been pure functional languages _(FP)_, some object-oriented (OOP), and most of which have been some pragmatic blend of the two (_hybrid languages_). As time went on I began asking myself the question, “If I were first being introduced to FP concepts today, what would I want to know first?”
+
+This article is my response to that question.
+
+## First, Some FP Wins 💙
+
+I’d like to start with a soft elevator pitch on why embracing FP concepts is going to make you as happy as a dog eating a hot dog.
+
+![Dog Eating Hot Dog](https://dev-to-uploads.s3.amazonaws.com/i/otgxgaqezbzfk8el4wj4.gif)
+
+Much like OOP, FP really starts to shine when you start focusing on crafting code by following some basic tenants. By adhering to these tenets I believe you will win:
+
+1. Testability
+2. Refactorability
+3. Readability
+4. Better Control Flow
+
+What’s interesting about each of these 4 wins is they feed off of each other in a positive way, which I like to refer to as _falling into the pit of success_.
+
+I.E - if you’re testing your code you can refactor it more. If you refactor it more it’s more readable.
+
+## Next, Some Baby Steps 🐣
+
+_"What makes a language an FP language, OOP language, or a hybrid language?"_ There are some basic guidelines we can use to sus out the coding style of a certain language or framework. We’ll take a look at that below.
+
+## Functions as a First-Class Citizen
+
+All popular programming languages have support for functions. But not all of them have **first-class** support for functions. So what exactly does it mean for a function to be "first-class?".
+
+Here are some simple rules for you to make that determination:
+
+> Functions can be declared at the top level.Functions can be assigned as values to variables.A function may accept another function as a parameter (and programmatically call it in the function body).You may declare nested functions within functions.The language allows you to "compose", or arrange smaller functions into larger functions.
+
+While FP patterns _DO exist_ in the languages below, functions are treated as 2nd class citizens. With that in mind let's eliminate them as a thought exercise.
+
+- **C# (OOP)**:
+  - We can assign functions to variables and pass functions to other functions _(using anonymous methods, LINQ, etc)_.
+  - **But** only within the scope of a method inside of a class inside of a namespace. So while some functional patterns exist, functions are not "first-class".
+- **Ruby (OOP):**
+  - Similar to C#, lambda expressions _(anonymous functions)_ exist. These can be defined inline and assigned as a value to a variable.
+  - You can declare methods within methods (function nesting)
+  - But ultimately whatever is being defined must exist within the scope of a class and its methods. Functions cannot exist on their own.
+- **JS (Hybrid):** You can declare functions, objects, and classes at the topmost level. Functions can be assigned as values to other variables and accepted as parameters. Function nesting is also allowed. But there is a fascinating little quirk about JS that isn't immediately recognized.
+  - In your browser devtools run the following code `(function(){}).constructor`. Did you catch it? Every JS function is actually just a `Function` **_object_**. Function itself is not the base type.
+  - That's right, at the end of the day you are actually constructing JS objects when you declare new functions. This has led many engineers to say "JS is actually Object-Oriented".
+  - While I think there is merit to the statement above, because these Function objects behave like traditional functions, pass every check in the first-class citizen test, and the language does not enforce the same strict namespacing/class encapsulation strictness in other OOP languages, I sit firmly in the "hybrid language" camp.
+- **Scala (Hybrid):** In Scala, it's the same story as JS, but with a slightly different flavor.
+  - Every function is a value. Functions may be nested. Functions may be declared at the top level and passed as parameters. For brevity, the first-class test is met.
+  - However, types and behaviors in Scala are defined by classes, traits, sub-classes, mixins, and all those other mechanisms you've come to expect from an OOP language.
+  - As you can see in Scala, similar to JS, they leave things completely up to you how deeply you decide to take one approach.
+- **Elixir (Strict FP):**
+  - functions are first-class citizens.
+  - Functions replace classes & objects as the root-level data type.
+  - No support for classical inheritance but instead, expect you to use **Function Composition** to achieve similar goals.
+  - Functions may be treated as values, but when you inspect under the hood you won't find an "object" type being used ephemerally.
+  - No support for popping back into OOP Land when you want to use traditional dependency injection, inheritance, or class instantiation.
+
+After reading this blog post, I don't expect you to run off and convert your Ruby project to Elixir. Nor do I want to assert that one approach is “the one and best way”. Rather, I want to introduce the idea that most modern tech stacks have sprinkles of FP across their language features. As we jump into the meat of these tenets I hope you can find something that applies to you wherever you're working.
+
+## Tenet 1: Higher-Order Functions 🧗
+
+If you have experience with modern web frameworks like React or Vue you've probably heard the term "we favor composition over inheritance". What's being described here isn't just a best practice, it's the first Tenet of FP.
+
+### Imperative VS Declarative Programming
+
+In classical OOP, shared functionality & state are often defined in classes that can be inherited. Let’s take a look at that using a Dog as an example.
+
+The Dog class may inherit from the Canine class which defines useful universal methods like `Run()`, `Bark()`, `Pant()`. You can write something like `Dog extends Canine` and some level of base functionality & state management will be inherited. This type of thinking is referred to as **"imperative"** thinking. In the following article, [CodeBurst Declarative vs Imperative Programming](https://codeburst.io/declarative-vs-imperative-programming-a8a7c93d9ad2), the bit of knowledge to glean is:
+
+> Imperative programming is a programming paradigm that uses statements that change a program’s state. Declarative programming is a programming paradigm that expresses the logic of a computation without describing its control flow.
+
+In functional programming, developers prefer "declarative" thinking. Functions aren't concerned about when they are called or by whom they are called, and aren't concerned about the larger global program state.
+
+1. What an imperative approach may look like: `new Dog().Bark()`
+2. The declarative approach may look more like this: `bark(() => dog)`.
+
+The bark function isn't concerned about **who** is barking, **when** they are barking during program execution, or for what reasons they may bark. It's only a function that takes in another function as a parameter, and barks on whatever the return value of that function parameter is. What you may have already realized is that we just inadvertently composed our first function.
+
+### Function Composition 🎼
+
+> Function composition is the process of combining two or more functions to produce a new function. Composing functions together is like snapping together a series of pipes for our data to flow through.
+
+Or to illustrate the point differently, I like to think of function composition in similar terms to music composition:
+
+> Musical notes simply exist, much like functions. But it is up to the composer to arrange the notes in their proper order to make up a song.
+
+To go back to the Dog example, `bark()`, `run()`, `wagTail()` are all arranged as individual pieces. They can be arranged in any order. You may arrange **(compose)** them so that a dog runs, barks, and then ways its tail, but you may also "compose" these functions in any number of interesting ways. It may not be a dog that wags its tail, but it may be `wagTail(() => fox)`. In this case, `wagTail` is the _Higher-Order Function_ that takes in the function that returns the entity that is doing the action.
+
+- **Testing** 🧪: You can imagine how using these higher-order functions allow for a pretty great testing experience. `wagTail()` can be tested in isolation, as can `dog()`. Later on, you can write an additional unit or integration test to figure out what happens when these functions are composed together in different ways.
+- **Control Flow** ⚙️: You can imagine how we might change the order of bark, run, wagTail. That is because _what_ is now separated from _when_. This is what control flow is all about.
+
+## Tenet 2: Function Purity 😇 _(Side Effects)_
+
+What makes a function pure? There is a simple test you can run to determine if a function is "pure" or "impure".
+
+**A function is considered pure if given the same input it always produces the same output**.
+
+To illustrate this point:
+
+```
+// pure
+function addTwoNumbers(num1, num2) {
+    return num1 + num2;
+};
+
+// impure
+let num = 0
+function updateStatefulNumber(numToAdd) {
+    num + numToAdd;
+    return num;
+};
+```
+
+- If we run `addTwoNumbers(2, 4)` we will **always** get 6. We can do this an infinite number of times and always get the same result.
+- On the other hand, if we run updateStatefulNumber`(10)` 3 times in a row with the same argument:
+  - The 1st time we will get 10. The second time we will get 20. The 3rd time we get 30.
+  - Even more nefarious is that if anywhere else in your code also decides it wants to change `num` _(and eventually it will)_ you have **_NO CLUE how it's getting updated and where_**. Now you're lost at sea, and maintaining `num` will get unwieldy fast.
+- The bottom function produces a **_side effect_**. We'll take about that down below.
+
+### Side Effects 💥
+
+The example above demonstrates that mutating `num` above would make for an impure function. But in the real world, there are usually _really good reasons_ why our functions might not always produce the same output given the same input.
+
+That reason is side effects. **Side effects are things that happen outside your function or local environment that you cannot control including**:
+
+1. Referencing the global state.
+2. Updating a record in the database.
+3. Making an HTTP request.
+4. Querying the DOM.
+5. Logging to the console or file system.
+
+The first time I was exposed to this idea, I threw my hands up in the air and said:
+
+> "So any time any real work needs to be done, I have a side effect, so what's the point?"
+
+I think it's important to understand that the goal **_isn't to eliminate all side effects_** or to shame yourself when you write an impure function. But rather to think about testing, flow control, and encapsulation.
+
+Thinking about things this way leads to questions like:
+
+> "How can I encapsulate side effects so that they don't trickle out across the entire codebase".
+
+### Practicing Side Effect Forgiveness
+
+1. In many cases, we can use composition to inject side effects through function parameters rather than declaring them inline or above the function body. This helps keep the function pure and side effect free.
+2. There is nothing wrong with a properly encapsulated side-effect-producing function. As long as we keep striving to isolate our side effects to **_just a few spots_** instead of everywhere.
+3. Sometimes I like to borrow, the adapter pattern (from OOP) to help you look at your codebase and move all your side effects to a handful of spots for maintainability. Adapters can sit between side effect-free code, and "side effect-ish" code.
+
+## Tenet 3: Immutability 💾
+
+Immutability is pretty straightforward to understand but has some powerful ramifications. Immutability simply put is defined as:
+
+> Data that may not be mutated only copied
+
+```
+// this works, however, this var can be changed later on
+let myMutableString = 'James Walsh'
+
+// first change 😭
+myMutableString = ' is a really cool guy!'
+
+function changeString() {
+  // second change
+  myMutableString = 'something entirely different'
+}
+
+const immutableString = 'James Walsh'
+
+// Throws the error Uncaught TypeError: Assignment to constant variable.
+immutableString = 'J. Walsh'
+```
+
+- That's pretty much it. Because we strive to have side-effect-free & "stateless functions", when we need to change data we copy the data first, then modify it. This achieves function purity by eliminating the temptation to modify a state outside of the function's direct scope.
+- In redux, immutability enables features like "time-travel" debugging that allows you to see how data is changing as each function manipulates a given data set.
+- In ES5, we often used `Object.assign()` to create copies of new objects. In modern JS, the spread operator takes care of most of this for us, without us doing any real work to manage copies.
+
+> ⚠️ Warning: Copying objects can be expensive. It buys you testability, readability, and pure functions, but it isn't a silver bullet for all problems.
+
+## Tenet 4: Referential Transparency 🧮
+
+> "If a function references another function, it may be swapped out with that function's implementation and will still return the same result."
+
+When we work with immutable data and pure functions, we gain referential transparency. We can substitute a function call with the function body and nothing should change.
+
+Consider this simple example:
+
+```
+function add(num1, num2) {
+    return num1 + num2
+}
+
+function divide(num1, num2) {
+    return num1 / num2
+}
+
+// Same result is produced in many different ways with referential transparency
+
+// Ex 1: Using function references
+const result = divide(add(2, 2), add(2,4))
+// Ex 2: Replace function references with values that are function references
+const num1 = add(2, 2,)
+const num2 = add(2, 4)
+const result = divide(num1, num2)
+// Ex 2: Replace values with add function refs, with the function implementation
+const num1 = 2 + 2
+const num2 = 4 + 2
+const result = divide(num1, num2)
+// Ex 3: Replace divide function ref with the function implementation
+const num1 = 2 + 2
+const num2 = 4 + 2
+const result = num1 / num2
+// Ex 4: Replace all references with pure single line implementation
+const result = (2 + 2) / (4 + 2)
+```
+
+- No matter which implementation or reference we substituted, the value of the result will always be `0.66` (repeating).
+- Referential transparency delivers on the promise of being able to refactor, as well as write comprehensive tests where you can use test data in your test case, or mock functions which return appropriate test data, without fear that results will look wildly different in production.
+
+## Tenet 5: Functors ⚡️
+
+Now that you have a good foundation, we can learn about Functors which are going to give you an insane amount of readability with tons of expressiveness. Functors are the primary way we are going to modify any immutable data.
+
+### Functor Definitions
+
+So what is a functor? Ask any developer and I guarantee they will each give you a different answer. So to cover my bases, I'm going to give you a few different definitions to work with:
+
+> A functor is a set of values arranged in a shape that can be mapped over (or changed).A functor is a collection that can be passed a function and apply it non-destructively to all of its elements, returning another functor.Functions or Objects which have implemented .map or variation of map.
+
+Little confused? You're not alone. Let's take a look at an example you may already be using. Let's explore the JavaScript `[Array.map](http://array.map/)`.
+
+### Scenario
+
+Let's say our user is an animal shelter that wants to be able to provide a new pet owner with a list of the _names_ of all the cats that are _female_ that don't have _long hair_. They'd also like this list sorted by kitties that are used to being _indoors_.
+
+Here is our data set:
+
+```
+const cats = [
+  { name: 'Tony', coat: 'long', gender: 'male', isIndoorCat: false },
+  { name: 'Tinkerbell', coat: 'short', gender: 'female', isIndoorCat: true },
+  { name: 'Whiskers', coat: 'short', gender: 'male', isIndoorCat: false },
+  { name: 'Snickers', coat: 'short', gender: 'female', isIndoorCat: true },
+  { name: 'Nala', coat: 'long', gender: 'female', isIndoorCat: false },
+  { name: 'Selina', coat: 'short', gender: 'female', isIndoorCat: false },
+  { name: 'Gusto', coat: 'short', gender: 'male', isIndoorCat: true },
+]
+```
+
+### Imperative Code 🤮
+
+```
+let catsToShow = [] //mutatable state we can reference from inside our loop
+  for (let cat of cats) {
+    if (cat.gender === 'female' && cat.coat === 'short') {
+      if (cat.isIndoorCat === true) {
+        catsToShow.unshift(cat) // sort indoor first
+      } else if (cat.isIndoorCat === false) {
+        catsToShow.push(cat) // sort outdoor last
+      }
+    }
+  }
+
+  for (let cat of catsToShow) {
+    console.log(cat.name) // only display the names
+  }
+```
+
+What's wrong with this code?
+
+1. We're mutating a lot of state.
+2. Control flow is hard to keep track of.
+3. We can't reason about one part of our requirements without reasoning about the whole of the program.
+
+Let's see how Functors can make simple tasks much easier to look at and think about.
+
+### Using Functors (Round 1)
+
+Now since Array is a functor it returns _(itself)_ another functor. The Array Functor provides a few useful methods that perform mappings.
+
+1. `.filter()` which takes a function as a parameter that returns a truthy value to specify which items in the collection should be included in the new Functor.
+2. `.map()` which takes a function as a parameter that returns a new _copied and changed_ version of the index in the collection which will be included in the new Functor.
+3. `.sort()` which takes a function that's return value specifies the sort order of the items returned by the new Functor.
+
+```
+const filteredCats = cats.filter(cat => {
+    return cat.gender === 'female' && cat.coat === 'short'
+  })
+const sortedCats = filteredCats.sort(cat => {
+    return cat.isIndoorCat
+})
+const namesOfCats = sortedCats.map(cat => {
+    return cat.name
+})
+
+console.log(namesOfCats)
+```
+
+Isn't that a little easier on the eyes?
+
+### Using Functors (Round 2)
+
+We can simplify this further.
+
+1. Functors always return a new Functor, so we can use function chaining to pipe outputs to new functors as inputs.
+2. Let's also add some syntax sugar that lots of popular languages support including implicit function returns, & removing function braces.
+
+```
+const result = cats
+    .filter(cat => cat.gender === 'female' && cat.coat === 'short')
+    .sort(cat => cat.isIndoorCat)
+    .map(cat => cat.name)
+
+console.log(result)
+```
+
+## TLDR;
+
+1. **Function Composition** _(Higher Order Functions that compose other functions)_ helps us achieve things we'd achieve through Inheritance but with the advantage of achieving some sweet de-coupling.
+2. **Pure Functions** help us increase our code predictability, testing, and simplicity, and force us to think about how to properly encapsulate volatile parts of the codebase.
+3. **Object Immutability** helps us achieve function purity through "copying data first" before changing state. And also helps enable us to practice time travel debugging.
+4. **Referential Transparency** helps us mock data during testing, refactor our code with confidence, and structure our code in flexible ways.
+5. **Functors** help us change immutable data with ease, usually end up shortening the amount of code we need to write, and further help us de-couple control flow.
+
+## Extra Credit: Monads, Memoization, Currying, Recursion
+
+I view the 5 tenets above as a good way to begin exploring FP concepts. But you will find that they serve as a good baseline to explore more interesting behaviors. I plan to write about each of these in more detail later on.
+
+- Exploring Functors will eventually lead you to Monads _(which are a type of functor that makes working with side effects easier)_.
+- Function Composition will lend itself well to function currying.
+- Function Purity can lead to memoization which has the potential to offer system performance and tuning wins.
+- Recursion is useful when performing data branching logic, but use cases outside of that may be on the rarer side.

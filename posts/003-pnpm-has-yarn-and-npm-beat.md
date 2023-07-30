@@ -1,0 +1,119 @@
+---
+title: PNPM has both Yarn & NPM Beat
+status: 'published'
+publishedAt: 2023-07-23
+brief: The case for switching your JS package manager... again.
+tags:
+  - pnpm
+  - yarn
+  - node.js
+  - npm
+---
+
+## **Intro**
+
+One of the biggest complaints you'll hear about the Javascript ecosystem is the *tendency of the community to reinvent the wheel*. Admittedly, while I find this to be one of the biggest **strengths** of the community, the shade thrown our way is not completely unwarranted. I think this is most succinctly proven by the fact that we have **_3 package managers_**. In any other language or runtime, this would be unheard of. And our package management isn't our worst offender. Right now by my accounting, there are 5-7 popular ways to build & transpile JS/TS so that it can run on a server or in the browser. Compare this setup to most other languages, where you just use *the language's compiler,* and we can maybe start to understand why our ecosystem can sometimes be justifiably on the end of some jokes.
+
+## **History Lesson: Yarn vs NPM**
+
+At the same time, the competition in our ecosystem is unrivaled, and it consistently pushed us forward. There is no doubt that Yarn gaining popularity led to many big enhancements to NPM, including simple things we now take for granted.
+
+1. For instance, you can thank the yarn team for the fact that NPM has a lock file. Yarn launched with a lock file out of the box with high praise.
+2. Yarn also invented the idea of a workspace, which forced NPM to support workspaces too.
+   1. The simple addition of all package managers fully supporting workspaces led to entirely new segments of libraries, frameworks, and tooling being created that never existed before. Including NX, Turborepo, & Lerna evolving to live alongside workspaces too.
+3. **[Yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/#toc-why-would-you-want-to-do-this)** helped get developers out of security jams when dependabot wasn't enough.
+
+All of these tools are industry standards, and we have the yarn team to thank for the pressure to get them into their current state. My point is that **_this competition is a good thing_**, and developers having a choice counts for something.
+
+I hope that if you're using NPM or Yarn you'll install pnpm and give it a fair run. Yes, they reinvented the wheel. Again. But I think they did it justice. I've made the switch to pnpm painlessly, and I'm not looking back anytime soon.
+
+## **What Makes PNPM Different?**
+
+All of this information is readily available in **[PNPM's Motivation White Paper](https://pnpm.io/motivation)**. Here is the **_TLDR;_** so that you can make quick decisions.
+
+### **Problems with Flat Node Modules**
+
+- Both yarn classic & npm hoist all dependencies, including dependencies of dependencies to the root of the `node_modules` directory.
+- This is slow, and can sometimes create problems with resolutions that take up time as dependency graphs resolve.
+- PNPM only installs the specified dependencies in your `package.json` to the `node_modules` directory. All "dependencies of dependencies" are symlinked from the **content addressable store**.
+
+### **Content Addressable Store**
+
+> When using npm, if you have 100 projects using a dependency, you will have 100 copies of that dependency saved on disk. With pnpm, the dependency will be stored in a content-addressable storeAll the files are saved in a single place on the disk. When packages are installed, their files are hard-linked from that single place, consuming no additional disk space. This allows you to share dependencies of the same version across projects.
+
+Saving disk space is becoming increasingly relevant. In a world where we ever increasingly rely on GitHub Actions, GitLab pipelines, and other CI/CD vendors, this benefit can make a real world difference in your development flow. Since most of our web applications & services are running inside docker containers *(or abstractions around docker containers)* these disk space wins will also convert to time and money saved as our pipelines flow code into customer's hands. And this benefit costs nothing since **_PNPM is built on top of NPM and has compatibility with its CLI_**.
+
+### **Symlinked Node Modules**
+
+In the last section, we talked about symlinking dependencies from the content addressable store. And I'd like to focus on why that's powerful. Check out this super common use case outlined in the white paper.
+
+> If you depend on different versions of the dependency, only the files that differ are added to the store. For instance, if it has 100 files, and a new version has a change in only one of those files, pnpm update will only add 1 new file to the store, instead of cloning the entire dependency just for the singular change.
+
+This is fundamentally no different than how frontend engineers handle caching HTTP requests to improve SPA performance. Intelligent caching works hand in hand with improving your normal development flow.
+
+## **Nice Features To Know About**
+
+### **You Can Get Rid of NVM**
+
+That’s right. You can completely uninstall tools like NVM or FNM and have pnpm manage which NodeJS version you’re on. Here are some steps to test this out:
+
+1. You'll want to uninstall both npm and node globally from whatever mechanism you used to install them. Be it `nvm`, `brew`, `choco` or some other means.
+2. Next, you'll want to install pnpm using **[the pnpm install scripts](https://pnpm.io/installation)** mentioned in their documentation. On POSIX machines like Mac & Linux you can run the following:
+
+   **COPY**
+
+   ```sh
+    curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+   ```
+
+3. Once you have a clean fresh machine with pnpm installed, use the `env` command to install the latest LTS version of `node` :
+4. **COPY**
+
+   ```sh
+      pnpm env use --global lts
+
+   ```
+
+5. To make sure everything is installed correctly use the following:
+6. **COPY**
+
+   ```sh
+      pnpm env ls
+
+   ```
+
+7. To double-check that your global node version is managed by pnpm directly run:
+8. **COPY**
+
+   ```sh
+      which node
+
+   ```
+
+   The output should be something like `/<your-home-directory>/Library/pnpm/node`.
+
+9. If you ever want to change your node version as you would normally with NVM you can use the same command mentioned in step 5. In this example pin our global node version to `18.16.1`
+
+   **COPY**
+
+   ```sh
+    pnpm env use --global 18.16.1
+
+   ```
+
+### **PNPM is Fast**
+
+At the end of the day, this is the feature that will make or break a package manager in my opinion. *The only real job of a package manager is to deliver your dependencies from a registry in an efficient way*. Rest assured that **pnpm is fast**. Plain and simple. Check out this link to **[openly maintained benchmarks](https://pnpm.io/benchmarks)** by the Yarn / Meta team. They run every 4 hours and are administered against two use cases; a fresh Nextjs install and a fresh Gatsby install. The Yarn team broadcasts the performance honestly, even when yarn isn't always the clear winner *(which has been the case up until recently)*. While I think it's important to let people read benchmarks and decide for themselves on interpretation, one small caveat I'd like to add here is that yarn's performance metrics come with a small catch. Most people right now are using yarn classic. At the time of this writing, the non-classic version of yarn still makes up a huge minority of yarn installs. While its performance looks promising, a more fair comparison of how people are using package managers in the real world would be to compare npm, pnpm, and yarn classic.
+
+While I'm beyond happy with pnpm's performance *(and think it speaks for itself)*, I'll add that recently the performance wins between pnpm, npm, and yarn are all beginning to reach a plateau. This is a good thing for the entire NodeJS ecosystem. But after careful consideration of the benchmarks you can rest assured that not only will pnpm not slow you down, but in common everyday use cases will speed you up.
+
+## **Package Manager Interoperability**
+
+PNPM seems to play nicely with `corepack`. If you haven't heard about `corepack` don't worry, I'm still in the dark here too. At the time of this writing, corepack feels promising but still painful and early.
+
+Corepack seems to promise to unlock some level of interoperability between package managers. If you want more information on this, **[Shalvah has a great blog post going more in depth](https://blog.shalvah.me/posts/why-arent-node-js-package-managers-interoperable#corepack)**. Using `corepack` to specify your package manager is sort of the opposite of using `pnpm env`. Instead of having `pnpm` manage your node version, **_node would manage all your different package management tools_** for interoperability. There are trade-offs to this approach, and Shalvah goes into more detail about what they are.
+
+## **Wrapping Up**
+
+So you can ditch using node version manager, benefit from the full power of the content addressable store, and every time you run `pnpm install` you're gonna sleep easy at night knowing no meaningful amount of your day will be spent waiting for dependencies installation to finish. PNPM deserves your attention, I know it will continue to have mine.

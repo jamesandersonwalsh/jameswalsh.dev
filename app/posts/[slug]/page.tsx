@@ -9,7 +9,8 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 
   return {
     title: post.title,
-    // TODO: description: post.description
+    brief: post.brief,
+    publishedAt: post.publishedAt,
   }
 }
 
@@ -25,8 +26,10 @@ export default function PostPage({ params }: PostPageProps) {
   return (
     <article>
       <div>
-        <time dateTime={post.date}>{format(parseISO(post.date), 'LLLL d, yyyy')}</time>
+        <time dateTime={post.publishedAt}>{format(parseISO(post.publishedAt), 'LLLL d, yyyy')}</time>
         <h1>{post.title}</h1>
+        <h2>{post.brief}</h2>
+        {/* TODO: support tags */}
       </div>
       <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
     </article>
