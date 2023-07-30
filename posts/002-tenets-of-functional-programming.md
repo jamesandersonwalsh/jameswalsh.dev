@@ -111,18 +111,18 @@ What makes a function pure? There is a simple test you can run to determine if a
 
 To illustrate this point:
 
-```
+```js
 // pure
 function addTwoNumbers(num1, num2) {
-    return num1 + num2;
-};
+  return num1 + num2
+}
 
 // impure
 let num = 0
 function updateStatefulNumber(numToAdd) {
-    num + numToAdd;
-    return num;
-};
+  num + numToAdd
+  return num
+}
 ```
 
 - If we run `addTwoNumbers(2, 4)` we will **always** get 6. We can do this an infinite number of times and always get the same result.
@@ -165,7 +165,7 @@ Immutability is pretty straightforward to understand but has some powerful ramif
 
 > Data that may not be mutated only copied
 
-```
+```js
 // this works, however, this var can be changed later on
 let myMutableString = 'James Walsh'
 
@@ -197,21 +197,21 @@ When we work with immutable data and pure functions, we gain referential transpa
 
 Consider this simple example:
 
-```
+```js
 function add(num1, num2) {
-    return num1 + num2
+  return num1 + num2
 }
 
 function divide(num1, num2) {
-    return num1 / num2
+  return num1 / num2
 }
 
 // Same result is produced in many different ways with referential transparency
 
 // Ex 1: Using function references
-const result = divide(add(2, 2), add(2,4))
+const result = divide(add(2, 2), add(2, 4))
 // Ex 2: Replace function references with values that are function references
-const num1 = add(2, 2,)
+const num1 = add(2, 2)
 const num2 = add(2, 4)
 const result = divide(num1, num2)
 // Ex 2: Replace values with add function refs, with the function implementation
@@ -247,7 +247,7 @@ Let's say our user is an animal shelter that wants to be able to provide a new p
 
 Here is our data set:
 
-```
+```js
 const cats = [
   { name: 'Tony', coat: 'long', gender: 'male', isIndoorCat: false },
   { name: 'Tinkerbell', coat: 'short', gender: 'female', isIndoorCat: true },
@@ -261,21 +261,21 @@ const cats = [
 
 ### Imperative Code 🤮
 
-```
+```js
 let catsToShow = [] //mutatable state we can reference from inside our loop
-  for (let cat of cats) {
-    if (cat.gender === 'female' && cat.coat === 'short') {
-      if (cat.isIndoorCat === true) {
-        catsToShow.unshift(cat) // sort indoor first
-      } else if (cat.isIndoorCat === false) {
-        catsToShow.push(cat) // sort outdoor last
-      }
+for (let cat of cats) {
+  if (cat.gender === 'female' && cat.coat === 'short') {
+    if (cat.isIndoorCat === true) {
+      catsToShow.unshift(cat) // sort indoor first
+    } else if (cat.isIndoorCat === false) {
+      catsToShow.push(cat) // sort outdoor last
     }
   }
+}
 
-  for (let cat of catsToShow) {
-    console.log(cat.name) // only display the names
-  }
+for (let cat of catsToShow) {
+  console.log(cat.name) // only display the names
+}
 ```
 
 What's wrong with this code?
@@ -294,15 +294,15 @@ Now since Array is a functor it returns _(itself)_ another functor. The Array Fu
 2. `.map()` which takes a function as a parameter that returns a new _copied and changed_ version of the index in the collection which will be included in the new Functor.
 3. `.sort()` which takes a function that's return value specifies the sort order of the items returned by the new Functor.
 
-```
-const filteredCats = cats.filter(cat => {
-    return cat.gender === 'female' && cat.coat === 'short'
-  })
-const sortedCats = filteredCats.sort(cat => {
-    return cat.isIndoorCat
+```js
+const filteredCats = cats.filter((cat) => {
+  return cat.gender === 'female' && cat.coat === 'short'
 })
-const namesOfCats = sortedCats.map(cat => {
-    return cat.name
+const sortedCats = filteredCats.sort((cat) => {
+  return cat.isIndoorCat
+})
+const namesOfCats = sortedCats.map((cat) => {
+  return cat.name
 })
 
 console.log(namesOfCats)
@@ -317,11 +317,11 @@ We can simplify this further.
 1. Functors always return a new Functor, so we can use function chaining to pipe outputs to new functors as inputs.
 2. Let's also add some syntax sugar that lots of popular languages support including implicit function returns, & removing function braces.
 
-```
+```js
 const result = cats
-    .filter(cat => cat.gender === 'female' && cat.coat === 'short')
-    .sort(cat => cat.isIndoorCat)
-    .map(cat => cat.name)
+  .filter((cat) => cat.gender === 'female' && cat.coat === 'short')
+  .sort((cat) => cat.isIndoorCat)
+  .map((cat) => cat.name)
 
 console.log(result)
 ```

@@ -10,7 +10,7 @@ Built using Next.js, PandaCSS, & Typescript.
 
 To start the development server:
 
-```bash
+```sh
 pnpm i && pnpm dev
 ```
 
