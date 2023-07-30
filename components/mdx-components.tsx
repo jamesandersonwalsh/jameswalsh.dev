@@ -2,12 +2,18 @@ import { PropsWithChildren } from 'react'
 import { css } from 'styled-system/css'
 import { stack } from 'styled-system/patterns'
 
+const img = css({
+  borderRadius: 'lg',
+  my: '1rem',
+  maxH: '800px',
+  maxW: '800px',
+})
 const h1 = css({
   py: '2rem',
 })
 const h2 = css({
   fontWeight: 'bolder',
-  py: '1.5rem',
+  py: '1rem',
 })
 const h3 = css({
   fontWeight: 'bolder',
@@ -36,16 +42,21 @@ const blockquote = css({
   my: '1rem',
   px: '1.25rem',
 })
-const inlineCode = css({
-  bg: 'neutral.700',
-  color: 'neutral.300',
-  borderRadius: 'sm',
-  py: '1px',
-  px: '4px',
+const pre = css({
+  borderRadius: 'lg',
+  bg: 'slate.800',
+  p: 2,
+})
+const code = css({
+  fontSize: 'md',
 })
 
-export const components = {
-  // FIX - Process img for MD/MDX.
+export const mdxComponents = {
+  img: (props: PropsWithChildren) => (
+    <img {...props} className={img}>
+      {props.children}
+    </img>
+  ),
   h1: (props: PropsWithChildren) => (
     <h1 {...props} className={h1}>
       {props.children}
@@ -81,8 +92,13 @@ export const components = {
       {props.children}
     </blockquote>
   ),
+  pre: (props: PropsWithChildren) => (
+    <pre className={pre} {...props}>
+      {props.children}
+    </pre>
+  ),
   code: (props: PropsWithChildren) => (
-    <code className={inlineCode} {...props}>
+    <code className={code} {...props}>
       {props.children}
     </code>
   ),
