@@ -58,7 +58,7 @@ export function TopNavbar() {
     <nav className={navBar}>
       <ul className={navList}>
         {navItems.map((item) => {
-          const variant = item.href === pathname ? 'current' : 'default'
+          const variant = pathname.includes(item.href) ? 'current' : 'default'
           return (
             <li key={item.href} className={navItem({ visual: variant })}>
               <Link href={item.href} className={css({ color: 'inherit !important' })}>
