@@ -1,5 +1,6 @@
 import { format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
+import { Post } from '@/.contentlayer/generated'
 
 import { css } from 'styled-system/css'
 import { hstack, stack } from 'styled-system/patterns'
@@ -36,10 +37,15 @@ interface PostPageProps {
   params: { slug: string }
 }
 
+function getPostBySlug(slug: string): Post {
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
+  if (!post) throw new Error(`Post not found for slug: ${slug}`)
+
+  return post
+}
+
 export default function PostPage({ params }: PostPageProps) {
-  // TODO: move this into action potentially?
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const post = getPostBySlug(params.slug)
 
   return (
     <PageLayout title={post.title}>

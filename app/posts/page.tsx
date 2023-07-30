@@ -2,7 +2,7 @@ import { grid, gridItem } from 'styled-system/patterns'
 import { css } from 'styled-system/css'
 import Link from 'next/link'
 import { compareDesc } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
+import { Post, allPosts } from 'contentlayer/generated'
 
 import { PageLayout } from '@ui/Layouts'
 import { TimeFormat } from '@ui/TimeFormat'
@@ -45,8 +45,13 @@ const linkBlurb = css({
   mt: '1rem',
 })
 
-export default function PostsIndexPage() {
+function getAllPosts(): Post[] {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+  return posts
+}
+
+export default function PostsIndexPage() {
+  const posts = getAllPosts()
 
   return (
     <PageLayout title="Articles about web dev, design, & JavaScript.">
