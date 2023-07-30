@@ -19,7 +19,7 @@ const socialLinkStack = hstack({
   gap: 5,
 })
 const pageDivider = divider({
-  color: 'slate.600',
+  color: 'zinc.600',
 })
 const columnGrid = grid({
   mt: '4rem',

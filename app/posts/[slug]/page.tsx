@@ -24,7 +24,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 const timestampStyles = css({
   // REFACTOR - These timestamp borders should be componentized.
   borderInlineStart: '2px solid',
-  borderInlineStartColor: 'slate.500',
+  borderInlineStartColor: 'zinc.500',
   px: '0.5rem',
   fontWeight: 'medium',
   fontSize: 'lg',

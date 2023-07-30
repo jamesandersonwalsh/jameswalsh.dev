@@ -23,7 +23,7 @@ function Item({ children }: AccordionItemProps) {
   return (
     <>
       <div className={accordionItem}>{children}</div>
-      <div className={divider({ orientation: 'horizontal', color: 'slate.500' })} />
+      <div className={divider({ orientation: 'horizontal', color: 'zinc.500' })} />
     </>
   )
 }
@@ -35,7 +35,7 @@ const h2 = css({
 const button = flex({
   flexDir: 'row',
   width: '100%',
-  color: 'slate.300',
+  color: 'zinc.300',
   justifyContent: 'space-between',
   alignItems: 'center',
   _hover: {
