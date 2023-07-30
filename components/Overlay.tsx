@@ -2,14 +2,14 @@ import { PropsWithChildren } from 'react'
 import { css } from 'styled-system/css'
 
 const overlay = css({
-  backdropFilter: 'blur(1px)',
+  backdropFilter: 'blur(12px)',
   backgroundColor: 'rgba(0, 0, 0, 0.6)',
   width: '100vw',
   height: '100vh',
   position: 'fixed',
   top: 0,
   left: 0,
-  zIndex: 9, // FIX - Refactor Overlay to use a different stacking context rather than z-index: 9.
+  zIndex: 1,
 })
 
 type OverlayProps = {
