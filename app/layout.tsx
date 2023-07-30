@@ -21,7 +21,9 @@ const mainStyles = flex({
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
+      <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>James Walsh - Software Engineer, self-proclaimed developer advocate, UI/UX enthusiast.</title>
       <body className={inter.className}>
         <Paper>
           <TopNavbar />
