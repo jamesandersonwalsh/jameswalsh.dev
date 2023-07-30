@@ -1,0 +1,92 @@
+---
+title: A Mac Guy’s Guide to Windows Development
+status: 'published'
+publishedAt: 2019-08-29
+brief: Why You Need To Try WSL
+tags:
+  - WSL
+  - Linux
+  - Windows Subsystem for Linux
+---
+
+I've been writing NodeJS on a 2016 Macbook Pro since well... _2016_. And the experience has been gr8. Except for one small problem...
+
+![Using a mac as a trackpad](https://images.iskysoft.com/images/blog/11.jpg)
+
+I am an avid PC gamer. And I'm not holding my breath for a "Gaming Macbook Air" to come out any time soon... Beyond that, I also love building PCs. I know each and every component in my gaming rig because I hand-picked everything. There is a certain craftsmanship aspect to it that has always intrigued me.
+
+When I come home at the end of the day and need some time to decompress 2 things come to mind. Do I want to pwn N00bs, or work on side projects? Depending on my answer I'll be on entirely different hardware, which **SUCKS**. So for _years,_ I've been trying to make my experience at home with gaming & writing Node just a bit smoother.
+
+The fact remains that beyond gaming there may be many reasons why you are interested in moving to Windows. This is my journey 🚀.
+
+## The Alpha Solution: "Cordy McCord Face"
+
+![Dongle Hell](https://blogs.synopsys.com/tousbornottousb/files/2016/12/Dongle-Hell.jpg)
+
+The alpha solution is one I'm pretty sure many reading this article already do or know... I call this solution _"Cordy McCord Face"_. What you do is buy a nice laptop stand, a display switcher, and a USB hub that connects to a central keyboard and mouse. That way you can dock your MacBook, press 3 buttons total _(switch display, switch USB, power on device)_ and BOOM. Now you're cooking with avocado oil, and can 👏 "seamlessly" 👏 switch 👏 between 👏 your 👏 gaming 👏 rig 👏 and 👏 mac.
+
+### Cordy McCord Face Problems
+
+If you like to re-arrange your office, ever move, have the ports on your laptop change, or have lots of dongles... it can just be a huge pain. Cable management also sucks if you need to have your office look "clean".
+
+## The Beta Solution: Dual Boot
+
+Dual boot Ubuntu _(or some other distro)_. The thing that makes NodeJS development so great on Mac is that Linux & Mac are so closely related. After all, MacOS _is_ Unix based. I love using tools like `zsh`, and most of the dependencies I need for app development are available via `homebrew` or a simple `apt-get`. So I felt like I would feel right at home on Ubuntu.
+
+### Dual Boot Problems
+
+Let's face it. No matter _how good_ the Linux desktop environment is getting, **it will never be as polished as Mac & Windows**. Maybe that will change someday. I hope so. I personally ran into an obscure issue with Grub, where it would reset my Ubuntu OS instance to a fresh install whenever I switched between operating systems. Ugh... I'm sure there was a solution. But I don't _want_ to spend time debugging those things. Those are issues I know I will never have on Windows or Mac. And if I'm going to write code on my PC the development experience needs to be _just as good as Mac_ otherwise I know I won't do it.
+
+## The Solution: Going All In On Windows
+
+For me to go all in on Windows I needed a few things to happen.
+
+1. I needed to be able to use`bash`, or even more preferable: `zsh` with `oh-my-zsh`
+2. I needed all of my editor settings to seamlessly transfer over.
+3. I needed Node through _[Node Version Manager](https://github.com/nvm-sh/nvm)_
+4. I needed Yarn for package management.
+5. I needed Docker.
+
+### The Shell
+
+The best part about going all in on Windows is that I bypassed Windows altogether. My development environment is isolated from my gaming environment.
+
+1. Download the [Ubuntu app](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) from the Windows Store. Once this install is complete, you will have the [Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10) running on your PC. _(WSL also supports a handful of other distros, I just prefer Ubuntu)_
+
+![Ubuntu App](https://thepracticaldev.s3.amazonaws.com/i/65bnmr86xziuut0wyndw.png)
+
+1. Install the new [Windows Terminal app](https://www.youtube.com/watch?v=8gw0rXPMMPE) from the Windows Store.
+
+   ![Terminal App](https://thepracticaldev.s3.amazonaws.com/i/hylwd64ekvc7rexbhmbb.png)
+
+The new terminal app is **sleek**. It's minimal, it stays out of the way, it actually supports re-sizing _(cough cough command prompt)_, and here's the best part... If you have WSL installed it has automatic support for WSL. Just open a new WSL tab and _boom_. You're running Linux bois.
+
+_Drops Mic._
+
+_Please note that the Terminal app is still in Preview. I haven't had any issues with it as of 08-28-2019._
+
+1. From there the rest was history. I could fly free. I followed the Ubuntu specific guides for installing docker, git, yarn, node version manager, and all my other dependencies. `sudo apt-get` worked great with no hiccups. I tried to find things to poke at, but in my personal experience, things worked exactly the way they did when I was using the terminal in Ubuntu natively.
+
+### The Editor
+
+I use VS Code. But I had so many small details configured just the way I wanted on Mac that I didn't want to have to set up again.
+
+I discovered a handy extension in the marketplace called [Settings Sync](https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync) that has worked wonders.
+
+Because all settings in VS Code eventually become some sort of `json` object. What Setting Sync does is save your VS Code Settings to a Github Gist. You can then push settings up to a gist and pull settings down to a new editor instance on a different machine. It's a thing of beauty.
+
+## Potential "Gotchas" 😳
+
+1. If you're coming from Mac/Ubuntu then all of your line endings are `LF`. VS Code uses `CLRF` on Windows by default. You will want to make sure you go to user settings and set `files.eol: 'lf'`
+2. The `code` command works great inside of WSL. If you are using Webstorm, or a different IDE, it can be a bit tricky to set up commands in your path to be able to open up the IDE from the command line.
+3. You may want to set up symlinks from `/mnt/c/**` -> your User directory in Windows so that you can find your files inside the File Explorer.
+
+## TLDR;
+
+1. Use WSL
+2. Use the new Windows Terminal App
+3. Use VSCode.
+4. Switch between gaming & coding like an absolute badass.
+5. Profit.
+
+I had such a great experience switching to this setup that I was even able to generate a [super small portfolio site](https://jameswalsh.tech/) completely in windows with my Mac tightly closed in my backpack. I took plenty of Overwatch breaks because for the first time... _I could_.

@@ -46,7 +46,7 @@ const linkBlurb = css({
 })
 
 export default function PostsIndexPage() {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
 
   return (
     <PageLayout title="Articles about web dev, design, & JavaScript.">
@@ -55,11 +55,10 @@ export default function PostsIndexPage() {
           {posts.map((post) => (
             <UnorderedList.ListItem key={post.title}>
               <article className={article}>
-                <TimeFormat size="sm" dateTime={post.date} />
+                <TimeFormat size="sm" dateTime={post.publishedAt} />
                 <Link href={post.url} className={articleBodyStyles}>
                   <h2 className={articleTitleStyles}>{post.title}</h2>
-                  {/* TODO: can we get briefs through contentlayer? */}
-                  {/* <p className={articleBriefStyles}>{post.brief}</p> */}
+                  <p className={articleBriefStyles}>{post.brief}</p>
                   <div className={linkBlurb} aria-hidden="true">
                     Read Full Article&nbsp;{`>`}
                   </div>
