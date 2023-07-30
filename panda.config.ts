@@ -46,5 +46,6 @@ export default defineConfig({
       fontStyle: 'italic',
     },
   },
+  emitPackage: true,
   outdir: 'styled-system',
 })
