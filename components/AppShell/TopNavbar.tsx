@@ -27,7 +27,7 @@ const navItem = cva({
     height: 'fit-content',
     alignItems: 'center',
     justifyContent: 'center',
-    py: '0.2rem',
+    py: '0.25rem',
     px: '0.5rem',
     borderRadius: '2xl',
     width: '100%',
