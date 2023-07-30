@@ -2,7 +2,7 @@ import { defineConfig } from '@pandacss/dev'
 
 export default defineConfig({
   preflight: true,
-  include: ['./**/*.{ts,tsx}'],
+  include: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
     extend: {},
   },
@@ -46,6 +46,5 @@ export default defineConfig({
       fontStyle: 'italic',
     },
   },
-  emitPackage: true,
   outdir: 'styled-system',
 })
