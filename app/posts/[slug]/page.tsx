@@ -1,11 +1,13 @@
 import { allPosts } from 'contentlayer/generated'
 import { Post } from '@/.contentlayer/generated'
-
+import { useMDXComponent } from 'next-contentlayer/hooks'
 import { css } from 'styled-system/css'
 import { hstack, stack } from 'styled-system/patterns'
+
 import { TimeFormat } from '@ui/TimeFormat'
 import { PageLayout } from '@ui/Layouts'
 import { Badge } from '@ui/Badge'
+import { mdxComponents } from '@ui/mdx-components'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -45,6 +47,7 @@ function getPostBySlug(slug: string): Post {
 
 export default function PostPage({ params }: PostPageProps) {
   const post = getPostBySlug(params.slug)
+  const MDXContent = useMDXComponent(post.body.code)
 
   return (
     <PageLayout title={post.title}>
@@ -58,7 +61,9 @@ export default function PostPage({ params }: PostPageProps) {
           ))}
         </span>
       </div>
-      <article dangerouslySetInnerHTML={{ __html: post.body.html }} />
+      <article>
+        <MDXContent components={mdxComponents} />
+      </article>
     </PageLayout>
   )
 }
