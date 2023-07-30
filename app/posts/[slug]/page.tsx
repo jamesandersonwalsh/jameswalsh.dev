@@ -1,6 +1,12 @@
 import { format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 
+import { css } from 'styled-system/css'
+import { hstack, stack } from 'styled-system/patterns'
+import { TimeFormat } from '@ui/TimeFormat'
+import { PageLayout } from '@ui/Layouts'
+import { Badge } from '@ui/Badge'
+
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
@@ -9,10 +15,22 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 
   return {
     title: post.title,
-    brief: post.brief,
-    publishedAt: post.publishedAt,
+    description: post.brief,
   }
 }
+
+const timestampStyles = css({
+  // REFACTOR - These timestamp borders should be componentized.
+  borderInlineStart: '2px solid',
+  borderInlineStartColor: 'slate.500',
+  px: '0.5rem',
+  fontWeight: 'medium',
+  fontSize: 'lg',
+})
+const postMetaStyles = stack({
+  width: '100%',
+  gap: 4,
+})
 
 interface PostPageProps {
   params: { slug: string }
@@ -24,14 +42,18 @@ export default function PostPage({ params }: PostPageProps) {
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
   return (
-    <article>
-      <div>
-        <time dateTime={post.publishedAt}>{format(parseISO(post.publishedAt), 'LLLL d, yyyy')}</time>
-        <h1>{post.title}</h1>
-        <h2>{post.brief}</h2>
-        {/* TODO: support tags */}
+    <PageLayout title={post.title}>
+      <div className={postMetaStyles}>
+        <span className={timestampStyles}>
+          <TimeFormat dateTime={post.publishedAt} />
+        </span>
+        <span className={hstack({ gap: 2 })}>
+          {post.tags.map((tag) => (
+            <Badge key={tag}>{tag.toLowerCase()}</Badge>
+          ))}
+        </span>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
-    </article>
+      <article dangerouslySetInnerHTML={{ __html: post.body.html }} />
+    </PageLayout>
   )
 }
