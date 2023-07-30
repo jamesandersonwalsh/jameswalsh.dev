@@ -50,6 +50,11 @@ function getAllPosts(): Post[] {
   return posts
 }
 
+export const metadata = {
+  title: 'Articles - James Walsh',
+  description: `Articles I've written`,
+}
+
 export default function PostsIndexPage() {
   const posts = getAllPosts()
 
