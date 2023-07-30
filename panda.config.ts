@@ -10,14 +10,17 @@ export default defineConfig({
     body: {
       bg: 'slate.950',
       color: 'slate.200',
+      WebkitFontSmoothing: 'antialiased',
     },
     h1: {
       fontWeight: 'bolder',
       fontSize: '4xl',
+      WebkitFontSmoothing: 'antialiased',
       color: 'slate.200',
     },
     h2: {
       fontWeight: 'semibold',
+      WebkitFontSmoothing: 'antialiased',
       fontSize: {
         mdTo2xl: '3xl',
         smDown: 'xl',
@@ -27,15 +30,19 @@ export default defineConfig({
     h3: {
       fontWeight: 'medium',
       fontSize: '2xl',
+      WebkitFontSmoothing: 'antialiased',
       color: 'slate.200',
     },
     p: {
       color: 'slate.300',
+      WebkitFontSmoothing: 'antialiased',
     },
     b: {
+      WebkitFontSmoothing: 'antialiased',
       fontStyle: 'bold',
     },
     i: {
+      WebkitFontSmoothing: 'antialiased',
       fontStyle: 'italic',
     },
   },
