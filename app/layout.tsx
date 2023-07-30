@@ -4,7 +4,10 @@ import { PropsWithChildren } from 'react'
 import { flex } from 'styled-system/patterns'
 import { TopNavbar, TopNavMenu, Paper, PageAvatar } from '@ui/AppShell'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+})
 
 export const metadata = {
   title: 'James Walsh',
