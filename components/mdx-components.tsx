@@ -38,13 +38,13 @@ const p = css({
 })
 const blockquote = css({
   borderInlineStart: '3px solid',
-  borderInlineStartColor: 'slate.500',
+  borderInlineStartColor: 'zinc.500',
   my: '1rem',
   px: '1.25rem',
 })
 const pre = css({
   borderRadius: 'lg',
-  bg: 'slate.800',
+  bg: 'zinc.800',
   p: 2,
 })
 const code = css({

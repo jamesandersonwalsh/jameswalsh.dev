@@ -8,15 +8,15 @@ export default defineConfig({
   },
   globalCss: {
     body: {
-      bg: 'slate.950',
-      color: 'slate.200',
+      bg: 'zinc.950',
+      color: 'zinc.200',
       WebkitFontSmoothing: 'antialiased',
     },
     h1: {
       fontWeight: 'bolder',
       fontSize: '4xl',
       WebkitFontSmoothing: 'antialiased',
-      color: 'slate.200',
+      color: 'zinc.200',
     },
     h2: {
       fontWeight: 'semibold',
@@ -25,16 +25,16 @@ export default defineConfig({
         mdTo2xl: '3xl',
         smDown: 'xl',
       },
-      color: 'slate.200',
+      color: 'zinc.200',
     },
     h3: {
       fontWeight: 'medium',
       fontSize: '2xl',
       WebkitFontSmoothing: 'antialiased',
-      color: 'slate.200',
+      color: 'zinc.200',
     },
     p: {
-      color: 'slate.300',
+      color: 'zinc.300',
       WebkitFontSmoothing: 'antialiased',
     },
     b: {

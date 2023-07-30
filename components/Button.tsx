@@ -18,16 +18,16 @@ const button = cva({
   variants: {
     visual: {
       primary: {
-        bg: 'slate.800',
-        color: 'slate.300',
+        bg: 'zinc.800',
+        color: 'zinc.300',
         _hover: {
-          bg: 'slate.700',
-          color: 'slate.100',
+          bg: 'zinc.700',
+          color: 'zinc.100',
         },
       },
       outline: {
         borderWidth: '1px',
-        borderColor: 'slate.700',
+        borderColor: 'zinc.700',
         bg: 'transparent',
       },
     },
