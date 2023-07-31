@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@pandacss/dev": "0.9.0",
-    "husky": "^8.0.0",
+    "husky": "^8.0.3",
     "prettier": "^2.8.8",
     "rehype": "^12.0.1",
     "rehype-autolink-headings": "^6.1.1",
