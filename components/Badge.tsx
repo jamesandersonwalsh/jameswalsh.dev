@@ -27,5 +27,5 @@ type BadgeProps = {
 } & PropsWithChildren
 
 export function Badge({ children, variant = 'default' }: BadgeProps) {
-  return <span className={badge({ visual: variant })}>{children}</span>
+  return <span className={badge({ visual: variant })}>#{children}</span>
 }
