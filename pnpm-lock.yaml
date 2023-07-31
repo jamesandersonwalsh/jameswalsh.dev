@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.0.18
     version: 2.0.18(react@18.2.0)
   '@types/node':
-    specifier: 20.3.2
-    version: 20.3.2
+    specifier: 20.4.5
+    version: 20.4.5
   '@types/react':
     specifier: 18.2.14
     version: 18.2.14
@@ -51,7 +51,7 @@ dependencies:
 devDependencies:
   '@pandacss/dev':
     specifier: 0.9.0
-    version: 0.9.0(@internationalized/date@3.3.0)(@types/node@20.3.2)(@types/react-dom@18.2.6)(@types/react@18.2.14)(astro@2.8.4)(typescript@5.1.6)
+    version: 0.9.0(@internationalized/date@3.3.0)(@types/node@20.4.5)(@types/react-dom@18.2.6)(@types/react@18.2.14)(astro@2.8.4)(typescript@5.1.6)
   husky:
     specifier: ^8.0.0
     version: 8.0.0
@@ -165,7 +165,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.8.4(@types/node@20.3.2)
+      astro: 2.8.4(@types/node@20.4.5)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1086,7 +1086,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.8
-      '@types/node': 20.3.2
+      '@types/node': 20.4.5
     dev: false
 
   /@grpc/proto-loader@0.7.8:
@@ -1533,7 +1533,7 @@ packages:
       astro: '>=2.x'
     dependencies:
       '@pandacss/postcss': 0.9.0(typescript@5.1.6)
-      astro: 2.8.4(@types/node@20.3.2)
+      astro: 2.8.4(@types/node@20.4.5)
       autoprefixer: 10.4.14(postcss@8.4.27)
       postcss: 8.4.27
       postcss-load-config: 4.0.1(postcss@8.4.27)
@@ -1579,7 +1579,7 @@ packages:
       ts-pattern: 5.0.4
     dev: true
 
-  /@pandacss/dev@0.9.0(@internationalized/date@3.3.0)(@types/node@20.3.2)(@types/react-dom@18.2.6)(@types/react@18.2.14)(astro@2.8.4)(typescript@5.1.6):
+  /@pandacss/dev@0.9.0(@internationalized/date@3.3.0)(@types/node@20.4.5)(@types/react-dom@18.2.6)(@types/react@18.2.14)(astro@2.8.4)(typescript@5.1.6):
     resolution: {integrity: sha512-V35U6RhW0yk0sahCgD2xivW5r1zVeE/FLhoW/km/mUjY3JiH6iOwI6blmdnntD9WT/SlINUd0QUXK+f9W5zzJw==}
     hasBin: true
     peerDependencies:
@@ -1596,10 +1596,10 @@ packages:
       '@pandacss/postcss': 0.9.0(typescript@5.1.6)
       '@pandacss/preset-panda': 0.9.0
       '@pandacss/shared': 0.9.0
-      '@pandacss/studio': 0.9.0(@internationalized/date@3.3.0)(@types/node@20.3.2)(@types/react-dom@18.2.6)(@types/react@18.2.14)(typescript@5.1.6)
+      '@pandacss/studio': 0.9.0(@internationalized/date@3.3.0)(@types/node@20.4.5)(@types/react-dom@18.2.6)(@types/react@18.2.14)(typescript@5.1.6)
       '@pandacss/token-dictionary': 0.9.0
       '@pandacss/types': 0.9.0
-      astro: 2.8.4(@types/node@20.3.2)
+      astro: 2.8.4(@types/node@20.4.5)
       cac: 6.7.14
       pathe: 1.1.1
       perfect-debounce: 1.0.0
@@ -1749,7 +1749,7 @@ packages:
     resolution: {integrity: sha512-y6wcWmx7ww+Zs9IcLDBHwXhjRoTNSi80vL0ctIVpbc8dX4WKcqhneItFQsZN6sU4wkbnvQjsgMKwF+oYH4Tfxw==}
     dev: true
 
-  /@pandacss/studio@0.9.0(@internationalized/date@3.3.0)(@types/node@20.3.2)(@types/react-dom@18.2.6)(@types/react@18.2.14)(typescript@5.1.6):
+  /@pandacss/studio@0.9.0(@internationalized/date@3.3.0)(@types/node@20.4.5)(@types/react-dom@18.2.6)(@types/react@18.2.14)(typescript@5.1.6):
     resolution: {integrity: sha512-FmgiyqUR4j4DJ2VLM5L2zU5rbs/bRw0EBOONru70HnxtJEDhTHNffUDiZe6MM4oaGzV3QnlL55M5XZxzso90ww==}
     dependencies:
       '@ark-ui/react': 0.7.2(@internationalized/date@3.3.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1760,11 +1760,11 @@ packages:
       '@pandacss/shared': 0.9.0
       '@pandacss/token-dictionary': 0.9.0
       '@pandacss/types': 0.9.0
-      astro: 2.8.4(@types/node@20.3.2)
+      astro: 2.8.4(@types/node@20.4.5)
       javascript-stringify: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      vite: 4.4.2(@types/node@20.3.2)
+      vite: 4.4.2(@types/node@20.4.5)
     transitivePeerDependencies:
       - '@internationalized/date'
       - '@types/node'
@@ -1955,8 +1955,8 @@ packages:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
     dev: true
 
-  /@types/node@20.3.2:
-    resolution: {integrity: sha512-vOBLVQeCQfIcF/2Y7eKFTqrMnizK5lRNQ7ykML/5RuwVXVWxYkgwS7xbt4B6fKCUPgbSL5FSsjHQpaGQP/dQmw==}
+  /@types/node@20.4.5:
+    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -2796,7 +2796,7 @@ packages:
     hasBin: true
     dev: false
 
-  /astro@2.8.4(@types/node@20.3.2):
+  /astro@2.8.4(@types/node@20.4.5):
     resolution: {integrity: sha512-XTfMN6MszrkePcaLt19eQl5BA3Mg8Jqvb7wDWBYoQAJQwU0YE3BBbAwFgWosA1rBv4wClWIne8CKq5iBDklrOQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -2857,7 +2857,7 @@ packages:
       typescript: 5.1.6
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.4.2(@types/node@20.3.2)
+      vite: 4.4.2(@types/node@20.4.5)
       vitefu: 0.2.4(vite@4.4.2)
       which-pm: 2.0.0
       yargs-parser: 21.1.1
@@ -6210,7 +6210,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 20.3.2
+      '@types/node': 20.4.5
       long: 5.2.3
     dev: false
 
@@ -7141,7 +7141,7 @@ packages:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  /vite@4.4.2(@types/node@20.3.2):
+  /vite@4.4.2(@types/node@20.4.5):
     resolution: {integrity: sha512-zUcsJN+UvdSyHhYa277UHhiJ3iq4hUBwHavOpsNUGsTgjBeoBlK8eDt+iT09pBq0h9/knhG/SPrZiM7cGmg7NA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -7169,7 +7169,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.3.2
+      '@types/node': 20.4.5
       esbuild: 0.18.17
       postcss: 8.4.27
       rollup: 3.25.3
@@ -7185,7 +7185,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.4.2(@types/node@20.3.2)
+      vite: 4.4.2(@types/node@20.4.5)
     dev: true
 
   /vscode-css-languageservice@6.2.6:
