@@ -21,7 +21,7 @@ const h3 = css({
 })
 
 const list = {
-  gap: 6,
+  gap: 2,
   py: '1rem',
   ml: '1rem',
 }
@@ -46,9 +46,14 @@ const pre = css({
   borderRadius: 'lg',
   bg: 'zinc.800',
   p: 2,
+  my: 2,
 })
 const code = css({
   fontSize: 'md',
+  bg: 'zinc.800',
+  py: '2px',
+  px: '4px',
+  borderRadius: 'md',
 })
 
 export const mdxComponents = {

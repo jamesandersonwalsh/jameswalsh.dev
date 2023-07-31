@@ -50,20 +50,22 @@ export default function PostPage({ params }: PostPageProps) {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <PageLayout title={post.title}>
-      <div className={postMetaStyles}>
-        <span className={timestampStyles}>
-          <TimeFormat dateTime={post.publishedAt} />
-        </span>
-        <span className={hstack({ gap: 2 })}>
-          {post.tags.map((tag) => (
-            <Badge key={tag}>{tag.toLowerCase()}</Badge>
-          ))}
-        </span>
-      </div>
-      <article>
-        <MDXContent components={mdxComponents} />
-      </article>
-    </PageLayout>
+    <div className={css({ px: '6rem', py: '2rem' })}>
+      <PageLayout title={post.title}>
+        <div className={postMetaStyles}>
+          <span className={timestampStyles}>
+            <TimeFormat dateTime={post.publishedAt} />
+          </span>
+          <span className={hstack({ gap: 2 })}>
+            {post.tags.map((tag) => (
+              <Badge key={tag}>{tag.toLowerCase()}</Badge>
+            ))}
+          </span>
+        </div>
+        <article>
+          <MDXContent components={mdxComponents} />
+        </article>
+      </PageLayout>
+    </div>
   )
 }
