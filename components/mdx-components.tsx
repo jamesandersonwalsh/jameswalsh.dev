@@ -55,6 +55,13 @@ const code = css({
   px: '4px',
   borderRadius: 'md',
 })
+const a = css({
+  color: 'blue.500',
+  _hover: {
+    textDecoration: 'underline',
+    color: 'blue.600',
+  },
+})
 
 export const mdxComponents = {
   img: (props: PropsWithChildren) => (
@@ -106,5 +113,10 @@ export const mdxComponents = {
     <code className={code} {...props}>
       {props.children}
     </code>
+  ),
+  a: (props: PropsWithChildren) => (
+    <a className={a} {...props}>
+      {props.children}
+    </a>
   ),
 }
