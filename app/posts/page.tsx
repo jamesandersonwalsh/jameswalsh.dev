@@ -1,4 +1,5 @@
 import { css } from 'styled-system/css'
+import { hstack } from 'styled-system/patterns'
 import Link from 'next/link'
 import { compareDesc } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
@@ -6,6 +7,7 @@ import { Post, allPosts } from 'contentlayer/generated'
 import { PageLayout } from '@ui/Layouts'
 import { TimeFormat } from '@ui/TimeFormat'
 import { Timeline } from '@ui/Timeline'
+import { ChevronRightIcon } from '@heroicons/react/24/solid'
 
 const articleBody = css({
   width: '100%',
@@ -24,8 +26,9 @@ const articleBriefStyles = css({
   pt: '1rem',
   fontSize: 'md',
 })
-const linkBlurb = css({
-  color: 'indigo.600',
+const linkBlurb = hstack({
+  gap: 1,
+  color: 'blue.600',
   fontWeight: 'semibold',
   mt: '1rem',
 })
@@ -44,25 +47,31 @@ export default function PostsIndexPage() {
   const posts = getAllPosts()
 
   return (
-    <PageLayout title="Articles about web dev, design, & JavaScript.">
-      <Timeline>
-        {posts.map((post) => (
-          <Timeline.Item key={post.title}>
-            <Timeline.LeftElement>
-              <TimeFormat size="sm" dateTime={post.publishedAt} />
-            </Timeline.LeftElement>
-            <Timeline.RightElement>
-              <Link href={post.url} className={articleBody}>
-                <h2 className={articleTitleStyles}>{post.title}</h2>
-                <p className={articleBriefStyles}>{post.brief}</p>
-                <div className={linkBlurb} aria-hidden="true">
-                  Read Full Article&nbsp;{`>`}
+    <>
+      <PageLayout.Title align="left">Articles about web development.</PageLayout.Title>
+      <PageLayout.Content>
+        <Timeline>
+          {posts.map((post) => (
+            <Timeline.Item key={post.title}>
+              <Timeline.LeftElement>
+                <div className={css({ ml: '1rem' })}>
+                  <TimeFormat size="sm" dateTime={post.publishedAt} />
                 </div>
-              </Link>
-            </Timeline.RightElement>
-          </Timeline.Item>
-        ))}
-      </Timeline>
-    </PageLayout>
+              </Timeline.LeftElement>
+              <Timeline.RightElement>
+                <Link href={post.url} className={articleBody}>
+                  <h2 className={articleTitleStyles}>{post.title}</h2>
+                  <p className={articleBriefStyles}>{post.brief}</p>
+                  <div className={linkBlurb} aria-hidden="true">
+                    Read Full Article
+                    <ChevronRightIcon width={16} height={16} />
+                  </div>
+                </Link>
+              </Timeline.RightElement>
+            </Timeline.Item>
+          ))}
+        </Timeline>
+      </PageLayout.Content>
+    </>
   )
 }

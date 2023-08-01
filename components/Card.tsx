@@ -13,16 +13,16 @@ const card = cva({
   variants: {
     visual: {
       solid: {
-        bg: 'gray.800',
+        bg: 'gray.900',
       },
       ghost: {
         _hover: {
-          bg: 'gray.800',
+          bg: 'gray.900',
         },
       },
       outline: {
         borderWidth: '2px',
-        borderColor: 'gray.800',
+        borderColor: 'gray.900',
         boxShadow: 'sm',
       },
     },

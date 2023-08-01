@@ -19,21 +19,21 @@ const button = cva({
   variants: {
     visual: {
       primary: {
-        bg: 'indigo.700',
-        borderColor: 'indigo.600',
-        color: 'indigo.200',
+        bg: 'blue.700',
+        borderColor: 'blue.600',
+        color: 'blue.200',
         _hover: {
-          bg: 'indigo.600',
-          color: 'indigo.100',
+          bg: 'blue.600',
+          color: 'blue.100',
         },
       },
       secondary: {
-        bg: 'indigo.950',
-        borderColor: 'indigo.800',
-        color: 'indigo.300',
+        bg: 'blue.950',
+        borderColor: 'blue.800',
+        color: 'blue.300',
         _hover: {
-          bg: 'indigo.900',
-          color: 'indigo.200',
+          bg: 'blue.900',
+          color: 'blue.200',
         },
       },
       outline: {

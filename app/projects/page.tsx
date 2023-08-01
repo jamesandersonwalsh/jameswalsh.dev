@@ -27,6 +27,9 @@ const projectGrid = grid({
   width: '100%',
 })
 const companyLogo = circle({ my: '1rem' })
+const link = hstack({
+  fontWeight: 'semibold',
+})
 
 export const metadata = {
   title: 'Projects - James Walsh',
@@ -105,7 +108,7 @@ export default function ProjectsPage() {
               <Card.Header>{project.title}</Card.Header>
               <Card.Body>{project.description}</Card.Body>
               <Card.Footer>
-                <div className={hstack()}>
+                <div className={link}>
                   <LinkIcon width={16} />
                   {project.externalLink.title}
                 </div>

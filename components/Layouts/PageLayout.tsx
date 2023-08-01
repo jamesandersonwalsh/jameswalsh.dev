@@ -38,7 +38,7 @@ const title = cva({
 type TitleProps = {
   align?: 'left' | 'center'
 } & PropsWithChildren
-function Title({ children, align = 'center' }: TitleProps) {
+function Title({ children, align = 'left' }: TitleProps) {
   return <h1 className={title({ visual: align })}>{children}</h1>
 }
 

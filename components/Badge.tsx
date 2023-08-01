@@ -14,9 +14,9 @@ const badge = cva({
   variants: {
     visual: {
       default: {
-        bg: 'gray.700',
-        borderColor: 'gray.950',
-        color: 'gray.300',
+        bg: 'blue.900',
+        borderColor: 'gray.800',
+        color: 'gray.400',
       },
     },
   },

@@ -44,22 +44,22 @@ const blockquote = css({
 })
 const pre = css({
   borderRadius: 'lg',
-  bg: 'gray.800',
+  bg: 'gray.900',
   p: 2,
   my: 2,
 })
 const code = css({
   fontSize: 'md',
-  bg: 'gray.800',
+  bg: 'gray.900',
   py: '2px',
   px: '4px',
   borderRadius: 'md',
 })
 const a = css({
-  color: 'blue.500',
+  color: 'blue.600',
   _hover: {
     textDecoration: 'underline',
-    color: 'blue.600',
+    color: 'blue.500',
   },
 })
 

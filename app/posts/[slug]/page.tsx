@@ -31,6 +31,10 @@ const postMetaStyles = stack({
   width: '100%',
   gap: 4,
 })
+const calendar = css({
+  bg: 'blue.700',
+  borderRadius: 'md',
+})
 
 interface PostPageProps {
   params: { slug: string }
@@ -52,7 +56,7 @@ export default function PostPage({ params }: PostPageProps) {
       <PageLayout title={post.title}>
         <div className={postMetaStyles}>
           <span className={timestampStyles}>
-            <CalendarDaysIcon className={css({ bg: 'indigo.700', borderRadius: 'md' })} width={24} height={24} />
+            <CalendarDaysIcon className={calendar} width={24} height={24} />
             <TimeFormat dateTime={post.publishedAt} />
           </span>
           <span className={hstack({ gap: 2 })}>
