@@ -95,7 +95,7 @@ export default function PostPage({ params }: PostPageProps) {
           </span>
           <span className={hstack({ gap: 2 })}>
             {post.tags.map((tag) => (
-              <Badge key={tag}>{tag}</Badge>
+              <Badge key={tag} text={tag} />
             ))}
           </span>
         </div>
