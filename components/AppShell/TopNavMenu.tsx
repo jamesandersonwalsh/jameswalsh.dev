@@ -10,10 +10,10 @@ import { Overlay } from '../Overlay'
 
 const topNavMenu = css({
   hideFrom: 'md',
-  color: 'zinc.50',
+  color: 'gray.50',
   width: '36px',
   borderWidth: '1px solid',
-  borderColor: 'zinc.100',
+  borderColor: 'gray.100',
   ml: 'auto',
   mr: '1rem',
   mt: '1rem',
@@ -24,7 +24,7 @@ const topNavMenu = css({
 const menuList = vstack({
   width: '90vw',
   padding: '0.75rem',
-  bg: 'zinc.900',
+  bg: 'gray.900',
   mx: 'auto',
   mt: '1rem',
   borderRadius: 'lg',

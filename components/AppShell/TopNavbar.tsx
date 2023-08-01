@@ -7,14 +7,14 @@ import { usePathname } from 'next/navigation'
 
 const navBar = hstack({
   hideBelow: 'sm',
-  bg: 'zinc.800',
+  bg: 'gray.900',
   minH: '2.5rem',
   px: '0.25rem',
   fontWeight: 'normal',
   width: '360px',
   borderRadius: 'full',
   borderWidth: '1px',
-  borderColor: 'zinc.700',
+  borderColor: 'gray.800',
 })
 const navList = hstack({
   gap: 4,
@@ -27,7 +27,7 @@ const navItem = cva({
     height: 'fit-content',
     alignItems: 'center',
     justifyContent: 'center',
-    py: '0.25rem',
+    py: '0.2rem',
     px: '0.5rem',
     borderRadius: '2xl',
     width: '100%',
@@ -35,10 +35,12 @@ const navItem = cva({
   variants: {
     visual: {
       current: {
-        bg: 'zinc.600',
+        bg: 'blue.700',
+        color: 'blue.100',
       },
       default: {
         bg: 'inherit',
+        color: 'gray.300',
       },
     },
   },
@@ -47,8 +49,8 @@ const navItem = cva({
 export const navItems = [
   { href: '/posts', value: 'Posts' },
   { href: '/projects', value: 'Projects' },
-  { href: '/about', value: 'About' },
   { href: '/stack', value: 'Stack' },
+  { href: '/about', value: 'About' },
 ]
 
 export function TopNavbar() {
