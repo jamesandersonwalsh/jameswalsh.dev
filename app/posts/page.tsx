@@ -9,9 +9,9 @@ import { Timeline } from '@ui/Timeline'
 
 const articleBody = css({
   width: '100%',
-  bg: 'gray.800',
+  bg: 'gray.900',
   _hover: {
-    bg: 'gray.700',
+    bg: 'gray.800',
   },
   p: '1rem',
   borderRadius: 'lg',
@@ -25,6 +25,8 @@ const articleBriefStyles = css({
   fontSize: 'md',
 })
 const linkBlurb = css({
+  color: 'indigo.600',
+  fontWeight: 'semibold',
   mt: '1rem',
 })
 

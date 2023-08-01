@@ -14,6 +14,7 @@ const itemTitleContainer = hstack({
   gap: 4,
 })
 const h3 = css({
+  mt: '1rem',
   fontSize: 'larger',
 })
 const p = css({
@@ -58,8 +59,8 @@ export default function StackPage() {
                       <div className={itemTitleContainer}>
                         <Image
                           className={technologyLogo}
-                          width={40}
-                          height={40}
+                          width={36}
+                          height={36}
                           src={item.imageLink}
                           alt="technology logo"
                         />
