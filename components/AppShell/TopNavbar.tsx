@@ -49,8 +49,8 @@ const navItem = cva({
 export const navItems = [
   { href: '/posts', value: 'Posts' },
   { href: '/projects', value: 'Projects' },
-  { href: '/about', value: 'About' },
   { href: '/stack', value: 'Stack' },
+  { href: '/about', value: 'About' },
 ]
 
 export function TopNavbar() {
