@@ -8,21 +8,21 @@ const card = cva({
     flexDirection: 'column',
     borderRadius: '2xl',
     p: '1.25rem',
-    color: 'zinc.300',
+    color: 'gray.300',
   },
   variants: {
     visual: {
       solid: {
-        bg: 'zinc.800',
+        bg: 'gray.800',
       },
       ghost: {
         _hover: {
-          bg: 'zinc.800',
+          bg: 'gray.800',
         },
       },
       outline: {
         borderWidth: '2px',
-        borderColor: 'zinc.800',
+        borderColor: 'gray.800',
         boxShadow: 'sm',
       },
     },

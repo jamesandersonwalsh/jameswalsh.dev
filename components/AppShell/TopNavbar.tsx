@@ -7,14 +7,14 @@ import { usePathname } from 'next/navigation'
 
 const navBar = hstack({
   hideBelow: 'sm',
-  bg: 'zinc.800',
+  bg: 'gray.800',
   minH: '2.5rem',
   px: '0.25rem',
   fontWeight: 'normal',
   width: '360px',
   borderRadius: 'full',
   borderWidth: '1px',
-  borderColor: 'zinc.700',
+  borderColor: 'gray.700',
 })
 const navList = hstack({
   gap: 4,
@@ -35,7 +35,7 @@ const navItem = cva({
   variants: {
     visual: {
       current: {
-        bg: 'zinc.600',
+        bg: 'gray.600',
       },
       default: {
         bg: 'inherit',

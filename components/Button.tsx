@@ -37,12 +37,12 @@ const button = cva({
         },
       },
       outline: {
-        borderColor: 'zinc.700',
-        color: 'zinc.200',
+        borderColor: 'gray.700',
+        color: 'gray.200',
         bg: 'transparent',
         _hover: {
-          bg: 'zinc.800',
-          color: 'zinc.50',
+          bg: 'gray.800',
+          color: 'gray.50',
         },
       },
     },

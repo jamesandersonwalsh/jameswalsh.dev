@@ -5,14 +5,14 @@ const paper = container({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  bg: 'zinc.900',
+  bg: 'gray.900',
   minHeight: '100vh',
   p: {
     mdTo2xl: '2rem',
     smDown: '0.5rem',
   },
   borderWidth: '1px',
-  borderColor: 'zinc.800',
+  borderColor: 'gray.800',
   lgTo2xl: {
     maxWidth: '1024px',
   },
