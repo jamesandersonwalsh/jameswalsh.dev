@@ -2,14 +2,15 @@ import { allPosts } from 'contentlayer/generated'
 import { Post } from '@/.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { css } from 'styled-system/css'
-import { hstack, stack, flex } from 'styled-system/patterns'
+import { hstack, stack, container } from 'styled-system/patterns'
+import Image from 'next/Image'
 
 import { TimeFormat } from '@ui/TimeFormat'
 import { PageLayout } from '@ui/Layouts'
+import { Button } from '@ui/Button'
 import { Badge } from '@ui/Badge'
 import { mdxComponents } from '@ui/mdx-components'
 import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import { Button } from '@/components/Button'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -23,6 +24,18 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   }
 }
 
+const coverImageContainer = container({
+  width: '100%',
+  height: {
+    mdTo2xl: '400px',
+    smDown: '240px',
+  },
+})
+const coverImage = css({
+  objectFit: 'cover',
+  borderRadius: 'lg',
+  mb: '2rem',
+})
 const timestampStyles = hstack({
   px: '0.5rem',
   fontWeight: 'medium',
@@ -71,6 +84,9 @@ export default function PostPage({ params }: PostPageProps) {
 
   return (
     <div className={css({ px: '6rem', py: '2rem' })}>
+      <div className={coverImageContainer}>
+        <Image src={post.coverImage} alt="Article cover image" className={coverImage} priority fill />
+      </div>
       <PageLayout title={post.title}>
         <div className={postMetaStyles}>
           <span className={timestampStyles}>
@@ -79,7 +95,7 @@ export default function PostPage({ params }: PostPageProps) {
           </span>
           <span className={hstack({ gap: 2 })}>
             {post.tags.map((tag) => (
-              <Badge key={tag}>{tag.toLowerCase()}</Badge>
+              <Badge key={tag}>{tag}</Badge>
             ))}
           </span>
         </div>

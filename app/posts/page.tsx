@@ -1,8 +1,9 @@
 import { css } from 'styled-system/css'
-import { hstack } from 'styled-system/patterns'
+import { hstack, container } from 'styled-system/patterns'
 import Link from 'next/link'
 import { compareDesc } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
+import Image from 'next/image'
 
 import { PageLayout } from '@ui/Layouts'
 import { TimeFormat } from '@ui/TimeFormat'
@@ -21,6 +22,16 @@ const articleBody = css({
 const articleTitleStyles = css({
   fontSize: 'xl',
   fontWeight: 'semibold',
+})
+const coverImageSmallContainer = container({
+  height: '120px',
+  width: '264px',
+  marginInline: 0,
+  my: '1rem',
+})
+const coverImageSmall = css({
+  objectFit: 'cover',
+  borderRadius: 'md',
 })
 const articleBriefStyles = css({
   pt: '1rem',
@@ -62,6 +73,9 @@ export default function PostsIndexPage() {
                 <Link href={post.url} className={articleBody}>
                   <h2 className={articleTitleStyles}>{post.title}</h2>
                   <p className={articleBriefStyles}>{post.brief}</p>
+                  <div className={coverImageSmallContainer}>
+                    <Image className={coverImageSmall} src={post.coverImage} alt={`${post.title} cover image`} fill />
+                  </div>
                   <div className={linkBlurb} aria-hidden="true">
                     Read Full Article
                     <ChevronRightIcon width={16} height={16} />
