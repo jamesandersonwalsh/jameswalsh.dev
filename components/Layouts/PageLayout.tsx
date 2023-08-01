@@ -38,13 +38,13 @@ const title = cva({
 type TitleProps = {
   align?: 'left' | 'center'
 } & PropsWithChildren
-function Title({ children, align = 'center' }: TitleProps) {
+function Title({ children, align = 'left' }: TitleProps) {
   return <h1 className={title({ visual: align })}>{children}</h1>
 }
 
 const content = vstack({
   mt: '1rem',
-  color: 'zinc.300',
+  color: 'gray.300',
   width: '100%',
 })
 function Content({ children }: PropsWithChildren) {

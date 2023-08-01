@@ -19,7 +19,7 @@ const socialLinkStack = hstack({
   gap: 5,
 })
 const pageDivider = divider({
-  color: 'zinc.600',
+  color: 'gray.600',
 })
 const columnGrid = grid({
   mt: '4rem',
@@ -34,7 +34,7 @@ const column = stack({
 })
 const companyLogo = circle()
 const dl = wrap({
-  gap: 1,
+  gap: 2,
   width: '100%',
 })
 const dt = css({
@@ -199,15 +199,15 @@ export default function Home() {
       <br />
       <div className={columnGrid}>
         <div className={column}>
-          <Card>
+          <Card variant="solid">
             <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Get notified when I publish new tech-related articles, unsubscribe at any time. My blog is hosted with
-                Hashnode & made available via RSS.
+                Get notified when I publish new tech-related articles, unsubscribe at any time. My blog is hosted here,
+                and published to Hashnode where it&apos;s available via RSS.
               </p>
               <div className={blogLinks}>
-                <Button variant="primary" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
+                <Button variant="outline" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
                   <Image
                     src="/logos/blog/hashnode.png"
                     width={28}
@@ -217,23 +217,23 @@ export default function Home() {
                   />
                   Hashnode
                 </Button>
-                <Button as="a" href={`https://dev.to/${HANDLE}`}>
+                <Button variant="outline" as="a" href={`https://dev.to/${HANDLE}`}>
                   <Image src="/logos/blog/dev-to.png" width={28} height={28} alt="dev-to-logo" className={blogLogo} />
                   Dev
                 </Button>
               </div>
             </Card.Body>
           </Card>
-          <Card>
+          <Card variant="solid">
             <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
               Subscribe on Substack (coming soon)
             </Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Sign up for my newsletter on substack where I publish articles that are non-technical & focus more on
-                life outside of corporate. More info coming soon!
+                Sign up for my newsletter on substack where I publish articles that focus on life outside of corporate.
+                More info coming soon!
               </p>
-              <Button as="a" href="https://aboveandbelow.substack.com">
+              <Button variant="outline" as="a" href="https://aboveandbelow.substack.com">
                 <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
                 Substack
               </Button>
@@ -241,7 +241,7 @@ export default function Home() {
           </Card>
         </div>
         <div className={column}>
-          <Card>
+          <Card variant="solid">
             <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>Work</Card.Header>
             <Card.Body>
               <UnorderedList>

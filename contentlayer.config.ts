@@ -10,6 +10,7 @@ export const Post = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
+    coverImage: { type: 'string', required: true },
     publishedAt: { type: 'date', required: true },
     brief: { type: 'string', required: true },
     status: {
@@ -38,7 +39,8 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: 'github-dark-dimmed',
+          theme: 'material-theme-darker',
+          keepBackground: false,
           onVisitLine(node: LineElement) {
             // Prevent lines from collapsing in `display: grid` mode, and allow empty
             // lines to be copy/pasted
