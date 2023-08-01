@@ -9,6 +9,7 @@ const button = cva({
     alignItems: 'center',
     borderRadius: 'lg',
     boxShadow: 'lg',
+    borderWidth: '1px',
     width: '100%',
     fontWeight: 'semibold',
     _hover: {
@@ -18,17 +19,31 @@ const button = cva({
   variants: {
     visual: {
       primary: {
-        bg: 'zinc.800',
-        color: 'zinc.300',
+        bg: 'indigo.700',
+        borderColor: 'indigo.600',
+        color: 'indigo.200',
         _hover: {
-          bg: 'zinc.700',
-          color: 'zinc.100',
+          bg: 'indigo.600',
+          color: 'indigo.100',
+        },
+      },
+      secondary: {
+        bg: 'indigo.950',
+        borderColor: 'indigo.800',
+        color: 'indigo.300',
+        _hover: {
+          bg: 'indigo.900',
+          color: 'indigo.200',
         },
       },
       outline: {
-        borderWidth: '1px',
         borderColor: 'zinc.700',
+        color: 'zinc.200',
         bg: 'transparent',
+        _hover: {
+          bg: 'zinc.800',
+          color: 'zinc.50',
+        },
       },
     },
     size: {
@@ -40,7 +55,7 @@ const button = cva({
 })
 
 type ButtonProps = {
-  variant?: 'primary' | 'outline'
+  variant?: 'primary' | 'secondary' | 'outline'
   as?: 'a' | 'button'
   size?: 'sm' | 'md' | 'lg'
   href?: string

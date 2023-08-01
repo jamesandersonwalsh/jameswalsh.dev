@@ -8,6 +8,7 @@ import { TimeFormat } from '@ui/TimeFormat'
 import { PageLayout } from '@ui/Layouts'
 import { Badge } from '@ui/Badge'
 import { mdxComponents } from '@ui/mdx-components'
+import { CalendarDaysIcon } from '@heroicons/react/24/solid'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -21,10 +22,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   }
 }
 
-const timestampStyles = css({
-  // REFACTOR - These timestamp borders should be componentized.
-  borderInlineStart: '2px solid',
-  borderInlineStartColor: 'zinc.500',
+const timestampStyles = hstack({
   px: '0.5rem',
   fontWeight: 'medium',
   fontSize: 'lg',
@@ -54,6 +52,7 @@ export default function PostPage({ params }: PostPageProps) {
       <PageLayout title={post.title}>
         <div className={postMetaStyles}>
           <span className={timestampStyles}>
+            <CalendarDaysIcon className={css({ bg: 'indigo.700', borderRadius: 'md' })} width={24} height={24} />
             <TimeFormat dateTime={post.publishedAt} />
           </span>
           <span className={hstack({ gap: 2 })}>
