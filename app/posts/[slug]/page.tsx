@@ -3,7 +3,7 @@ import { Post } from '@/.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { css } from 'styled-system/css'
 import { hstack, stack, container } from 'styled-system/patterns'
-import Image from 'next/Image'
+import Image from 'next/image'
 
 import { TimeFormat } from '@ui/TimeFormat'
 import { PageLayout } from '@ui/Layouts'
