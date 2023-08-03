@@ -203,8 +203,8 @@ export default function Home() {
             <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Get notified when I publish new tech-related articles, unsubscribe at any time. My blog is hosted here,
-                and published to Hashnode where it&apos;s available via RSS.
+                Get notified when I publish new posts, unsubscribe at any time. My blog is hosted here, & published to
+                both Hashnode & DEV.to.
               </p>
               <div className={blogLinks}>
                 <Button variant="outline" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
@@ -230,8 +230,7 @@ export default function Home() {
             </Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Sign up for my newsletter on substack where I publish articles that focus on life outside of corporate.
-                More info coming soon!
+                Sign up for my newsletter on substack where I publish non-technical articles. Coming soon!
               </p>
               <Button variant="outline" as="a" href="https://aboveandbelow.substack.com">
                 <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
