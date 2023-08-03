@@ -44,13 +44,14 @@ const blockquote = css({
 })
 const pre = css({
   borderRadius: 'lg',
-  bg: 'gray.900',
+  bg: 'gray.800',
   p: 2,
   my: 2,
 })
 const code = css({
   fontSize: 'md',
-  bg: 'gray.900',
+  bg: 'gray.800',
+  color: 'blue.300',
   py: '2px',
   px: '4px',
   borderRadius: 'md',
