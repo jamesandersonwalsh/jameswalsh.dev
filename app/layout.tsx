@@ -1,8 +1,11 @@
 import './global.css'
 import { Inter } from 'next/font/google'
+import formatDate from 'date-fns/format'
 import { PropsWithChildren } from 'react'
-import { flex } from 'styled-system/patterns'
-import { TopNavbar, TopNavMenu, Paper, PageAvatar } from '@ui/AppShell'
+import { flex, hstack } from 'styled-system/patterns'
+import { TopNavbar, navigationalItems, TopNavMenu, Paper, PageAvatar, Footer } from '@ui/AppShell'
+import { UnorderedList } from '@/components/List'
+import Link from 'next/link'
 
 const inter = Inter({
   weight: ['400', '700'],
@@ -34,6 +37,18 @@ export default function RootLayout({ children }: PropsWithChildren) {
           <main className={mainStyles}>{children}</main>
           <PageAvatar />
         </Paper>
+        <Footer>
+          <Footer.LeftElement>
+            <UnorderedList type="horizontal">
+              {navigationalItems.map((item) => (
+                <UnorderedList.ListItem key={item.value}>
+                  <Link href={item.href}>{item.value}</Link>
+                </UnorderedList.ListItem>
+              ))}
+            </UnorderedList>
+          </Footer.LeftElement>
+          <Footer.RightElement>©&nbsp;{formatDate(new Date(), 'yyyy')}&nbsp;James Walsh</Footer.RightElement>
+        </Footer>
       </body>
     </html>
   )

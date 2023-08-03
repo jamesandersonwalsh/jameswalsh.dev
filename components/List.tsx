@@ -13,12 +13,14 @@ export function OrderedList({ children, ...rest }: PropsWithChildren) {
   )
 }
 
-const unorderedList = vstack({
-  gap: 6,
-})
-export function UnorderedList({ children, ...rest }: PropsWithChildren) {
+type UnorderedListProps = {
+  type?: 'vertical' | 'horizontal'
+} & PropsWithChildren
+export function UnorderedList({ type = 'vertical', children, ...rest }: UnorderedListProps) {
+  const className = type === 'horizontal' ? hstack({ gap: 6 }) : vstack({ gap: 6 })
+
   return (
-    <ul className={unorderedList} {...rest}>
+    <ul className={className} {...rest}>
       {children}
     </ul>
   )
