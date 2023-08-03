@@ -3,7 +3,15 @@ import { css } from 'styled-system/css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card } from '@ui/Card'
-import { ArrowDownTrayIcon, BriefcaseIcon, EnvelopeIcon, NewspaperIcon } from '@heroicons/react/24/outline'
+import {
+  ArrowDownTrayIcon,
+  BookOpenIcon,
+  BriefcaseIcon,
+  EnvelopeIcon,
+  LinkIcon,
+  NewspaperIcon,
+  QuestionMarkCircleIcon,
+} from '@heroicons/react/24/outline'
 import { PageLayout } from '@ui/Layouts'
 import { Button } from '@ui/Button'
 import { UnorderedList } from '@ui/List'
@@ -60,13 +68,14 @@ const blogPostDescriptor = css({
   mb: '1rem',
 })
 const blogLinks = hstack({
+  width: '100%',
   gap: 4,
 })
 const blogLogo = css({
   borderRadius: 'md',
   mr: '16px',
 })
-const cvLogo = css({
+const buttonIcon = css({
   mr: '16px',
 })
 
@@ -203,8 +212,8 @@ export default function Home() {
             <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Get notified when I publish new posts, unsubscribe at any time. My blog is hosted here, & published to
-                both Hashnode & DEV.to.
+                Get notified when I publish new tech-related posts, unsubscribe at any time. My blog is hosted here, &
+                published to Hashnode & DEV.to.
               </p>
               <div className={blogLinks}>
                 <Button variant="outline" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
@@ -223,6 +232,12 @@ export default function Home() {
                 </Button>
               </div>
             </Card.Body>
+            <Card.Footer>
+              <Button variant="outline" as="a" href={`/posts`}>
+                <BookOpenIcon className={buttonIcon} width={24} height={24} />
+                See all my posts
+              </Button>
+            </Card.Footer>
           </Card>
           <Card variant="solid">
             <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
@@ -232,14 +247,39 @@ export default function Home() {
               <p className={blogPostDescriptor}>
                 Sign up for my newsletter on substack where I publish non-technical articles. Coming soon!
               </p>
+            </Card.Body>
+            <Card.Footer>
               <Button variant="outline" as="a" href="https://aboveandbelow.substack.com">
                 <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
                 Substack
               </Button>
-            </Card.Body>
+            </Card.Footer>
+          </Card>
+          <Card variant="solid">
+            <Card.Header icon={<QuestionMarkCircleIcon width={24} height={24} />}>Feeling Lucky?</Card.Header>
+            <Card.Footer>
+              <Button variant="secondary" as="a" href="https://www.youtube.com/watch?v=EpX1_YJPGAY">
+                Press to make dreams come true
+              </Button>
+            </Card.Footer>
           </Card>
         </div>
         <div className={column}>
+          <Card variant="solid">
+            <Card.Header icon={<Image src="/logos/tech/github.svg" alt="Github logo" width={24} height={24} />}>
+              How I made this site
+            </Card.Header>
+            <Card.Body>
+              This site was built with Next.js, Typescript, & Contentlayer. In addition, all these styles are
+              hand-crafted using PandaCSS. Use the link below to checkout the source code.
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="secondary" as="a" href="https://github.com/jamesandersonwalsh/portfolio" download>
+                <LinkIcon className={buttonIcon} width={24} height={24} />
+                Visit Github
+              </Button>
+            </Card.Footer>
+          </Card>
           <Card variant="solid">
             <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>Work</Card.Header>
             <Card.Body>
@@ -263,8 +303,8 @@ export default function Home() {
                 ))}
                 <UnorderedList.ListItem>
                   <Button variant="primary" as="a" href="resume.docx" download>
-                    <ArrowDownTrayIcon className={cvLogo} width={24} height={24} />
-                    Download full CV
+                    <ArrowDownTrayIcon className={buttonIcon} width={24} height={24} />
+                    Download Resume
                   </Button>
                 </UnorderedList.ListItem>
               </UnorderedList>
