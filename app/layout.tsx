@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 import { flex } from 'styled-system/patterns'
 import { TopNavbar, TopNavMenu, Paper, PageAvatar } from '@ui/AppShell'
+import { ThemeSwitcher } from '@ui/ThemeSwitcher'
 
 const inter = Inter({
   weight: ['400', '700'],
@@ -23,7 +24,7 @@ const mainStyles = flex({
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" data-color-mode="dark">
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>James Walsh - Software Engineer, self-proclaimed developer advocate, UI/UX enthusiast.</title>
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Paper>
           <TopNavbar />
           <TopNavMenu />
+          <ThemeSwitcher />
           <main className={mainStyles}>{children}</main>
           <PageAvatar />
         </Paper>

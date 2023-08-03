@@ -6,6 +6,10 @@ export default defineConfig({
   theme: {
     extend: {},
   },
+  conditions: {
+    light: '[data-color-mode=light] &',
+    dark: '[data-color-mode=dark] &',
+  },
   globalCss: {
     body: {
       bg: 'gray.950',
