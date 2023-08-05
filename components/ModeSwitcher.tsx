@@ -7,20 +7,30 @@ import { css } from 'styled-system/css'
 const themeSwitcher = css({
   position: 'absolute',
   right: '0',
-  color: 'gray.100',
+  color: 'text',
   borderRadius: 'md',
   p: '0.33rem',
   _hover: {
     cursor: 'pointer',
-    color: 'gray.400',
+    _dark: {
+      color: 'gray.100',
+    },
+    base: {
+      color: 'zinc.500',
+    },
   },
 })
 export function ThemeSwitcher() {
-  const [isLightMode, setIsLightMode] = useState(false)
+  const [isLightMode, setIsLightMode] = useState(localStorage.getItem('mode') === 'light')
+
+  const setMode = (mode: string) => {
+    document.documentElement.setAttribute('data-color-mode', mode)
+    localStorage.setItem('mode', mode)
+  }
 
   useEffect(() => {
-    const dataColorModevalue = isLightMode ? 'light' : 'dark'
-    document.documentElement.setAttribute('data-color-mode', dataColorModevalue)
+    const mode = isLightMode ? 'light' : 'dark'
+    setMode(mode)
   }, [isLightMode])
 
   const handleToggle = () => {

@@ -35,7 +35,7 @@ const h2 = css({
 const button = flex({
   flexDir: 'row',
   width: '100%',
-  color: 'gray.300',
+  color: 'text',
   justifyContent: 'space-between',
   alignItems: 'center',
   _hover: {

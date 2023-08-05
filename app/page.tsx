@@ -199,7 +199,7 @@ export default function Home() {
       <br />
       <div className={columnGrid}>
         <div className={column}>
-          <Card variant="solid">
+          <Card variant="outline">
             <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
@@ -224,7 +224,7 @@ export default function Home() {
               </div>
             </Card.Body>
           </Card>
-          <Card variant="solid">
+          <Card variant="outline">
             <Card.Header icon={<EnvelopeIcon width={24} height={24} />}>
               Subscribe on Substack (coming soon)
             </Card.Header>
@@ -241,7 +241,7 @@ export default function Home() {
           </Card>
         </div>
         <div className={column}>
-          <Card variant="solid">
+          <Card variant="outline">
             <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>Work</Card.Header>
             <Card.Body>
               <UnorderedList>

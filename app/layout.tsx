@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 import { flex } from 'styled-system/patterns'
 import { TopNavbar, TopNavMenu, Paper, PageAvatar } from '@ui/AppShell'
-import { ThemeSwitcher } from '@ui/ThemeSwitcher'
+import { ThemeSwitcher } from '@ui/ModeSwitcher'
 
 const inter = Inter({
   weight: ['400', '700'],

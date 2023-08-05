@@ -13,24 +13,52 @@ const badge = cva({
   variants: {
     visual: {
       blue: {
-        bg: 'blue.900',
-        borderColor: 'gray.800',
-        color: 'gray.400',
+        _dark: {
+          bg: 'blue.900',
+          borderColor: 'gray.800',
+          color: 'blue.400',
+        },
+        base: {
+          bg: 'blue.600',
+          borderColor: 'blue.500',
+          color: 'blue.200',
+        },
       },
       fuchsia: {
-        bg: 'fuchsia.900',
-        borderColor: 'fuchsia.800',
-        color: 'fuchsia.400',
+        _dark: {
+          bg: 'fuchsia.900',
+          borderColor: 'fuchsia.800',
+          color: 'fuchsia.400',
+        },
+        base: {
+          bg: 'fuchsia.600',
+          borderColor: 'fuchsia.500',
+          color: 'fuchsia.200',
+        },
       },
       violet: {
-        bg: 'violet.900',
-        borderColor: 'violet.800',
-        color: 'violet.400',
+        _dark: {
+          bg: 'violet.900',
+          borderColor: 'violet.800',
+          color: 'violet.400',
+        },
+        base: {
+          bg: 'violet.600',
+          borderColor: 'violet.500',
+          color: 'violet.200',
+        },
       },
       emerald: {
-        bg: 'emerald.900',
-        borderColor: 'emerald.800',
-        color: 'emerald.400',
+        _dark: {
+          bg: 'emerald.900',
+          borderColor: 'emerald.800',
+          color: 'emerald.400',
+        },
+        base: {
+          bg: 'emerald.600',
+          borderColor: 'emerald.500',
+          color: 'emerald.200',
+        },
       },
     },
   },

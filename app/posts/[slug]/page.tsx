@@ -46,7 +46,7 @@ const postMetaStyles = stack({
   gap: 4,
 })
 const calendar = css({
-  bg: 'blue.700',
+  color: 'primaryBg',
   borderRadius: 'md',
 })
 
