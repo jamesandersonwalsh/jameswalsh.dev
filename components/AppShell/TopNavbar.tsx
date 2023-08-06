@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { hstack } from 'styled-system/patterns'
 import { cva, css } from 'styled-system/css'
 import { usePathname } from 'next/navigation'
+import { navigationalItems } from '.'
 
 const navBar = hstack({
   hideBelow: 'sm',
@@ -47,20 +48,13 @@ const navItem = cva({
   },
 })
 
-export const navItems = [
-  { href: '/posts', value: 'Posts' },
-  { href: '/projects', value: 'Projects' },
-  { href: '/stack', value: 'Stack' },
-  { href: '/about', value: 'About' },
-]
-
 export function TopNavbar() {
   const pathname = usePathname()
 
   return (
     <nav className={navBar}>
       <ul className={navList}>
-        {navItems.map((item) => {
+        {navigationalItems.map((item) => {
           const variant = pathname.includes(item.href) ? 'current' : 'default'
           return (
             <li key={item.href} className={navItem({ visual: variant })}>

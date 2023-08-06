@@ -3,7 +3,7 @@
 import { css } from 'styled-system/css'
 import { vstack } from 'styled-system/patterns'
 import { Bars3Icon } from '@heroicons/react/24/solid'
-import { navItems } from './TopNavbar'
+import { navigationalItems } from '.'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { Overlay } from '../Overlay'
@@ -75,7 +75,7 @@ export function TopNavMenu() {
       </button>
       <Overlay isOpen={isMenuOpen}>
         <ol className={menuList} ref={ref}>
-          {navItems.map((navItem) => (
+          {navigationalItems.map((navItem) => (
             <li key={navItem.href} className={menuItem}>
               <Link href={navItem.href}>{navItem.value}</Link>
             </li>
