@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
 import { grid, gridItem } from 'styled-system/patterns'
+import { cx, css } from 'styled-system/css'
 
 const footer = grid({
   gap: 8,
@@ -8,7 +9,12 @@ const footer = grid({
     smDown: 1,
   },
   borderTopWidth: '1px',
-  borderTopColor: 'gray.800',
+  _dark: {
+    borderTopColor: 'gray.800',
+  },
+  _light: {
+    borderTopColor: 'gray.300',
+  },
   minH: '8rem',
   alignItems: 'center',
   p: '2rem',
@@ -18,6 +24,14 @@ export function Footer({ children }: PropsWithChildren) {
   return <footer className={footer}>{children}</footer>
 }
 
+const typography = css({
+  _dark: {
+    color: 'gray.400',
+  },
+  _light: {
+    color: 'gray.600',
+  },
+})
 const leftElement = gridItem({
   display: 'flex',
   justifyContent: {
@@ -35,10 +49,10 @@ const rightElement = gridItem({
   color: 'gray.400',
 })
 function LeftElement({ children }: PropsWithChildren) {
-  return <div className={leftElement}>{children}</div>
+  return <div className={cx(leftElement, typography)}>{children}</div>
 }
 function RightElement({ children }: PropsWithChildren) {
-  return <div className={rightElement}>{children}</div>
+  return <div className={cx(rightElement, typography)}>{children}</div>
 }
 
 Footer.LeftElement = LeftElement

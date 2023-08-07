@@ -21,9 +21,9 @@ export default defineConfig({
         primaryText: { value: { base: '{colors.blue.200}', _dark: '{colors.blue.200}' } },
         primaryTextLight: { value: { base: '{colors.blue.100}', _dark: '{colors.blue.100}' } },
 
-        secondaryBg: { value: { base: '{colors.blue.700}', _dark: '{colors.blue.950}' } },
+        secondaryBg: { value: { base: '{colors.blue.800}', _dark: '{colors.blue.950}' } },
         secondaryText: { value: { base: '{colors.blue.200}', _dark: '{colors.blue.300}' } },
-        secondaryHoverBg: { value: { base: '{colors.blue.600}', _dark: '{colors.blue.900}' } },
+        secondaryHoverBg: { value: { base: '{colors.blue.700}', _dark: '{colors.blue.900}' } },
         secondaryTextLight: { value: { base: '{colors.blue.100}', _dark: '{colors.blue.400}' } },
 
         tertiaryBorder: { value: { base: '{colors.zinc.300}', _dark: '{colors.gray.700}' } },

@@ -1,5 +1,5 @@
 import { css } from 'styled-system/css'
-import { hstack, container } from 'styled-system/patterns'
+import { container, flex } from 'styled-system/patterns'
 import Link from 'next/link'
 import { compareDesc } from 'date-fns'
 import { Post, allPosts } from 'contentlayer/generated'
@@ -8,8 +8,10 @@ import Image from 'next/image'
 import { PageLayout } from '@ui/Layouts'
 import { TimeFormat } from '@ui/TimeFormat'
 import { Timeline } from '@ui/Timeline'
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
 import { Card } from '@ui/Card'
+import { ArticleCTA } from './ArticleCTA'
+import { ClockIcon } from '@heroicons/react/24/outline'
+import { calculateTimeToRead } from '@/helpers'
 
 const articleTitleStyles = css({
   fontSize: 'xl',
@@ -28,17 +30,8 @@ const coverImageSmall = css({
 const articleBriefStyles = css({
   fontSize: 'md',
 })
-const linkBlurb = hstack({
-  gap: 1,
-  color: 'blue.600',
-  fontWeight: 'semibold',
-  fontSize: 'md',
-  _hover: {
-    color: 'blue.500',
-  },
-})
 
-function getAllPosts(): Post[] {
+export function getAllPosts(): Post[] {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
   return posts
 }
@@ -68,6 +61,11 @@ export default function PostsIndexPage() {
                   <Card variant="ghost">
                     <h2 className={articleTitleStyles}>{post.title}</h2>
                     <Card.Body>
+                      <span className={flex({ alignItems: 'center', mb: '1rem' })}>
+                        <ClockIcon width={24} height={24} />
+                        &nbsp;
+                        {calculateTimeToRead(post.body.raw)}&nbsp;min read
+                      </span>
                       <p className={articleBriefStyles}>{post.brief}</p>
                       <div className={coverImageSmallContainer}>
                         <Image
@@ -79,9 +77,7 @@ export default function PostsIndexPage() {
                       </div>
                     </Card.Body>
                     <Card.Footer>
-                      <span className={linkBlurb}>
-                        Read Full Article <ChevronRightIcon width={20} height={20} />
-                      </span>
+                      <ArticleCTA />
                     </Card.Footer>
                   </Card>
                 </Link>
