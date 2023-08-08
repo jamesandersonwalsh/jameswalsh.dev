@@ -15,7 +15,7 @@ import {
 import { PageLayout } from '@ui/Layouts'
 import { Button } from '@ui/Button'
 import { UnorderedList } from '@ui/List'
-import { getAllPosts } from './posts/page'
+import fetchPosts from './posts/fetchPosts'
 import { ArticleCTA } from './posts/ArticleCTA'
 import { TimeFormat } from '@/components/TimeFormat'
 import { calculateTimeToRead } from '@/helpers'
@@ -206,7 +206,7 @@ export default function Home() {
     },
   ]
 
-  const posts = getAllPosts()
+  const posts = fetchPosts()
 
   return (
     <div>

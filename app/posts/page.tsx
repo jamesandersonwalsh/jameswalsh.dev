@@ -1,8 +1,6 @@
 import { css } from 'styled-system/css'
 import { container, flex } from 'styled-system/patterns'
 import Link from 'next/link'
-import { compareDesc } from 'date-fns'
-import { Post, allPosts } from 'contentlayer/generated'
 import Image from 'next/image'
 
 import { PageLayout } from '@ui/Layouts'
@@ -12,6 +10,7 @@ import { Card } from '@ui/Card'
 import { ArticleCTA } from './ArticleCTA'
 import { ClockIcon } from '@heroicons/react/24/outline'
 import { calculateTimeToRead } from '@/helpers'
+import fetchPosts from './fetchPosts'
 
 const articleTitleStyles = css({
   fontSize: 'xl',
@@ -31,18 +30,13 @@ const articleBriefStyles = css({
   fontSize: 'md',
 })
 
-export function getAllPosts(): Post[] {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
-  return posts
-}
-
 export const metadata = {
   title: 'Articles - James Walsh',
   description: `Articles I've written`,
 }
 
 export default function PostsIndexPage() {
-  const posts = getAllPosts()
+  const posts = fetchPosts()
 
   return (
     <>
