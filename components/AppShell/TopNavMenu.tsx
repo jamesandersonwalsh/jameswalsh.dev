@@ -25,6 +25,7 @@ const topNavMenu = css({
   },
 })
 const menuList = vstack({
+  animation: 'drawerSlideIn 0.5s',
   py: '2rem',
   height: '100vh',
   width: '66vw',
@@ -99,16 +100,19 @@ export function TopNavMenu() {
       </button>
       <Overlay isOpen={isMenuOpen}>
         <OrderedList className={menuList} ref={ref}>
-          <OrderedList.ListItem className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
-            <Link href="/"> Home </Link>
-          </OrderedList.ListItem>
+          <Link href="/">
+            <OrderedList.ListItem className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
+              Home
+            </OrderedList.ListItem>
+          </Link>
           {navigationalItems.map((navItem) => {
             const variant = pathname.includes(navItem.href) ? 'current' : 'default'
 
             return (
-              <OrderedList.ListItem key={navItem.href} className={menuItem({ visual: variant })}>
-                <Link href={navItem.href}>{navItem.value}</Link>
-              </OrderedList.ListItem>
+              <Link key={navItem.href} href={navItem.href} className={menuItem({ visual: variant })}>
+                {navItem.value}
+                <OrderedList.ListItem />
+              </Link>
             )
           })}
         </OrderedList>

@@ -4,6 +4,16 @@ export default defineConfig({
   preflight: true,
   include: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
+    keyframes: {
+      drawerSlideIn: {
+        from: {
+          marginLeft: '100%',
+        },
+        to: {
+          marginLeft: '34%',
+        },
+      },
+    },
     semanticTokens: {
       colors: {
         bg: { value: { base: '{colors.zinc.100}', _dark: '{colors.gray.950}' } },
