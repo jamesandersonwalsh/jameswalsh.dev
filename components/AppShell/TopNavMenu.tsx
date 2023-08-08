@@ -1,16 +1,19 @@
 'use client'
 
-import { css } from 'styled-system/css'
+import { css, cva } from 'styled-system/css'
 import { vstack } from 'styled-system/patterns'
 import { Bars3Icon } from '@heroicons/react/24/solid'
-import { navigationalItems } from '.'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+
+import { navigationalItems } from '.'
 import { Overlay } from '../Overlay'
+import { OrderedList } from '../List'
 
 const topNavMenu = css({
   hideFrom: 'md',
-  color: 'gray.50',
+  color: 'text',
   width: '36px',
   borderWidth: '1px solid',
   borderColor: 'gray.100',
@@ -22,27 +25,48 @@ const topNavMenu = css({
   },
 })
 const menuList = vstack({
-  width: '90vw',
-  padding: '0.75rem',
-  bg: 'gray.900',
-  mx: 'auto',
-  mt: '1rem',
+  py: '2rem',
+  height: '100vh',
+  width: '66vw',
+  bg: 'elevatedBg',
+  ml: 'auto',
   borderRadius: 'lg',
-  gap: 6,
+  gap: 2,
 })
-const menuItem = css({
-  p: '0.25rem',
-  m: '0.25rem',
-  width: '100%',
-  textAlign: 'center',
-  fontWeight: 'medium',
-  fontSize: 'md',
-  _hover: {
-    cursor: 'pointer',
+
+const menuItem = cva({
+  base: {
+    m: '1rem',
+    px: '8rem',
+    py: '0.5rem',
+    borderRadius: 'lg',
+    color: 'text',
+    textAlign: 'center',
+    justifyContent: 'center',
+    fontWeight: 'medium',
+    fontSize: 'lg',
+    _hover: {
+      bg: 'secondaryHoverBg',
+      color: 'secondaryTextLight',
+      cursor: 'pointer',
+    },
+  },
+  variants: {
+    visual: {
+      current: {
+        bg: 'secondaryBg',
+        color: 'secondaryTextLight',
+      },
+      default: {
+        bg: 'inherit',
+        color: 'text',
+      },
+    },
   },
 })
 
 export function TopNavMenu() {
+  const pathname = usePathname()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const ref = useRef(null)
 
@@ -74,13 +98,20 @@ export function TopNavMenu() {
         <Bars3Icon />
       </button>
       <Overlay isOpen={isMenuOpen}>
-        <ol className={menuList} ref={ref}>
-          {navigationalItems.map((navItem) => (
-            <li key={navItem.href} className={menuItem}>
-              <Link href={navItem.href}>{navItem.value}</Link>
-            </li>
-          ))}
-        </ol>
+        <OrderedList className={menuList} ref={ref}>
+          <OrderedList.ListItem className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
+            <Link href="/"> Home </Link>
+          </OrderedList.ListItem>
+          {navigationalItems.map((navItem) => {
+            const variant = pathname.includes(navItem.href) ? 'current' : 'default'
+
+            return (
+              <OrderedList.ListItem key={navItem.href} className={menuItem({ visual: variant })}>
+                <Link href={navItem.href}>{navItem.value}</Link>
+              </OrderedList.ListItem>
+            )
+          })}
+        </OrderedList>
       </Overlay>
     </>
   )

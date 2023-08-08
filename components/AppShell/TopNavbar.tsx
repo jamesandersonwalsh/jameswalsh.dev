@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { hstack } from 'styled-system/patterns'
-import { cva, css } from 'styled-system/css'
+import { cva } from 'styled-system/css'
 import { usePathname } from 'next/navigation'
 import { navigationalItems } from '.'
 
@@ -56,6 +56,7 @@ export function TopNavbar() {
       <ul className={navList}>
         {navigationalItems.map((item) => {
           const variant = pathname.includes(item.href) ? 'current' : 'default'
+
           return (
             <li key={item.href} className={navItem({ visual: variant })}>
               <Link href={item.href}>{item.value}</Link>

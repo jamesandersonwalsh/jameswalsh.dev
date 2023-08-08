@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import { css } from 'styled-system/css'
 
 const themeSwitcher = css({
+  hideBelow: 'sm',
   position: 'absolute',
   right: '0',
   color: 'text',

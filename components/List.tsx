@@ -1,11 +1,13 @@
-import { DetailedHTMLProps, LiHTMLAttributes, PropsWithChildren } from 'react'
+import { DetailedHTMLProps, LiHTMLAttributes, OlHTMLAttributes, PropsWithChildren } from 'react'
 import { vstack, hstack } from 'styled-system/patterns'
 
 const orderedList = vstack({
   listStyle: 'auto',
   gap: 6,
 })
-export function OrderedList({ children, ...rest }: PropsWithChildren) {
+
+type OrderedListProps = PropsWithChildren & DetailedHTMLProps<OlHTMLAttributes<HTMLOListElement>, HTMLOListElement>
+export function OrderedList({ children, ...rest }: OrderedListProps) {
   return (
     <ol className={orderedList} {...rest}>
       {children}
@@ -13,9 +15,10 @@ export function OrderedList({ children, ...rest }: PropsWithChildren) {
   )
 }
 
-type UnorderedListProps = {
-  type?: 'vertical' | 'horizontal'
-} & PropsWithChildren
+type UnorderedListProps = PropsWithChildren &
+  Omit<DetailedHTMLProps<OlHTMLAttributes<HTMLOListElement>, HTMLOListElement>, 'type'> & {
+    type?: 'vertical' | 'horizontal'
+  }
 export function UnorderedList({ type = 'vertical', children, ...rest }: UnorderedListProps) {
   const className = type === 'horizontal' ? hstack({ gap: 6 }) : vstack({ gap: 6 })
 
