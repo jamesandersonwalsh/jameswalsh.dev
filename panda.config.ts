@@ -16,9 +16,9 @@ export default defineConfig({
     },
     semanticTokens: {
       colors: {
-        bg: { value: { base: '{colors.zinc.100}', _dark: '{colors.gray.950}' } },
-        elevatedBg: { value: { base: '{colors.zinc.50}', _dark: '{colors.gray.900}' } },
-        elevatedHover: { value: { base: '{colors.zinc.50}', _dark: '{colors.gray.800}' } },
+        bg: { value: { base: '{colors.zinc.50}', _dark: '{colors.gray.950}' } },
+        elevatedBg: { value: { base: '{colors.zinc.100}', _dark: '{colors.gray.900}' } },
+        elevatedHover: { value: { base: '{colors.zinc.100}', _dark: '{colors.gray.800}' } },
 
         borderColorLight: { value: { base: '{colors.zinc.300}', _dark: '{colors.gray.800}' } },
         borderColorMd: { value: { base: '{colors.zinc.400}', _dark: '{colors.gray.700}' } },

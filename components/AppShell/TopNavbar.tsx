@@ -8,7 +8,7 @@ import { navigationalItems } from '.'
 
 const navBar = hstack({
   hideBelow: 'sm',
-  bg: 'elevatedBg',
+  bg: 'bg',
   minH: '2.5rem',
   px: '0.25rem',
   fontWeight: 'normal',

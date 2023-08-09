@@ -50,9 +50,7 @@ const columnGrid = grid({
     sm: 1,
   },
 })
-const postLink = css({
-  mr: '4rem',
-})
+
 const postTitle = css({
   maxWidth: '90%',
   fontWeight: 'medium',
@@ -239,7 +237,7 @@ export default function Home() {
       <div className={columnGrid}>
         <div className={cx(column, gridItem({ colSpan: 3 }))}>
           {posts.map((post) => (
-            <Link className={postLink} key={post._id} href={post.url}>
+            <Link key={post._id} href={post.url}>
               <Card variant="ghost">
                 <h3 className={postTitle}>{post.title}</h3>
                 <Card.Body>
@@ -292,7 +290,7 @@ export default function Home() {
             <Card.Footer>
               <Button variant="outline" as="a" href="https://aboveandbelow.substack.com">
                 <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
-                Substack (coming soon)
+                Subscribe
               </Button>
             </Card.Footer>
           </Card>
