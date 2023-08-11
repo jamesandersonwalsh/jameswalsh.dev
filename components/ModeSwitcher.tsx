@@ -22,7 +22,9 @@ const themeSwitcher = css({
   },
 })
 export function ThemeSwitcher() {
-  const [isLightMode, setIsLightMode] = useState(localStorage.getItem('mode') === 'light')
+  const [isLightMode, setIsLightMode] = useState(
+    localStorage.getItem('mode') === 'light' || window.matchMedia('(prefers-color-scheme: light)').matches,
+  )
 
   const setMode = (mode: string) => {
     document.documentElement.setAttribute('data-color-mode', mode)
