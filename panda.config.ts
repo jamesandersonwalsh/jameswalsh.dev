@@ -7,10 +7,10 @@ export default defineConfig({
     keyframes: {
       drawerSlideIn: {
         from: {
-          marginLeft: '100%',
+          right: '-336px',
         },
         to: {
-          marginLeft: '34%',
+          right: 0,
         },
       },
     },

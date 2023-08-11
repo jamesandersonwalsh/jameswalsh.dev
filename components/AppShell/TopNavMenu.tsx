@@ -9,7 +9,8 @@ import { useEffect, useRef, useState } from 'react'
 
 import { navigationalItems } from '.'
 import { Overlay } from '../Overlay'
-import { OrderedList } from '../List'
+import { UnorderedList } from '../List'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 
 const topNavMenu = css({
   hideFrom: 'md',
@@ -24,13 +25,14 @@ const topNavMenu = css({
     cursor: 'pointer',
   },
 })
-const menuList = vstack({
+const menuListContainer = vstack({
+  position: 'absolute',
+  right: 0,
   animation: 'drawerSlideIn 0.5s',
-  py: '2rem',
+  py: '1rem',
   height: '100vh',
-  width: '66vw',
+  width: '336px',
   bg: 'elevatedBg',
-  ml: 'auto',
   borderRadius: 'lg',
   gap: 2,
 })
@@ -99,23 +101,23 @@ export function TopNavMenu() {
         <Bars3Icon />
       </button>
       <Overlay isOpen={isMenuOpen}>
-        <OrderedList className={menuList} ref={ref}>
-          <Link href="/">
-            <OrderedList.ListItem className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
-              Home
-            </OrderedList.ListItem>
-          </Link>
-          {navigationalItems.map((navItem) => {
-            const variant = pathname.includes(navItem.href) ? 'current' : 'default'
+        <div className={menuListContainer} ref={ref}>
+          <XMarkIcon width={24} height={24} className={css({ ml: 'auto', mr: '1rem', cursor: 'pointer' })} />
+          <UnorderedList>
+            <Link href="/" className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
+              <UnorderedList.ListItem>Home</UnorderedList.ListItem>
+            </Link>
+            {navigationalItems.map((navItem) => {
+              const variant = pathname.includes(navItem.href) ? 'current' : 'default'
 
-            return (
-              <Link key={navItem.href} href={navItem.href} className={menuItem({ visual: variant })}>
-                {navItem.value}
-                <OrderedList.ListItem />
-              </Link>
-            )
-          })}
-        </OrderedList>
+              return (
+                <Link key={navItem.href} href={navItem.href} className={menuItem({ visual: variant })}>
+                  <UnorderedList.ListItem>{navItem.value}</UnorderedList.ListItem>
+                </Link>
+              )
+            })}
+          </UnorderedList>
+        </div>
       </Overlay>
     </>
   )

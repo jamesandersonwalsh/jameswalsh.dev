@@ -50,21 +50,21 @@ const pre = css({
     bg: 'gray.900',
   },
   base: {
-    bg: 'gray.600',
+    bg: 'gray.800',
   },
 })
 const code = css({
   fontSize: 'md',
   py: '2px',
-  px: '4px',
+  px: '8px',
   borderRadius: 'md',
   _dark: {
     bg: 'gray.900',
-    color: 'gray.200',
+    color: 'blue.200',
   },
   base: {
-    bg: 'gray.600',
-    color: 'gray.100',
+    bg: 'gray.800',
+    color: 'blue.200',
   },
 })
 const a = css({

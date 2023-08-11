@@ -9,6 +9,7 @@ import {
   CalendarDaysIcon,
   ClockIcon,
   CodeBracketIcon,
+  InboxArrowDownIcon,
   LinkIcon,
   NewspaperIcon,
 } from '@heroicons/react/24/outline'
@@ -40,23 +41,19 @@ const socialIconLink = hstack({
   },
 })
 const pageDivider = divider({
-  color: 'gray.600',
+  color: 'tertiaryTextLight',
 })
 const columnGrid = grid({
   mt: '4rem',
   gap: 6,
-  columns: {
-    mdTo2xl: 5,
-    sm: 1,
-  },
-})
-
-const postTitle = css({
-  maxWidth: '90%',
-  fontWeight: 'medium',
+  columns: 12,
 })
 const column = stack({
   gap: 6,
+})
+const postTitle = css({
+  maxWidth: '90%',
+  fontWeight: 'medium',
 })
 const companyLogo = circle()
 const dl = wrap({
@@ -235,7 +232,17 @@ export default function Home() {
       </section>
       <br />
       <div className={columnGrid}>
-        <div className={cx(column, gridItem({ colSpan: 3 }))}>
+        <div
+          className={cx(
+            column,
+            gridItem({
+              colSpan: {
+                mdTo2xl: 7,
+                smDown: 12,
+              },
+            }),
+          )}
+        >
           {posts.map((post) => (
             <Link key={post._id} href={post.url}>
               <Card variant="ghost">
@@ -262,34 +269,28 @@ export default function Home() {
             </Link>
           ))}
         </div>
-        <div className={cx(column, gridItem({ colSpan: 2 }))}>
+        <div
+          className={cx(
+            column,
+            gridItem({
+              colSpan: {
+                mdTo2xl: 5,
+                smDown: 12,
+              },
+            }),
+          )}
+        >
           <Card variant="outline">
             <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
             <Card.Body>
               <p className={blogPostDescriptor}>
-                Get notified when I publish new tech-related posts, unsubscribe at any time. My blog is hosted here, &
-                published to Hashnode & DEV.to.
+                Get notified when I publish new posts, unsubscribe any time. My blog is hosted here, & published to
+                Hashnode & DEV.to.
               </p>
-              <div className={blogLinks}>
-                <Button variant="outline" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
-                  <Image
-                    src="/logos/blog/hashnode.png"
-                    width={28}
-                    height={28}
-                    alt="hashnode-logo"
-                    className={blogLogo}
-                  />
-                  Hashnode
-                </Button>
-                <Button variant="outline" as="a" href={`https://dev.to/${HANDLE}`}>
-                  <Image src="/logos/blog/dev-to.png" width={28} height={28} alt="dev-to-logo" className={blogLogo} />
-                  Dev
-                </Button>
-              </div>
             </Card.Body>
             <Card.Footer>
-              <Button variant="outline" as="a" href="https://aboveandbelow.substack.com">
-                <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
+              <Button variant="outline" as="a" href="#publications">
+                <InboxArrowDownIcon className={buttonIcon} width={24} height={24} />
                 Subscribe
               </Button>
             </Card.Footer>
@@ -329,13 +330,101 @@ export default function Home() {
                   </UnorderedList.ListItem>
                 ))}
                 <UnorderedList.ListItem>
-                  <Button variant="secondary" as="a" href="resume.docx" download>
+                  <Button variant="secondary" as="a" href="resume.pdf" download>
                     <ArrowDownTrayIcon className={buttonIcon} width={24} height={24} />
-                    Download Resume
+                    Download CV
                   </Button>
                 </UnorderedList.ListItem>
               </UnorderedList>
             </Card.Body>
+          </Card>
+        </div>
+        <div
+          className={cx(
+            column,
+            gridItem({
+              colSpan: {
+                mdTo2xl: 12,
+                smDown: 12,
+              },
+            }),
+          )}
+        >
+          <hr className={pageDivider} />
+          <h2 id="publications">See what I&apos;ve published</h2>
+        </div>
+        <div
+          className={gridItem({
+            colSpan: {
+              mdTo2xl: 4,
+              smDown: 12,
+            },
+          })}
+        >
+          <Card variant="outline">
+            <Card.Header
+              icon={
+                <Image src="/logos/blog/hashnode.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
+              }
+            >
+              Hashnode
+            </Card.Header>
+            <Card.Body>Subscribe to my tech newsletter & receive emails whenever I publish something new.</Card.Body>
+            <Card.Footer>
+              <Button variant="outline" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
+                Join Newsletter
+              </Button>
+            </Card.Footer>
+          </Card>
+        </div>
+        <div
+          className={gridItem({
+            colSpan: {
+              mdTo2xl: 4,
+              smDown: 12,
+            },
+          })}
+        >
+          <Card variant="outline">
+            <Card.Header
+              icon={
+                <Image src="/logos/blog/dev-to.png" width={28} height={28} alt="dev-to-logo" className={blogLogo} />
+              }
+            >
+              DEV.to
+            </Card.Header>
+            <Card.Body>All my posts are made available on DEV, my favorite blogging community.</Card.Body>
+            <Card.Footer>
+              <Button variant="outline" as="a" href={`https://dev.to/${HANDLE}`}>
+                Follow on DEV
+              </Button>
+            </Card.Footer>
+          </Card>
+        </div>
+        <div
+          className={gridItem({
+            colSpan: {
+              mdTo2xl: 4,
+              smDown: 12,
+            },
+          })}
+        >
+          <Card variant="outline">
+            <Card.Header
+              icon={
+                <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
+              }
+            >
+              Substack
+            </Card.Header>
+            <Card.Body>
+              My substack focuses on non-technical subjects & life outside of corporate. <i>Coming soon!</i>
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="outline" as="a" href="https://aboveandbelow.substack.com">
+                Subscribe
+              </Button>
+            </Card.Footer>
           </Card>
         </div>
       </div>
