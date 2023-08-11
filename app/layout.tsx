@@ -4,7 +4,7 @@ import formatDate from 'date-fns/format'
 import { PropsWithChildren } from 'react'
 import { ThemeSwitcher } from '@ui/ModeSwitcher'
 import { flex } from 'styled-system/patterns'
-import { TopNavbar, navigationalItems, TopNavMenu, Paper, PageAvatar, Footer } from '@ui/AppShell'
+import { TopNavbar, navigationalItems, TopNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
 import { UnorderedList } from '@ui/List'
 import Link from 'next/link'
 
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body className={inter.className}>
         <Paper>
           <TopNavbar />
-          <TopNavMenu />
+          <TopNavDrawer />
           <ThemeSwitcher />
           <main className={mainStyles}>{children}</main>
           <PageAvatar />

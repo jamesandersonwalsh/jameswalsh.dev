@@ -1,6 +1,6 @@
 export { Paper } from './Paper'
 export { TopNavbar } from './TopNavbar'
-export { TopNavMenu } from './TopNavMenu'
+export { TopNavDrawer } from './TopNavDrawer'
 export { PageAvatar } from './PageAvatar'
 export { Footer } from './Footer'
 

@@ -68,7 +68,7 @@ const menuItem = cva({
   },
 })
 
-export function TopNavMenu() {
+export function TopNavDrawer() {
   const pathname = usePathname()
   const [isMenuOpen, setMenuOpen] = useState(false)
   const ref = useRef(null)
