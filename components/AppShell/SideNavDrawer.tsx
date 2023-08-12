@@ -5,8 +5,8 @@ import { Bars3Icon } from '@heroicons/react/24/solid'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { css, cva } from 'styled-system/css'
-import { vstack, divider } from 'styled-system/patterns'
+import { css, cva, cx } from 'styled-system/css'
+import { vstack } from 'styled-system/patterns'
 
 import { UnorderedList } from '../List'
 import { Overlay } from '../Overlay'
@@ -42,16 +42,30 @@ const xIcon = css({
   },
 })
 
-const navContainer = vstack({
-  position: 'absolute',
-  left: 0,
-  animation: 'drawerSlideIn 0.5s',
+const navStack = vstack({
   p: '1rem',
   height: '100vh',
   width: '336px',
   bg: 'elevatedBg',
   borderRadius: 'lg',
   gap: 4,
+})
+const navigation = cva({
+  base: {
+    position: 'absolute',
+    left: '-336px',
+    transitionDuration: '0.3s',
+  },
+  variants: {
+    visual: {
+      visible: {
+        left: 0,
+      },
+      hidden: {
+        left: '-336px',
+      },
+    },
+  },
 })
 const menuItem = cva({
   base: {
@@ -116,13 +130,15 @@ export function SideNavDrawer() {
     }
   }, [isMenuOpen])
 
+  const isNavStackOpen = isMenuOpen ? 'visible' : 'hidden'
+
   return (
     <>
       <button className={topNavMenu} onClick={openMenu}>
         <Bars3Icon />
       </button>
       <Overlay isOpen={isMenuOpen}>
-        <div className={navContainer} ref={navRef}>
+        <div className={cx(navStack, navigation({ visual: isNavStackOpen }))} ref={navRef}>
           <XMarkIcon width={28} height={28} className={xIcon} onClick={closeMenu} />
           <UnorderedList>
             <Link href="/" className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>

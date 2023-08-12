@@ -4,16 +4,6 @@ export default defineConfig({
   preflight: true,
   include: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
   theme: {
-    keyframes: {
-      drawerSlideIn: {
-        from: {
-          left: '-336px',
-        },
-        to: {
-          left: 0,
-        },
-      },
-    },
     semanticTokens: {
       colors: {
         bg: { value: { base: '{colors.slate.50}', _dark: '{colors.slate.950}' } },
