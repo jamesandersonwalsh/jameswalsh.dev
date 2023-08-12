@@ -7,6 +7,7 @@ const themeSwitcher = css({
   hideBelow: 'sm',
   position: 'absolute',
   right: '0',
+  top: '2rem',
   color: 'text',
   borderRadius: 'md',
   p: '0.33rem',
