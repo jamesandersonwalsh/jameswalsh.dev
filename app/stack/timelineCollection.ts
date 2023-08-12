@@ -131,7 +131,7 @@ const TimelineCollection: TimelineCollection = {
                     the beginning of time, getting you every event that was ever fired. The real time analytics
                     abilities from tools that are built on top of kafka are second to none, & powered
                     analytics dashboards I helped create in Scala during the 2020 global p&emic.`,
-      imageLink: '/logos/tech/kafka-white.png',
+      imageLink: '/logos/tech/kafka.jpeg',
     },
     {
       title: 'AWS Simple Queue Service',
