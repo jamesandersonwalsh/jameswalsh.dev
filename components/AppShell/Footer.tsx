@@ -10,10 +10,10 @@ const footer = grid({
   },
   borderTopWidth: '1px',
   _dark: {
-    borderTopColor: 'gray.800',
+    borderTopColor: 'slate.800',
   },
   _light: {
-    borderTopColor: 'gray.300',
+    borderTopColor: 'slate.300',
   },
   minH: '8rem',
   alignItems: 'center',
@@ -26,10 +26,10 @@ export function Footer({ children }: PropsWithChildren) {
 
 const typography = css({
   _dark: {
-    color: 'gray.400',
+    color: 'slate.400',
   },
   _light: {
-    color: 'gray.600',
+    color: 'slate.600',
   },
 })
 const leftElement = gridItem({
@@ -38,7 +38,7 @@ const leftElement = gridItem({
     mdTo2xl: 'flex-start',
     smDown: 'center',
   },
-  color: 'gray.400',
+  color: 'slate.400',
 })
 const rightElement = gridItem({
   display: 'flex',
@@ -46,7 +46,7 @@ const rightElement = gridItem({
     mdTo2xl: 'flex-end',
     smDown: 'center',
   },
-  color: 'gray.400',
+  color: 'slate.400',
 })
 function LeftElement({ children }: PropsWithChildren) {
   return <div className={cx(leftElement, typography)}>{children}</div>

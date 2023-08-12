@@ -38,7 +38,7 @@ const p = css({
 })
 const blockquote = css({
   borderInlineStart: '3px solid',
-  borderInlineStartColor: 'gray.500',
+  borderInlineStartColor: 'slate.500',
   my: '1rem',
   px: '1.25rem',
 })
@@ -47,10 +47,10 @@ const pre = css({
   p: 2,
   my: 2,
   _dark: {
-    bg: 'gray.900',
+    bg: 'slate.900',
   },
   base: {
-    bg: 'gray.800',
+    bg: 'slate.800',
   },
 })
 const code = css({
@@ -59,11 +59,11 @@ const code = css({
   px: '8px',
   borderRadius: 'md',
   _dark: {
-    bg: 'gray.900',
+    bg: 'slate.900',
     color: 'blue.200',
   },
   base: {
-    bg: 'gray.800',
+    bg: 'slate.800',
     color: 'blue.200',
   },
 })

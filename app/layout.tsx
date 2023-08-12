@@ -8,7 +8,7 @@ import { flex } from 'styled-system/patterns'
 import { getColorModeCookie } from './actions'
 
 import { NAVIGATIONAL_ITEMS } from '@/components/AppShell/constants'
-import { TopNavbar, TopNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
+import { TopNavbar, SideNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
 import { ColorModeSwitcher } from '@ui/ColorModeSwitcher'
 import { UnorderedList } from '@ui/List'
 
@@ -40,7 +40,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
       <body className={inter.className}>
         <Paper>
           <TopNavbar />
-          <TopNavDrawer />
+          <SideNavDrawer />
           <ColorModeSwitcher />
           <main className={mainStyles}>{children}</main>
           <PageAvatar />

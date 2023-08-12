@@ -58,7 +58,7 @@ const calendar = css({
 const buttonCTAs = hstack({
   gap: 6,
   borderTop: '1px solid',
-  borderTopColor: 'gray.600',
+  borderTopColor: 'slate.600',
   width: '100%',
   mt: '2rem',
   pt: '2rem',

@@ -9,14 +9,13 @@ import { NAVIGATIONAL_ITEMS } from './constants'
 
 const navBar = hstack({
   hideBelow: 'sm',
-  bg: 'bg',
   minH: '2.5rem',
   px: '0.25rem',
   fontWeight: 'normal',
   width: '360px',
   borderRadius: 'full',
   borderWidth: '1px',
-  boxShadow: 'sm',
+  boxShadow: 'md',
   borderColor: 'borderColorMd',
 })
 const navList = hstack({
