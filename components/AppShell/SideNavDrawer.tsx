@@ -18,9 +18,9 @@ const topNavMenu = css({
   color: 'text',
   width: '36px',
   borderWidth: '1px solid',
-  borderColor: 'gray.100',
-  ml: 'auto',
-  mr: '1rem',
+  borderColor: 'slate.100',
+  mr: 'auto',
+  ml: '1rem',
   mt: '1rem',
   _hover: {
     cursor: 'pointer',
@@ -44,7 +44,7 @@ const xIcon = css({
 
 const navContainer = vstack({
   position: 'absolute',
-  right: 0,
+  left: 0,
   animation: 'drawerSlideIn 0.5s',
   p: '1rem',
   height: '100vh',

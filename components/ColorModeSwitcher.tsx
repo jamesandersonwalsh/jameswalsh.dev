@@ -4,20 +4,22 @@ import { css } from 'styled-system/css'
 import { getColorModeCookie, toggleColorModeCookie } from '../app/actions'
 
 const themeSwitcher = css({
-  hideBelow: 'sm',
   position: 'absolute',
-  right: '0',
-  top: '2rem',
+  right: '1.5rem',
+  top: {
+    mdTo2xl: '2rem',
+    smDown: '1.5rem',
+  },
   color: 'text',
   borderRadius: 'md',
   p: '0.33rem',
   _hover: {
     cursor: 'pointer',
     _dark: {
-      color: 'gray.100',
+      color: 'slate.100',
     },
     base: {
-      color: 'zinc.500',
+      color: 'slate.500',
     },
   },
 })

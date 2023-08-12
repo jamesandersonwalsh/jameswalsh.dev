@@ -7,7 +7,7 @@ const timeline = stack({
   px: '1.5rem',
   mt: '1.5rem',
   borderInlineStart: '1px solid',
-  borderInlineStartColor: 'gray.500',
+  borderInlineStartColor: 'slate.500',
 })
 export function Timeline({ children }: PropsWithChildren) {
   return <ol className={timeline}>{children}</ol>

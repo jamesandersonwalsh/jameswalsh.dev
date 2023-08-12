@@ -15,7 +15,7 @@ const badge = cva({
       blue: {
         _dark: {
           bg: 'blue.900',
-          borderColor: 'gray.800',
+          borderColor: 'slate.800',
           color: 'blue.400',
         },
         base: {

@@ -7,24 +7,24 @@ export default defineConfig({
     keyframes: {
       drawerSlideIn: {
         from: {
-          right: '-336px',
+          left: '-336px',
         },
         to: {
-          right: 0,
+          left: 0,
         },
       },
     },
     semanticTokens: {
       colors: {
-        bg: { value: { base: '{colors.zinc.50}', _dark: '{colors.gray.950}' } },
-        elevatedBg: { value: { base: '{colors.zinc.100}', _dark: '{colors.gray.900}' } },
-        elevatedHover: { value: { base: '{colors.zinc.100}', _dark: '{colors.gray.800}' } },
+        bg: { value: { base: '{colors.slate.50}', _dark: '{colors.slate.950}' } },
+        elevatedBg: { value: { base: '{colors.slate.100}', _dark: '{colors.slate.900}' } },
+        elevatedHover: { value: { base: '{colors.slate.100}', _dark: '{colors.slate.800}' } },
 
-        borderColorLight: { value: { base: '{colors.zinc.300}', _dark: '{colors.gray.800}' } },
-        borderColorMd: { value: { base: '{colors.zinc.400}', _dark: '{colors.gray.700}' } },
+        borderColorLight: { value: { base: '{colors.slate.300}', _dark: '{colors.slate.800}' } },
+        borderColorMd: { value: { base: '{colors.slate.400}', _dark: '{colors.slate.700}' } },
 
-        heading: { value: { base: '{colors.zinc.800}', _dark: '{colors.gray.200}' } },
-        text: { value: { base: '{colors.zinc.700}', _dark: '{colors.gray.300}' } },
+        heading: { value: { base: '{colors.slate.800}', _dark: '{colors.slate.200}' } },
+        text: { value: { base: '{colors.slate.700}', _dark: '{colors.slate.300}' } },
 
         primaryBg: { value: { base: '{colors.blue.600}', _dark: '{colors.blue.700}' } },
         primaryHoverBg: { value: { base: '{colors.blue.500}', _dark: '{colors.blue.600}' } },
@@ -36,10 +36,10 @@ export default defineConfig({
         secondaryHoverBg: { value: { base: '{colors.blue.700}', _dark: '{colors.blue.900}' } },
         secondaryTextLight: { value: { base: '{colors.blue.100}', _dark: '{colors.blue.400}' } },
 
-        tertiaryBorder: { value: { base: '{colors.zinc.300}', _dark: '{colors.gray.700}' } },
-        tertiaryText: { value: { base: '{colors.zinc.700}', _dark: '{colors.gray.300}' } },
-        tertiaryHoverBg: { value: { base: '{colors.zinc.50}', _dark: '{colors.gray.900}' } },
-        tertiaryTextLight: { value: { base: '{colors.zinc.500}', _dark: '{colors.gray.400}' } },
+        tertiaryBorder: { value: { base: '{colors.slate.300}', _dark: '{colors.slate.700}' } },
+        tertiaryText: { value: { base: '{colors.slate.700}', _dark: '{colors.slate.300}' } },
+        tertiaryHoverBg: { value: { base: '{colors.slate.100}', _dark: '{colors.slate.800}' } },
+        tertiaryTextLight: { value: { base: '{colors.slate.500}', _dark: '{colors.slate.400}' } },
       },
     },
   },

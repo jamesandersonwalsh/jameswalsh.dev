@@ -23,7 +23,7 @@ function Item({ children }: AccordionItemProps) {
   return (
     <>
       <div className={accordionItem}>{children}</div>
-      <div className={divider({ orientation: 'horizontal', color: 'gray.600' })} />
+      <div className={divider({ orientation: 'horizontal', color: 'slate.600' })} />
     </>
   )
 }
@@ -43,7 +43,7 @@ const button = flex({
   },
 })
 const chevron = css({
-  color: 'gray.400',
+  color: 'slate.400',
 })
 
 type AccordionButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> &
