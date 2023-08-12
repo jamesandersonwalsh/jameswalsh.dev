@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:import/recommended"],
+  "extends": ["next/core-web-vitals", "plugin:import/recommended", "plugin:import/typescript"],
   "rules": {
     "import/no-cycle": [2, { "maxDepth": 2 }],
     "import/order": [
@@ -10,5 +10,11 @@
         "groups": ["builtin", "external", "parent", "sibling", "index"]
       }
     ]
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    }
   }
 }
