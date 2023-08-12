@@ -1,6 +1,7 @@
 ## Brief Context
-* TODO
 
-## Linear Issue
+- TODO
 
-[FS-](https://linear.app/james-walsh/issue/<ISSUE-ID>)
+## Linear Issue(s)
+
+[- FS-<num>](https://linear.app/james-walsh/issue/<ISSUE-ID>/<ISSUE-DESC>)

@@ -1,5 +1,5 @@
 export { Paper } from './Paper'
 export { TopNavbar } from './TopNavbar'
-export { TopNavDrawer } from './TopNavDrawer'
+export { SideNavDrawer } from './SideNavDrawer'
 export { PageAvatar } from './PageAvatar'
 export { Footer } from './Footer'
