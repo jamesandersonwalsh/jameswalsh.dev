@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { css, cva } from 'styled-system/css'
-import { vstack } from 'styled-system/patterns'
+import { vstack, divider } from 'styled-system/patterns'
 
 import { UnorderedList } from '../List'
 import { Overlay } from '../Overlay'
@@ -27,12 +27,26 @@ const topNavMenu = css({
   },
 })
 
-const menuListContainer = vstack({
+const xIcon = css({
+  ml: 'auto',
+  mr: '1.5rem',
+  mb: '0.5rem',
+  cursor: 'pointer',
+  color: 'text',
+  borderRadius: 'sm',
+  _hover: {
+    bg: 'tertiaryHoverBg',
+  },
+  _active: {
+    bg: 'tertiaryHoverBg',
+  },
+})
+
+const navContainer = vstack({
   position: 'absolute',
   right: 0,
   animation: 'drawerSlideIn 0.5s',
-  py: '1rem',
-
+  p: '1rem',
   height: '100vh',
   width: '336px',
   bg: 'elevatedBg',
@@ -69,25 +83,10 @@ const menuItem = cva({
   },
 })
 
-const xIcon = css({
-  ml: 'auto',
-  mr: '1.5rem',
-  mb: '0.5rem',
-  cursor: 'pointer',
-  color: 'text',
-  borderRadius: 'sm',
-  _hover: {
-    bg: 'tertiaryHoverBg',
-  },
-  _active: {
-    bg: 'tertiaryHoverBg',
-  },
-})
-
 export function SideNavDrawer() {
   const pathname = usePathname()
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const menuListRef = useRef<HTMLDivElement>(null)
+  const navRef = useRef<HTMLDivElement>(null)
 
   const openMenu = () => {
     setMenuOpen(true)
@@ -103,7 +102,7 @@ export function SideNavDrawer() {
       }
     }
     const onClickOutside = (event: MouseEvent) => {
-      if (menuListRef.current && !menuListRef.current.contains(event.target as Node)) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
         closeMenu()
       }
     }
@@ -123,7 +122,7 @@ export function SideNavDrawer() {
         <Bars3Icon />
       </button>
       <Overlay isOpen={isMenuOpen}>
-        <div className={menuListContainer} ref={menuListRef}>
+        <div className={navContainer} ref={navRef}>
           <XMarkIcon width={28} height={28} className={xIcon} onClick={closeMenu} />
           <UnorderedList>
             <Link href="/" className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
