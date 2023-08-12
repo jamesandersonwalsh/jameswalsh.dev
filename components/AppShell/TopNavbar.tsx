@@ -1,10 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { hstack } from 'styled-system/patterns'
-import { cva } from 'styled-system/css'
 import { usePathname } from 'next/navigation'
-import { navigationalItems } from '.'
+import { cva } from 'styled-system/css'
+import { hstack } from 'styled-system/patterns'
+
+import { NAVIGATIONAL_ITEMS } from './constants'
 
 const navBar = hstack({
   hideBelow: 'sm',
@@ -54,7 +55,7 @@ export function TopNavbar() {
   return (
     <nav className={navBar}>
       <ul className={navList}>
-        {navigationalItems.map((item) => {
+        {NAVIGATIONAL_ITEMS.map((item) => {
           const variant = pathname.includes(item.href) ? 'current' : 'default'
 
           return (

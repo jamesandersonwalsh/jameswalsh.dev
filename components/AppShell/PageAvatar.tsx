@@ -2,9 +2,9 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { css } from 'styled-system/css'
 import { circle } from 'styled-system/patterns'
-import { usePathname } from 'next/navigation'
 
 const link = css({
   mr: 'auto',

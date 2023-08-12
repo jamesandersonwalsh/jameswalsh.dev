@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
-import { grid, gridItem } from 'styled-system/patterns'
 import { cx, css } from 'styled-system/css'
+import { grid, gridItem } from 'styled-system/patterns'
 
 const footer = grid({
   gap: 8,

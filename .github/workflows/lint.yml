@@ -37,10 +37,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Contentlayer build
+        run: pnpm contentlayer build
+
       - name: Run ESLint
         id: run-lint
         run: pnpm lint
 
-      - name: Run Prettier
+      - name: Run Prettier Check
         id: run-format-check
         run: pnpm format:check

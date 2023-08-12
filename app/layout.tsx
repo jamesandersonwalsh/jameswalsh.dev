@@ -1,14 +1,16 @@
 import './global.css'
-import { Inter } from 'next/font/google'
 import formatDate from 'date-fns/format'
-import { PropsWithChildren } from 'react'
-import { ColorModeSwitcher } from '@ui/ColorModeSwitcher'
-import { flex } from 'styled-system/patterns'
-import { TopNavbar, navigationalItems, TopNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
-import { UnorderedList } from '@ui/List'
+import { Inter } from 'next/font/google'
 import Link from 'next/link'
+import { PropsWithChildren } from 'react'
+import { flex } from 'styled-system/patterns'
 
 import { getColorModeCookie } from './actions'
+
+import { NAVIGATIONAL_ITEMS } from '@/components/AppShell/constants'
+import { TopNavbar, TopNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
+import { ColorModeSwitcher } from '@ui/ColorModeSwitcher'
+import { UnorderedList } from '@ui/List'
 
 const inter = Inter({
   weight: ['400', '700'],
@@ -46,7 +48,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <Footer>
           <Footer.LeftElement>
             <UnorderedList type="horizontal">
-              {navigationalItems.map((item) => (
+              {NAVIGATIONAL_ITEMS.map((item) => (
                 <UnorderedList.ListItem key={item.value}>
                   <Link href={item.href}>{item.value}</Link>
                 </UnorderedList.ListItem>

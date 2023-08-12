@@ -1,5 +1,6 @@
 .next/
 .vscode/
+.contentlayer/
 node_modules/
 package.json
 postcss.config.js

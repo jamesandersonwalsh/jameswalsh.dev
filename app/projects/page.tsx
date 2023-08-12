@@ -1,9 +1,10 @@
-import { grid, hstack, circle } from 'styled-system/patterns'
-import { PageLayout } from '@ui/Layouts'
-import { Card } from '@ui/Card'
-import Link from 'next/link'
 import { LinkIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import Link from 'next/link'
+import { grid, hstack, circle } from 'styled-system/patterns'
+
+import { Card } from '@ui/Card'
+import { PageLayout } from '@ui/Layouts'
 
 interface Project {
   title: string

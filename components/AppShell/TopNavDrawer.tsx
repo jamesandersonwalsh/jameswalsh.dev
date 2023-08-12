@@ -1,16 +1,17 @@
 'use client'
 
+import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon } from '@heroicons/react/24/solid'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useRef, useState } from 'react'
 import { css, cva } from 'styled-system/css'
 import { vstack } from 'styled-system/patterns'
-import { Bars3Icon } from '@heroicons/react/24/solid'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
 
-import { navigationalItems } from '.'
-import { Overlay } from '../Overlay'
 import { UnorderedList } from '../List'
-import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Overlay } from '../Overlay'
+
+import { NAVIGATIONAL_ITEMS } from './constants'
 
 const topNavMenu = css({
   hideFrom: 'md',
@@ -107,7 +108,7 @@ export function TopNavDrawer() {
             <Link href="/" className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
               <UnorderedList.ListItem>Home</UnorderedList.ListItem>
             </Link>
-            {navigationalItems.map((navItem) => {
+            {NAVIGATIONAL_ITEMS.map((navItem) => {
               const variant = pathname.includes(navItem.href) ? 'current' : 'default'
 
               return (
