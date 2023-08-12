@@ -393,7 +393,9 @@ export default function Home() {
             >
               DEV.to
             </Card.Header>
-            <Card.Body>All my posts are made available on DEV, my favorite blogging community.</Card.Body>
+            <Card.Body>
+              All my posts are made available on <b>DEV.to</b>, which is my favorite blogging community.
+            </Card.Body>
             <Card.Footer>
               <Button variant="outline" as="a" href={`https://dev.to/${HANDLE}`}>
                 Follow on DEV
