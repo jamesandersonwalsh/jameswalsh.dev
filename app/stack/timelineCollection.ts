@@ -183,17 +183,15 @@ const TimelineCollection: TimelineCollection = {
   ],
   principles: [
     {
-      title: 'Lean Development + Kanban',
+      title: 'Lean Development / Kanban with Linear',
       description: `Ive been an outspoken critic of the way that most implement agile. The agile manifesto
                     (which was written about 30 minutes up the road from my childhood home) is
                     only 4 short simple sentences. Yet its meaning largely appears to be lost as teams spend copious
-                    amounts of time managing SAFE, SCRUM, & spending signficant energy managing how long something is
-                    going to take, rather than spending time building customer value. In my opinion there are really only
-                    a few things you need to be agile. Communicate early & often.
-                    Reduce waste. Focus on flow. Mitigate the highest risks up front. Treat people like adults. Measure
-                    the teams ability to deliver results both defect free, & with minimal blockers.
-                    (DORA metrics can be helpful here).`,
-      imageLink: '/logos/tech/kanban-white.png',
+                    amounts of time managing sAFE, SCRUM, & spending signficant energy managing how long something is
+                    going to take, rather than spending time building customer value. Linear reduces waste, cuts
+                    through the cruft, and is hands down the most powerful, simple, and fun project management
+                    tool I've ever used.`,
+      imageLink: '/logos/tech/linear-app-logo.jpeg',
     },
     {
       title: 'Atomic Design Principles',
