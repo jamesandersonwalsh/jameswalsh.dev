@@ -36,6 +36,9 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
+      
+      - name: Contentlayer build
+        run: pnpm contentlayer build
 
       - name: Run ESLint
         id: run-lint
