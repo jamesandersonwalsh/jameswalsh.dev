@@ -43,7 +43,8 @@ const socialIconLink = hstack({
   },
 })
 const pageDivider = divider({
-  color: 'tertiaryTextLight',
+  color: 'slate.400',
+  thickness: '0',
 })
 const columnGrid = grid({
   mt: '4rem',
