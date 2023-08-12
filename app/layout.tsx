@@ -2,11 +2,13 @@ import './global.css'
 import { Inter } from 'next/font/google'
 import formatDate from 'date-fns/format'
 import { PropsWithChildren } from 'react'
-import { ThemeSwitcher } from '@ui/ModeSwitcher'
+import { ColorModeSwitcher } from '@ui/ColorModeSwitcher'
 import { flex } from 'styled-system/patterns'
 import { TopNavbar, navigationalItems, TopNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
 import { UnorderedList } from '@ui/List'
 import Link from 'next/link'
+
+import { getColorModeCookie } from './actions'
 
 const inter = Inter({
   weight: ['400', '700'],
@@ -25,9 +27,11 @@ const mainStyles = flex({
   mt: '1rem',
 })
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const colorMode = await getColorModeCookie()
+
   return (
-    <html lang="en" data-color-mode="dark">
+    <html lang="en" data-color-mode={colorMode}>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>James Walsh - Software Engineer, self-proclaimed developer advocate, UI/UX enthusiast.</title>
@@ -35,7 +39,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         <Paper>
           <TopNavbar />
           <TopNavDrawer />
-          <ThemeSwitcher />
+          <ColorModeSwitcher />
           <main className={mainStyles}>{children}</main>
           <PageAvatar />
         </Paper>
