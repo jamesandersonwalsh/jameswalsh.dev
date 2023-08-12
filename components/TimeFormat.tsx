@@ -1,5 +1,5 @@
-import { PropsWithChildren, TimeHTMLAttributes } from 'react'
 import formatDate from 'date-fns/format'
+import { PropsWithChildren, TimeHTMLAttributes } from 'react'
 import { cva } from 'styled-system/css'
 
 const timeFormat = cva({

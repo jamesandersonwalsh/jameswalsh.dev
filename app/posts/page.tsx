@@ -1,16 +1,17 @@
+import { ClockIcon } from '@heroicons/react/24/outline'
+import Image from 'next/image'
+import Link from 'next/link'
 import { css } from 'styled-system/css'
 import { container, flex } from 'styled-system/patterns'
-import Link from 'next/link'
-import Image from 'next/image'
 
+import { ArticleCTA } from './ArticleCTA'
+import fetchPosts from './fetchPosts'
+
+import { calculateTimeToRead } from '@/helpers'
+import { Card } from '@ui/Card'
 import { PageLayout } from '@ui/Layouts'
 import { TimeFormat } from '@ui/TimeFormat'
 import { Timeline } from '@ui/Timeline'
-import { Card } from '@ui/Card'
-import { ArticleCTA } from './ArticleCTA'
-import { ClockIcon } from '@heroicons/react/24/outline'
-import { calculateTimeToRead } from '@/helpers'
-import fetchPosts from './fetchPosts'
 
 const articleTitleStyles = css({
   fontSize: 'xl',

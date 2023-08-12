@@ -1,4 +1,5 @@
 import { compareDesc } from 'date-fns'
+
 import { Post, allPosts } from 'contentlayer/generated'
 
 export default function getAllPosts(): Post[] {

@@ -1,18 +1,19 @@
-import { Post } from '@/.contentlayer/generated'
+import { ClockIcon } from '@heroicons/react/24/outline'
+import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import Image from 'next/image'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { css } from 'styled-system/css'
 import { hstack, stack, container } from 'styled-system/patterns'
-import Image from 'next/image'
 
-import { TimeFormat } from '@ui/TimeFormat'
-import { PageLayout } from '@ui/Layouts'
-import { Button } from '@ui/Button'
-import { Badge } from '@ui/Badge'
-import { mdxComponents } from '@ui/mdx-components'
-import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
-import { ClockIcon } from '@heroicons/react/24/outline'
-import { calculateTimeToRead } from '@/helpers'
 import fetchPosts from '../fetchPosts'
+
+import { Post } from '@/.contentlayer/generated'
+import { calculateTimeToRead } from '@/helpers'
+import { Badge } from '@ui/Badge'
+import { Button } from '@ui/Button'
+import { PageLayout } from '@ui/Layouts'
+import { mdxComponents } from '@ui/mdx-components'
+import { TimeFormat } from '@ui/TimeFormat'
 
 const allPosts = fetchPosts()
 

@@ -1,7 +1,9 @@
-import { PageLayout } from '@ui/Layouts'
 import Image from 'next/image'
 import { css } from 'styled-system/css'
+
 import AboutMeAccordion from './AboutMeAccordion'
+
+import { PageLayout } from '@ui/Layouts'
 
 const sideProfile = css({
   mr: 'auto',

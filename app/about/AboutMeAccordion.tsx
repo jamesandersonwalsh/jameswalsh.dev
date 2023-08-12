@@ -1,11 +1,13 @@
 'use client'
 
-import { Accordion } from '@ui/client/Accordion'
-import IntroductionPanel from './IntroductionPanel'
-import GettingStartedPanel from './GettingsStartedPanel'
-import CareerGrowthPanel from './CareerGrowthPanel'
-import TodayPanel from './TodayPanel'
 import { useState } from 'react'
+
+import CareerGrowthPanel from './CareerGrowthPanel'
+import GettingStartedPanel from './GettingsStartedPanel'
+import IntroductionPanel from './IntroductionPanel'
+import TodayPanel from './TodayPanel'
+
+import { Accordion } from '@ui/client/Accordion'
 
 type AccordionPanelTypes = 'intro' | 'gettingStarted' | 'careerGrowth' | 'today'
 

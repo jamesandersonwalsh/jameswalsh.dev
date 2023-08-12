@@ -1,8 +1,3 @@
-import { circle, vstack, hstack, divider, grid, wrap, stack, gridItem, flex } from 'styled-system/patterns'
-import { css, cx } from 'styled-system/css'
-import Image from 'next/image'
-import Link from 'next/link'
-import { Card } from '@ui/Card'
 import {
   ArrowDownTrayIcon,
   BriefcaseIcon,
@@ -13,13 +8,20 @@ import {
   LinkIcon,
   NewspaperIcon,
 } from '@heroicons/react/24/outline'
-import { PageLayout } from '@ui/Layouts'
-import { Button } from '@ui/Button'
-import { UnorderedList } from '@ui/List'
-import fetchPosts from './posts/fetchPosts'
+import Image from 'next/image'
+import Link from 'next/link'
+import { css, cx } from 'styled-system/css'
+import { circle, vstack, hstack, divider, grid, wrap, stack, gridItem, flex } from 'styled-system/patterns'
+
 import { ArticleCTA } from './posts/ArticleCTA'
+import fetchPosts from './posts/fetchPosts'
+
 import { TimeFormat } from '@/components/TimeFormat'
 import { calculateTimeToRead } from '@/helpers'
+import { Button } from '@ui/Button'
+import { Card } from '@ui/Card'
+import { PageLayout } from '@ui/Layouts'
+import { UnorderedList } from '@ui/List'
 
 const AVATAR_SIZE = 120
 const HANDLE = 'jamesandersonwalsh'

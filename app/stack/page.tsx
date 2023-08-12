@@ -1,10 +1,12 @@
-import { Timeline } from '@ui/Timeline'
-import { PageLayout } from '@ui/Layouts'
-import { UnorderedList } from '@/components/List'
+import Image from 'next/image'
 import { css } from 'styled-system/css'
 import { hstack } from 'styled-system/patterns'
-import Image from 'next/image'
+
 import TimelineCollection from './timelineCollection'
+
+import { UnorderedList } from '@/components/List'
+import { PageLayout } from '@ui/Layouts'
+import { Timeline } from '@ui/Timeline'
 
 const h2 = css({
   fontSize: 'md',

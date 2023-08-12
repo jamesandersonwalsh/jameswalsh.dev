@@ -1,5 +1,5 @@
-import { hstack } from 'styled-system/patterns'
 import { ChevronRightIcon } from '@heroicons/react/24/solid'
+import { hstack } from 'styled-system/patterns'
 
 const articleCTA = hstack({
   gap: 1,

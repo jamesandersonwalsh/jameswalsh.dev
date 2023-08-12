@@ -14,6 +14,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "next lint",
+    "lint:fix": "pnpm lint -- --fix",
     "prepare": "panda codegen && husky install",
     "start": "next start"
   },
@@ -35,6 +36,7 @@
   },
   "devDependencies": {
     "@pandacss/dev": "0.9.0",
+    "eslint-plugin-import": "^2.28.0",
     "husky": "^8.0.3",
     "prettier": "^3.0.1",
     "rehype": "^12.0.1",

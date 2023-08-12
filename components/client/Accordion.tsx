@@ -1,9 +1,9 @@
 'use client'
 
-import { PropsWithChildren, useState } from 'react'
-import { flex, divider } from 'styled-system/patterns'
-import { css } from 'styled-system/css'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid'
+import { PropsWithChildren, useState } from 'react'
+import { css } from 'styled-system/css'
+import { flex, divider } from 'styled-system/patterns'
 
 const accordion = flex({
   width: '100%',
