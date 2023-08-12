@@ -8,21 +8,22 @@ const card = cva({
     flexDirection: 'column',
     borderRadius: '2xl',
     p: '1.25rem',
-    color: 'gray.300',
+    color: 'text',
   },
   variants: {
     visual: {
       solid: {
-        bg: 'gray.900',
+        bg: 'elevatedBg',
       },
       ghost: {
         _hover: {
-          bg: 'gray.900',
+          bg: 'elevatedBg',
+          boxShadow: 'xs',
         },
       },
       outline: {
-        borderWidth: '2px',
-        borderColor: 'gray.900',
+        borderWidth: '1px',
+        borderColor: 'borderColorLight',
         boxShadow: 'sm',
       },
     },

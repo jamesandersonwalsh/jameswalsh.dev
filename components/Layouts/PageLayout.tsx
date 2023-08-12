@@ -44,7 +44,7 @@ function Title({ children, align = 'left' }: TitleProps) {
 
 const content = vstack({
   mt: '1rem',
-  color: 'gray.300',
+  color: 'text',
   width: '100%',
 })
 function Content({ children }: PropsWithChildren) {

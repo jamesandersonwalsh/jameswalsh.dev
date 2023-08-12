@@ -23,6 +23,7 @@
     "paths": {
       "@/*": ["./*"],
       "@ui/*": ["./components/*"],
+      "@helpers/*": ["./helpers/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },

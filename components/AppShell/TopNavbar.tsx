@@ -2,19 +2,21 @@
 
 import Link from 'next/link'
 import { hstack } from 'styled-system/patterns'
-import { cva, css } from 'styled-system/css'
+import { cva } from 'styled-system/css'
 import { usePathname } from 'next/navigation'
+import { navigationalItems } from '.'
 
 const navBar = hstack({
   hideBelow: 'sm',
-  bg: 'gray.900',
+  bg: 'bg',
   minH: '2.5rem',
   px: '0.25rem',
   fontWeight: 'normal',
   width: '360px',
   borderRadius: 'full',
   borderWidth: '1px',
-  borderColor: 'gray.800',
+  boxShadow: 'sm',
+  borderColor: 'borderColorMd',
 })
 const navList = hstack({
   gap: 4,
@@ -35,23 +37,16 @@ const navItem = cva({
   variants: {
     visual: {
       current: {
-        bg: 'blue.700',
-        color: 'blue.100',
+        bg: 'primaryBg',
+        color: 'primaryTextLight',
       },
       default: {
         bg: 'inherit',
-        color: 'gray.300',
+        color: 'text',
       },
     },
   },
 })
-
-export const navItems = [
-  { href: '/posts', value: 'Posts' },
-  { href: '/projects', value: 'Projects' },
-  { href: '/stack', value: 'Stack' },
-  { href: '/about', value: 'About' },
-]
 
 export function TopNavbar() {
   const pathname = usePathname()
@@ -59,13 +54,12 @@ export function TopNavbar() {
   return (
     <nav className={navBar}>
       <ul className={navList}>
-        {navItems.map((item) => {
+        {navigationalItems.map((item) => {
           const variant = pathname.includes(item.href) ? 'current' : 'default'
+
           return (
             <li key={item.href} className={navItem({ visual: variant })}>
-              <Link href={item.href} className={css({ color: 'inherit !important' })}>
-                {item.value}
-              </Link>
+              <Link href={item.href}>{item.value}</Link>
             </li>
           )
         })}

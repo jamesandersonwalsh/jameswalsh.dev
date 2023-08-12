@@ -126,7 +126,7 @@ function updateStatefulNumber(numToAdd) {
 ```
 
 - If we run `addTwoNumbers(2, 4)` we will **always** get 6. We can do this an infinite number of times and always get the same result.
-- On the other hand, if we run updateStatefulNumber`(10)` 3 times in a row with the same argument:
+- On the other hand, if we run `updateStatefulNumber(10)` 3 times in a row with the same argument:
   - The 1st time we will get 10. The second time we will get 20. The 3rd time we get 30.
   - Even more nefarious is that if anywhere else in your code also decides it wants to change `num` _(and eventually it will)_ you have **_NO CLUE how it's getting updated and where_**. Now you're lost at sea, and maintaining `num` will get unwieldy fast.
 - The bottom function produces a **_side effect_**. We'll take about that down below.

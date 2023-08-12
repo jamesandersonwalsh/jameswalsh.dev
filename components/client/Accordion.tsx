@@ -23,7 +23,7 @@ function Item({ children }: AccordionItemProps) {
   return (
     <>
       <div className={accordionItem}>{children}</div>
-      <div className={divider({ orientation: 'horizontal', color: 'gray.500' })} />
+      <div className={divider({ orientation: 'horizontal', color: 'gray.600' })} />
     </>
   )
 }
@@ -35,12 +35,15 @@ const h2 = css({
 const button = flex({
   flexDir: 'row',
   width: '100%',
-  color: 'gray.300',
+  color: 'text',
   justifyContent: 'space-between',
   alignItems: 'center',
   _hover: {
     cursor: 'pointer',
   },
+})
+const chevron = css({
+  color: 'gray.400',
 })
 
 type AccordionButtonProps = React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> &
@@ -59,7 +62,11 @@ function Button({ children, onClick, ...rest }: AccordionButtonProps) {
     <h2 className={h2}>
       <button className={button} onClick={handleOnClick} aria-controls="accordion-panel-:rl" {...rest}>
         <div>{children}</div>
-        {buttonExpanded ? <ChevronUpIcon width={24} height={24} /> : <ChevronDownIcon width={24} height={24} />}
+        {buttonExpanded ? (
+          <ChevronUpIcon className={chevron} width={24} height={24} />
+        ) : (
+          <ChevronDownIcon className={chevron} width={24} height={24} />
+        )}
       </button>
     </h2>
   )

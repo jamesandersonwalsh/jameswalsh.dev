@@ -5,7 +5,6 @@ const paper = container({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  bg: 'inherit',
   minHeight: '100vh',
   p: {
     mdTo2xl: '2rem',

@@ -1,4 +1,3 @@
-import { allPosts } from 'contentlayer/generated'
 import { Post } from '@/.contentlayer/generated'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { css } from 'styled-system/css'
@@ -11,6 +10,11 @@ import { Button } from '@ui/Button'
 import { Badge } from '@ui/Badge'
 import { mdxComponents } from '@ui/mdx-components'
 import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { ClockIcon } from '@heroicons/react/24/outline'
+import { calculateTimeToRead } from '@/helpers'
+import fetchPosts from '../fetchPosts'
+
+const allPosts = fetchPosts()
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -46,7 +50,7 @@ const postMetaStyles = stack({
   gap: 4,
 })
 const calendar = css({
-  bg: 'blue.700',
+  color: 'primaryBg',
   borderRadius: 'md',
 })
 
@@ -72,9 +76,10 @@ function getPostBySlug(slug: string): Post {
 
 function getPreviousPost(slug: string): Post | undefined {
   const postIndex = allPosts.findIndex((post) => post._raw.flattenedPath === slug)
-  if (postIndex === 0) return undefined
 
-  return allPosts[postIndex - 1]
+  if (postIndex === allPosts.length - 1) return undefined
+
+  return allPosts[postIndex + 1]
 }
 
 export default function PostPage({ params }: PostPageProps) {
@@ -92,6 +97,10 @@ export default function PostPage({ params }: PostPageProps) {
           <span className={timestampStyles}>
             <CalendarDaysIcon className={calendar} width={24} height={24} />
             <TimeFormat dateTime={post.publishedAt} />
+            <span className={hstack({ gap: 1, ml: '0.5rem' })}>
+              <ClockIcon width={24} height={24} />
+              {calculateTimeToRead(post.body.raw)}&nbsp;min read
+            </span>
           </span>
           <span className={hstack({ gap: 2 })}>
             {post.tags.map((tag) => (
