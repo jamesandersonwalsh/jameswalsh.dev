@@ -4,8 +4,7 @@ import { css } from 'styled-system/css'
 import { getColorModeCookie, toggleColorModeCookie } from '../app/actions'
 
 const themeSwitcher = css({
-  position: 'absolute',
-  right: '1.5rem',
+  mr: '1.5rem',
   top: {
     mdTo2xl: '2rem',
     smDown: '1.5rem',

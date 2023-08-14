@@ -3,7 +3,7 @@ import formatDate from 'date-fns/format'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
-import { flex } from 'styled-system/patterns'
+import { flex, hstack } from 'styled-system/patterns'
 
 import { getColorModeCookie } from './actions'
 
@@ -15,6 +15,30 @@ import { UnorderedList } from '@ui/List'
 const inter = Inter({
   weight: ['400', '700'],
   subsets: ['latin'],
+})
+
+const globalNavStack = hstack({
+  width: '100%',
+  mt: {
+    smDown: '1rem',
+  },
+  justifyContent: 'space-between',
+  '& :nth-child(1)': {
+    order: {
+      mdTo2xl: 2,
+    },
+  },
+  '& :nth-child(2)': {
+    order: {
+      mdTo2xl: 1,
+    },
+  },
+  '& :nth-child(3)': {
+    order: 3,
+  },
+  '& :nth-child(4)': {
+    order: 4,
+  },
 })
 
 export const metadata = {
@@ -39,11 +63,13 @@ export default async function RootLayout({ children }: PropsWithChildren) {
       <title>James Walsh - Software Engineer, self-proclaimed developer advocate, UI/UX enthusiast.</title>
       <body className={inter.className}>
         <Paper>
-          <TopNavbar />
-          <SideNavDrawer />
-          <ColorModeSwitcher />
+          <div className={globalNavStack}>
+            <SideNavDrawer />
+            <PageAvatar />
+            <TopNavbar />
+            <ColorModeSwitcher />
+          </div>
           <main className={mainStyles}>{children}</main>
-          <PageAvatar />
         </Paper>
         <Footer>
           <Footer.LeftElement>

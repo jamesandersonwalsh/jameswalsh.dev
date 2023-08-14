@@ -13,15 +13,17 @@ import { Overlay } from '../Overlay'
 
 import { NAVIGATIONAL_ITEMS } from './constants'
 
-const topNavMenu = css({
-  hideFrom: 'md',
+const sideNavDrawer = css({
+  display: {
+    mdTo2xl: 'none',
+    smDown: 'initial',
+  },
+})
+const sideNavDrawerButton = css({
   color: 'text',
   width: '36px',
   borderWidth: '1px solid',
   borderColor: 'slate.100',
-  mr: 'auto',
-  ml: '1rem',
-  mt: '1rem',
   _hover: {
     cursor: 'pointer',
   },
@@ -50,19 +52,18 @@ const navStack = vstack({
   borderRadius: 'lg',
   gap: 4,
 })
-const navigation = cva({
+const sideNavAside = cva({
   base: {
-    position: 'absolute',
-    left: '-336px',
+    ml: '-336px',
     transitionDuration: '0.3s',
   },
   variants: {
     visual: {
       visible: {
-        left: 0,
+        ml: 0,
       },
       hidden: {
-        left: '-336px',
+        ml: '-336px',
       },
     },
   },
@@ -115,17 +116,15 @@ export function SideNavDrawer() {
         closeMenu()
       }
     }
-    const onClickOutside = (event: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        closeMenu()
-      }
+    const onClick = (_event: MouseEvent) => {
+      closeMenu()
     }
 
-    document.addEventListener('click', onClickOutside, false)
+    document.addEventListener('click', onClick, false)
     document.addEventListener('keydown', onKeyPress, false)
 
     return () => {
-      document.removeEventListener('click', onClickOutside, false)
+      document.removeEventListener('click', onClick, false)
       document.removeEventListener('keydown', closeMenu, false)
     }
   }, [isMenuOpen])
@@ -133,12 +132,12 @@ export function SideNavDrawer() {
   const isNavStackOpen = isMenuOpen ? 'visible' : 'hidden'
 
   return (
-    <>
-      <button className={topNavMenu} onClick={openMenu}>
+    <div className={sideNavDrawer}>
+      <button className={sideNavDrawerButton} onClick={openMenu}>
         <Bars3Icon />
       </button>
       <Overlay isOpen={isMenuOpen}>
-        <div className={cx(navStack, navigation({ visual: isNavStackOpen }))} ref={navRef}>
+        <aside className={cx(navStack, sideNavAside({ visual: isNavStackOpen }))} ref={navRef}>
           <XMarkIcon width={28} height={28} className={xIcon} onClick={closeMenu} />
           <UnorderedList>
             <Link href="/" className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
@@ -154,8 +153,8 @@ export function SideNavDrawer() {
               )
             })}
           </UnorderedList>
-        </div>
+        </aside>
       </Overlay>
-    </>
+    </div>
   )
 }

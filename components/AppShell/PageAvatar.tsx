@@ -3,14 +3,20 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { css } from 'styled-system/css'
+import { cva } from 'styled-system/css'
 import { circle } from 'styled-system/patterns'
 
-const link = css({
-  mr: 'auto',
-  position: 'absolute',
-  left: '2rem',
-  top: '1.5rem',
+const link = cva({
+  variants: {
+    visual: {
+      visible: {
+        visibility: 'visible',
+      },
+      hidden: {
+        visibility: 'hidden',
+      },
+    },
+  },
 })
 const avatar = circle()
 
@@ -20,10 +26,10 @@ export function PageAvatar() {
   const showAvatar = pathname !== '/'
   const avatarNavSize = 60
 
-  if (!showAvatar) return
+  const variant = showAvatar ? 'visible' : 'hidden'
 
   return (
-    <Link href="/" className={link}>
+    <Link href="/" className={link({ visual: variant })}>
       <Image
         src="/portraits/front-profile.jpg"
         className={avatar}
