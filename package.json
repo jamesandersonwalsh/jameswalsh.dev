@@ -25,7 +25,7 @@
     "@types/react-dom": "18.2.7",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
-    "eslint": "8.46.0",
+    "eslint": "8.47.0",
     "eslint-config-next": "13.4.15",
     "next": "13.4.15",
     "next-contentlayer": "^0.3.4",
