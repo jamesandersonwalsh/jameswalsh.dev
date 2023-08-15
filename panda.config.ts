@@ -39,9 +39,16 @@ export default defineConfig({
     blueTheme: '[data-theme=blue] &',
   },
   globalCss: {
+    html: {
+      scrollBehavior: 'smooth',
+    },
     body: {
       bg: 'bg',
       WebkitFontSmoothing: 'antialiased',
+      scrollBehavior: 'smooth',
+      overflowX: {
+        smDown: 'hidden',
+      },
     },
     h1: {
       fontWeight: 'bolder',
