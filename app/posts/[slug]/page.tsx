@@ -29,6 +29,12 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   }
 }
 
+const pageContainer = css({
+  px: {
+    mdTo2xl: '6rem',
+  },
+  py: '2rem',
+})
 const coverImageContainer = container({
   width: '100%',
   height: {
@@ -89,7 +95,7 @@ export default function PostPage({ params }: PostPageProps) {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className={css({ px: '6rem', py: '2rem' })}>
+    <div className={pageContainer}>
       <div className={coverImageContainer}>
         <Image
           src={post.coverImage}

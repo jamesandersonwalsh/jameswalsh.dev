@@ -50,6 +50,9 @@ const mainStyles = flex({
   direction: 'column',
   alignItems: 'center',
   py: '3rem',
+  px: {
+    smDown: '1rem',
+  },
   mt: '1rem',
 })
 
