@@ -43,7 +43,7 @@ const globalNavStack = hstack({
 
 export const metadata = {
   title: 'James Walsh',
-  description: 'Full Stack Javascript Engineer',
+  description: 'Software Engineer, developer advocate, UI/UX enthusiast',
 }
 
 const mainStyles = flex({
@@ -63,7 +63,6 @@ export default async function RootLayout({ children }: PropsWithChildren) {
     <html lang="en" data-color-mode={colorMode}>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>James Walsh - Software Engineer, self-proclaimed developer advocate, UI/UX enthusiast.</title>
       <body className={inter.className}>
         <Paper>
           <div className={globalNavStack}>
