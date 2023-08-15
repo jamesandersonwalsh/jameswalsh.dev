@@ -216,6 +216,7 @@ export default function Home() {
           height={AVATAR_SIZE}
           alt="James profile picture"
           unoptimized
+          priority
         />
         <PageLayout.Title>Software engineer. Self-proclaimed developer advocate. UI/UX enthusiast.</PageLayout.Title>
         <div className={socialLinkStack}>

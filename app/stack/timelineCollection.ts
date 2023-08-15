@@ -53,7 +53,7 @@ const TimelineCollection: TimelineCollection = {
                     times, & intelligent asset caching are all apart of my decision for choosing Next.js as my
                     go to starter stack. It should come as no surprise that this portfolio site is written using Next.js.
                     It keeps me productive. I cant say enough great things about it.`,
-      imageLink: '/logos/tech/nextjs-white.png',
+      imageLink: '/logos/tech/nextjs.png',
     },
     {
       title: 'Node.js / Express',

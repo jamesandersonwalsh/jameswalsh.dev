@@ -91,7 +91,14 @@ export default function PostPage({ params }: PostPageProps) {
   return (
     <div className={css({ px: '6rem', py: '2rem' })}>
       <div className={coverImageContainer}>
-        <Image src={post.coverImage} alt="Article cover image" className={coverImage} priority fill />
+        <Image
+          src={post.coverImage}
+          alt="Article cover image"
+          sizes="(max-width: 640px) 240px, (max-width:1536px) 400px"
+          className={coverImage}
+          priority
+          fill
+        />
       </div>
       <PageLayout title={post.title}>
         <div className={postMetaStyles}>
