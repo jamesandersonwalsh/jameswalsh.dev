@@ -26,6 +26,10 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   return {
     title: post.title,
     description: post.brief,
+    openGraph: {
+      description: post.brief,
+      images: [post.coverImage],
+    },
   }
 }
 
