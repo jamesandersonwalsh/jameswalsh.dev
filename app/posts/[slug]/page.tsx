@@ -1,5 +1,6 @@
 import { ClockIcon } from '@heroicons/react/24/outline'
 import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { css } from 'styled-system/css'
@@ -19,7 +20,7 @@ const allPosts = fetchPosts()
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
@@ -29,7 +30,6 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
     openGraph: {
       description: post.brief,
       images: [post.coverImage],
-      url: post.url,
       type: 'article',
     },
   }
