@@ -100,7 +100,7 @@ const buttonIcon = css({
 export const metadata = {
   title: 'James Walsh',
   openGraph: {
-    description: 'Software Engineer, developer advocate, UI/UX enthusiast',
+    description: 'James Walsh - Software Engineer, developer advocate, UI/UX enthusiast',
     images: ['/portraits/front-profile.jpg'],
   },
 }
