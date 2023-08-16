@@ -99,7 +99,10 @@ const buttonIcon = css({
 
 export const metadata = {
   title: 'James Walsh',
-  description: 'Software Engineer, developer advocate, UI/UX enthusiast',
+  openGraph: {
+    description: 'Software Engineer, developer advocate, UI/UX enthusiast',
+    images: ['/portraits/front-profile.jpg'],
+  },
 }
 
 interface CVItem {
