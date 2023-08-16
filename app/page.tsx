@@ -376,15 +376,51 @@ export default function Home() {
           <Card variant="outline">
             <Card.Header
               icon={
+                <Image
+                  src="/logos/blog/hey-world.png"
+                  width={28}
+                  height={28}
+                  alt="hashnode-logo"
+                  className={blogLogo}
+                />
+              }
+            >
+              Hey World
+            </Card.Header>
+            <Card.Body>
+              Checkout my non-tech blog on HEY where nothing&apos;s off limits. Get posts directly to your email,&nbsp;
+              <i>or grab the RSS feed.</i>
+            </Card.Body>
+            <Card.Footer>
+              <Button variant="outline" as="a" href="https://world.hey.com/jameswalsh">
+                Subscribe
+              </Button>
+            </Card.Footer>
+          </Card>
+        </div>
+        <div
+          className={gridItem({
+            colSpan: {
+              mdTo2xl: 4,
+              smDown: 12,
+            },
+          })}
+        >
+          <Card variant="outline">
+            <Card.Header
+              icon={
                 <Image src="/logos/blog/hashnode.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
               }
             >
               Hashnode
             </Card.Header>
-            <Card.Body>Subscribe to my tech newsletter & receive emails whenever I publish something new.</Card.Body>
+            <Card.Body>
+              All of my posts on this site are made available via my technical newsletter on Hashnode. Join & receive
+              emails whenever I publish a new article.
+            </Card.Body>
             <Card.Footer>
               <Button variant="outline" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
-                Join Newsletter
+                Join Tech Newsletter
               </Button>
             </Card.Footer>
           </Card>
@@ -406,37 +442,12 @@ export default function Home() {
               DEV.to
             </Card.Header>
             <Card.Body>
-              All my posts are made available on <b>DEV.to</b>, which is my favorite blogging community.
+              All of my posts on this site are made available on <b>DEV.to</b>, which is my favorite blogging community.
+              Follow for more spicy tech!
             </Card.Body>
             <Card.Footer>
               <Button variant="outline" as="a" href={`https://dev.to/${HANDLE}`}>
                 Follow on DEV
-              </Button>
-            </Card.Footer>
-          </Card>
-        </div>
-        <div
-          className={gridItem({
-            colSpan: {
-              mdTo2xl: 4,
-              smDown: 12,
-            },
-          })}
-        >
-          <Card variant="outline">
-            <Card.Header
-              icon={
-                <Image src="/logos/blog/substack.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
-              }
-            >
-              Substack
-            </Card.Header>
-            <Card.Body>
-              My substack focuses on non-technical subjects & life outside of corporate. <i>Coming soon!</i>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="outline" as="a" href="https://aboveandbelow.substack.com">
-                Subscribe
               </Button>
             </Card.Footer>
           </Card>
