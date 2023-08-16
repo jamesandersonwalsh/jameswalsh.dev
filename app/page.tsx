@@ -97,6 +97,11 @@ const buttonIcon = css({
   mr: '16px',
 })
 
+export const metadata = {
+  title: 'James Walsh',
+  description: 'Software Engineer, developer advocate, UI/UX enthusiast',
+}
+
 interface CVItem {
   image: React.ReactNode
   company: string
