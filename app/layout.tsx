@@ -41,11 +41,6 @@ const globalNavStack = hstack({
   },
 })
 
-export const metadata = {
-  title: 'James Walsh',
-  description: 'Software Engineer, developer advocate, UI/UX enthusiast',
-}
-
 const mainStyles = flex({
   direction: 'column',
   alignItems: 'center',
