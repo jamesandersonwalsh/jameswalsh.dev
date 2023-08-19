@@ -24,7 +24,7 @@ export function PageAvatar() {
   const pathname = usePathname()
 
   const showAvatar = pathname !== '/'
-  const avatarNavSize = 60
+  const avatarNavSize = 44
 
   const variant = showAvatar ? 'visible' : 'hidden'
 
@@ -36,7 +36,6 @@ export function PageAvatar() {
         width={avatarNavSize}
         height={avatarNavSize}
         alt="Profile picture"
-        unoptimized
       />
     </Link>
   )
