@@ -97,7 +97,7 @@ export const metadata = {
   title: 'James Walsh',
   openGraph: {
     description: 'James Walsh - Software Engineer, developer advocate, UI/UX enthusiast',
-    images: ['/portraits/front-profile.jpg'],
+    images: ['/portraits/front-profile.webp'],
   },
 }
 
@@ -218,7 +218,7 @@ export default function Home() {
     <div>
       <section className={introSection}>
         <Image
-          src="/portraits/front-profile.jpg"
+          src="/portraits/front-profile.webp"
           className={circle()}
           width={AVATAR_SIZE}
           height={AVATAR_SIZE}

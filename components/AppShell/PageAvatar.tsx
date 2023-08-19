@@ -31,7 +31,7 @@ export function PageAvatar() {
   return (
     <Link href="/" className={link({ visual: variant })}>
       <Image
-        src="/portraits/front-profile.jpg"
+        src="/portraits/front-profile.webp"
         className={avatar}
         width={avatarNavSize}
         height={avatarNavSize}
