@@ -24,7 +24,7 @@ export default function AboutPage() {
   return (
     <>
       <Image
-        src="/portraits/side-profile.jpeg"
+        src="/portraits/side-profile.webp"
         alt="Picture of James Side Profile"
         width={320}
         height={320}

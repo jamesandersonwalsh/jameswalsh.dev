@@ -20,7 +20,7 @@ const title = cva({
     width: '100%',
     fontSize: {
       mdTo2xl: '5xl',
-      smDown: '4xl',
+      smDown: '3xl',
     },
   },
   variants: {
