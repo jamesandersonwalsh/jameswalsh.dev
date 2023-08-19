@@ -133,7 +133,7 @@ export function SideNavDrawer() {
 
   return (
     <div className={sideNavDrawer}>
-      <button className={sideNavDrawerButton} onClick={openMenu}>
+      <button className={sideNavDrawerButton} onClick={openMenu} aria-label="Open side navigation drawer">
         <Bars3Icon />
       </button>
       <Overlay isOpen={isMenuOpen}>

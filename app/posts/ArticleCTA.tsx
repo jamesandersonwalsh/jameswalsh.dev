@@ -3,11 +3,21 @@ import { hstack } from 'styled-system/patterns'
 
 const articleCTA = hstack({
   gap: 1,
-  color: 'blue.600',
   fontWeight: 'semibold',
   fontSize: 'md',
-  _hover: {
+  _dark: {
     color: 'blue.500',
+  },
+  _light: {
+    color: 'blue.600',
+  },
+  _hover: {
+    _dark: {
+      color: 'blue.400',
+    },
+    _light: {
+      color: 'blue.500',
+    },
   },
 })
 
