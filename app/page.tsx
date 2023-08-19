@@ -23,7 +23,7 @@ import { Card } from '@ui/Card'
 import { PageLayout } from '@ui/Layouts'
 import { UnorderedList } from '@ui/List'
 
-const AVATAR_SIZE = 120
+const AVATAR_SIZE = 144
 const HANDLE = 'jamesandersonwalsh'
 
 const introSection = vstack({
@@ -84,10 +84,6 @@ const blogPostDescriptor = css({
   fontSize: 'sm',
   fontWeight: 'normal',
   mb: '1rem',
-})
-const blogLinks = hstack({
-  width: '100%',
-  gap: 4,
 })
 const blogLogo = css({
   borderRadius: 'md',
@@ -223,7 +219,6 @@ export default function Home() {
           width={AVATAR_SIZE}
           height={AVATAR_SIZE}
           alt="James profile picture"
-          unoptimized
           priority
         />
         <PageLayout.Title>Software engineer. Self-proclaimed developer advocate. UI/UX enthusiast.</PageLayout.Title>
