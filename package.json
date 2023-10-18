@@ -46,6 +46,6 @@
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.10.0",
     "rehype-slug": "^5.1.0",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^4.0.0"
   }
 }
