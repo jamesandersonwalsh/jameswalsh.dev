@@ -248,7 +248,8 @@ export default function Home() {
             column,
             gridItem({
               colSpan: {
-                mdTo2xl: 7,
+                md: 7,
+                sm: 12,
                 smDown: 12,
               },
             }),
@@ -285,7 +286,8 @@ export default function Home() {
             column,
             gridItem({
               colSpan: {
-                mdTo2xl: 5,
+                md: 5,
+                sm: 12,
                 smDown: 12,
               },
             }),
@@ -354,10 +356,7 @@ export default function Home() {
           className={cx(
             column,
             gridItem({
-              colSpan: {
-                mdTo2xl: 12,
-                smDown: 12,
-              },
+              colSpan: 12,
             }),
           )}
         >
@@ -367,7 +366,8 @@ export default function Home() {
         <div
           className={gridItem({
             colSpan: {
-              mdTo2xl: 4,
+              md: 4,
+              sm: 12,
               smDown: 12,
             },
           })}
@@ -400,7 +400,8 @@ export default function Home() {
         <div
           className={gridItem({
             colSpan: {
-              mdTo2xl: 4,
+              md: 4,
+              sm: 12,
               smDown: 12,
             },
           })}
@@ -427,7 +428,8 @@ export default function Home() {
         <div
           className={gridItem({
             colSpan: {
-              mdTo2xl: 4,
+              md: 4,
+              sm: 12,
               smDown: 12,
             },
           })}
