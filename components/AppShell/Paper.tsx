@@ -8,7 +8,7 @@ const paper = container({
   minHeight: '100vh',
   p: {
     mdTo2xl: '2rem',
-    smDown: '0.5rem',
+    sm: '1rem',
   },
   lgTo2xl: {
     maxWidth: '1024px',

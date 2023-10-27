@@ -14,9 +14,9 @@ import { Overlay } from '../Overlay'
 import { NAVIGATIONAL_ITEMS } from './constants'
 
 const sideNavDrawer = css({
-  display: {
-    mdTo2xl: 'none',
-    smDown: 'initial',
+  display: 'none',
+  smDown: {
+    display: 'initial',
   },
 })
 const sideNavDrawerButton = css({
