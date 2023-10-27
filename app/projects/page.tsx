@@ -20,7 +20,7 @@ interface Project {
 const projectGrid = grid({
   mt: '1rem',
   columns: {
-    lgTo2xl: 3,
+    lg: 3,
     mdToLg: 2,
     smToMd: 1,
   },

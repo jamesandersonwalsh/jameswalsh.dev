@@ -19,7 +19,8 @@ const title = cva({
   base: {
     width: '100%',
     fontSize: {
-      mdTo2xl: '5xl',
+      md: '5xl',
+      sm: '4xl',
       smDown: '3xl',
     },
   },
