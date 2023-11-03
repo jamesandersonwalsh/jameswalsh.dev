@@ -193,7 +193,7 @@ export default function AboutPage() {
                 </p>
               </Card.Body>
               <Card.Footer>
-                <Button variant="outline" as="a" href="#publications">
+                <Button variant="outline" as="a" href="/#publications">
                   <InboxArrowDownIcon className={buttonIcon} width={24} height={24} />
                   Subscribe
                 </Button>
