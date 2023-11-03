@@ -24,7 +24,7 @@ const articleCTA = hstack({
 export function ArticleCTA() {
   return (
     <span className={articleCTA}>
-      Read Article <ChevronRightIcon width={20} height={20} />
+      Read More <ChevronRightIcon width={20} height={20} />
     </span>
   )
 }
