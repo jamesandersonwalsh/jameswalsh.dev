@@ -5,12 +5,10 @@ import { hstack } from 'styled-system/patterns'
 import TimelineCollection from './timelineCollection'
 
 import { UnorderedList } from '@/components/List'
+import { TypographyH2 } from '@/components/ui/typography'
 import { PageLayout } from '@ui/Layouts'
 import { Timeline } from '@ui/Timeline'
 
-const h2 = css({
-  fontSize: 'md',
-})
 const itemTitleContainer = hstack({
   alignItems: 'self-end',
   gap: 4,
@@ -52,7 +50,7 @@ export default function StackPage() {
           {Object.entries(timelineCollection).map(([key, items]) => (
             <Timeline.Item key={key}>
               <Timeline.LeftElement>
-                <h2 className={h2}>{sectionTitleMap[key]}</h2>
+                <TypographyH2>{sectionTitleMap[key]}</TypographyH2>
               </Timeline.LeftElement>
               <Timeline.RightElement>
                 <UnorderedList>

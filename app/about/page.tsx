@@ -8,6 +8,7 @@ import AboutMeAccordion from './AboutMeAccordion'
 import { UnorderedList } from '@/components/List'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { TypographyH2, TypographyH3 } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 import { PageLayout } from '@ui/Layouts'
 
@@ -15,14 +16,6 @@ const sideProfile = css({
   mr: 'auto',
   mb: '2rem',
   borderRadius: 'lg',
-})
-const h2 = css({
-  width: '100%',
-  textAlign: 'left',
-})
-const h3 = css({
-  fontWeight: 'semibold',
-  mb: '2rem',
 })
 const companyLogo = circle()
 const columnGrid = grid({
@@ -149,7 +142,7 @@ export default function AboutPage() {
       />
       <PageLayout.Title align="left">Hey, I&apos;m James.</PageLayout.Title>
       <PageLayout.Content>
-        <h2 className={h2}>I live in Salt Lake City, where I write code & enjoy the Great Outdoors.</h2>
+        <TypographyH2>I live in Salt Lake City, where I write code & enjoy the Great Outdoors.</TypographyH2>
         <div className={columnGrid}>
           <section
             className={gridItem({
@@ -160,7 +153,7 @@ export default function AboutPage() {
               },
             })}
           >
-            <h3 className={h3}>Get to know me</h3>
+            <TypographyH3>Get to know me</TypographyH3>
             <AboutMeAccordion />
           </section>
           <section
