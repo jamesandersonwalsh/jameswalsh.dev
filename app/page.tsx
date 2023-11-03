@@ -1,17 +1,8 @@
-import {
-  ArrowDownTrayIcon,
-  BriefcaseIcon,
-  CalendarDaysIcon,
-  ClockIcon,
-  CodeBracketIcon,
-  InboxArrowDownIcon,
-  LinkIcon,
-  NewspaperIcon,
-} from '@heroicons/react/24/outline'
+import { CalendarDaysIcon, ClockIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
-import { circle, vstack, hstack, divider, grid, wrap, stack, gridItem, flex } from 'styled-system/patterns'
+import { circle, vstack, hstack, divider, grid, stack, gridItem, flex } from 'styled-system/patterns'
 
 import { ArticleCTA } from './posts/ArticleCTA'
 import fetchPosts from './posts/fetchPosts'
@@ -21,7 +12,6 @@ import { calculateTimeToRead } from '@/helpers'
 import { Button } from '@ui/Button'
 import { Card } from '@ui/Card'
 import { PageLayout } from '@ui/Layouts'
-import { UnorderedList } from '@ui/List'
 
 const AVATAR_SIZE = 144
 const HANDLE = 'jamesandersonwalsh'
@@ -58,41 +48,10 @@ const postTitle = css({
   maxWidth: '90%',
   fontWeight: 'medium',
 })
-const companyLogo = circle()
-const dl = wrap({
-  gap: 2,
-  width: '100%',
-})
-const dt = css({
-  display: 'none',
-})
-const ddBold = css({
-  fontWeight: 'semibold',
-  width: 'full',
-  fontSize: 'md',
-})
-const ddLight = css({
-  fontWeight: 'normal',
-  fontSize: 'xs',
-})
-const ddDate = css({
-  ml: 'auto',
-  fontSize: 'xs',
-  fontWeight: 'lighter',
-})
-const blogPostDescriptor = css({
-  fontSize: 'sm',
-  fontWeight: 'normal',
-  mb: '1rem',
-})
 const blogLogo = css({
   borderRadius: 'md',
   mr: '16px',
 })
-const buttonIcon = css({
-  mr: '16px',
-})
-
 export const metadata = {
   title: 'James Walsh',
   openGraph: {
@@ -101,13 +60,6 @@ export const metadata = {
   },
 }
 
-interface CVItem {
-  image: React.ReactNode
-  company: string
-  role: string
-  startDate: string
-  endDate: string
-}
 interface SocialLink {
   name: string
   href: string
@@ -116,69 +68,6 @@ interface SocialLink {
 }
 
 export default function Home() {
-  const cvItems: CVItem[] = [
-    {
-      image: (
-        <Image
-          src="/logos/employers/vasion.png"
-          width={32}
-          height={32}
-          alt="Vasion company logo"
-          className={companyLogo}
-        />
-      ),
-      company: 'Vasion',
-      role: 'Staff Software Engineer',
-      startDate: '2022',
-      endDate: 'Present',
-    },
-    {
-      image: (
-        <Image
-          src="/logos/employers/podium.jpg"
-          width={32}
-          height={32}
-          alt="Podium company logo"
-          className={companyLogo}
-        />
-      ),
-      company: 'Podium',
-      role: 'Senior Software Engineer',
-      startDate: '2021',
-      endDate: '2022',
-    },
-    {
-      image: (
-        <Image
-          src="/logos/employers/pluralsight.png"
-          width={32}
-          height={32}
-          alt="Pluralsight company logo"
-          className={companyLogo}
-        />
-      ),
-      company: 'Pluralsight',
-      role: 'Full Stack Software Engineer',
-      startDate: '2016',
-      endDate: '2020',
-    },
-    {
-      image: (
-        <Image
-          src="/logos/employers/maersk.jpg"
-          width={32}
-          height={32}
-          alt="Maersk company logo"
-          className={companyLogo}
-        />
-      ),
-      company: 'Maersk',
-      role: 'Software Engineer',
-      startDate: '2014',
-      endDate: '2016',
-    },
-  ]
-
   const socialLinks: SocialLink[] = [
     {
       name: 'Github',
@@ -280,77 +169,6 @@ export default function Home() {
               </Card>
             </Link>
           ))}
-        </div>
-        <div
-          className={cx(
-            column,
-            gridItem({
-              colSpan: {
-                md: 5,
-                sm: 12,
-                smDown: 12,
-              },
-            }),
-          )}
-        >
-          <Card variant="outline">
-            <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
-            <Card.Body>
-              <p className={blogPostDescriptor}>
-                Get notified when I publish new posts, unsubscribe any time. My blog is hosted here, & published to
-                Hashnode & DEV.to.
-              </p>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="outline" as="a" href="#publications">
-                <InboxArrowDownIcon className={buttonIcon} width={24} height={24} />
-                Subscribe
-              </Button>
-            </Card.Footer>
-          </Card>
-          <Card variant="outline">
-            <Card.Header icon={<CodeBracketIcon width={24} height={24} />}>How I made this site</Card.Header>
-            <Card.Body>
-              This site was built with Next.js, Typescript, & Contentlayer. In addition, all these styles are
-              hand-crafted using PandaCSS. Use the link below to checkout the source code.
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="secondary" as="a" href="https://github.com/jamesandersonwalsh/portfolio" download>
-                <LinkIcon className={buttonIcon} width={24} height={24} />
-                Visit Github
-              </Button>
-            </Card.Footer>
-          </Card>
-          <Card variant="outline">
-            <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>Work</Card.Header>
-            <Card.Body>
-              <UnorderedList>
-                {cvItems.map((cvItem) => (
-                  <UnorderedList.ListItem key={cvItem.company}>
-                    {cvItem.image}
-                    <dl className={dl}>
-                      <dt className={dt}>Company</dt>
-                      <dd className={ddBold}>{cvItem.company}</dd>
-                      <dt className={dt}>Role</dt>
-                      <dd className={ddLight}>{cvItem.role}</dd>
-                      <dt className={dt}>Date</dt>
-                      <dd className={ddDate}>
-                        <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
-                        <span aria-hidden="true"> — </span>
-                        <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
-                      </dd>
-                    </dl>
-                  </UnorderedList.ListItem>
-                ))}
-                <UnorderedList.ListItem>
-                  <Button variant="secondary" as="a" href="resume.pdf" download>
-                    <ArrowDownTrayIcon className={buttonIcon} width={24} height={24} />
-                    Download CV
-                  </Button>
-                </UnorderedList.ListItem>
-              </UnorderedList>
-            </Card.Body>
-          </Card>
         </div>
         <div
           className={cx(
