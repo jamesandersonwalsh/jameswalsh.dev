@@ -1,6 +1,7 @@
 import { PropsWithChildren } from 'react'
-import { cva } from 'styled-system/css'
 import { vstack } from 'styled-system/patterns'
+
+import { TypographyH1 } from '../ui/typography'
 
 type PageLayoutProps = {
   title: string
@@ -15,32 +16,11 @@ export function PageLayout({ children, title }: PageLayoutProps) {
   )
 }
 
-const title = cva({
-  base: {
-    width: '100%',
-    fontSize: {
-      md: '5xl',
-      sm: '4xl',
-      smDown: '3xl',
-    },
-  },
-  variants: {
-    visual: {
-      left: {
-        textAlign: 'left',
-      },
-      center: {
-        textAlign: 'center',
-      },
-    },
-  },
-})
-
 type TitleProps = {
   align?: 'left' | 'center'
 } & PropsWithChildren
 function Title({ children, align = 'left' }: TitleProps) {
-  return <h1 className={title({ visual: align })}>{children}</h1>
+  return <TypographyH1>{children}</TypographyH1>
 }
 
 const content = vstack({

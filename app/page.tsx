@@ -10,8 +10,8 @@ import fetchPosts from './posts/fetchPosts'
 import { TimeFormat } from '@/components/TimeFormat'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
-import { PageLayout } from '@ui/Layouts'
 
 const AVATAR_SIZE = 144
 const HANDLE = 'jamesandersonwalsh'
@@ -110,7 +110,7 @@ export default function Home() {
           alt="James profile picture"
           priority
         />
-        <PageLayout.Title>Software engineer. Self-proclaimed developer advocate. UI/UX enthusiast.</PageLayout.Title>
+        <TypographyH1>Software engineer. Self-proclaimed developer advocate. UI/UX enthusiast.</TypographyH1>
         <div className={socialLinkStack}>
           {socialLinks.map(({ name, href, ariaLabel, icon }) => (
             <Link key={name} href={href} className={socialIconLink} aria-label={ariaLabel}>
@@ -119,17 +119,15 @@ export default function Home() {
           ))}
         </div>
         <hr className={pageDivider} />
-        <p className={css({ fontSize: 'lg' })}>
+        <TypographyP>
           Hey, I&apos;m James! I&apos;m a Full Stack Software Engineer specializing in JavaScript. Over the last decade
           I&apos;ve been a part of shipping new products to market, scaling Node.js applications, building beautiful
           Design Systems, & working on cross-functional teams with other talented people I can learn from. I believe
           that no tech talk is complete without memes.
-        </p>
+        </TypographyP>
       </header>
       <br />
-      <h2 className={h2} id="latest-blog-posts">
-        Latest blog posts
-      </h2>
+      <TypographyH2 id="latest-blog-posts">Latest blog posts</TypographyH2>
       <div className={columnGrid}>
         {posts.map((post) => (
           <Link
@@ -177,9 +175,7 @@ export default function Home() {
           )}
         >
           <hr className={pageDivider} />
-          <h2 className={h2} id="publications">
-            See what I&apos;ve published
-          </h2>
+          <TypographyH2 id="publications">See what I&apos;ve published</TypographyH2>
         </div>
         <div
           className={gridItem({
