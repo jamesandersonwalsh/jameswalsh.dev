@@ -32,14 +32,17 @@ const socialIconLink = hstack({
     color: 'heading',
   },
 })
+const h2 = css({
+  py: '1rem',
+})
 const pageDivider = divider({
   color: 'slate.400',
   thickness: '0',
+  my: '0.5rem',
 })
 const columnGrid = grid({
-  mt: '4rem',
-  gap: 6,
-  columns: 12,
+  gap: 2,
+  columns: 3,
 })
 const column = stack({
   gap: 6,
@@ -131,62 +134,64 @@ export default function Home() {
         </p>
       </section>
       <br />
+      <h2 className={h2} id="latest-blog-posts">
+        Latest blog posts
+      </h2>
       <div className={columnGrid}>
-        <div
-          className={cx(
-            column,
-            gridItem({
+        {posts.map((post) => (
+          <Link
+            className={gridItem({
               colSpan: {
-                md: 7,
-                sm: 12,
-                smDown: 12,
+                md: 1,
+                sm: 3,
+                smDown: 3,
               },
-            }),
-          )}
-        >
-          {posts.map((post) => (
-            <Link key={post._id} href={post.url}>
-              <Card variant="ghost">
-                <h3 className={postTitle}>{post.title}</h3>
-                <Card.Body>
-                  <div className={stack({ gap: 4 })}>
-                    <span className={flex({ alignItems: 'center' })}>
-                      <CalendarDaysIcon width={24} height={24} />
-                      &nbsp;
-                      <TimeFormat dateTime={post.publishedAt} />
-                    </span>
-                    <span className={flex({ alignItems: 'center' })}>
-                      <ClockIcon width={16} height={16} />
-                      &nbsp;
-                      {calculateTimeToRead(post.body.raw)}&nbsp;min read
-                    </span>
-                    <span>{post.brief}</span>
-                  </div>
-                </Card.Body>
-                <Card.Footer>
-                  <ArticleCTA />
-                </Card.Footer>
-              </Card>
-            </Link>
-          ))}
-        </div>
+            })}
+            key={post._id}
+            href={post.url}
+          >
+            <Card variant="ghost">
+              <h3 className={postTitle}>{post.title}</h3>
+              <Card.Body>
+                <div className={stack({ gap: 4 })}>
+                  <span className={flex({ alignItems: 'center' })}>
+                    <CalendarDaysIcon width={24} height={24} />
+                    &nbsp;
+                    <TimeFormat dateTime={post.publishedAt} />
+                  </span>
+                  <span className={flex({ alignItems: 'center' })}>
+                    <ClockIcon width={16} height={16} />
+                    &nbsp;
+                    {calculateTimeToRead(post.body.raw)}&nbsp;min read
+                  </span>
+                  <span>{post.brief}</span>
+                </div>
+              </Card.Body>
+              <Card.Footer>
+                <ArticleCTA />
+              </Card.Footer>
+            </Card>
+          </Link>
+        ))}
         <div
           className={cx(
             column,
             gridItem({
-              colSpan: 12,
+              colSpan: 3,
             }),
           )}
         >
           <hr className={pageDivider} />
-          <h2 id="publications">See what I&apos;ve published</h2>
+          <h2 className={h2} id="publications">
+            See what I&apos;ve published
+          </h2>
         </div>
         <div
           className={gridItem({
             colSpan: {
-              md: 4,
-              sm: 12,
-              smDown: 12,
+              md: 1,
+              sm: 3,
+              smDown: 3,
             },
           })}
         >
@@ -218,9 +223,9 @@ export default function Home() {
         <div
           className={gridItem({
             colSpan: {
-              md: 4,
-              sm: 12,
-              smDown: 12,
+              md: 1,
+              sm: 3,
+              smDown: 3,
             },
           })}
         >
@@ -246,9 +251,9 @@ export default function Home() {
         <div
           className={gridItem({
             colSpan: {
-              md: 4,
-              sm: 12,
-              smDown: 12,
+              md: 1,
+              sm: 3,
+              smDown: 3,
             },
           })}
         >
