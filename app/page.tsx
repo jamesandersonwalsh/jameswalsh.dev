@@ -235,10 +235,10 @@ export default function Home() {
         </div>
         <hr className={pageDivider} />
         <p className={css({ fontSize: 'lg' })}>
-          Hey, I&apos;m James! I&apos;m a Full Stack Javascript Engineer who loves frontend web development. Over the
-          last decade I&apos;ve been a part of shipping new products to market, scaling Node.js applications, building
-          beautiful Design Systems, & working on cross-functional teams with other talented people I can learn from. I
-          believe that no tech talk is complete without memes.
+          Hey, I&apos;m James! I&apos;m a Full Stack Software Engineer specializing in JavaScript. Over the last decade
+          I&apos;ve been a part of shipping new products to market, scaling Node.js applications, building beautiful
+          Design Systems, & working on cross-functional teams with other talented people I can learn from. I believe
+          that no tech talk is complete without memes.
         </p>
       </section>
       <br />
