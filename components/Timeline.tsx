@@ -15,7 +15,7 @@ export function Timeline({ children }: PropsWithChildren) {
 
 const item = grid({
   columns: {
-    mdTo2xl: 4,
+    md: 4,
     sm: 1,
   },
 })
@@ -35,7 +35,7 @@ const rightElement = gridItem({
   display: 'flex',
   justifyContent: 'center',
   colSpan: {
-    mdTo2xl: 3,
+    md: 3,
     sm: 1,
   },
 })

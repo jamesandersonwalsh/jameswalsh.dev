@@ -37,14 +37,14 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
 
 const pageContainer = css({
   px: {
-    mdTo2xl: '6rem',
+    md: '6rem',
   },
   py: '2rem',
 })
 const coverImageContainer = container({
   width: '100%',
   height: {
-    mdTo2xl: '400px',
+    md: '400px',
     smDown: '240px',
   },
 })

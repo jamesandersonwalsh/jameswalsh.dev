@@ -5,7 +5,7 @@ import { grid, gridItem } from 'styled-system/patterns'
 const footer = grid({
   gap: 8,
   columns: {
-    mdTo2xl: 2,
+    md: 2,
     smDown: 1,
   },
   borderTopWidth: '1px',
@@ -35,7 +35,7 @@ const typography = css({
 const leftElement = gridItem({
   display: 'flex',
   justifyContent: {
-    mdTo2xl: 'flex-start',
+    md: 'flex-start',
     smDown: 'center',
   },
   color: 'slate.400',
@@ -43,7 +43,7 @@ const leftElement = gridItem({
 const rightElement = gridItem({
   display: 'flex',
   justifyContent: {
-    mdTo2xl: 'flex-end',
+    md: 'flex-end',
     smDown: 'center',
   },
   color: 'slate.400',
