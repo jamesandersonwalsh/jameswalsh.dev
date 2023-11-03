@@ -5,6 +5,7 @@ import { hstack, flex } from 'styled-system/patterns'
 const card = cva({
   base: {
     display: 'flex',
+    height: '100%',
     flexDirection: 'column',
     borderRadius: '2xl',
     p: '1.25rem',
