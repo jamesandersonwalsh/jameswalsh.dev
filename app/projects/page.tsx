@@ -1,9 +1,9 @@
-import { LinkIcon } from '@heroicons/react/24/outline'
+import { LinkIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { grid, hstack, circle } from 'styled-system/patterns'
 
-import { Card } from '@ui/Card'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { PageLayout } from '@ui/Layouts'
 
 interface Project {
@@ -13,7 +13,6 @@ interface Project {
     title: string
     href: string
   }
-  // TODO: refactor this to be src?
   imageLink: string
 }
 
@@ -104,16 +103,18 @@ export default function ProjectsPage() {
       <div className={projectGrid}>
         {projects.map((project) => (
           <Link key={project.title} href={project.externalLink.href} className={hstack()}>
-            <Card variant="ghost">
-              <Image src={project.imageLink} alt="Project logo" width={40} height={40} className={companyLogo} />
-              <Card.Header>{project.title}</Card.Header>
-              <Card.Body>{project.description}</Card.Body>
-              <Card.Footer>
+            <Card>
+              <CardHeader>
+                <Image src={project.imageLink} alt="Project logo" width={40} height={40} className={companyLogo} />
+                <CardTitle>{project.title}</CardTitle>
+              </CardHeader>
+              <CardContent>{project.description}</CardContent>
+              <CardFooter>
                 <div className={link}>
                   <LinkIcon width={16} />
                   {project.externalLink.title}
                 </div>
-              </Card.Footer>
+              </CardFooter>
             </Card>
           </Link>
         ))}

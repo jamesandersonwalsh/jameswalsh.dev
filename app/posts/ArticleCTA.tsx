@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@heroicons/react/24/solid'
+import { ChevronRight } from 'lucide-react'
 import { hstack } from 'styled-system/patterns'
 
 const articleCTA = hstack({
@@ -24,7 +24,7 @@ const articleCTA = hstack({
 export function ArticleCTA() {
   return (
     <span className={articleCTA}>
-      Read More <ChevronRightIcon width={20} height={20} />
+      Read More <ChevronRight width={20} height={20} />
     </span>
   )
 }

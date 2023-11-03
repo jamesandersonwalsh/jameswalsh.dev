@@ -1,4 +1,4 @@
-import { ClockIcon } from '@heroicons/react/24/outline'
+import { Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { css } from 'styled-system/css'
@@ -7,16 +7,12 @@ import { container, flex } from 'styled-system/patterns'
 import { ArticleCTA } from './ArticleCTA'
 import fetchPosts from './fetchPosts'
 
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { calculateTimeToRead } from '@/helpers'
-import { Card } from '@ui/Card'
 import { PageLayout } from '@ui/Layouts'
 import { TimeFormat } from '@ui/TimeFormat'
 import { Timeline } from '@ui/Timeline'
 
-const articleTitleStyles = css({
-  fontSize: 'xl',
-  fontWeight: 'semibold',
-})
 const coverImageSmallContainer = container({
   height: '120px',
   width: '264px',
@@ -53,11 +49,13 @@ export default function PostsIndexPage() {
               </Timeline.LeftElement>
               <Timeline.RightElement>
                 <Link href={post.url} className={css({ width: '100%' })}>
-                  <Card variant="ghost">
-                    <h2 className={articleTitleStyles}>{post.title}</h2>
-                    <Card.Body>
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>{post.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
                       <span className={flex({ alignItems: 'center', mb: '1rem' })}>
-                        <ClockIcon width={24} height={24} />
+                        <Clock width={24} height={24} />
                         &nbsp;
                         {calculateTimeToRead(post.body.raw)}&nbsp;min read
                       </span>
@@ -70,10 +68,10 @@ export default function PostsIndexPage() {
                           fill
                         />
                       </div>
-                    </Card.Body>
-                    <Card.Footer>
+                    </CardContent>
+                    <CardFooter>
                       <ArticleCTA />
-                    </Card.Footer>
+                    </CardFooter>
                   </Card>
                 </Link>
               </Timeline.RightElement>
