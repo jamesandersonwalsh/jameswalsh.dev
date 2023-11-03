@@ -6,7 +6,7 @@ import { getColorModeCookie, toggleColorModeCookie } from '@/app/actions'
 const themeSwitcher = css({
   mr: '1.5rem',
   top: {
-    mdTo2xl: '2rem',
+    md: '2rem',
     smDown: '1.5rem',
   },
   color: 'text',

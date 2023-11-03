@@ -25,12 +25,12 @@ const globalNavStack = hstack({
   justifyContent: 'space-between',
   '& :nth-child(1)': {
     order: {
-      mdTo2xl: 2,
+      md: 2,
     },
   },
   '& :nth-child(2)': {
     order: {
-      mdTo2xl: 1,
+      md: 1,
     },
   },
   '& :nth-child(3)': {

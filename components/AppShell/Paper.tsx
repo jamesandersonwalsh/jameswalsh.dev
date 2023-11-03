@@ -7,7 +7,7 @@ const paper = container({
   alignItems: 'center',
   minHeight: '100vh',
   p: {
-    mdTo2xl: '2rem',
+    md: '2rem',
     sm: '1rem',
   },
   lgTo2xl: {

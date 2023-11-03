@@ -61,7 +61,7 @@ export default defineConfig({
       color: 'heading',
       WebkitFontSmoothing: 'antialiased',
       fontSize: {
-        mdTo2xl: '3xl',
+        md: '3xl',
         smDown: 'xl',
       },
     },
