@@ -5,12 +5,11 @@ import { wrap, stack, grid, gridItem, circle } from 'styled-system/patterns'
 
 import AboutMeAccordion from './AboutMeAccordion'
 
-import { UnorderedList } from '@/components/List'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { TypographyH2, TypographyH3 } from '@/components/ui/typography'
+import { UnorderedList } from '@/components/ui/list'
+import { TypographyH1, TypographyH2, TypographyH3 } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
-import { PageLayout } from '@ui/Layouts'
 
 const sideProfile = css({
   mr: 'auto',
@@ -140,102 +139,100 @@ export default function AboutPage() {
         className={sideProfile}
         priority
       />
-      <PageLayout.Title align="left">Hey, I&apos;m James.</PageLayout.Title>
-      <PageLayout.Content>
-        <TypographyH2>I live in Salt Lake City, where I write code & enjoy the Great Outdoors.</TypographyH2>
-        <div className={columnGrid}>
-          <section
-            className={gridItem({
+      <TypographyH1>Hey, I&apos;m James.</TypographyH1>
+      <TypographyH2>I live in Salt Lake City, where I write code & enjoy the Great Outdoors.</TypographyH2>
+      <div className={columnGrid}>
+        <section
+          className={gridItem({
+            colSpan: {
+              md: 7,
+              sm: 12,
+              smDown: 12,
+            },
+          })}
+        >
+          <TypographyH3>Get to know me</TypographyH3>
+          <AboutMeAccordion />
+        </section>
+        <section
+          className={cx(
+            column,
+            gridItem({
               colSpan: {
-                md: 7,
+                md: 5,
                 sm: 12,
                 smDown: 12,
               },
-            })}
-          >
-            <TypographyH3>Get to know me</TypographyH3>
-            <AboutMeAccordion />
-          </section>
-          <section
-            className={cx(
-              column,
-              gridItem({
-                colSpan: {
-                  md: 5,
-                  sm: 12,
-                  smDown: 12,
-                },
-              }),
-            )}
-          >
-            <Card>
-              <CardHeader>
-                <CardTitle>See what I&apos;ve published</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className={blogPostDescriptor}>
-                  Get notified when I publish new posts, unsubscribe any time. My blog is hosted here, & published to
-                  Hashnode & DEV.to.
-                </p>
-              </CardContent>
-              <CardFooter>
-                <Link href="/#publications" className={cn('w-full', buttonVariants())}>
-                  Subscribe
-                </Link>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>How I made this site</CardTitle>
-              </CardHeader>
-              <CardContent>
-                This site was built with Next.js, Typescript, & Contentlayer. In addition, all these styles are
-                hand-crafted using PandaCSS. Use the link below to checkout the source code.
-              </CardContent>
-              <CardFooter>
-                <Link
-                  href="https://github.com/jamesandersonwalsh/portfolio"
-                  download
-                  className={cn('w-full', buttonVariants())}
-                >
-                  Visit Github
-                </Link>
-              </CardFooter>
-            </Card>
-            <Card>
-              <CardHeader>
-                <CardTitle>Work</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <UnorderedList>
-                  {cvItems.map((cvItem) => (
-                    <UnorderedList.ListItem key={cvItem.company}>
-                      {cvItem.image}
-                      <dl className={dl}>
-                        <dt className={dt}>Company</dt>
-                        <dd className={ddBold}>{cvItem.company}</dd>
-                        <dt className={dt}>Role</dt>
-                        <dd className={ddLight}>{cvItem.role}</dd>
-                        <dt className={dt}>Date</dt>
-                        <dd className={ddDate}>
-                          <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
-                          <span aria-hidden="true"> — </span>
-                          <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
-                        </dd>
-                      </dl>
-                    </UnorderedList.ListItem>
-                  ))}
-                  <UnorderedList.ListItem>
-                    <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
-                      Download CV
-                    </Link>
+            }),
+          )}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>See what I&apos;ve published</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className={blogPostDescriptor}>
+                Get notified when I publish new posts, unsubscribe any time. My blog is hosted here, & published to
+                Hashnode & DEV.to.
+              </p>
+            </CardContent>
+            <CardFooter>
+              <Link href="/#publications" className={cn('w-full', buttonVariants())}>
+                Subscribe
+              </Link>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>How I made this site</CardTitle>
+            </CardHeader>
+            <CardContent>
+              This site was built with Next.js, Typescript, & Contentlayer. In addition, all these styles are
+              hand-crafted using PandaCSS. Use the link below to checkout the source code.
+            </CardContent>
+            <CardFooter>
+              <Link
+                href="https://github.com/jamesandersonwalsh/portfolio"
+                download
+                className={cn('w-full', buttonVariants())}
+              >
+                Visit Github
+              </Link>
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Work</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <UnorderedList>
+                {cvItems.map((cvItem) => (
+                  <UnorderedList.ListItem key={cvItem.company}>
+                    {cvItem.image}
+                    <dl className={dl}>
+                      <dt className={dt}>Company</dt>
+                      <dd className={ddBold}>{cvItem.company}</dd>
+                      <dt className={dt}>Role</dt>
+                      <dd className={ddLight}>{cvItem.role}</dd>
+                      <dt className={dt}>Date</dt>
+                      <dd className={ddDate}>
+                        <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
+                        <span aria-hidden="true"> — </span>
+                        <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
+                      </dd>
+                    </dl>
                   </UnorderedList.ListItem>
-                </UnorderedList>
-              </CardContent>
-            </Card>
-          </section>
-        </div>
-      </PageLayout.Content>
+                ))}
+                <UnorderedList.ListItem>
+                  <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
+                    Download CV
+                  </Link>
+                </UnorderedList.ListItem>
+              </UnorderedList>
+            </CardContent>
+          </Card>
+        </section>
+      </div>
     </>
   )
 }

@@ -8,13 +8,14 @@ import { hstack, stack, container } from 'styled-system/patterns'
 
 import fetchPosts from '../fetchPosts'
 
+import { Tag } from './tag'
+
 import { Post } from '@/.contentlayer/generated'
+import { mdxComponents } from '@/components/mdx-components'
 import { buttonVariants } from '@/components/ui/button'
+import { Time } from '@/components/ui/time'
+import { TypographyH1 } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
-import { Badge } from '@ui/Badge'
-import { PageLayout } from '@ui/Layouts'
-import { mdxComponents } from '@ui/mdx-components'
-import { TimeFormat } from '@ui/TimeFormat'
 
 const allPosts = fetchPosts()
 
@@ -112,38 +113,37 @@ export default function PostPage({ params }: PostPageProps) {
           fill
         />
       </div>
-      <PageLayout title={post.title}>
-        <div className={postMetaStyles}>
-          <span className={timestampStyles}>
-            <CalendarDays className={calendar} width={24} height={24} />
-            <TimeFormat dateTime={post.publishedAt} />
-            <span className={hstack({ gap: 1, ml: '0.5rem' })}>
-              <Clock width={24} height={24} />
-              {calculateTimeToRead(post.body.raw)}&nbsp;min read
-            </span>
+      <TypographyH1>{post.title}</TypographyH1>
+      <div className={postMetaStyles}>
+        <span className={timestampStyles}>
+          <CalendarDays className={calendar} width={24} height={24} />
+          <Time dateTime={post.publishedAt} />
+          <span className={hstack({ gap: 1, ml: '0.5rem' })}>
+            <Clock width={24} height={24} />
+            {calculateTimeToRead(post.body.raw)}&nbsp;min read
           </span>
-          <span className={hstack({ gap: 2 })}>
-            {post.tags.map((tag) => (
-              <Badge key={tag} text={tag} />
-            ))}
-          </span>
-        </div>
-        <article>
-          <MDXContent components={mdxComponents} />
-        </article>
-        <div className={buttonCTAs}>
-          <Link href="/posts" className={buttonVariants({ variant: 'outline' })}>
-            <ChevronLeft width={16} height={16} />
-            &nbsp;All posts
+        </span>
+        <span className={hstack({ gap: 2 })}>
+          {post.tags.map((tag) => (
+            <Tag key={tag} text={tag} />
+          ))}
+        </span>
+      </div>
+      <article>
+        <MDXContent components={mdxComponents} />
+      </article>
+      <div className={buttonCTAs}>
+        <Link href="/posts" className={buttonVariants({ variant: 'outline' })}>
+          <ChevronLeft width={16} height={16} />
+          &nbsp;All posts
+        </Link>
+        {!!previousPost && (
+          <Link href={previousPost.url} className={buttonVariants({ variant: 'outline' })}>
+            <ChevronRight width={16} height={16} />
+            &nbsp;Next
           </Link>
-          {!!previousPost && (
-            <Link href={previousPost.url} className={buttonVariants({ variant: 'outline' })}>
-              <ChevronRight width={16} height={16} />
-              &nbsp;Next
-            </Link>
-          )}
-        </div>
-      </PageLayout>
+        )}
+      </div>
     </div>
   )
 }

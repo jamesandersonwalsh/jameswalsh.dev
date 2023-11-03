@@ -5,34 +5,14 @@ import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import { flex, hstack } from 'styled-system/patterns'
 
-import { NAVIGATIONAL_ITEMS } from '@/components/AppShell/constants'
+import { NAVIGATIONAL_ITEMS } from '@/components/app-shell/constants'
+import { Footer } from '@/components/app-shell/footer'
+import { MobileMenu } from '@/components/app-shell/mobile-menu'
+import { PageAvatar } from '@/components/app-shell/page-avatar'
+import { Paper } from '@/components/app-shell/paper'
+import { TopNavbar } from '@/components/app-shell/top-nav'
+import { UnorderedList } from '@/components/ui/list'
 import { cn } from '@/lib/utils'
-import { TopNavbar, SideNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
-import { UnorderedList } from '@ui/List'
-
-const globalNavStack = hstack({
-  width: '100%',
-  mt: {
-    smDown: '1rem',
-  },
-  justifyContent: 'space-between',
-  '& :nth-child(1)': {
-    order: {
-      md: 2,
-    },
-  },
-  '& :nth-child(2)': {
-    order: {
-      md: 1,
-    },
-  },
-  '& :nth-child(3)': {
-    order: 3,
-  },
-  '& :nth-child(4)': {
-    order: 4,
-  },
-})
 
 const mainStyles = flex({
   direction: 'column',
@@ -51,10 +31,10 @@ export default async function RootLayout({ children }: PropsWithChildren) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <body>
         <Paper>
-          <div className={globalNavStack}>
-            <SideNavDrawer />
+          <div className="flex w-full flex-row justify-center gap-16">
             <PageAvatar />
             <TopNavbar />
+            <MobileMenu />
           </div>
           <main className={mainStyles}>{children}</main>
         </Paper>

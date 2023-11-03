@@ -9,6 +9,8 @@ const timeline = stack({
   borderInlineStart: '1px solid',
   borderInlineStartColor: 'slate.500',
 })
+
+/** @deprecated needs to be migrated from Panda to Tailwind */
 export function Timeline({ children }: PropsWithChildren) {
   return <ol className={timeline}>{children}</ol>
 }
