@@ -1,7 +1,7 @@
-import { ClockIcon } from '@heroicons/react/24/outline'
-import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { CalendarDays, ChevronLeft, ChevronRight, Clock } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 import { css } from 'styled-system/css'
 import { hstack, stack, container } from 'styled-system/patterns'
@@ -9,9 +9,9 @@ import { hstack, stack, container } from 'styled-system/patterns'
 import fetchPosts from '../fetchPosts'
 
 import { Post } from '@/.contentlayer/generated'
+import { buttonVariants } from '@/components/ui/button'
 import { calculateTimeToRead } from '@/helpers'
 import { Badge } from '@ui/Badge'
-import { Button } from '@ui/Button'
 import { PageLayout } from '@ui/Layouts'
 import { mdxComponents } from '@ui/mdx-components'
 import { TimeFormat } from '@ui/TimeFormat'
@@ -115,10 +115,10 @@ export default function PostPage({ params }: PostPageProps) {
       <PageLayout title={post.title}>
         <div className={postMetaStyles}>
           <span className={timestampStyles}>
-            <CalendarDaysIcon className={calendar} width={24} height={24} />
+            <CalendarDays className={calendar} width={24} height={24} />
             <TimeFormat dateTime={post.publishedAt} />
             <span className={hstack({ gap: 1, ml: '0.5rem' })}>
-              <ClockIcon width={24} height={24} />
+              <Clock width={24} height={24} />
               {calculateTimeToRead(post.body.raw)}&nbsp;min read
             </span>
           </span>
@@ -132,15 +132,15 @@ export default function PostPage({ params }: PostPageProps) {
           <MDXContent components={mdxComponents} />
         </article>
         <div className={buttonCTAs}>
-          <Button as="a" href="/posts" variant="secondary">
-            <ChevronLeftIcon width={16} height={16} />
+          <Link href="/posts" className={buttonVariants({ variant: 'outline' })}>
+            <ChevronLeft width={16} height={16} />
             &nbsp;All posts
-          </Button>
+          </Link>
           {!!previousPost && (
-            <Button as="a" href={previousPost.url} variant="secondary">
-              Next&nbsp;
-              <ChevronRightIcon width={16} height={16} />
-            </Button>
+            <Link href={previousPost.url} className={buttonVariants({ variant: 'outline' })}>
+              <ChevronRight width={16} height={16} />
+              &nbsp;Next
+            </Link>
           )}
         </div>
       </PageLayout>

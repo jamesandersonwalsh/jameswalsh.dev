@@ -1,4 +1,4 @@
-import { CalendarDaysIcon, ClockIcon } from '@heroicons/react/24/outline'
+import { CalendarDays, Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
@@ -8,9 +8,9 @@ import { ArticleCTA } from './posts/ArticleCTA'
 import fetchPosts from './posts/fetchPosts'
 
 import { TimeFormat } from '@/components/TimeFormat'
+import { buttonVariants } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { calculateTimeToRead } from '@/helpers'
-import { Button } from '@ui/Button'
-import { Card } from '@ui/Card'
 import { PageLayout } from '@ui/Layouts'
 
 const AVATAR_SIZE = 144
@@ -47,14 +47,7 @@ const columnGrid = grid({
 const column = stack({
   gap: 6,
 })
-const postTitle = css({
-  maxWidth: '90%',
-  fontWeight: 'medium',
-})
-const blogLogo = css({
-  borderRadius: 'md',
-  mr: '16px',
-})
+
 export const metadata = {
   title: 'James Walsh',
   openGraph: {
@@ -150,26 +143,28 @@ export default function Home() {
             key={post._id}
             href={post.url}
           >
-            <Card variant="ghost">
-              <h3 className={postTitle}>{post.title}</h3>
-              <Card.Body>
+            <Card>
+              <CardHeader>
+                <CardTitle>{post.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
                 <div className={stack({ gap: 4 })}>
                   <span className={flex({ alignItems: 'center' })}>
-                    <CalendarDaysIcon width={24} height={24} />
+                    <CalendarDays width={24} height={24} />
                     &nbsp;
                     <TimeFormat dateTime={post.publishedAt} />
                   </span>
                   <span className={flex({ alignItems: 'center' })}>
-                    <ClockIcon width={16} height={16} />
+                    <Clock width={16} height={16} />
                     &nbsp;
                     {calculateTimeToRead(post.body.raw)}&nbsp;min read
                   </span>
                   <span>{post.brief}</span>
                 </div>
-              </Card.Body>
-              <Card.Footer>
+              </CardContent>
+              <CardFooter>
                 <ArticleCTA />
-              </Card.Footer>
+              </CardFooter>
             </Card>
           </Link>
         ))}
@@ -195,29 +190,19 @@ export default function Home() {
             },
           })}
         >
-          <Card variant="outline">
-            <Card.Header
-              icon={
-                <Image
-                  src="/logos/blog/hey-world.png"
-                  width={28}
-                  height={28}
-                  alt="hashnode-logo"
-                  className={blogLogo}
-                />
-              }
-            >
-              Hey World
-            </Card.Header>
-            <Card.Body>
+          <Card>
+            <CardHeader>
+              <CardTitle>Hey World</CardTitle>
+            </CardHeader>
+            <CardContent>
               Checkout my non-tech blog on HEY where nothing&apos;s off limits. Get posts directly to your email,&nbsp;
               <i>or grab the RSS feed.</i>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="secondary" as="a" href="https://world.hey.com/jameswalsh">
+            </CardContent>
+            <CardFooter>
+              <Link href="https://world.hey.com/jameswalsh" className={buttonVariants({ variant: 'link' })}>
                 Subscribe
-              </Button>
-            </Card.Footer>
+              </Link>
+            </CardFooter>
           </Card>
         </div>
         <div
@@ -229,23 +214,19 @@ export default function Home() {
             },
           })}
         >
-          <Card variant="outline">
-            <Card.Header
-              icon={
-                <Image src="/logos/blog/hashnode.png" width={28} height={28} alt="hashnode-logo" className={blogLogo} />
-              }
-            >
-              Hashnode
-            </Card.Header>
-            <Card.Body>
+          <Card>
+            <CardHeader>
+              <CardTitle>Hashnode</CardTitle>
+            </CardHeader>
+            <CardContent>
               All of my posts on this site are made available via my technical newsletter on Hashnode. Join & receive
               emails whenever I publish a new article.
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="secondary" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
+            </CardContent>
+            <CardFooter>
+              <Link href="https://jameswalsh.hashnode.dev/newsletter" className={buttonVariants({ variant: 'link' })}>
                 Join Tech Newsletter
-              </Button>
-            </Card.Footer>
+              </Link>
+            </CardFooter>
           </Card>
         </div>
         <div
@@ -257,23 +238,19 @@ export default function Home() {
             },
           })}
         >
-          <Card variant="outline">
-            <Card.Header
-              icon={
-                <Image src="/logos/blog/dev-to.png" width={28} height={28} alt="dev-to-logo" className={blogLogo} />
-              }
-            >
-              DEV.to
-            </Card.Header>
-            <Card.Body>
+          <Card>
+            <CardHeader>
+              <CardTitle>DEV.to</CardTitle>
+            </CardHeader>
+            <CardContent>
               All of my posts on this site are made available on <b>DEV.to</b>, which is my favorite blogging community.
               Follow for more spicy tech!
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="secondary" as="a" href={`https://dev.to/${HANDLE}`}>
+            </CardContent>
+            <CardFooter>
+              <Link href={`https://dev.to/${HANDLE}`} className={buttonVariants({ variant: 'link' })}>
                 Follow on DEV
-              </Button>
-            </Card.Footer>
+              </Link>
+            </CardFooter>
           </Card>
         </div>
       </div>

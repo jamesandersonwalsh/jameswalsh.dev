@@ -19,33 +19,44 @@
     "start": "next start"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.18",
+    "@radix-ui/react-accordion": "^1.1.2",
+    "@radix-ui/react-slot": "^1.0.2",
     "@types/node": "20.8.9",
     "@types/react": "18.2.34",
     "@types/react-dom": "18.2.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "contentlayer": "^0.3.4",
     "date-fns": "^2.30.0",
     "eslint": "8.51.0",
-    "eslint-config-next": "13.4.19",
-    "next": "13.4.19",
+    "eslint-config-next": "14.0.1",
+    "geist": "^1.0.0",
+    "lucide-react": "^0.292.0",
+    "next": "14.0.1",
     "next-contentlayer": "^0.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sharp": "^0.32.6",
     "shiki": "^0.14.5",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2"
   },
   "devDependencies": {
     "@pandacss/dev": "0.17.0",
     "@typescript-eslint/parser": "^6.9.0",
+    "autoprefixer": "^10.4.16",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.0",
     "husky": "^8.0.3",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
     "rehype": "^12.0.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.10.0",
     "rehype-slug": "^5.1.0",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "tailwindcss": "^3.3.5"
   }
 }

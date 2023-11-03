@@ -1,21 +1,14 @@
-import './global.css'
+import './globals.css'
 import formatDate from 'date-fns/format'
-import { Inter } from 'next/font/google'
+import { GeistSans, GeistMono } from 'geist/font'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 import { flex, hstack } from 'styled-system/patterns'
 
-import { getColorModeCookie } from './actions'
-
 import { NAVIGATIONAL_ITEMS } from '@/components/AppShell/constants'
+import { cn } from '@/lib/utils'
 import { TopNavbar, SideNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
-import { ColorModeSwitcher } from '@ui/ColorModeSwitcher'
 import { UnorderedList } from '@ui/List'
-
-const inter = Inter({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-})
 
 const globalNavStack = hstack({
   width: '100%',
@@ -52,19 +45,16 @@ const mainStyles = flex({
 })
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-  const colorMode = await getColorModeCookie()
-
   return (
-    <html lang="en" data-color-mode={colorMode}>
+    <html lang="en" className={cn(`${GeistSans.variable} ${GeistMono.variable}`, 'dark')}>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <body className={inter.className}>
+      <body>
         <Paper>
           <div className={globalNavStack}>
             <SideNavDrawer />
             <PageAvatar />
             <TopNavbar />
-            <ColorModeSwitcher />
           </div>
           <main className={mainStyles}>{children}</main>
         </Paper>

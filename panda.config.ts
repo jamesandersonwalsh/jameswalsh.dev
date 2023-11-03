@@ -33,59 +33,15 @@ export default defineConfig({
       },
     },
   },
-  conditions: {
-    light: '[data-color-mode=light] &',
-    dark: '[data-color-mode=dark] &',
-    blueTheme: '[data-theme=blue] &',
-  },
-  globalCss: {
-    html: {
-      scrollBehavior: 'smooth',
-    },
-    body: {
-      bg: 'bg',
-      WebkitFontSmoothing: 'antialiased',
-      scrollBehavior: 'smooth',
-      overflowX: {
-        smDown: 'hidden',
-      },
-    },
-    h1: {
-      fontWeight: 'bolder',
-      fontSize: '4xl',
-      WebkitFontSmoothing: 'antialiased',
-      color: 'heading',
-    },
-    h2: {
-      fontWeight: 'semibold',
-      color: 'heading',
-      WebkitFontSmoothing: 'antialiased',
-      fontSize: {
-        md: '3xl',
-        smDown: 'xl',
-      },
-    },
-    h3: {
-      fontWeight: 'medium',
-      color: 'heading',
-      fontSize: '2xl',
-      WebkitFontSmoothing: 'antialiased',
-    },
-    p: {
-      color: 'text',
-      WebkitFontSmoothing: 'antialiased',
-    },
-    b: {
-      WebkitFontSmoothing: 'antialiased',
-      color: 'text',
-      fontStyle: 'bold',
-    },
-    i: {
-      WebkitFontSmoothing: 'antialiased',
-      color: 'text',
-      fontStyle: 'italic',
-    },
-  },
+  globalCss: {},
   emitPackage: true,
   outdir: 'styled-system',
+
+  layers: {
+    base: 'panda_base',
+    recipes: 'panda_recipes',
+    reset: 'panda_reset',
+    tokens: 'panda_tokens',
+    utilities: 'panda_utilities',
+  },
 })

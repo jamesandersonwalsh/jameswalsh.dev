@@ -1,7 +1,6 @@
 'use client'
 
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { Bars3Icon } from '@heroicons/react/24/solid'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
@@ -134,11 +133,11 @@ export function SideNavDrawer() {
   return (
     <div className={sideNavDrawer}>
       <button className={sideNavDrawerButton} onClick={openMenu} aria-label="Open side navigation drawer">
-        <Bars3Icon />
+        <Menu />
       </button>
       <Overlay isOpen={isMenuOpen}>
         <aside className={cx(navStack, sideNavAside({ visual: isNavStackOpen }))} ref={navRef}>
-          <XMarkIcon width={28} height={28} className={xIcon} onClick={closeMenu} />
+          <X width={28} height={28} className={xIcon} onClick={closeMenu} />
           <UnorderedList>
             <Link href="/" className={menuItem({ visual: pathname === '/' ? 'current' : 'default' })}>
               <UnorderedList.ListItem>Home</UnorderedList.ListItem>

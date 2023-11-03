@@ -1,20 +1,14 @@
-import {
-  ArrowDownTrayIcon,
-  BriefcaseIcon,
-  CodeBracketIcon,
-  InboxArrowDownIcon,
-  LinkIcon,
-  NewspaperIcon,
-} from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import Link from 'next/link'
 import { css, cx } from 'styled-system/css'
 import { wrap, stack, grid, gridItem, circle } from 'styled-system/patterns'
 
 import AboutMeAccordion from './AboutMeAccordion'
 
 import { UnorderedList } from '@/components/List'
-import { Button } from '@ui/Button'
-import { Card } from '@ui/Card'
+import { buttonVariants } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 import { PageLayout } from '@ui/Layouts'
 
 const sideProfile = css({
@@ -64,9 +58,6 @@ const blogPostDescriptor = css({
   fontSize: 'sm',
   fontWeight: 'normal',
   mb: '1rem',
-})
-const buttonIcon = css({
-  mr: '16px',
 })
 
 export const metadata = {
@@ -184,37 +175,45 @@ export default function AboutPage() {
               }),
             )}
           >
-            <Card variant="outline">
-              <Card.Header icon={<NewspaperIcon width={24} height={24} />}>See what I&apos;ve published</Card.Header>
-              <Card.Body>
+            <Card>
+              <CardHeader>
+                <CardTitle>See what I&apos;ve published</CardTitle>
+              </CardHeader>
+              <CardContent>
                 <p className={blogPostDescriptor}>
                   Get notified when I publish new posts, unsubscribe any time. My blog is hosted here, & published to
                   Hashnode & DEV.to.
                 </p>
-              </Card.Body>
-              <Card.Footer>
-                <Button variant="outline" as="a" href="/#publications">
-                  <InboxArrowDownIcon className={buttonIcon} width={24} height={24} />
+              </CardContent>
+              <CardFooter>
+                <Link href="/#publications" className={cn('w-full', buttonVariants())}>
                   Subscribe
-                </Button>
-              </Card.Footer>
+                </Link>
+              </CardFooter>
             </Card>
-            <Card variant="outline">
-              <Card.Header icon={<CodeBracketIcon width={24} height={24} />}>How I made this site</Card.Header>
-              <Card.Body>
+            <Card>
+              <CardHeader>
+                <CardTitle>How I made this site</CardTitle>
+              </CardHeader>
+              <CardContent>
                 This site was built with Next.js, Typescript, & Contentlayer. In addition, all these styles are
                 hand-crafted using PandaCSS. Use the link below to checkout the source code.
-              </Card.Body>
-              <Card.Footer>
-                <Button variant="secondary" as="a" href="https://github.com/jamesandersonwalsh/portfolio" download>
-                  <LinkIcon className={buttonIcon} width={24} height={24} />
+              </CardContent>
+              <CardFooter>
+                <Link
+                  href="https://github.com/jamesandersonwalsh/portfolio"
+                  download
+                  className={cn('w-full', buttonVariants())}
+                >
                   Visit Github
-                </Button>
-              </Card.Footer>
+                </Link>
+              </CardFooter>
             </Card>
-            <Card variant="outline">
-              <Card.Header icon={<BriefcaseIcon width={24} height={24} />}>Work</Card.Header>
-              <Card.Body>
+            <Card>
+              <CardHeader>
+                <CardTitle>Work</CardTitle>
+              </CardHeader>
+              <CardContent>
                 <UnorderedList>
                   {cvItems.map((cvItem) => (
                     <UnorderedList.ListItem key={cvItem.company}>
@@ -234,13 +233,12 @@ export default function AboutPage() {
                     </UnorderedList.ListItem>
                   ))}
                   <UnorderedList.ListItem>
-                    <Button variant="secondary" as="a" href="resume.pdf" download>
-                      <ArrowDownTrayIcon className={buttonIcon} width={24} height={24} />
+                    <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
                       Download CV
-                    </Button>
+                    </Link>
                   </UnorderedList.ListItem>
                 </UnorderedList>
-              </Card.Body>
+              </CardContent>
             </Card>
           </section>
         </div>
