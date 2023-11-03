@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { grid, hstack, circle } from 'styled-system/patterns'
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { PageLayout } from '@ui/Layouts'
+import { TypographyH1 } from '@/components/ui/typography'
 
 interface Project {
   title: string
@@ -95,7 +95,8 @@ export default function ProjectsPage() {
   ]
 
   return (
-    <PageLayout title="Projects I've contributed to that make me smile.">
+    <>
+      <TypographyH1>Projects I&apos;ve contributed to that make me smile.</TypographyH1>
       <p>
         I&apos;ve enjoyed contributing to many projects over the years, but the following is my professional highlight
         reel. A couple of them are open-source, if you&apos;d like to learn more.
@@ -119,6 +120,6 @@ export default function ProjectsPage() {
           </Link>
         ))}
       </div>
-    </PageLayout>
+    </>
   )
 }

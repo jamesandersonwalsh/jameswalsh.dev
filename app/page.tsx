@@ -7,9 +7,9 @@ import { circle, vstack, hstack, divider, grid, stack, gridItem, flex } from 'st
 import { ArticleCTA } from './posts/ArticleCTA'
 import fetchPosts from './posts/fetchPosts'
 
-import { TimeFormat } from '@/components/TimeFormat'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Time } from '@/components/ui/time'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
 
@@ -150,7 +150,7 @@ export default function Home() {
                   <span className={flex({ alignItems: 'center' })}>
                     <CalendarDays width={24} height={24} />
                     &nbsp;
-                    <TimeFormat dateTime={post.publishedAt} />
+                    <Time dateTime={post.publishedAt} />
                   </span>
                   <span className={flex({ alignItems: 'center' })}>
                     <Clock width={16} height={16} />
