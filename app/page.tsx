@@ -16,7 +16,7 @@ import { PageLayout } from '@ui/Layouts'
 const AVATAR_SIZE = 144
 const HANDLE = 'jamesandersonwalsh'
 
-const introSection = vstack({
+const headerSection = vstack({
   gap: 10,
   alignItems: 'start',
 })
@@ -108,7 +108,7 @@ export default function Home() {
 
   return (
     <div>
-      <section className={introSection}>
+      <header className={headerSection}>
         <Image
           src="/portraits/front-profile.webp"
           className={circle()}
@@ -132,7 +132,7 @@ export default function Home() {
           Design Systems, & working on cross-functional teams with other talented people I can learn from. I believe
           that no tech talk is complete without memes.
         </p>
-      </section>
+      </header>
       <br />
       <h2 className={h2} id="latest-blog-posts">
         Latest blog posts
@@ -214,7 +214,7 @@ export default function Home() {
               <i>or grab the RSS feed.</i>
             </Card.Body>
             <Card.Footer>
-              <Button variant="outline" as="a" href="https://world.hey.com/jameswalsh">
+              <Button variant="secondary" as="a" href="https://world.hey.com/jameswalsh">
                 Subscribe
               </Button>
             </Card.Footer>
@@ -242,7 +242,7 @@ export default function Home() {
               emails whenever I publish a new article.
             </Card.Body>
             <Card.Footer>
-              <Button variant="outline" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
+              <Button variant="secondary" as="a" href="https://jameswalsh.hashnode.dev/newsletter">
                 Join Tech Newsletter
               </Button>
             </Card.Footer>
@@ -270,7 +270,7 @@ export default function Home() {
               Follow for more spicy tech!
             </Card.Body>
             <Card.Footer>
-              <Button variant="outline" as="a" href={`https://dev.to/${HANDLE}`}>
+              <Button variant="secondary" as="a" href={`https://dev.to/${HANDLE}`}>
                 Follow on DEV
               </Button>
             </Card.Footer>
