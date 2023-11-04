@@ -3,9 +3,9 @@ import Link from 'next/link'
 
 import AboutMeAccordion from './AboutMeAccordion'
 
+import { ListItem, UnorderedList } from '@/components/custom/list'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { ListItem, UnorderedList } from '@/components/ui/list'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
