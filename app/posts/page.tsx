@@ -2,8 +2,8 @@ import { Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ArticleCTA } from './ArticleCTA'
 import fetchPosts from './fetchPosts'
+import { ReadMore } from './read-more'
 
 import { Timeline } from '@/components/deprecated/timeline'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
@@ -49,7 +49,7 @@ export default function PostsIndexPage() {
                     <TypographyP>{post.brief}</TypographyP>
                   </CardContent>
                   <CardFooter>
-                    <ArticleCTA />
+                    <ReadMore />
                   </CardFooter>
                 </Card>
               </Link>

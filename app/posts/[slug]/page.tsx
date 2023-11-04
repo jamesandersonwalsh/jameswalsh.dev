@@ -3,8 +3,6 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { css } from 'styled-system/css'
-import { hstack, stack, container } from 'styled-system/patterns'
 
 import fetchPosts from '../fetchPosts'
 
@@ -12,6 +10,7 @@ import { Tag } from './tag'
 
 import { Post } from '@/.contentlayer/generated'
 import { mdxComponents } from '@/components/mdx-components'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { Time } from '@/components/ui/time'
 import { TypographyH1 } from '@/components/ui/typography'
@@ -35,47 +34,6 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
     },
   }
 }
-
-const pageContainer = css({
-  px: {
-    md: '6rem',
-  },
-  py: '2rem',
-})
-const coverImageContainer = container({
-  width: '100%',
-  height: {
-    md: '400px',
-    smDown: '240px',
-  },
-})
-const coverImage = css({
-  objectFit: 'cover',
-  borderRadius: 'lg',
-  mb: '2rem',
-})
-const timestampStyles = hstack({
-  px: '0.5rem',
-  fontWeight: 'medium',
-  fontSize: 'lg',
-})
-const postMetaStyles = stack({
-  width: '100%',
-  gap: 4,
-})
-const calendar = css({
-  color: 'primaryBg',
-  borderRadius: 'md',
-})
-
-const buttonCTAs = hstack({
-  gap: 6,
-  borderTop: '1px solid',
-  borderTopColor: 'slate.600',
-  width: '100%',
-  mt: '2rem',
-  pt: '2rem',
-})
 
 interface PostPageProps {
   params: { slug: string }
@@ -102,28 +60,21 @@ export default function PostPage({ params }: PostPageProps) {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className={pageContainer}>
-      <div className={coverImageContainer}>
-        <Image
-          src={post.coverImage}
-          alt="Article cover image"
-          sizes="(max-width: 640px) 240px, (max-width:1536px) 400px"
-          className={coverImage}
-          priority
-          fill
-        />
-      </div>
+    <div className="py-8 md:px-24">
+      <AspectRatio ratio={16 / 9}>
+        <Image src={post.coverImage} alt="Article cover image" className="rounded-xl " priority fill />
+      </AspectRatio>
       <TypographyH1>{post.title}</TypographyH1>
-      <div className={postMetaStyles}>
-        <span className={timestampStyles}>
-          <CalendarDays className={calendar} width={24} height={24} />
+      <div className="flex w-full flex-col gap-4">
+        <span className="flex flex-row px-2 text-lg font-medium">
+          <CalendarDays width={24} height={24} />
           <Time dateTime={post.publishedAt} />
-          <span className={hstack({ gap: 1, ml: '0.5rem' })}>
+          <span className="ml-2 flex flex-row gap-1">
             <Clock width={24} height={24} />
             {calculateTimeToRead(post.body.raw)}&nbsp;min read
           </span>
         </span>
-        <span className={hstack({ gap: 2 })}>
+        <span className="flex flex-row gap-2">
           {post.tags.map((tag) => (
             <Tag key={tag} text={tag} />
           ))}
@@ -132,7 +83,7 @@ export default function PostPage({ params }: PostPageProps) {
       <article>
         <MDXContent components={mdxComponents} />
       </article>
-      <div className={buttonCTAs}>
+      <div className="border-color mt-8 w-full gap-6 border-t pt-8">
         <Link href="/posts" className={buttonVariants({ variant: 'outline' })}>
           <ChevronLeft width={16} height={16} />
           &nbsp;All posts

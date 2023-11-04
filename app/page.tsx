@@ -2,8 +2,8 @@ import { CalendarDays, Clock, Github, Linkedin } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ArticleCTA } from './posts/ArticleCTA'
 import fetchPosts from './posts/fetchPosts'
+import { ReadMore } from './posts/read-more'
 
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -106,7 +106,7 @@ export default function Home() {
                 <span>{post.brief}</span>
               </CardContent>
               <CardFooter>
-                <ArticleCTA />
+                <ReadMore />
               </CardFooter>
             </Card>
           </Link>
