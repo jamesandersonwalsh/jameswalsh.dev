@@ -14,16 +14,6 @@ import { TopNavbar } from '@/components/app-shell/top-nav'
 import { UnorderedList } from '@/components/ui/list'
 import { cn } from '@/lib/utils'
 
-const mainStyles = flex({
-  direction: 'column',
-  alignItems: 'center',
-  py: '3rem',
-  px: {
-    smDown: '1rem',
-  },
-  mt: '1rem',
-})
-
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={cn(`${GeistSans.variable} ${GeistMono.variable}`, 'dark')}>
@@ -36,7 +26,19 @@ export default async function RootLayout({ children }: PropsWithChildren) {
             <TopNavbar />
             <MobileMenu />
           </div>
-          <main className={mainStyles}>{children}</main>
+          <main
+            className={flex({
+              direction: 'column',
+              alignItems: 'center',
+              py: '3rem',
+              px: {
+                smDown: '1rem',
+              },
+              mt: '1rem',
+            })}
+          >
+            {children}
+          </main>
         </Paper>
         <Footer>
           <Footer.LeftElement>

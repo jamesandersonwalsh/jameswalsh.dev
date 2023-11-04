@@ -43,7 +43,7 @@ export function TypographyP({ children, ...rest }: TypographyProps) {
 
 export function TypographyBlockquote({ children, ...rest }: TypographyProps) {
   return (
-    <blockquote className="mt-6 border-l-2 pl-6 italic" {...rest}>
+    <blockquote className="my-6 border-l-2 pl-6 italic" {...rest}>
       {children}
     </blockquote>
   )
