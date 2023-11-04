@@ -9,20 +9,20 @@ const img = css({
   maxW: '800px',
 })
 const h1 = css({
-  py: '2rem',
+  my: '2rem',
 })
 const h2 = css({
   fontWeight: 'bolder',
-  py: '1rem',
+  my: '1rem',
 })
 const h3 = css({
   fontWeight: 'bolder',
-  py: '1rem',
+  my: '1rem',
 })
 
 const list = {
   gap: 2,
-  py: '1rem',
+  my: '1rem',
   ml: '1rem',
 }
 const orderedList = stack({
