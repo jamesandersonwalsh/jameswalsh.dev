@@ -1,31 +1,16 @@
 import { Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { css } from 'styled-system/css'
-import { container, flex } from 'styled-system/patterns'
 
 import { ArticleCTA } from './ArticleCTA'
 import fetchPosts from './fetchPosts'
 
 import { Timeline } from '@/components/deprecated/timeline'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Time } from '@/components/ui/time'
-import { TypographyH1 } from '@/components/ui/typography'
+import { TypographyH1, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
-
-const coverImageSmallContainer = container({
-  height: '120px',
-  width: '264px',
-  marginInline: 0,
-  my: '1rem',
-})
-const coverImageSmall = css({
-  objectFit: 'cover',
-  borderRadius: 'md',
-})
-const articleBriefStyles = css({
-  fontSize: 'md',
-})
 
 export const metadata = {
   title: 'Articles - James Walsh',
@@ -42,26 +27,26 @@ export default function PostsIndexPage() {
         {posts.map((post) => (
           <Timeline.Item key={post.title}>
             <Timeline.LeftElement>
-              <div className={css({ ml: '1rem' })}>
+              <div className="ml-4">
                 <Time size="sm" dateTime={post.publishedAt} />
               </div>
             </Timeline.LeftElement>
             <Timeline.RightElement>
-              <Link href={post.url} className={css({ width: '100%' })}>
+              <Link href={post.url} className="w-full">
                 <Card>
                   <CardHeader>
+                    <AspectRatio ratio={16 / 9}>
+                      <Image className="rounded-lg" fill src={post.coverImage} alt={`${post.title} cover image`} />
+                    </AspectRatio>
                     <CardTitle>{post.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <span className={flex({ alignItems: 'center', mb: '1rem' })}>
+                    <span className="mb-4 flex items-center">
                       <Clock width={24} height={24} />
                       &nbsp;
                       {calculateTimeToRead(post.body.raw)}&nbsp;min read
                     </span>
-                    <p className={articleBriefStyles}>{post.brief}</p>
-                    <div className={coverImageSmallContainer}>
-                      <Image className={coverImageSmall} src={post.coverImage} alt={`${post.title} cover image`} fill />
-                    </div>
+                    <TypographyP>{post.brief}</TypographyP>
                   </CardContent>
                   <CardFooter>
                     <ArticleCTA />
