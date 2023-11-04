@@ -5,7 +5,7 @@ import AboutMeAccordion from './AboutMeAccordion'
 
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { UnorderedList } from '@/components/ui/list'
+import { ListItem, UnorderedList } from '@/components/ui/list'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
@@ -145,7 +145,7 @@ export default function AboutPage() {
             <CardContent>
               <UnorderedList>
                 {cvItems.map((cvItem) => (
-                  <UnorderedList.ListItem key={cvItem.company}>
+                  <ListItem key={cvItem.company}>
                     {cvItem.image}
                     <dl className="flex w-full flex-wrap gap-2">
                       <dt className="hidden">Company</dt>
@@ -159,13 +159,13 @@ export default function AboutPage() {
                         <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
                       </dd>
                     </dl>
-                  </UnorderedList.ListItem>
+                  </ListItem>
                 ))}
-                <UnorderedList.ListItem>
+                <ListItem>
                   <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
                     Download CV
                   </Link>
-                </UnorderedList.ListItem>
+                </ListItem>
               </UnorderedList>
             </CardContent>
           </Card>
