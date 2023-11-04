@@ -3,7 +3,7 @@ import Image from 'next/image'
 import TimelineCollection from './timelineCollection'
 
 import { Timeline } from '@/components/deprecated/timeline'
-import { UnorderedList } from '@/components/ui/list'
+import { ListItem, UnorderedList } from '@/components/ui/list'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export const metadata = {
@@ -35,13 +35,13 @@ export default function StackPage() {
             <Timeline.RightElement>
               <UnorderedList>
                 {items.map((item) => (
-                  <UnorderedList.ListItem key={item.title} type="vertical">
+                  <ListItem key={item.title} type="vertical">
                     <div className="flex flex-row items-center gap-4">
                       <Image className="rounded-md" width={36} height={36} src={item.imageLink} alt="technology logo" />
                       <TypographyH3>{item.title}</TypographyH3>
                     </div>
                     <TypographyP>{item.description}</TypographyP>
-                  </UnorderedList.ListItem>
+                  </ListItem>
                 ))}
               </UnorderedList>
             </Timeline.RightElement>
