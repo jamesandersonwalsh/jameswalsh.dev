@@ -1,134 +1,28 @@
-import { PropsWithChildren } from 'react'
-import { css } from 'styled-system/css'
-import { stack } from 'styled-system/patterns'
+import Image, { ImageProps } from 'next/image'
+import { HTMLAttributes, PropsWithChildren } from 'react'
 
-const img = css({
-  borderRadius: 'lg',
-  my: '1rem',
-  maxH: '800px',
-  maxW: '800px',
-})
-const h1 = css({
-  my: '2rem',
-})
-const h2 = css({
-  fontWeight: 'bolder',
-  my: '1rem',
-})
-const h3 = css({
-  fontWeight: 'bolder',
-  my: '1rem',
-})
+import { AspectRatio } from './ui/aspect-ratio'
+import { buttonVariants } from './ui/button'
+import { TypographyBlockquote, TypographyH1, TypographyH2, TypographyH3, TypographyP } from './ui/typography'
 
-const list = {
-  gap: 2,
-  my: '1rem',
-  ml: '1rem',
-}
-const orderedList = stack({
-  ...list,
-  listStyle: 'auto',
-})
-const unorderedList = stack({
-  ...list,
-  listStyle: 'circle',
-})
-const p = css({
-  fontSize: 'lg',
-})
-const blockquote = css({
-  borderInlineStart: '3px solid',
-  borderInlineStartColor: 'slate.500',
-  my: '1rem',
-  px: '1.25rem',
-})
-const pre = css({
-  borderRadius: 'lg',
-  p: 2,
-  my: 2,
-  _dark: {
-    bg: 'slate.900',
-  },
-  base: {
-    bg: 'slate.800',
-  },
-})
-const code = css({
-  fontSize: 'md',
-  py: '2px',
-  px: '8px',
-  borderRadius: 'md',
-  _dark: {
-    bg: 'slate.900',
-    color: 'blue.200',
-  },
-  base: {
-    bg: 'slate.800',
-    color: 'blue.200',
-  },
-})
-const a = css({
-  color: 'blue.600',
-  _hover: {
-    textDecoration: 'underline',
-    color: 'blue.500',
-  },
-})
+import { cn } from '@/lib/utils'
 
 export const mdxComponents = {
-  img: (props: PropsWithChildren) => (
-    <img {...props} className={img}>
-      {props.children}
-    </img>
+  img: (props: HTMLAttributes<HTMLImageElement>) => (
+    <AspectRatio ratio={16 / 9} className="bg-muted">
+      <Image {...(props as ImageProps)} alt="article-image" className="rounded-lg object-cover" fill />
+    </AspectRatio>
   ),
-  h1: (props: PropsWithChildren) => (
-    <h1 {...props} className={h1}>
-      {props.children}
-    </h1>
-  ),
-  h2: (props: PropsWithChildren) => (
-    <h2 {...props} className={h2}>
-      {props.children}
-    </h2>
-  ),
-  h3: (props: PropsWithChildren) => (
-    <h3 {...props} className={h3}>
-      {props.children}
-    </h3>
-  ),
-  p: (props: PropsWithChildren) => (
-    <p {...props} className={p}>
-      {props.children}
-    </p>
-  ),
-  ol: (props: PropsWithChildren) => (
-    <ol {...props} className={orderedList}>
-      {props.children}
-    </ol>
-  ),
-  ul: (props: PropsWithChildren) => (
-    <ul {...props} className={unorderedList}>
-      {props.children}
-    </ul>
-  ),
-  blockquote: (props: PropsWithChildren) => (
-    <blockquote {...props} className={blockquote}>
-      {props.children}
-    </blockquote>
-  ),
-  pre: (props: PropsWithChildren) => (
-    <pre className={pre} {...props}>
-      {props.children}
-    </pre>
-  ),
+  h1: (props: PropsWithChildren) => <TypographyH1 {...props} />,
+  h2: (props: PropsWithChildren) => <TypographyH2 {...props} />,
+  h3: (props: PropsWithChildren) => <TypographyH3 {...props} />,
+  p: (props: PropsWithChildren) => <TypographyP {...props} />,
+  ol: (props: PropsWithChildren) => <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />,
+  ul: (props: PropsWithChildren) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
+  blockquote: (props: PropsWithChildren) => <TypographyBlockquote {...props} />,
+  pre: (props: PropsWithChildren) => <pre className="my-2 rounded-xl bg-slate-800 p-1 pt-6" {...props} />,
   code: (props: PropsWithChildren) => (
-    <code className={code} {...props}>
-      {props.children}
-    </code>
+    <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
   ),
-  a: (props: PropsWithChildren) => (
-    <a className={a} {...props}>
-      {props.children}
-    </a>
-  ),
+  a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'p-0')} {...props} />,
 }
