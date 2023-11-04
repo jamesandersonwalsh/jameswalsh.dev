@@ -1,28 +1,10 @@
 import Image from 'next/image'
-import { css } from 'styled-system/css'
-import { hstack } from 'styled-system/patterns'
 
 import TimelineCollection from './timelineCollection'
 
 import { Timeline } from '@/components/deprecated/timeline'
 import { UnorderedList } from '@/components/ui/list'
-import { TypographyH1, TypographyH2 } from '@/components/ui/typography'
-
-const itemTitleContainer = hstack({
-  alignItems: 'self-end',
-  gap: 4,
-})
-const h3 = css({
-  mt: '1rem',
-  fontSize: 'larger',
-})
-const p = css({
-  fontSize: 'smaller',
-  lineHeight: '1.33rem',
-})
-const technologyLogo = css({
-  borderRadius: 'md',
-})
+import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export const metadata = {
   title: 'Stack - James Walsh',
@@ -54,17 +36,11 @@ export default function StackPage() {
               <UnorderedList>
                 {items.map((item) => (
                   <UnorderedList.ListItem key={item.title} type="vertical">
-                    <div className={itemTitleContainer}>
-                      <Image
-                        className={technologyLogo}
-                        width={36}
-                        height={36}
-                        src={item.imageLink}
-                        alt="technology logo"
-                      />
-                      <h3 className={h3}>{item.title}</h3>
+                    <div className="flex flex-row items-center gap-4">
+                      <Image className="rounded-md" width={36} height={36} src={item.imageLink} alt="technology logo" />
+                      <TypographyH3>{item.title}</TypographyH3>
                     </div>
-                    <p className={p}>{item.description}</p>
+                    <TypographyP>{item.description}</TypographyP>
                   </UnorderedList.ListItem>
                 ))}
               </UnorderedList>
