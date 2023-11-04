@@ -1,56 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { css, cx } from 'styled-system/css'
-import { wrap, stack, grid, gridItem, circle } from 'styled-system/patterns'
 
 import AboutMeAccordion from './AboutMeAccordion'
 
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { UnorderedList } from '@/components/ui/list'
-import { TypographyH1, TypographyH2, TypographyH3 } from '@/components/ui/typography'
+import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
-
-const sideProfile = css({
-  mr: 'auto',
-  mb: '2rem',
-  borderRadius: 'lg',
-})
-const companyLogo = circle()
-const columnGrid = grid({
-  mt: '4rem',
-  gap: 10,
-  columns: 12,
-})
-const column = stack({
-  gap: 6,
-})
-const dl = wrap({
-  gap: 2,
-  width: '100%',
-})
-const dt = css({
-  display: 'none',
-})
-const ddBold = css({
-  fontWeight: 'semibold',
-  width: 'full',
-  fontSize: 'md',
-})
-const ddLight = css({
-  fontWeight: 'normal',
-  fontSize: 'xs',
-})
-const ddDate = css({
-  ml: 'auto',
-  fontSize: 'xs',
-  fontWeight: 'lighter',
-})
-const blogPostDescriptor = css({
-  fontSize: 'sm',
-  fontWeight: 'normal',
-  mb: '1rem',
-})
 
 export const metadata = {
   title: 'About - James Walsh',
@@ -74,7 +31,7 @@ export default function AboutPage() {
           width={32}
           height={32}
           alt="Vasion company logo"
-          className={companyLogo}
+          className="rounded-full"
         />
       ),
       company: 'Vasion',
@@ -89,7 +46,7 @@ export default function AboutPage() {
           width={32}
           height={32}
           alt="Podium company logo"
-          className={companyLogo}
+          className="rounded-full"
         />
       ),
       company: 'Podium',
@@ -104,7 +61,7 @@ export default function AboutPage() {
           width={32}
           height={32}
           alt="Pluralsight company logo"
-          className={companyLogo}
+          className="rounded-full"
         />
       ),
       company: 'Pluralsight',
@@ -119,7 +76,7 @@ export default function AboutPage() {
           width={32}
           height={32}
           alt="Maersk company logo"
-          className={companyLogo}
+          className="rounded-full"
         />
       ),
       company: 'Maersk',
@@ -136,45 +93,26 @@ export default function AboutPage() {
         alt="Picture of James Side Profile"
         width={320}
         height={320}
-        className={sideProfile}
+        className="mb-8 mr-auto rounded-lg"
         priority
       />
       <TypographyH1>Hey, I&apos;m James.</TypographyH1>
       <TypographyH2>I live in Salt Lake City, where I write code & enjoy the Great Outdoors.</TypographyH2>
-      <div className={columnGrid}>
-        <section
-          className={gridItem({
-            colSpan: {
-              md: 7,
-              sm: 12,
-              smDown: 12,
-            },
-          })}
-        >
+      <div className="grid grid-cols-12 gap-10">
+        <section className="col-span-12 md:col-span-7">
           <TypographyH3>Get to know me</TypographyH3>
           <AboutMeAccordion />
         </section>
-        <section
-          className={cx(
-            column,
-            gridItem({
-              colSpan: {
-                md: 5,
-                sm: 12,
-                smDown: 12,
-              },
-            }),
-          )}
-        >
+        <section className="col-span-12 md:col-span-5">
           <Card>
             <CardHeader>
               <CardTitle>See what I&apos;ve published</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className={blogPostDescriptor}>
+              <TypographyP>
                 Get notified when I publish new posts, unsubscribe any time. My blog is hosted here, & published to
                 Hashnode & DEV.to.
-              </p>
+              </TypographyP>
             </CardContent>
             <CardFooter>
               <Link href="/#publications" className={cn('w-full', buttonVariants())}>
@@ -209,13 +147,13 @@ export default function AboutPage() {
                 {cvItems.map((cvItem) => (
                   <UnorderedList.ListItem key={cvItem.company}>
                     {cvItem.image}
-                    <dl className={dl}>
-                      <dt className={dt}>Company</dt>
-                      <dd className={ddBold}>{cvItem.company}</dd>
-                      <dt className={dt}>Role</dt>
-                      <dd className={ddLight}>{cvItem.role}</dd>
-                      <dt className={dt}>Date</dt>
-                      <dd className={ddDate}>
+                    <dl className="flex w-full flex-wrap gap-2">
+                      <dt className="hidden">Company</dt>
+                      <dd className="w-full font-semibold">{cvItem.company}</dd>
+                      <dt className="hidden">Role</dt>
+                      <dd className="text-xs">{cvItem.role}</dd>
+                      <dt className="hidden">Date</dt>
+                      <dd className="font-lighter ml-auto text-xs">
                         <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
                         <span aria-hidden="true"> — </span>
                         <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
