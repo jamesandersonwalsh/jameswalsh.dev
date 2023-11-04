@@ -12,7 +12,7 @@ const linkVariants = cva('', {
   variants: {
     variant: {
       visible: 'visible',
-      hidden: 'hidden',
+      hidden: 'invisible',
     },
   },
   defaultVariants: {
