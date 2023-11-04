@@ -85,7 +85,7 @@ export default function Home() {
       </header>
       <br />
       <TypographyH2 id="latest-blog-posts">Latest blog posts</TypographyH2>
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <Link key={post._id} href={post.url}>
             <Card>
@@ -116,7 +116,7 @@ export default function Home() {
         <hr />
         <TypographyH2 id="publications">See what I&apos;ve published</TypographyH2>
       </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
             <CardTitle>Hey World</CardTitle>
