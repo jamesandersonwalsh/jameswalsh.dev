@@ -3,7 +3,7 @@ import formatDate from 'date-fns/format'
 import { GeistSans, GeistMono } from 'geist/font'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
-import { flex, hstack } from 'styled-system/patterns'
+import { flex } from 'styled-system/patterns'
 
 import { NAVIGATIONAL_ITEMS } from '@/components/app-shell/constants'
 import { Footer } from '@/components/app-shell/footer'
