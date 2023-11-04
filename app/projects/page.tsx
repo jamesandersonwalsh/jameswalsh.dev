@@ -1,7 +1,6 @@
 import { LinkIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { grid, hstack, circle } from 'styled-system/patterns'
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1 } from '@/components/ui/typography'
@@ -16,21 +15,6 @@ interface Project {
   imageLink: string
 }
 
-const projectGrid = grid({
-  mt: '1rem',
-  columns: {
-    lg: 3,
-    mdToLg: 2,
-    smToMd: 1,
-  },
-  gap: 8,
-  width: '100%',
-})
-const companyLogo = circle({ my: '1rem' })
-const link = hstack({
-  fontWeight: 'semibold',
-})
-
 export const metadata = {
   title: 'Projects - James Walsh',
   description: `Projects I've contributed to.`,
@@ -39,7 +23,7 @@ export const metadata = {
 export default function ProjectsPage() {
   const projects: Project[] = [
     {
-      title: 'Vasion Automation Cloud',
+      title: 'Vasion Automate',
       description: `Integrating workflow, form capture, signature, & content management within 1 single SaaS solution powered by Single SPA & TurboRepo.`,
       externalLink: {
         title: 'vasion.com',
@@ -48,8 +32,8 @@ export default function ProjectsPage() {
       imageLink: '/logos/employers/vasion.png',
     },
     {
-      title: 'Brickyard Design System',
-      description: `Beautiful, composable, fully accessible React components built on top of the full power of Chakra UI. Available publically with Storybook.`,
+      title: 'Brickyard',
+      description: `Beautiful, composable, fully accessible React Design System built on top of the full power of Chakra UI. Available publically with Storybook.`,
       externalLink: {
         title: 'Podium Brickyard Design System',
         href: 'https://brickyarddesign.com',
@@ -101,17 +85,17 @@ export default function ProjectsPage() {
         I&apos;ve enjoyed contributing to many projects over the years, but the following is my professional highlight
         reel. A couple of them are open-source, if you&apos;d like to learn more.
       </p>
-      <div className={projectGrid}>
+      <div className="mt-8 grid w-full gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
-          <Link key={project.title} href={project.externalLink.href} className={hstack()}>
+          <Link key={project.title} href={project.externalLink.href}>
             <Card>
-              <CardHeader>
-                <Image src={project.imageLink} alt="Project logo" width={40} height={40} className={companyLogo} />
+              <CardHeader className="flex flex-row items-center gap-4">
+                <Image src={project.imageLink} alt="Project logo" width={40} height={40} className="rounded-full" />
                 <CardTitle>{project.title}</CardTitle>
               </CardHeader>
-              <CardContent>{project.description}</CardContent>
+              <CardContent className="font-light">{project.description}</CardContent>
               <CardFooter>
-                <div className={link}>
+                <div className="flex flex-row gap-2 font-semibold">
                   <LinkIcon width={16} />
                   {project.externalLink.title}
                 </div>
