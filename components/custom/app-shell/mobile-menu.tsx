@@ -1,8 +1,8 @@
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 
-import { buttonVariants } from '../ui/button'
-import { ListItem, UnorderedList } from '../ui/list'
+import { buttonVariants } from '../../ui/button'
+import { ListItem, UnorderedList } from '../list'
 
 import { NAVIGATIONAL_ITEMS } from './constants'
 

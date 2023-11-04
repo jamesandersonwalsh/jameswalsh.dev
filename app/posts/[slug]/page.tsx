@@ -9,10 +9,10 @@ import fetchPosts from '../fetchPosts'
 import { Tag } from './tag'
 
 import { Post } from '@/.contentlayer/generated'
+import { Time } from '@/components/custom/time'
 import { mdxComponents } from '@/components/mdx-components'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
-import { Time } from '@/components/ui/time'
 import { TypographyH1 } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
 

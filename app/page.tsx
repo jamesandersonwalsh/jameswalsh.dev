@@ -5,9 +5,9 @@ import Link from 'next/link'
 import fetchPosts from './posts/fetchPosts'
 import { ReadMore } from './posts/read-more'
 
+import { Time } from '@/components/custom/time'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Time } from '@/components/ui/time'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
 

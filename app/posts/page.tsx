@@ -5,10 +5,10 @@ import Link from 'next/link'
 import fetchPosts from './fetchPosts'
 import { ReadMore } from './read-more'
 
-import { Timeline } from '@/components/deprecated/timeline'
+import { Time } from '@/components/custom/time'
+import { Timeline } from '@/components/custom/timeline'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Time } from '@/components/ui/time'
 import { TypographyH1, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
 

@@ -4,11 +4,11 @@ import { GeistSans, GeistMono } from 'geist/font'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 
-import { NAVIGATIONAL_ITEMS } from '@/components/app-shell/constants'
-import { MobileMenu } from '@/components/app-shell/mobile-menu'
-import { PageAvatar } from '@/components/app-shell/page-avatar'
-import { TopNavbar } from '@/components/app-shell/top-nav'
-import { ListItem, UnorderedList } from '@/components/ui/list'
+import { NAVIGATIONAL_ITEMS } from '@/components/custom/app-shell/constants'
+import { MobileMenu } from '@/components/custom/app-shell/mobile-menu'
+import { PageAvatar } from '@/components/custom/app-shell/page-avatar'
+import { TopNavbar } from '@/components/custom/app-shell/top-nav'
+import { ListItem, UnorderedList } from '@/components/custom/list'
 import { cn } from '@/lib/utils'
 
 export default async function RootLayout({ children }: PropsWithChildren) {

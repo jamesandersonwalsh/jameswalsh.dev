@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 import TimelineCollection from './timelineCollection'
 
-import { Timeline } from '@/components/deprecated/timeline'
-import { ListItem, UnorderedList } from '@/components/ui/list'
+import { ListItem, UnorderedList } from '@/components/custom/list'
+import { Timeline } from '@/components/custom/timeline'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export const metadata = {
