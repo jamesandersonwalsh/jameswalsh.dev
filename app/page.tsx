@@ -6,6 +6,7 @@ import fetchPosts from './posts/fetchPosts'
 import { ReadMore } from './posts/read-more'
 
 import { Time } from '@/components/custom/time'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
@@ -92,6 +93,9 @@ export default function Home() {
           <Link key={post._id} href={post.url}>
             <Card className="h-full transition ease-in-out hover:scale-105">
               <CardHeader>
+                <AspectRatio ratio={16 / 9}>
+                  <Image className="rounded-lg" fill src={post.coverImage} alt={`${post.title} cover image`} />
+                </AspectRatio>
                 <CardTitle>{post.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
