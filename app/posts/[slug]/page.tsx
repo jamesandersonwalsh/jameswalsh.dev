@@ -15,6 +15,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
+import { cn } from '@/lib/utils'
 
 const allPosts = fetchPosts()
 
@@ -84,12 +85,12 @@ export default function PostPage({ params }: PostPageProps) {
         <MDXContent components={mdxComponents} />
       </article>
       <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
-        <Link href="/posts" className={buttonVariants({ variant: 'outline' })}>
+        <Link href="/posts" className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
           <ChevronLeft width={16} height={16} />
           &nbsp;All posts
         </Link>
         {!!previousPost && (
-          <Link href={previousPost.url} className={buttonVariants({ variant: 'outline' })}>
+          <Link href={previousPost.url} className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
             <ChevronRight width={16} height={16} />
             &nbsp;Next
           </Link>
