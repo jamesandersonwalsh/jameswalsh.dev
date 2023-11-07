@@ -2,7 +2,6 @@ import { Menu } from 'lucide-react'
 import Link from 'next/link'
 
 import { buttonVariants } from '../../ui/button'
-import { ListItem, UnorderedList } from '../list'
 
 import { NAVIGATIONAL_ITEMS } from './constants'
 
@@ -16,26 +15,26 @@ export function MobileMenu() {
         <Menu className="mb-4 h-10 w-10 cursor-pointer md:hidden" />
       </SheetTrigger>
       <SheetContent>
-        <UnorderedList>
-          <ListItem>
+        <ul className="flex flex-col gap-6">
+          <li className="w-full">
             <SheetClose asChild>
               <Link href="/" className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
                 Home
               </Link>
             </SheetClose>
-          </ListItem>
+          </li>
           {NAVIGATIONAL_ITEMS.map((navItem) => {
             return (
-              <ListItem key={navItem.value}>
+              <li className="w-full" key={navItem.value}>
                 <SheetClose asChild>
                   <Link href={navItem.href} className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
                     {navItem.value}
                   </Link>
                 </SheetClose>
-              </ListItem>
+              </li>
             )
           })}
-        </UnorderedList>
+        </ul>
       </SheetContent>
     </Sheet>
   )

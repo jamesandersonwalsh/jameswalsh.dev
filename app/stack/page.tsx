@@ -2,7 +2,6 @@ import Image from 'next/image'
 
 import TimelineCollection from './timelineCollection'
 
-import { ListItem, UnorderedList } from '@/components/custom/list'
 import { Timeline } from '@/components/custom/timeline'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
@@ -33,17 +32,17 @@ export default function StackPage() {
               <TypographyH2>{sectionTitleMap[key]}</TypographyH2>
             </Timeline.LeftElement>
             <Timeline.RightElement>
-              <UnorderedList>
+              <ul className="flex flex-col gap-6">
                 {items.map((item) => (
-                  <ListItem key={item.title} type="vertical">
+                  <ul className="w-full" key={item.title}>
                     <div className="flex flex-row items-center gap-4">
                       <Image className="rounded-md" width={36} height={36} src={item.imageLink} alt="technology logo" />
                       <TypographyH3>{item.title}</TypographyH3>
                     </div>
                     <TypographyP>{item.description}</TypographyP>
-                  </ListItem>
+                  </ul>
                 ))}
-              </UnorderedList>
+              </ul>
             </Timeline.RightElement>
           </Timeline.Item>
         ))}

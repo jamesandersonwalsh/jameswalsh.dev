@@ -8,7 +8,6 @@ import { NAVIGATIONAL_ITEMS } from '@/components/custom/app-shell/constants'
 import { MobileMenu } from '@/components/custom/app-shell/mobile-menu'
 import { PageAvatar } from '@/components/custom/app-shell/page-avatar'
 import { TopNavbar } from '@/components/custom/app-shell/top-nav'
-import { ListItem, UnorderedList } from '@/components/custom/list'
 import { cn } from '@/lib/utils'
 
 export default async function RootLayout({ children }: PropsWithChildren) {
@@ -30,13 +29,13 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         </div>
         <footer className="flex w-screen flex-col justify-between border-t border-border p-4 sm:grid-cols-1 md:flex-row">
           <div className="my-4 flex flex-row items-center justify-center">
-            <UnorderedList type="horizontal">
+            <ul className="flex flex-row gap-6">
               {NAVIGATIONAL_ITEMS.map((item) => (
-                <ListItem key={item.value}>
+                <li className="w-full" key={item.value}>
                   <Link href={item.href}>{item.value}</Link>
-                </ListItem>
+                </li>
               ))}
-            </UnorderedList>
+            </ul>
           </div>
           <div className="my-4 flex flex-row items-center justify-center">
             ©&nbsp;{formatDate(new Date(), 'yyyy')}&nbsp;James Walsh
