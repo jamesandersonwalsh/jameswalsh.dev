@@ -35,7 +35,7 @@ export default function ProjectsPage() {
       title: 'Brickyard',
       description: `Beautiful, composable, fully accessible React Design System built on top of the full power of Chakra UI. Available publically with Storybook.`,
       externalLink: {
-        title: 'Podium Brickyard Design System',
+        title: 'Brickyard Design System',
         href: 'https://brickyarddesign.com',
       },
       imageLink: '/logos/employers/podium.jpg',
@@ -44,7 +44,7 @@ export default function ProjectsPage() {
       title: 'Advanced Analytics',
       description: `Leverage real-time stream processing to power data analytics that help development teams track DORA & flow metrics.`,
       externalLink: {
-        title: 'Pluralsight Advanced Analytics',
+        title: 'Advanced Analytics',
         href: 'https://www.pluralsight.com/product/advanced-analytics',
       },
       imageLink: '/logos/employers/pluralsight.png',
@@ -53,7 +53,7 @@ export default function ProjectsPage() {
       title: 'Channels',
       description: `Create channels to curate content for your own learning, for team development or to share learning journeys with the world.`,
       externalLink: {
-        title: 'Pluralsight Channels',
+        title: 'Channels',
         href: 'https://www.pluralsight.com/product/channels',
       },
       imageLink: '/logos/employers/pluralsight.png',
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
       title: 'Shopify Integrations',
       description: `Supported & maintained Shopify API integrations for high-profile customers, & everyday small businesses who drop-ship.`,
       externalLink: {
-        title: 'VisibleCSM by Maersk',
+        title: 'Maersk VisibleCSM',
         href: 'https://portal.visiblescm.com',
       },
       imageLink: '/logos/employers/maersk.jpg',
