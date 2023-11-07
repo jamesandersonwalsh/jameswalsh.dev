@@ -28,7 +28,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           </div>
           <main className="mt-4 flex flex-col items-center py-12 sm:px-4">{children}</main>
         </div>
-        <footer className="flex flex-col justify-between border-t border-border p-4 sm:grid-cols-1 md:flex-row">
+        <footer className="flex w-screen flex-col justify-between border-t border-border p-4 sm:grid-cols-1 md:flex-row">
           <div className="my-4 flex flex-row items-center justify-center">
             <UnorderedList type="horizontal">
               {NAVIGATIONAL_ITEMS.map((item) => (
