@@ -1,6 +1,3 @@
-/* ! PandaCSS: These layers are for panda, can be removed when Panda is removed */
-@layer panda_reset, panda_base, panda_tokens, panda_recipes, panda_utilities;
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
