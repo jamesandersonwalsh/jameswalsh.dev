@@ -83,7 +83,7 @@ export default function PostPage({ params }: PostPageProps) {
       <article>
         <MDXContent components={mdxComponents} />
       </article>
-      <div className="border-color mt-8 w-full gap-6 border-t pt-8">
+      <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
         <Link href="/posts" className={buttonVariants({ variant: 'outline' })}>
           <ChevronLeft width={16} height={16} />
           &nbsp;All posts
