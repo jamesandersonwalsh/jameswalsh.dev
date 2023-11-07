@@ -15,7 +15,7 @@
     "format:check": "prettier --check .",
     "lint": "next lint",
     "lint:fix": "pnpm lint -- --fix",
-    "prepare": "panda codegen && husky install",
+    "prepare": "husky install",
     "start": "next start"
   },
   "dependencies": {
@@ -48,7 +48,6 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "@pandacss/dev": "0.17.0",
     "@typescript-eslint/parser": "^6.9.0",
     "autoprefixer": "^10.4.16",
     "eslint-import-resolver-typescript": "^3.6.1",
