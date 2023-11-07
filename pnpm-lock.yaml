@@ -42,8 +42,8 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   sharp:
-    specifier: ^0.32.5
-    version: 0.32.5
+    specifier: ^0.32.6
+    version: 0.32.6
   shiki:
     specifier: ^0.14.5
     version: 0.14.5
@@ -54,7 +54,7 @@ dependencies:
 devDependencies:
   '@pandacss/dev':
     specifier: 0.17.0
-    version: 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.5)(typescript@5.2.2)
+    version: 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.6)(typescript@5.2.2)
   '@typescript-eslint/parser':
     specifier: ^6.9.0
     version: 6.9.0(eslint@8.51.0)(typescript@5.2.2)
@@ -177,7 +177,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.9.6(@types/node@20.8.9)(sharp@0.32.5)
+      astro: 2.9.6(@types/node@20.8.9)(sharp@0.32.6)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1592,7 +1592,7 @@ packages:
       ts-pattern: 5.0.5
     dev: true
 
-  /@pandacss/dev@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.5)(typescript@5.2.2):
+  /@pandacss/dev@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-b94jtf8nMgDIxnHEXvXwrHSGlPrZLl4E17fIfat2P29JkGmBbnT9qbKg9wk3f8KlQdzHpbVuKkgnrvnGCZI9Ow==}
     hasBin: true
     dependencies:
@@ -1604,7 +1604,7 @@ packages:
       '@pandacss/postcss': 0.17.0(typescript@5.2.2)
       '@pandacss/preset-panda': 0.17.0
       '@pandacss/shared': 0.17.0
-      '@pandacss/studio': 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.5)(typescript@5.2.2)
+      '@pandacss/studio': 0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.6)(typescript@5.2.2)
       '@pandacss/token-dictionary': 0.17.0
       '@pandacss/types': 0.17.0
       cac: 6.7.14
@@ -1755,7 +1755,7 @@ packages:
     resolution: {integrity: sha512-h7bcC/ZbE1ZhXMH4S5QFkmMoV7X8bAl02Z92Nx8HDYa1J1B7ot2z8a4XQePdvWDrtfMYSW4/lhEGVwQcsB4t7w==}
     dev: true
 
-  /@pandacss/studio@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.5)(typescript@5.2.2):
+  /@pandacss/studio@0.17.0(@internationalized/date@3.3.0)(@types/node@20.8.9)(@types/react-dom@18.2.7)(@types/react@18.2.34)(sharp@0.32.6)(typescript@5.2.2):
     resolution: {integrity: sha512-XamCB+Zc/wETSu5qb/9c3VydcnD2Wx2l3IHjNPm5SPgS7O+ISnQpmCPj1IRQbOWwknLlFBj1L135icFmzKwRqw==}
     dependencies:
       '@ark-ui/react': 0.9.0(@internationalized/date@3.3.0)(react-dom@18.2.0)(react@18.2.0)
@@ -1766,7 +1766,7 @@ packages:
       '@pandacss/shared': 0.17.0
       '@pandacss/token-dictionary': 0.17.0
       '@pandacss/types': 0.17.0
-      astro: 2.9.6(@types/node@20.8.9)(sharp@0.32.5)
+      astro: 2.9.6(@types/node@20.8.9)(sharp@0.32.6)
       javascript-stringify: 2.1.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -2848,7 +2848,7 @@ packages:
     hasBin: true
     dev: false
 
-  /astro@2.9.6(@types/node@20.8.9)(sharp@0.32.5):
+  /astro@2.9.6(@types/node@20.8.9)(sharp@0.32.6):
     resolution: {integrity: sha512-yvbZQ6YOWYLejyQ4nAcgZLDYQ34enQJ5/LWlXKtUzXzpsUHB75vJMj+XmEq5Q2eVlZOlQrp0lU+nhSRGaOsOUQ==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -2904,7 +2904,7 @@ packages:
       rehype: 12.0.1
       semver: 7.5.4
       server-destroy: 1.0.1
-      sharp: 0.32.5
+      sharp: 0.32.6
       shiki: 0.14.5
       string-width: 5.1.2
       strip-ansi: 7.1.0
@@ -6903,8 +6903,8 @@ packages:
       functions-have-names: 1.2.3
       has-property-descriptors: 1.0.0
 
-  /sharp@0.32.5:
-    resolution: {integrity: sha512-0dap3iysgDkNaPOaOL4X/0akdu0ma62GcdC2NBQ+93eqpePdDdr2/LM0sFdDSMmN7yS+odyZtPsb7tx/cYBKnQ==}
+  /sharp@0.32.6:
+    resolution: {integrity: sha512-KyLTWwgcR9Oe4d9HwCwNM2l7+J0dUQwn/yf7S0EnTtb0eVS4RxO0eUSvxPtzT4F3SY+C4K6fqdv/DO27sJ/v/w==}
     engines: {node: '>=14.15.0'}
     requiresBuild: true
     dependencies:
