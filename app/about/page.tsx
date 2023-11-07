@@ -102,7 +102,7 @@ export default function AboutPage() {
           <TypographyH3>Get to know me</TypographyH3>
           <AboutMeAccordion />
         </section>
-        <section className="col-span-12 md:col-span-5">
+        <section className="col-span-12 flex flex-col gap-8 md:col-span-5">
           <Card>
             <CardHeader>
               <CardTitle>See what I&apos;ve published</CardTitle>
@@ -115,7 +115,7 @@ export default function AboutPage() {
             </CardContent>
             <CardFooter>
               <Link href="/#publications" className={cn('w-full', buttonVariants())}>
-                Subscribe
+                <b>Subscribe</b>
               </Link>
             </CardFooter>
           </Card>
@@ -133,7 +133,7 @@ export default function AboutPage() {
                 download
                 className={cn('w-full', buttonVariants())}
               >
-                Visit Github
+                <b>Visit Github</b>
               </Link>
             </CardFooter>
           </Card>
@@ -162,7 +162,7 @@ export default function AboutPage() {
                 ))}
                 <li className="w-full">
                   <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
-                    Download CV
+                    <b>Download CV</b>
                   </Link>
                 </li>
               </ul>
