@@ -3,7 +3,7 @@ import { PropsWithChildren } from 'react'
 export type TypographyProps = PropsWithChildren & React.HtmlHTMLAttributes<HTMLElement>
 export function TypographyH1({ children, ...rest }: TypographyProps) {
   return (
-    <h1 className="my-2 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl" {...rest}>
+    <h1 className="my-8 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl" {...rest}>
       {children}
     </h1>
   )
@@ -11,7 +11,7 @@ export function TypographyH1({ children, ...rest }: TypographyProps) {
 
 export function TypographyH2({ children, ...rest }: TypographyProps) {
   return (
-    <h2 className="my-3 scroll-m-20 text-3xl font-semibold tracking-tight" {...rest}>
+    <h2 className="my-6 scroll-m-20 text-3xl font-semibold tracking-tight" {...rest}>
       {children}
     </h2>
   )
@@ -19,7 +19,7 @@ export function TypographyH2({ children, ...rest }: TypographyProps) {
 
 export function TypographyH3({ children, ...rest }: TypographyProps) {
   return (
-    <h3 className="my-4 scroll-m-20 text-2xl font-semibold tracking-tight" {...rest}>
+    <h3 className="my-5 scroll-m-20 text-2xl font-semibold tracking-tight" {...rest}>
       {children}
     </h3>
   )
@@ -27,7 +27,7 @@ export function TypographyH3({ children, ...rest }: TypographyProps) {
 
 export function TypographyH4({ children, ...rest }: TypographyProps) {
   return (
-    <h4 className="my-5 scroll-m-20 text-xl font-semibold tracking-tight" {...rest}>
+    <h4 className="my-4 scroll-m-20 text-xl font-semibold tracking-tight" {...rest}>
       {children}
     </h4>
   )
