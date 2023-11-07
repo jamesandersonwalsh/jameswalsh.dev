@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 import TimelineCollection from './timelineCollection'
 
-import { Timeline } from '@/components/custom/timeline'
+import { Timeline, TimelineItem, TimelineLeftElement, TimelineRightElement } from '@/components/custom/timeline'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export const metadata = {
@@ -27,11 +27,11 @@ export default function StackPage() {
       <TypographyH1>Technology tools I both use & recommend.</TypographyH1>
       <Timeline>
         {Object.entries(timelineCollection).map(([key, items]) => (
-          <Timeline.Item key={key}>
-            <Timeline.LeftElement>
+          <TimelineItem key={key}>
+            <TimelineLeftElement>
               <TypographyH2>{sectionTitleMap[key]}</TypographyH2>
-            </Timeline.LeftElement>
-            <Timeline.RightElement>
+            </TimelineLeftElement>
+            <TimelineRightElement>
               <ul className="flex flex-col gap-6">
                 {items.map((item) => (
                   <ul className="w-full" key={item.title}>
@@ -43,8 +43,8 @@ export default function StackPage() {
                   </ul>
                 ))}
               </ul>
-            </Timeline.RightElement>
-          </Timeline.Item>
+            </TimelineRightElement>
+          </TimelineItem>
         ))}
       </Timeline>
     </>

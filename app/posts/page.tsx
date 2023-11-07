@@ -6,7 +6,7 @@ import fetchPosts from './fetchPosts'
 import { ReadMore } from './read-more'
 
 import { Time } from '@/components/custom/time'
-import { Timeline } from '@/components/custom/timeline'
+import { Timeline, TimelineItem, TimelineLeftElement, TimelineRightElement } from '@/components/custom/timeline'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1, TypographyP } from '@/components/ui/typography'
@@ -25,13 +25,13 @@ export default function PostsIndexPage() {
       <TypographyH1>Articles about web development.</TypographyH1>
       <Timeline>
         {posts.map((post) => (
-          <Timeline.Item key={post.title}>
-            <Timeline.LeftElement>
+          <TimelineItem key={post.title}>
+            <TimelineLeftElement>
               <div className="ml-4">
                 <Time size="sm" dateTime={post.publishedAt} />
               </div>
-            </Timeline.LeftElement>
-            <Timeline.RightElement>
+            </TimelineLeftElement>
+            <TimelineRightElement>
               <Link href={post.url} className="w-full">
                 <Card>
                   <CardHeader>
@@ -53,8 +53,8 @@ export default function PostsIndexPage() {
                   </CardFooter>
                 </Card>
               </Link>
-            </Timeline.RightElement>
-          </Timeline.Item>
+            </TimelineRightElement>
+          </TimelineItem>
         ))}
       </Timeline>
     </>
