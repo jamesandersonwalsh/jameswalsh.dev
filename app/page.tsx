@@ -90,7 +90,7 @@ export default function Home() {
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <Link key={post._id} href={post.url}>
-            <Card>
+            <Card className="transition ease-in-out hover:scale-105">
               <CardHeader>
                 <CardTitle>{post.title}</CardTitle>
               </CardHeader>
