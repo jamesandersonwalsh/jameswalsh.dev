@@ -1,11 +1,13 @@
+import { Briefcase, Newspaper, TerminalSquare } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import AboutMeAccordion from './AboutMeAccordion'
+import AboutMe from './about-me'
+import WorkHistory from './work-history'
 
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
+import { TypographyH1, TypographyH3, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
 export const metadata = {
@@ -13,99 +15,33 @@ export const metadata = {
   description: `Learn more about me.`,
 }
 
-interface CVItem {
-  image: React.ReactNode
-  company: string
-  role: string
-  startDate: string
-  endDate: string
-}
-
 export default function AboutPage() {
-  const cvItems: CVItem[] = [
-    {
-      image: (
-        <Image
-          src="/logos/employers/vasion.png"
-          width={32}
-          height={32}
-          alt="Vasion company logo"
-          className="rounded-full"
-        />
-      ),
-      company: 'Vasion',
-      role: 'Staff Software Engineer',
-      startDate: '2022',
-      endDate: 'Present',
-    },
-    {
-      image: (
-        <Image
-          src="/logos/employers/podium.jpg"
-          width={32}
-          height={32}
-          alt="Podium company logo"
-          className="rounded-full"
-        />
-      ),
-      company: 'Podium',
-      role: 'Senior Software Engineer',
-      startDate: '2021',
-      endDate: '2022',
-    },
-    {
-      image: (
-        <Image
-          src="/logos/employers/pluralsight.png"
-          width={32}
-          height={32}
-          alt="Pluralsight company logo"
-          className="rounded-full"
-        />
-      ),
-      company: 'Pluralsight',
-      role: 'Full Stack Software Engineer',
-      startDate: '2016',
-      endDate: '2020',
-    },
-    {
-      image: (
-        <Image
-          src="/logos/employers/maersk.jpg"
-          width={32}
-          height={32}
-          alt="Maersk company logo"
-          className="rounded-full"
-        />
-      ),
-      company: 'Maersk',
-      role: 'Software Engineer',
-      startDate: '2014',
-      endDate: '2016',
-    },
-  ]
-
   return (
     <>
-      <Image
-        src="/portraits/side-profile.webp"
-        alt="Picture of James Side Profile"
-        width={320}
-        height={320}
-        className="mb-8 mr-auto rounded-lg"
-        priority
-      />
-      <TypographyH1>Hey, I&apos;m James.</TypographyH1>
-      <TypographyH2>I live in Salt Lake City, where I write code & enjoy the Great Outdoors.</TypographyH2>
-      <div className="grid grid-cols-12 gap-10">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <Image
+          src="/portraits/side-profile.webp"
+          alt="Picture of James Side Profile"
+          width={320}
+          height={320}
+          className="mb-8 mr-auto rounded-lg"
+          priority
+        />
+        <div className="flex flex-col justify-end gap-6">
+          <TypographyH1>I&apos;m James 👋🏻.</TypographyH1>
+          <TypographyH3>I live in Utah where I write code & enjoy the great outdoors.</TypographyH3>
+        </div>
+      </div>
+      <div className="mt-8 grid grid-cols-12 gap-10">
         <section className="col-span-12 md:col-span-7">
           <TypographyH3>Get to know me</TypographyH3>
-          <AboutMeAccordion />
+          <AboutMe />
         </section>
         <section className="col-span-12 flex flex-col gap-8 md:col-span-5">
           <Card>
-            <CardHeader>
-              <CardTitle>See what I&apos;ve published</CardTitle>
+            <CardHeader className="flex flex-row items-baseline gap-2">
+              <Newspaper />
+              <CardTitle>Read my posts</CardTitle>
             </CardHeader>
             <CardContent>
               <TypographyP>
@@ -120,8 +56,9 @@ export default function AboutPage() {
             </CardFooter>
           </Card>
           <Card>
-            <CardHeader>
-              <CardTitle>How I made this site</CardTitle>
+            <CardHeader className="flex flex-row items-baseline gap-2">
+              <TerminalSquare />
+              <CardTitle>How I Built This</CardTitle>
             </CardHeader>
             <CardContent>
               This site was built with Next.js, Typescript, & Contentlayer. In addition, all these styles are
@@ -138,34 +75,12 @@ export default function AboutPage() {
             </CardFooter>
           </Card>
           <Card>
-            <CardHeader>
-              <CardTitle>Work</CardTitle>
+            <CardHeader className="flex flex-row items-baseline gap-2">
+              <Briefcase />
+              <CardTitle>Career</CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="flex flex-col gap-6">
-                {cvItems.map((cvItem) => (
-                  <li className="w-full" key={cvItem.company}>
-                    {cvItem.image}
-                    <dl className="flex w-full flex-wrap gap-2">
-                      <dt className="hidden">Company</dt>
-                      <dd className="w-full font-semibold">{cvItem.company}</dd>
-                      <dt className="hidden">Role</dt>
-                      <dd className="text-xs">{cvItem.role}</dd>
-                      <dt className="hidden">Date</dt>
-                      <dd className="font-lighter ml-auto text-xs">
-                        <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
-                        <span aria-hidden="true"> — </span>
-                        <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
-                      </dd>
-                    </dl>
-                  </li>
-                ))}
-                <li className="w-full">
-                  <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
-                    <b>Download CV</b>
-                  </Link>
-                </li>
-              </ul>
+              <WorkHistory />
             </CardContent>
           </Card>
         </section>

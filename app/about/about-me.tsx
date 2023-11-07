@@ -4,9 +4,9 @@ import { AccordionContent } from '@radix-ui/react-accordion'
 
 import { Accordion, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 
-export default function AboutMeAccordion() {
+export default function AboutMe() {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="multiple" className="w-full">
       <AccordionItem value="who-i-am">
         <AccordionTrigger>Who I Am 🤙</AccordionTrigger>
         <AccordionContent>
