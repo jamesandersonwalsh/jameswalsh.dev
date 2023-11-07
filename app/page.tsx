@@ -8,8 +8,10 @@ import { ReadMore } from './posts/read-more'
 import { Time } from '@/components/custom/time'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
+import { cn } from '@/lib/utils'
 
 const AVATAR_SIZE = 144
 const HANDLE = 'jamesandersonwalsh'
@@ -85,7 +87,7 @@ export default function Home() {
       </header>
       <br />
       <TypographyH2 id="latest-blog-posts">Latest blog posts</TypographyH2>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <Link key={post._id} href={post.url}>
             <Card>
@@ -113,49 +115,53 @@ export default function Home() {
         ))}
       </div>
       <div>
-        <hr />
-        <TypographyH2 id="publications">See what I&apos;ve published</TypographyH2>
+        <Separator className="my-6" />
+        <TypographyH2 id="publications">Read anywhere I&apos;ve published</TypographyH2>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row gap-4">
+            <Image src="/logos/blog/hey-world.png" className="rounded-md" width={28} height={28} alt="Hey World Logo" />
             <CardTitle>Hey World</CardTitle>
           </CardHeader>
           <CardContent>
-            Checkout my non-tech blog on HEY where nothing&apos;s off limits. Get posts directly to your email,&nbsp;
-            <i>or grab the RSS feed.</i>
+            Checkout my non-tech blog on HEY. Get posts directly to your email, <i>or grab the RSS feed</i>.
           </CardContent>
           <CardFooter>
-            <Link href="https://world.hey.com/jameswalsh" className={buttonVariants({ variant: 'link' })}>
+            <Link
+              href="https://world.hey.com/jameswalsh"
+              className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}
+            >
               Subscribe
             </Link>
           </CardFooter>
         </Card>
         <Card>
-          <CardHeader>
+          <CardHeader className="flex flex-row gap-4">
+            <Image src="/logos/blog/hashnode.png" className="rounded-md" width={28} height={28} alt="Hashnode Logo" />
             <CardTitle>Hashnode</CardTitle>
           </CardHeader>
           <CardContent>
-            All of my posts on this site are made available via my technical newsletter on Hashnode. Join & receive
-            emails whenever I publish a new article.
+            Blog posts on this website are made cross-posted to Hashnode. Get notified when I publish a new article.
           </CardContent>
           <CardFooter>
-            <Link href="https://jameswalsh.hashnode.dev/newsletter" className={buttonVariants({ variant: 'link' })}>
-              Join Tech Newsletter
+            <Link href="https://jameswalsh.hashnode.dev/newsletter" className={buttonVariants({ variant: 'outline' })}>
+              Subscribe on Hashnode
             </Link>
           </CardFooter>
         </Card>
         <Card>
-          <CardHeader>
-            <CardTitle>DEV.to</CardTitle>
+          <CardHeader className="flex flex-row gap-4">
+            <Image src="/logos/blog/dev-to.png" className="rounded-md" width={28} height={28} alt="DEV.TO Logo" />
+            <CardTitle>DEV.TO</CardTitle>
           </CardHeader>
           <CardContent>
-            All of my posts on this site are made available on <b>DEV.to</b>, which is my favorite blogging community.
-            Follow for more spicy tech!
+            In addition, all posts are made available on DEV.to, which is my favorite blogging community. Follow for
+            more!
           </CardContent>
           <CardFooter>
-            <Link href={`https://dev.to/${HANDLE}`} className={buttonVariants({ variant: 'link' })}>
-              Follow on DEV
+            <Link href={`https://dev.to/${HANDLE}`} className={buttonVariants({ variant: 'outline' })}>
+              Follow on dev.to
             </Link>
           </CardFooter>
         </Card>
