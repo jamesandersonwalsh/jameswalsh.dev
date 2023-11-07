@@ -24,7 +24,7 @@ export default function StackPage() {
 
   return (
     <>
-      <TypographyH1>Technology tools I both use & recommend.</TypographyH1>
+      <TypographyH1>Technology tools I recommend & use.</TypographyH1>
       <Timeline>
         {Object.entries(timelineCollection).map(([key, items]) => (
           <TimelineItem key={key}>

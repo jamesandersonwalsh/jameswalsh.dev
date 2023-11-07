@@ -24,15 +24,6 @@ const TimelineCollection: TimelineCollection = {
       imageLink: '/logos/tech/typescript.png',
     },
     {
-      title: 'Vue 3',
-      description: `Written as a response to both Angular & React, Evan You created a web framework which strikes a
-                    compelling balance between the strong opinions of Angular, & the expressiveness composability of
-                    React. In my opinion, Vue has the best Single File Component specification of the 3 major frontend
-                    frameworks, as well as the most pleasent developer experience I've ever had in a state
-                    management library with pinia.`,
-      imageLink: '/logos/tech/vue.png',
-    },
-    {
       title: 'React',
       description: `It is a long established fact that a reader will be
                   distracted by the readable content of a page when looking at
@@ -41,6 +32,15 @@ const TimelineCollection: TimelineCollection = {
                   using 'Content here, content here', making it look like
                   readable English.`,
       imageLink: '/logos/tech/react.png',
+    },
+    {
+      title: 'Vue 3',
+      description: `Written as a response to both Angular & React, Evan You created a web framework which strikes a
+                    compelling balance between the strong opinions of Angular, & the expressiveness composability of
+                    React. In my opinion, Vue has the best Single File Component specification of the 3 major frontend
+                    frameworks, as well as the most pleasent developer experience I've ever had in a state
+                    management library with pinia.`,
+      imageLink: '/logos/tech/vue.png',
     },
   ],
   backend: [
@@ -66,17 +66,6 @@ const TimelineCollection: TimelineCollection = {
       imageLink: '/logos/tech/nodejs.png',
     },
     {
-      title: 'C# / .NET Core',
-      description: `Often referred to as the little brother to Java, C# & .NET have always been my favorite of the two
-                    OOP twins. In my opinion C# has always offered the more compelling full stack proposition when it
-                    comes to developer happiness, writing object oriented code concisely, & with flavors of lambda,
-                    FP, & really magical type inferrence baked in. From Indie Game Development with Unity,
-                    to universal applications with mono, C# holds your h& through crafting beautiful strongly typed
-                    code. Admittedly, at the end of this romatic letter is the admission that If I were starting over
-                    again today in .NET, I'd be tempted to pick up its functional counterpart, F#.`,
-      imageLink: '/logos/tech/c-sharp.png',
-    },
-    {
       title: 'Ruby on Rails',
       description: `Ruby on Rails was the first technology stack I ever used professionally, & in hindsight I feel
                     particularly lucky that I got to use such an expressive, concise, productive, opinionated stack
@@ -95,23 +84,26 @@ const TimelineCollection: TimelineCollection = {
       imageLink: '/logos/tech/postgres.png',
     },
     {
-      title: 'PlanetScale DB',
-      description: `PlanetScale's highly competitive pricing, disruptive approach to git style database branching, &
-                    generous free tier make it my go-to hosted db platform for all my indie dev side project
-                    ideas. Migrations in PlanetScale are so easy to work with that it feels like the logical choice
-                    for teams that want to iterate quickly, & don't know the exact data shape theyre working with 
-                    at the start of a new project. Written on top of MySQL, & with first class support for popular
-                    Node.js libraries like Prisma, Drizzle, & sequalize are icing on top.`,
-      imageLink: '/logos/tech/planetscale-white.png',
+      title: 'Turso',
+      description: `Turso is proving that yes, SQLite can scale, and that you don't need to pay hefty amounts of money to get there.
+                    Turso does a lot in terms of providing feature parody
+                    with DB services like PlanetScale (below), but with a fraction of the complexity. Turso is ready for edge computing,
+                    has support for rapid prototyping via its "db push" functionality and works anywhere that libsql database driver works,
+                    making it a great choice to pair with popular SQL libraries across the web stack. My favorite part of using turso is that it actually takes less than 10 seconds to get started. It's brilliant.`,
+      imageLink: '/logos/tech/turso.png',
     },
     {
-      title: 'MySQL',
+      title: 'PlanetScale DB',
       description: `While Postgres has my heart, MySQL was the first database technology I ever used. MySQL powered my
-                  early web development career refactoring code from the LAMP stack to Ruby on Rails. & it hasn't
-                  slowed down either. MySQL remains one of my top database choices, & continues to power many of the
-                  APIs I use both in my side projects & professionally. MySQL has earned its place as the obvious top 
-                  contendor to PostgreSQL in OSS db popularity.`,
-      imageLink: '/logos/tech/mysql.png',
+      early web development career. And it hasn't slowed down either, as companies like PlanetScale continue to innovate in the space. PlanetScale's highly competitive pricing, disruptive approach to git style database branching, &
+                    generous free tier make it my go-to hosted db platform for all my indie dev side project
+                    ideas. Migrations in PlanetScale are so easy to work with that it feels like the logical choice
+                    for teams that want to iterate quickly, & don't know the exact data shape they're working with 
+                    at the start of a new project. First class support for popular
+                    Node.js libraries like Prisma, Drizzle, & sequalize are all icing on top. MySQL remains one of my top database choices, & continues to power many of the
+                    APIs I use both in my side projects & professionally. MySQL has earned its place as the obvious top 
+                    contendor to PostgreSQL in OSS db popularity.`,
+      imageLink: '/logos/tech/planetscale-white.png',
     },
   ],
   eventing: [
@@ -183,19 +175,19 @@ const TimelineCollection: TimelineCollection = {
   ],
   principles: [
     {
-      title: 'Lean Development / Kanban with Linear',
+      title: 'Kanban with Linear',
       description: `Ive been an outspoken critic of the way that most implement agile. The agile manifesto
                     (which was written about 30 minutes up the road from my childhood home) is
                     only 4 short simple sentences. Yet its meaning largely appears to be lost as teams spend copious
-                    amounts of time managing sAFE, SCRUM, & spending signficant energy managing how long something is
-                    going to take, rather than spending time building customer value. Linear reduces waste, cuts
+                    amounts of time managing sAFE, SCRUM, & spending signficant energy figuring out how long something is
+                    going to take, rather than spending time delivering customer value. Linear reduces waste, cuts
                     through the cruft, and is hands down the most powerful, simple, and fun project management
                     tool I've ever used.`,
       imageLink: '/logos/tech/linear-app-logo.jpeg',
     },
     {
       title: 'Atomic Design Principles',
-      description: `Brad Frost is responsible for laying out principles by which I believe all great design systems
+      description: `Brad Frost is responsible for getting me interested in Design Systems. Atomic Design lays out principles by which I believe all great design systems
                     can be built upon for scale, cleanliness, & a stellar developer experience. 
                     Both on the design systems that I have had a h& in building, & design systems I choose to use,
                     I look for atomic layers of UI that can easily be structured into eventual full pages & layouts.
