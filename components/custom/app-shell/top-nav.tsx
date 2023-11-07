@@ -8,11 +8,11 @@ import { NAVIGATIONAL_ITEMS } from './constants'
 
 import { cn } from '@/lib/utils'
 
-const topNavVariants = cva('relative block px-3 py-2 transition hover:text-primary', {
+const topNavVariants = cva('transition ease-in-out relative block px-3 py-2 transition hover:text-primary', {
   variants: {
     variant: {
       default: '',
-      current: 'text-primary border-b-2 border-primary',
+      current: 'animate-in fade-in-75 text-primary border-b-2 border-primary',
     },
   },
   defaultVariants: {
