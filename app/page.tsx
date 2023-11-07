@@ -90,7 +90,7 @@ export default function Home() {
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <Link key={post._id} href={post.url}>
-            <Card className="transition ease-in-out hover:scale-105">
+            <Card className="h-full transition ease-in-out hover:scale-105">
               <CardHeader>
                 <CardTitle>{post.title}</CardTitle>
               </CardHeader>
@@ -125,14 +125,12 @@ export default function Home() {
             <CardTitle>Hey World</CardTitle>
           </CardHeader>
           <CardContent>
-            Checkout my non-tech blog on HEY. Get posts directly to your email, <i>or grab the RSS feed</i>.
+            Checkout my non-tech blog on HEY. Uuse the link below to get posts directly to your email,{' '}
+            <i>or grab the RSS feed</i>.
           </CardContent>
           <CardFooter>
-            <Link
-              href="https://world.hey.com/jameswalsh"
-              className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}
-            >
-              Subscribe
+            <Link href="https://world.hey.com/jameswalsh" className={cn(buttonVariants(), 'w-full')}>
+              <b>View</b>
             </Link>
           </CardFooter>
         </Card>
@@ -145,8 +143,8 @@ export default function Home() {
             Blog posts on this website are made cross-posted to Hashnode. Get notified when I publish a new article.
           </CardContent>
           <CardFooter>
-            <Link href="https://jameswalsh.hashnode.dev/newsletter" className={buttonVariants({ variant: 'outline' })}>
-              Subscribe on Hashnode
+            <Link href="https://jameswalsh.hashnode.dev/newsletter" className={cn(buttonVariants(), 'w-full')}>
+              <b>Subscribe</b>
             </Link>
           </CardFooter>
         </Card>
@@ -160,8 +158,8 @@ export default function Home() {
             more!
           </CardContent>
           <CardFooter>
-            <Link href={`https://dev.to/${HANDLE}`} className={buttonVariants({ variant: 'outline' })}>
-              Follow on dev.to
+            <Link href={`https://dev.to/${HANDLE}`} className={cn(buttonVariants(), 'w-full')}>
+              <b>Follow</b>
             </Link>
           </CardFooter>
         </Card>
