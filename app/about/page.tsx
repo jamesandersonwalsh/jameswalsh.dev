@@ -3,7 +3,6 @@ import Link from 'next/link'
 
 import AboutMeAccordion from './AboutMeAccordion'
 
-import { ListItem, UnorderedList } from '@/components/custom/list'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
@@ -143,9 +142,9 @@ export default function AboutPage() {
               <CardTitle>Work</CardTitle>
             </CardHeader>
             <CardContent>
-              <UnorderedList>
+              <ul className="flex flex-col gap-6">
                 {cvItems.map((cvItem) => (
-                  <ListItem key={cvItem.company}>
+                  <li className="w-full" key={cvItem.company}>
                     {cvItem.image}
                     <dl className="flex w-full flex-wrap gap-2">
                       <dt className="hidden">Company</dt>
@@ -159,14 +158,14 @@ export default function AboutPage() {
                         <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
                       </dd>
                     </dl>
-                  </ListItem>
+                  </li>
                 ))}
-                <ListItem>
+                <li className="w-full">
                   <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
                     Download CV
                   </Link>
-                </ListItem>
-              </UnorderedList>
+                </li>
+              </ul>
             </CardContent>
           </Card>
         </section>
