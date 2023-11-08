@@ -1,50 +1,31 @@
 import { PropsWithChildren } from 'react'
 
+import { cn } from '@/lib/utils'
+
 export type TypographyProps = PropsWithChildren & React.HtmlHTMLAttributes<HTMLElement>
-export function TypographyH1({ children, ...rest }: TypographyProps) {
+
+export function TypographyH1({ className, ...rest }: TypographyProps) {
   return (
-    <h1 className="my-8 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl" {...rest}>
-      {children}
-    </h1>
+    <h1 className={cn('my-8 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl', className)} {...rest} />
   )
 }
 
-export function TypographyH2({ children, ...rest }: TypographyProps) {
-  return (
-    <h2 className="my-6 scroll-m-20 text-3xl font-semibold tracking-tight" {...rest}>
-      {children}
-    </h2>
-  )
+export function TypographyH2({ className, ...rest }: TypographyProps) {
+  return <h2 className={cn('my-6 scroll-m-20 text-3xl font-semibold tracking-tight', className)} {...rest} />
 }
 
-export function TypographyH3({ children, ...rest }: TypographyProps) {
-  return (
-    <h3 className="my-5 scroll-m-20 text-2xl font-semibold tracking-tight" {...rest}>
-      {children}
-    </h3>
-  )
+export function TypographyH3({ className, ...rest }: TypographyProps) {
+  return <h3 className={cn('my-5 scroll-m-20 text-2xl font-semibold tracking-tight', className)} {...rest} />
 }
 
-export function TypographyH4({ children, ...rest }: TypographyProps) {
-  return (
-    <h4 className="my-4 scroll-m-20 text-xl font-semibold tracking-tight" {...rest}>
-      {children}
-    </h4>
-  )
+export function TypographyH4({ className, ...rest }: TypographyProps) {
+  return <h4 className={cn('my-4 scroll-m-20 text-xl font-semibold tracking-tight', className)} {...rest} />
 }
 
-export function TypographyP({ children, ...rest }: TypographyProps) {
-  return (
-    <p className="leading-7" {...rest}>
-      {children}
-    </p>
-  )
+export function TypographyP({ className, ...rest }: TypographyProps) {
+  return <p className={cn('leading-7', className)} {...rest} />
 }
 
-export function TypographyBlockquote({ children, ...rest }: TypographyProps) {
-  return (
-    <blockquote className="my-6 border-l-2 pl-6 italic" {...rest}>
-      {children}
-    </blockquote>
-  )
+export function TypographyBlockquote({ className, ...rest }: TypographyProps) {
+  return <blockquote className={cn('my-6 border-l-2 pl-6 italic', className)} {...rest} />
 }

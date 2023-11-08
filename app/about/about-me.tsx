@@ -6,10 +6,10 @@ import { Accordion, AccordionItem, AccordionTrigger } from '@/components/ui/acco
 
 export default function AboutMe() {
   return (
-    <Accordion type="multiple" className="w-full">
+    <Accordion type="multiple">
       <AccordionItem value="who-i-am">
         <AccordionTrigger>Who I Am 🤙</AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="my-4">
           Growing up I was always drawn to music, art, video games, & writing. In retrospect, it&apos;s easy to see the
           natural velocity that ended up eventually becoming a career. For as long as I can remember I&apos;ve had a
           sincere intrigue for computers. My earliest memory of using a computer was booting up <b>The Oregon Trail</b>{' '}
@@ -23,7 +23,7 @@ export default function AboutMe() {
       </AccordionItem>
       <AccordionItem value="how-i-got-started">
         <AccordionTrigger>How I Got Started 🤓</AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="my-4">
           Fast forward to summer of 2014, I was working full-time while taking a semester off from my business
           management major. Spring Semester had left me feeling like I was approaching an intersection in life. I knew
           my major wasn&apos;t a great fit, but I wasn&apos;t sure what was next. One night in early June 2014, I was
@@ -41,7 +41,7 @@ export default function AboutMe() {
       </AccordionItem>
       <AccordionItem value="career-growth">
         <AccordionTrigger>Career Growth 💻</AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="my-4">
           By January of 2015 I had landed my first job as an Associate Software Engineer at IntegraCore{' '}
           <i>(now Maersk)</i>. Where I felt fortunate & lucky to be mentored by some of the best Ruby on Rails
           Developers in my area. That foundation blossomed into a decades long full-stack career in web development,
@@ -51,7 +51,7 @@ export default function AboutMe() {
       </AccordionItem>
       <AccordionItem value="today">
         <AccordionTrigger>Today 🎧</AccordionTrigger>
-        <AccordionContent>
+        <AccordionContent className="my-4">
           Today I&apos;m a seasoned full stack software engineer who loves frontend web development. I&apos;ve been
           fortunate enough to gain experience in monoliths, monorepos, & microservices. I&apos;ve learned both the easy
           way & the hard way about what can go right & wrong with all of them. I&apos;ve contributed to scaling Node.js

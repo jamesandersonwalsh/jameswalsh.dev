@@ -81,7 +81,7 @@ const cvItems: CVItem[] = [
 
 export default function WorkHistory() {
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion type="single" collapsible>
       <AccordionItem value="work-history">
         <AccordionTrigger>View Work History</AccordionTrigger>
         <AccordionContent>
