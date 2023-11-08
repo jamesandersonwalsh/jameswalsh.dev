@@ -14,8 +14,8 @@ export default function StackPage() {
   const timelineCollection = TimelineCollection
 
   const sectionTitleMap: Record<string, string> = {
-    frontend: 'Front-end',
-    backend: 'Full Stack / Back-end',
+    frontend: 'Front end',
+    backend: 'Full Stack / Back end',
     databases: 'Databases',
     eventing: 'Data Events',
     devtools: 'Dev Tools',
