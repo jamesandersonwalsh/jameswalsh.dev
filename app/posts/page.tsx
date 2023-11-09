@@ -28,7 +28,7 @@ export default function PostsIndexPage() {
           <TimelineItem key={post.title}>
             <TimelineLeftElement>
               <div className="ml-4">
-                <Time size="sm" dateTime={post.publishedAt} />
+                <Time size="md" dateTime={post.publishedAt} />
               </div>
             </TimelineLeftElement>
             <TimelineRightElement>
