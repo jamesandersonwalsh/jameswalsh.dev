@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           data-testid="paper"
           className="flex min-h-screen w-full max-w-[1024px] flex-col items-center p-8 md:w-[90vw] lg:w-[80vw]"
         >
-          <div data-testid="nav-wrapper" className="flex w-full flex-row justify-between gap-16 md:justify-center">
+          <div data-testid="nav-wrapper" className="flex w-screen px-6 flex-row justify-between gap-16 md:justify-center">
             <PageAvatar />
             <TopNavbar />
             <MobileMenu />
