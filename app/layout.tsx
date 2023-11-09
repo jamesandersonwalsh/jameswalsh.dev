@@ -1,6 +1,7 @@
 import './globals.css'
 import formatDate from 'date-fns/format'
-import { GeistSans, GeistMono } from 'geist/font'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 
@@ -9,6 +10,8 @@ import { MobileMenu } from '@/components/custom/app-shell/mobile-menu'
 import { PageAvatar } from '@/components/custom/app-shell/page-avatar'
 import { TopNavbar } from '@/components/custom/app-shell/top-nav'
 import { cn } from '@/lib/utils'
+
+export const runtime = 'edge'
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
