@@ -10,6 +10,8 @@ import { PageAvatar } from '@/components/custom/app-shell/page-avatar'
 import { TopNavbar } from '@/components/custom/app-shell/top-nav'
 import { cn } from '@/lib/utils'
 
+export const runtime = 'edge'
+
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={cn(`${GeistSans.variable} ${GeistMono.variable}`, 'dark')}>
