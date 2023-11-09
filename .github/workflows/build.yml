@@ -15,4 +15,5 @@ jobs:
           node-version: 18
 
       - run: bun install
+      - run: bun contentlayer build
       - run: bun run build
