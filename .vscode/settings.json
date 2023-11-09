@@ -1,5 +1,4 @@
 {
-  "npm.packageManager": "pnpm",
   "editor.formatOnSave": true,
   "eslint.validate": [
     "javascript",

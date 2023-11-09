@@ -5,16 +5,15 @@
   "engines": {
     "node": ">=v18.17.1"
   },
-  "packageManager": "pnpm@8.6.12",
   "scripts": {
     "dev": "next dev --port=3001",
-    "dev:force": "rm -rf .next && pnpm dev",
+    "dev:force": "rm -rf .next && bun dev",
     "type-check": "tsc --noEmit --incremental",
     "build": "next build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "next lint",
-    "lint:fix": "pnpm lint -- --fix",
+    "lint:fix": "bun lint -- --fix",
     "prepare": "husky install",
     "start": "next start"
   },

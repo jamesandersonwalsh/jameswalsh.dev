@@ -4,4 +4,4 @@
 node_modules/
 package.json
 postcss.config.js
-pnpm-lock.yaml
+bun.lockb

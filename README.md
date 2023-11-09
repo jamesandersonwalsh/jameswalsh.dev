@@ -11,7 +11,7 @@ Built using Next.js, PandaCSS, & Typescript.
 To start the development server:
 
 ```sh
-pnpm i && pnpm dev
+bun i && bun dev
 ```
 
 Open [http://localhost:3001](http://localhost:3001) and take a look around.
