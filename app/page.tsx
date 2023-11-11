@@ -13,7 +13,7 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { calculateTimeToRead } from '@/helpers'
 import { cn } from '@/lib/utils'
 
-const AVATAR_SIZE = 280
+const AVATAR_SIZE = 160
 const HANDLE = 'jamesandersonwalsh'
 
 export const metadata = {
@@ -62,22 +62,22 @@ export default function Home() {
   return (
     <div>
       <div className="flex flex-col gap-8">
-        <header className="flex flex-col gap-10 md:flex-row md:items-end">
+        <header className="flex flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
           <Image
             src="/portraits/front-profile.webp"
-            className="rounded-full"
+            className="h-28 w-28 rounded-full md:h-64 md:w-64"
             width={AVATAR_SIZE}
             height={AVATAR_SIZE}
             alt="James profile picture"
             priority
           />
-          <TypographyH1 className="flex flex-col gap-4 text-5xl">
+          <TypographyH1 className="flex flex-col gap-6 text-5xl">
             <span>Software Engineer.</span>
-            <span className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
-              Developer Advocate.
-            </span>
             <span className="inline-block bg-gradient-to-r from-fuchsia-600 via-primary to-indigo-600 bg-clip-text text-5xl text-transparent">
               UI / UX Enthusiast.
+            </span>
+            <span className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
+              Developer Advocate.
             </span>
           </TypographyH1>
         </header>
