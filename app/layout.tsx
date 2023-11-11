@@ -6,7 +6,6 @@ import { PropsWithChildren } from 'react'
 
 import { NAVIGATIONAL_ITEMS } from '@/components/custom/app-shell/constants'
 import { MobileMenu } from '@/components/custom/app-shell/mobile-menu'
-import { PageAvatar } from '@/components/custom/app-shell/page-avatar'
 import { TopNavbar } from '@/components/custom/app-shell/top-nav'
 import { cn } from '@/lib/utils'
 
@@ -22,14 +21,11 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           data-testid="paper"
           className="flex min-h-screen w-full max-w-[1024px] flex-col items-center p-8 md:w-[90vw] lg:w-[80vw]"
         >
-          <div data-testid="nav-wrapper" className="flex w-screen px-6 flex-row justify-between gap-16 md:justify-center">
-            <PageAvatar />
-            <TopNavbar />
-            <MobileMenu />
-          </div>
+          <TopNavbar />
+          <MobileMenu />
           <main className="mt-4 flex flex-col items-center py-12 sm:px-4">{children}</main>
         </div>
-        <footer className="flex w-screen flex-col justify-between border-t border-border p-4 sm:grid-cols-1 md:flex-row">
+        <footer className="flex w-screen flex-col justify-between border-t border-border px-10 py-4 sm:grid-cols-1 md:flex-row">
           <div className="my-4 flex flex-row items-center justify-center">
             <ul className="flex flex-row gap-6">
               {NAVIGATIONAL_ITEMS.map((item) => (

@@ -68,12 +68,8 @@ export default function PostPage({ params }: PostPageProps) {
       <TypographyH1>{post.title}</TypographyH1>
       <div className="flex w-full flex-col gap-4">
         <span className="flex flex-row px-2 text-lg font-medium">
-          <CalendarDays width={24} height={24} />
           <Time dateTime={post.publishedAt} />
-          <span className="ml-2 flex flex-row gap-1">
-            <Clock width={24} height={24} />
-            {calculateTimeToRead(post.body.raw)}&nbsp;min read
-          </span>
+          <span className="ml-2 flex flex-row gap-1">—&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read</span>
         </span>
         <span className="flex flex-row gap-2">
           {post.tags.map((tag) => (
