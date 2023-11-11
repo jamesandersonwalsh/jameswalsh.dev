@@ -20,7 +20,12 @@ export default function AboutPage() {
     <>
       <div className="mt-8 grid grid-cols-12 gap-10">
         <div className="col-span-12 flex flex-col justify-start md:col-span-7">
-          <TypographyH1>Hey,&nbsp;I&apos;m James 👋🏻</TypographyH1>
+          <TypographyH1>
+            <span className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
+              Hey 👋🏻
+            </span>
+            &nbsp;I&apos;m James
+          </TypographyH1>
           <TypographyP className="my-3 break-normal text-xl">
             I live in Utah where I write software & enjoy the outdoors.
           </TypographyP>

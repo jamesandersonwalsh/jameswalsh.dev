@@ -80,7 +80,12 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <TypographyH1>Projects I&apos;ve Contributed To That Make Me Smile</TypographyH1>
+      <TypographyH1>
+        Products I&apos;ve Worked On That{' '}
+        <span className="inline-block bg-gradient-to-r from-fuchsia-600 via-red-400 to-primary bg-clip-text text-5xl text-transparent">
+          Make Me Smile
+        </span>
+      </TypographyH1>
       <p>
         I&apos;ve enjoyed contributing to many projects over the years, but the following is my professional highlight
         reel. A couple of them are open-source, if you&apos;d like to learn more.

@@ -13,7 +13,7 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { calculateTimeToRead } from '@/helpers'
 import { cn } from '@/lib/utils'
 
-const AVATAR_SIZE = 320
+const AVATAR_SIZE = 280
 const HANDLE = 'jamesandersonwalsh'
 
 export const metadata = {
@@ -71,10 +71,14 @@ export default function Home() {
             alt="James profile picture"
             priority
           />
-          <TypographyH1 className="flex flex-col gap-6">
-            <span>Software Engineer</span>
-            <span>Self-Proclaimed Developer Advocate</span>
-            <span>UI/UX Enthusiast</span>
+          <TypographyH1 className="flex flex-col gap-4 text-5xl">
+            <span>Software Engineer.</span>
+            <span className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
+              Developer Advocate.
+            </span>
+            <span className="inline-block bg-gradient-to-r from-fuchsia-600 via-primary to-indigo-600 bg-clip-text text-5xl text-transparent">
+              UI / UX Enthusiast.
+            </span>
           </TypographyH1>
         </header>
         <div className="flex flex-row space-x-4">
