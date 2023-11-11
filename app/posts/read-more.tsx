@@ -1,9 +1,11 @@
 import { ChevronRight } from 'lucide-react'
 
+import { Button } from '@/components/ui/button'
+
 export function ReadMore() {
   return (
-    <span className="align-center flex flex-row items-end gap-1 text-base font-semibold text-primary hover:to-blue-400">
+    <Button variant="ghost">
       Read More <ChevronRight width={20} height={20} />
-    </span>
+    </Button>
   )
 }

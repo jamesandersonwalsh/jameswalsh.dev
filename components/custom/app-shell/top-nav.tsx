@@ -8,7 +8,7 @@ import { NAVIGATIONAL_ITEMS } from './constants'
 
 import { cn } from '@/lib/utils'
 
-const topNavVariants = cva('transition ease-in-out relative block px-3 py-2 transition hover:text-primary', {
+const topNavVariants = cva('', {
   variants: {
     variant: {
       default: '',
@@ -23,15 +23,30 @@ export function TopNavbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="pointer-events-auto hidden md:block">
-      <ul className="flex rounded-full border px-3 text-sm font-medium">
+    <nav className="hidden w-full flex-row justify-between px-9 py-6 md:flex">
+      <ul data-testid="left-nav" className="flex flex-row items-center gap-6 text-xl font-medium">
+        <li>
+          <Link
+            href="/"
+            className={cn(
+              'relative block px-3 py-2 transition ease-in-out hover:text-primary',
+              topNavVariants({ variant: pathname === '/' ? 'current' : 'default' }),
+            )}
+          >
+            James Walsh
+          </Link>
+        </li>
         {NAVIGATIONAL_ITEMS.map((item) => {
-          const variant = pathname.includes(item.href) ? 'current' : 'default'
-
           return (
             <li key={item.href}>
-              <Link href={item.href} className={cn(topNavVariants({ variant }))}>
-                {item.value}
+              <Link
+                href={item.href}
+                className={cn(
+                  'relative block px-3 py-2 transition ease-in-out hover:text-primary',
+                  topNavVariants({ variant: pathname.includes(item.href) ? 'current' : 'default' }),
+                )}
+              >
+                <span className="text-lg">{item.value}</span>
               </Link>
             </li>
           )

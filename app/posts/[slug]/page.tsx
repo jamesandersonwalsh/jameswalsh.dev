@@ -1,4 +1,5 @@
-import { CalendarDays, ChevronLeft, ChevronRight, Clock } from 'lucide-react'
+import { formatDistanceToNow } from 'date-fns'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -69,7 +70,10 @@ export default function PostPage({ params }: PostPageProps) {
       <div className="flex w-full flex-col gap-4">
         <span className="flex flex-row px-2 text-lg font-medium">
           <Time dateTime={post.publishedAt} />
-          <span className="ml-2 flex flex-row gap-1">—&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read</span>
+          <span className="ml-2 flex flex-row gap-1">
+            —&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read&nbsp;(
+            {formatDistanceToNow(new Date(post.publishedAt))} ago)
+          </span>
         </span>
         <span className="flex flex-row gap-2">
           {post.tags.map((tag) => (

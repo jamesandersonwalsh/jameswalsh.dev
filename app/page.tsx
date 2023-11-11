@@ -1,11 +1,10 @@
-import { CalendarDays, Clock, Github, Linkedin } from 'lucide-react'
+import { Clock, Github, Linkedin } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import fetchPosts from './posts/fetchPosts'
 import { ReadMore } from './posts/read-more'
 
-import { Time } from '@/components/custom/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -14,7 +13,7 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { calculateTimeToRead } from '@/helpers'
 import { cn } from '@/lib/utils'
 
-const AVATAR_SIZE = 144
+const AVATAR_SIZE = 320
 const HANDLE = 'jamesandersonwalsh'
 
 export const metadata = {
@@ -62,16 +61,22 @@ export default function Home() {
 
   return (
     <div>
-      <header className="flex flex-col gap-8">
-        <Image
-          src="/portraits/front-profile.webp"
-          className="rounded-full"
-          width={AVATAR_SIZE}
-          height={AVATAR_SIZE}
-          alt="James profile picture"
-          priority
-        />
-        <TypographyH1>Software engineer. Self-proclaimed developer advocate. UI/UX enthusiast.</TypographyH1>
+      <div className="flex flex-col gap-8">
+        <header className="flex flex-col gap-10 md:flex-row md:items-end">
+          <Image
+            src="/portraits/front-profile.webp"
+            className="rounded-full"
+            width={AVATAR_SIZE}
+            height={AVATAR_SIZE}
+            alt="James profile picture"
+            priority
+          />
+          <TypographyH1 className="flex flex-col gap-6">
+            <span>Software Engineer</span>
+            <span>Self-Proclaimed Developer Advocate</span>
+            <span>UI/UX Enthusiast</span>
+          </TypographyH1>
+        </header>
         <div className="flex flex-row space-x-4">
           {socialLinks.map(({ name, href, ariaLabel, icon }) => (
             <Link key={name} href={href} aria-label={ariaLabel}>
@@ -85,12 +90,12 @@ export default function Home() {
           Design Systems, & working on cross-functional teams with other talented people I can learn from. I believe
           that no tech talk is complete without memes.
         </TypographyP>
-      </header>
+      </div>
       <br />
-      <TypographyH2 id="latest-blog-posts">Latest blog posts</TypographyH2>
-      <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <TypographyH2 id="latest-blog-posts">Latest Blog Posts</TypographyH2>
+      <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-4">
         {posts.map((post) => (
-          <Link key={post._id} href={post.url}>
+          <Link className="col-span-2 h-full" key={post._id} href={post.url}>
             <Card className="h-full transition ease-in-out hover:scale-105">
               <CardHeader>
                 <AspectRatio ratio={16 / 9}>
@@ -99,12 +104,7 @@ export default function Home() {
                 <CardTitle>{post.title}</CardTitle>
               </CardHeader>
               <CardContent className="flex flex-col gap-4">
-                <span className="flex items-center">
-                  <CalendarDays width={24} height={24} />
-                  &nbsp;
-                  <Time dateTime={post.publishedAt} />
-                </span>
-                <span className="flex items-center">
+                <span className="flex items-center text-muted-foreground">
                   <Clock width={16} height={16} />
                   &nbsp;
                   {calculateTimeToRead(post.body.raw)}&nbsp;min read

@@ -12,14 +12,14 @@ export function MobileMenu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Menu className="mb-4 h-10 w-10 cursor-pointer md:hidden" />
+        <Menu className="absolute right-0 mb-4 mr-6 mt-6 h-10 w-10 cursor-pointer md:hidden" />
       </SheetTrigger>
       <SheetContent>
         <ul className="flex flex-col gap-6">
           <li className="w-full">
             <SheetClose asChild>
               <Link href="/" className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
-                Home
+                James Walsh
               </Link>
             </SheetClose>
           </li>
