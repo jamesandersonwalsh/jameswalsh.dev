@@ -26,67 +26,53 @@ export default function Home() {
   const posts = fetchPosts()
 
   return (
-    <div>
+    <>
       <div className="mb-10 flex flex-col items-center">
         <div className="flex max-w-prose flex-col items-center gap-2 text-center">
           <TypographyH1 className="text-5xl md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
-          <div>
-            <div className="columns-2 gap-4 sm:columns-3">
-              <div className="relative">
-                <Image
-                  src="/portraits/spartan-race.webp"
-                  alt="James finishing a Spartan Race"
-                  width={160}
-                  height={160}
-                  className="mb-4 rounded-lg shadow-xl"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/portraits/bridge.webp"
-                  alt="Picture of James on a bridge"
-                  width={160}
-                  height={160}
-                  className="mb-4 rounded-lg shadow-xl"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/portraits/shortboard.webp"
-                  alt="James playing guitar"
-                  width={160}
-                  height={160}
-                  className="mb-0 aspect-square rounded-lg object-cover object-top shadow-xl sm:mb-4 sm:aspect-auto"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/portraits/aviators.webp"
-                  alt="Picture of James in NYC"
-                  width={160}
-                  height={160}
-                  className="mb-4 rounded-lg shadow-xl"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/portraits/southern-utah.webp"
-                  alt="James in a national park in southern Utah"
-                  width={120}
-                  height={120}
-                  className="mb-4 w-full rounded-lg shadow-xl"
-                />
-              </div>
-              <div className="relative">
-                <Image
-                  src="/portraits/guitar.webp"
-                  alt="Picture of James Skateboarding"
-                  width={160}
-                  height={160}
-                  className="mb-4 rounded-lg shadow-xl"
-                />
-              </div>
-            </div>
+          <div className="columns-2 gap-4 sm:columns-3">
+            <Image
+              src="/portraits/spartan-race.webp"
+              alt="James finishing a Spartan Race"
+              width={160}
+              height={160}
+              className="mb-4 rounded-lg shadow-xl"
+            />
+            <Image
+              src="/portraits/bridge.webp"
+              alt="Picture of James on a bridge"
+              width={160}
+              height={160}
+              className="mb-4 rounded-lg shadow-xl"
+            />
+            <Image
+              src="/portraits/shortboard.webp"
+              alt="James playing guitar"
+              width={160}
+              height={160}
+              className="mb-0 aspect-square rounded-lg object-cover object-top shadow-xl sm:mb-4 sm:aspect-auto"
+            />
+            <Image
+              src="/portraits/aviators.webp"
+              alt="Picture of James in NYC"
+              width={160}
+              height={160}
+              className="mb-4 rounded-lg shadow-xl"
+            />
+            <Image
+              src="/portraits/southern-utah.webp"
+              alt="James in a national park in southern Utah"
+              width={120}
+              height={120}
+              className="mb-4 w-full rounded-lg shadow-xl"
+            />
+            <Image
+              src="/portraits/guitar.webp"
+              alt="Picture of James Skateboarding"
+              width={160}
+              height={160}
+              className="mb-4 rounded-lg shadow-xl"
+            />
           </div>
           <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
             Software Engineer
@@ -195,6 +181,6 @@ export default function Home() {
           </CardFooter>
         </Card>
       </div>
-    </div>
+    </>
   )
 }
