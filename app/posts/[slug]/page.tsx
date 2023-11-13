@@ -62,9 +62,9 @@ export default function PostPage({ params }: PostPageProps) {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className="py-8 md:px-24">
+    <div className="py-10 md:px-24">
       <AspectRatio ratio={16 / 9}>
-        <Image src={post.coverImage} alt="Article cover image" className="rounded-xl " priority fill />
+        <Image src={post.coverImage} alt="Article cover image" className="rounded-xl" priority fill />
       </AspectRatio>
       <TypographyH1>{post.title}</TypographyH1>
       <div className="flex w-full flex-col gap-4">

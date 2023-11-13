@@ -80,8 +80,8 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <TypographyH1>
-        Products I&apos;ve Worked On That{' '}
+      <TypographyH1 className="w-prose">
+        Things I&apos;ve Helped Build That&nbsp;
         <span className="inline-block bg-gradient-to-r from-fuchsia-600 via-red-400 to-primary bg-clip-text text-5xl text-transparent">
           Make Me Smile
         </span>

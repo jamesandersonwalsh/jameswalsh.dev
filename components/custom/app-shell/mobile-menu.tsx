@@ -19,7 +19,7 @@ export function MobileMenu() {
           <li className="w-full">
             <SheetClose asChild>
               <Link href="/" className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
-                James Walsh
+                Home
               </Link>
             </SheetClose>
           </li>
