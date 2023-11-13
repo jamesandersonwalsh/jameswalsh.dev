@@ -4,3 +4,5 @@ export const NAVIGATIONAL_ITEMS = [
   { href: '/stack', value: 'Stack' },
   { href: '/projects', value: 'Portfolio' },
 ]
+
+export const HANDLE = 'jamesandersonwalsh'

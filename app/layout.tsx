@@ -1,10 +1,9 @@
 import './globals.css'
-import formatDate from 'date-fns/format'
+
 import { GeistSans, GeistMono } from 'geist/font'
-import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 
-import { NAVIGATIONAL_ITEMS } from '@/components/custom/app-shell/constants'
+import Footer from '@/components/custom/app-shell/footer'
 import { TopNavbar } from '@/components/custom/app-shell/top-nav'
 import { cn } from '@/lib/utils'
 
@@ -23,20 +22,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           <TopNavbar />
           <main className="mt-4 flex flex-col py-10">{children}</main>
         </div>
-        <footer className="flex w-screen flex-col justify-between border-t border-border px-10 py-4 sm:grid-cols-1 md:flex-row">
-          <div className="my-4 flex flex-row items-center justify-center">
-            <ul className="flex flex-row gap-6">
-              {NAVIGATIONAL_ITEMS.map((item) => (
-                <li className="w-full" key={item.value}>
-                  <Link href={item.href}>{item.value}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="my-4 flex flex-row items-center justify-center">
-            ©&nbsp;{formatDate(new Date(), 'yyyy')}&nbsp;James Walsh
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   )

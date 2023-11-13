@@ -1,10 +1,11 @@
-import { Clock, Github, Linkedin } from 'lucide-react'
+import { Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import fetchPosts from './posts/fetchPosts'
 import { ReadMore } from './posts/read-more'
 
+import { HANDLE } from '@/components/custom/app-shell/constants'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -12,9 +13,6 @@ import { Separator } from '@/components/ui/separator'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/helpers'
 import { cn } from '@/lib/utils'
-
-const AVATAR_SIZE = 160
-const HANDLE = 'jamesandersonwalsh'
 
 export const metadata = {
   title: 'James Walsh',
@@ -24,79 +22,104 @@ export const metadata = {
   },
 }
 
-interface SocialLink {
-  name: string
-  href: string
-  ariaLabel: string
-  icon: React.ReactElement
-}
-
 export default function Home() {
-  const socialLinks: SocialLink[] = [
-    {
-      name: 'Github',
-      href: `https://github.com/${HANDLE}`,
-      ariaLabel: 'Visit my Github',
-      icon: <Github width={24} height={24} />,
-    },
-    {
-      name: 'Discord',
-      href: `https://discordapp.com/users/${HANDLE}`,
-      ariaLabel: 'Add me on Discord',
-      icon: (
-        <svg className="icon" fill="currentColor" fillRule="evenodd" width={24} height={24} clipRule="evenodd">
-          <path d="M19.54 0c1.356 0 2.46 1.104 2.46 2.472v21.528l-2.58-2.28-1.452-1.344-1.536-1.428.636 2.22h-13.608c-1.356 0-2.46-1.104-2.46-2.472v-16.224c0-1.368 1.104-2.472 2.46-2.472h16.08zm-4.632 15.672c2.652-.084 3.672-1.824 3.672-1.824 0-3.864-1.728-6.996-1.728-6.996-1.728-1.296-3.372-1.26-3.372-1.26l-.168.192c2.04.624 2.988 1.524 2.988 1.524-1.248-.684-2.472-1.02-3.612-1.152-.864-.096-1.692-.072-2.424.024l-.204.024c-.42.036-1.44.192-2.724.756-.444.204-.708.348-.708.348s.996-.948 3.156-1.572l-.12-.144s-1.644-.036-3.372 1.26c0 0-1.728 3.132-1.728 6.996 0 0 1.008 1.74 3.66 1.824 0 0 .444-.54.804-.996-1.524-.456-2.1-1.416-2.1-1.416l.336.204.048.036.047.027.014.006.047.027c.3.168.6.3.876.408.492.192 1.08.384 1.764.516.9.168 1.956.228 3.108.012.564-.096 1.14-.264 1.74-.516.42-.156.888-.384 1.38-.708 0 0-.6.984-2.172 1.428.36.456.792.972.792.972zm-5.58-5.604c-.684 0-1.224.6-1.224 1.332 0 .732.552 1.332 1.224 1.332.684 0 1.224-.6 1.224-1.332.012-.732-.54-1.332-1.224-1.332zm4.38 0c-.684 0-1.224.6-1.224 1.332 0 .732.552 1.332 1.224 1.332.684 0 1.224-.6 1.224-1.332 0-.732-.54-1.332-1.224-1.332z" />
-        </svg>
-      ),
-    },
-    {
-      name: 'LinkedIn',
-      href: `https://www.linkedin.com/in/${HANDLE}`,
-      ariaLabel: 'Go to my LinkedIn',
-      icon: <Linkedin width={24} height={24} />,
-    },
-  ]
-
   const posts = fetchPosts()
 
   return (
     <div>
-      <div className="flex flex-col gap-8">
-        <header className="flex flex-col items-start gap-6 md:flex-row md:items-center md:gap-10">
-          <Image
-            src="/portraits/front-profile.webp"
-            className="h-28 w-28 rounded-full md:h-64 md:w-64"
-            width={AVATAR_SIZE}
-            height={AVATAR_SIZE}
-            alt="James profile picture"
-            priority
-          />
-          <TypographyH1 className="flex flex-col gap-6 text-5xl">
-            <span>Software Engineer.</span>
-            <span className="inline-block bg-gradient-to-r from-fuchsia-600 via-primary to-indigo-600 bg-clip-text text-5xl text-transparent">
-              UI / UX Enthusiast.
-            </span>
-            <span className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
-              Developer Advocate.
-            </span>
-          </TypographyH1>
-        </header>
-        <div className="flex flex-row space-x-4">
-          {socialLinks.map(({ name, href, ariaLabel, icon }) => (
-            <Link key={name} href={href} aria-label={ariaLabel}>
-              {icon}
-            </Link>
-          ))}
+      <div className="mb-10 flex flex-col items-center">
+        <div className="flex max-w-prose flex-col items-center gap-2 text-center">
+          <TypographyH1 className="text-5xl md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
+          <div>
+            <div className="columns-2 gap-4 sm:columns-3">
+              <div className="relative">
+                <Image
+                  src="/portraits/spartan-race.webp"
+                  alt="James finishing a Spartan Race"
+                  width={160}
+                  height={160}
+                  className="mb-4 rounded-lg shadow-xl"
+                />
+              </div>
+              <div className="relative">
+                <Image
+                  src="/portraits/bridge.webp"
+                  alt="Picture of James on a bridge"
+                  width={160}
+                  height={160}
+                  className="mb-4 rounded-lg shadow-xl"
+                />
+              </div>
+              <div className="relative">
+                <Image
+                  src="/portraits/shortboard.webp"
+                  alt="James playing guitar"
+                  width={160}
+                  height={160}
+                  className="mb-0 aspect-square rounded-lg object-cover object-top shadow-xl sm:mb-4 sm:aspect-auto"
+                />
+              </div>
+              <div className="relative">
+                <Image
+                  src="/portraits/aviators.webp"
+                  alt="Picture of James in NYC"
+                  width={160}
+                  height={160}
+                  className="mb-4 rounded-lg shadow-xl"
+                />
+              </div>
+              <div className="relative">
+                <Image
+                  src="/portraits/southern-utah.webp"
+                  alt="James in a national park in southern Utah"
+                  width={120}
+                  height={120}
+                  className="mb-4 w-full rounded-lg shadow-xl"
+                />
+              </div>
+              <div className="relative">
+                <Image
+                  src="/portraits/guitar.webp"
+                  alt="Picture of James Skateboarding"
+                  width={160}
+                  height={160}
+                  className="mb-4 rounded-lg shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
+          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
+            Software Engineer
+          </TypographyH2>
+          <TypographyP className="text-lg">
+            I&apos;m a Full Stack Software Engineer specializing in JavaScript. My career has been defined by embracing
+            JavaScript as much as possible. I&apos;ve written a few articles on the subject{' '}
+            <Link href="#latest-blog-posts">you can find down below.</Link>
+          </TypographyP>
+          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-indigo-600 to-blue-500 bg-clip-text text-5xl text-transparent">
+            UI / UX Enthusiast
+          </TypographyH2>
+          <TypographyP className="text-lg">
+            I care deeply about{' '}
+            <b>
+              <i>attention to detail</i>
+            </b>
+            . Whether it&apos;s building component libraries like Podium&apos;s Brickyard Design System, or
+            hand-crafting this site, my goal is to bring delight & surprise. The products I&apos;m most proud of have
+            been built hand-in-hand on <i>cross-functional</i> teams with talented Product Managers & Designers I can
+            learn from.
+          </TypographyP>
+          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-blue-600 to-fuchsia-500 bg-clip-text text-5xl text-transparent">
+            Developer Advocate
+          </TypographyH2>
+          <TypographyP className="text-lg">
+            Over the last decade I&apos;ve been a part of <b>shipping</b> new products to market, <b>scaling</b> web
+            services, <b>building</b> developer libraries, & <b>improving</b> developer experience on web platform
+            teams.
+          </TypographyP>
         </div>
-        <TypographyP>
-          Hey, I&apos;m James! I&apos;m a Full Stack Software Engineer specializing in JavaScript. Over the last decade
-          I&apos;ve been a part of shipping new products to market, scaling Node.js applications, building beautiful
-          Design Systems, & working on cross-functional teams with other talented people I can learn from. I believe
-          that no tech talk is complete without memes.
-        </TypographyP>
       </div>
-      <br />
-      <TypographyH2 id="latest-blog-posts">Latest Blog Posts</TypographyH2>
+      <TypographyH2 id="latest-blog-posts">Read Latest Blog Posts</TypographyH2>
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-4">
         {posts.map((post) => (
           <Link className="col-span-2 h-full" key={post._id} href={post.url}>
@@ -124,7 +147,7 @@ export default function Home() {
       </div>
       <div>
         <Separator className="my-6" />
-        <TypographyH2 id="publications">Read anywhere I&apos;ve published</TypographyH2>
+        <TypographyH2 id="publications">Read Anywhere I Publish</TypographyH2>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         <Card>
@@ -133,7 +156,7 @@ export default function Home() {
             <CardTitle>Hey World</CardTitle>
           </CardHeader>
           <CardContent>
-            Checkout my non-tech blog on HEY. Uuse the link below to get posts directly to your email,{' '}
+            Checkout my non-technical blog on HEY. Use the link below to get posts directly to your email,&nbsp;
             <i>or grab the RSS feed</i>.
           </CardContent>
           <CardFooter>
@@ -148,7 +171,7 @@ export default function Home() {
             <CardTitle>Hashnode</CardTitle>
           </CardHeader>
           <CardContent>
-            Blog posts on this website are made cross-posted to Hashnode. Get notified when I publish a new article.
+            Blog posts on this website are cross-posted to Hashnode. Get notified when I publish a new article.
           </CardContent>
           <CardFooter>
             <Link href="https://jameswalsh.hashnode.dev/newsletter" className={cn(buttonVariants(), 'w-full')}>
@@ -162,7 +185,7 @@ export default function Home() {
             <CardTitle>DEV.TO</CardTitle>
           </CardHeader>
           <CardContent>
-            In addition, all posts are made available on DEV.to, which is my favorite blogging community. Follow for
+            DEV.to is my all-time favorite blogging community. You can also find these posts over there. Follow for
             more!
           </CardContent>
           <CardFooter>
