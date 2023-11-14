@@ -16,7 +16,7 @@ export const mdxComponents = {
   h1: (props: PropsWithChildren) => <TypographyH1 {...props} />,
   h2: (props: PropsWithChildren) => <TypographyH2 {...props} />,
   h3: (props: PropsWithChildren) => <TypographyH3 {...props} />,
-  p: (props: PropsWithChildren) => <TypographyP {...props} />,
+  p: (props: PropsWithChildren) => <TypographyP className="w-prose" {...props} />,
   ol: (props: PropsWithChildren) => <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />,
   ul: (props: PropsWithChildren) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
   blockquote: (props: PropsWithChildren) => <TypographyBlockquote {...props} />,

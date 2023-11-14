@@ -3,13 +3,13 @@ import { cva } from 'class-variance-authority'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
-const tagVariants = cva('font-semibold cursor-default border-2', {
+const tagVariants = cva('font-semibold cursor-default border-2 h-6', {
   variants: {
     variant: {
-      blue: 'bg-blue-900 border-blue-800 text-blue-400',
-      fuchsia: 'bg-fuchsia-900 border-fuchsia-800 text-fuchsia-400',
-      violet: 'bg-violet-900 border-violet-800 text-violet-400',
-      emerald: 'bg-emerald-900 border-emerald-800 text-emerald-400',
+      blue: 'bg-blue-900 border-blue-800 text-blue-300',
+      fuchsia: 'bg-fuchsia-900 border-fuchsia-800 text-fuchsia-300',
+      violet: 'bg-violet-900 border-violet-800 text-violet-300',
+      emerald: 'bg-emerald-900 border-emerald-800 text-emerald-300',
     },
   },
 })
