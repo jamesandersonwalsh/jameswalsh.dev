@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
 
 import TimelineCollection from './timelineCollection'
@@ -5,7 +6,7 @@ import TimelineCollection from './timelineCollection'
 import { Timeline, TimelineItem, TimelineLeftElement, TimelineRightElement } from '@/components/custom/timeline'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Stack - James Walsh',
   description: 'Technologies I use & tools I love.',
 }

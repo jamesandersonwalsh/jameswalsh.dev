@@ -1,4 +1,5 @@
 import { Briefcase, Info, Newspaper, TerminalSquare } from 'lucide-react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -10,7 +11,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { TypographyH1, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'About - James Walsh',
   description: `Learn more about me.`,
 }

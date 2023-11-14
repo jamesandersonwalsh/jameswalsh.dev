@@ -14,14 +14,6 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { calculateTimeToRead } from '@/helpers'
 import { cn } from '@/lib/utils'
 
-export const metadata = {
-  title: 'James Walsh',
-  openGraph: {
-    description: 'James Walsh - Software Engineer, developer advocate, UI/UX enthusiast',
-    images: ['/portraits/front-profile.webp'],
-  },
-}
-
 export default function Home() {
   const posts = fetchPosts()
 

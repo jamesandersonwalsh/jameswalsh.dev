@@ -1,9 +1,15 @@
 import { LinkIcon } from 'lucide-react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1 } from '@/components/ui/typography'
+
+export const metadata: Metadata = {
+  title: 'Projects - James Walsh',
+  description: `Projects I've contributed to.`,
+}
 
 interface Project {
   title: string
@@ -13,11 +19,6 @@ interface Project {
     href: string
   }
   imageLink: string
-}
-
-export const metadata = {
-  title: 'Projects - James Walsh',
-  description: `Projects I've contributed to.`,
 }
 
 export default function ProjectsPage() {

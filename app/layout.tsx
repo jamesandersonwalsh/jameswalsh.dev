@@ -1,6 +1,7 @@
 import './globals.css'
 
 import { GeistSans, GeistMono } from 'geist/font'
+import { Metadata } from 'next'
 import { PropsWithChildren } from 'react'
 
 import Footer from '@/components/custom/app-shell/footer'
@@ -8,6 +9,18 @@ import { TopNavbar } from '@/components/custom/app-shell/top-nav'
 import { cn } from '@/lib/utils'
 
 export const runtime = 'edge'
+
+export const metadata: Metadata = {
+  title: 'James Walsh',
+  description: 'Software Engineer, UI/UX Enthusiast, Developer Advocate',
+  metadataBase: new URL('https://jameswalsh.dev'),
+  openGraph: {
+    title: 'James Walsh',
+    siteName: 'James Walsh',
+    locale: 'en_us',
+    type: 'website',
+  },
+}
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (

@@ -29,10 +29,18 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
   return {
     title: post.title,
     description: post.brief,
+    publisher: 'James Walsh',
+    creator: 'James Walsh',
+    authors: [{ url: 'https://jameswalsh.dev', name: 'James Walsh' }],
+    keywords: post.tags,
     openGraph: {
+      title: post.title,
       description: post.brief,
       images: [post.coverImage],
       type: 'article',
+      tags: post.tags,
+      publishedTime: post.publishedAt,
+      locale: 'en_us',
     },
   }
 }
