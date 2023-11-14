@@ -8,8 +8,6 @@ import Footer from '@/components/custom/app-shell/footer'
 import { TopNavbar } from '@/components/custom/app-shell/top-nav'
 import { cn } from '@/lib/utils'
 
-export const runtime = 'edge'
-
 export const metadata: Metadata = {
   title: 'James Walsh',
   description: 'Software Engineer, UI/UX Enthusiast, Developer Advocate',
