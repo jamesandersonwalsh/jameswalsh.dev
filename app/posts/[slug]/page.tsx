@@ -76,20 +76,20 @@ export default function PostPage({ params }: PostPageProps) {
       </AspectRatio>
       <TypographyH1>{post.title}</TypographyH1>
       <div className="flex w-full flex-col gap-4">
-        <span className="flex flex-row px-2 text-lg font-medium">
+        <span className="flex flex-row gap-2">
+          {post.tags.map((tag) => (
+            <Tag key={tag} text={tag} />
+          ))}
+        </span>
+        <span className="flex flex-row text-lg font-medium">
           <Time dateTime={post.publishedAt} />
           <span className="ml-2 flex flex-row gap-1">
             —&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read&nbsp;(
             {formatDistanceToNow(new Date(post.publishedAt))} ago)
           </span>
         </span>
-        <span className="flex flex-row gap-2">
-          {post.tags.map((tag) => (
-            <Tag key={tag} text={tag} />
-          ))}
-        </span>
       </div>
-      <article>
+      <article className="mt-8">
         <MDXContent components={mdxComponents} />
       </article>
       <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
