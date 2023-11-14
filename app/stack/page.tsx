@@ -1,3 +1,4 @@
+import { Metadata } from 'next'
 import Image from 'next/image'
 
 import TimelineCollection from './timelineCollection'
@@ -5,7 +6,7 @@ import TimelineCollection from './timelineCollection'
 import { Timeline, TimelineItem, TimelineLeftElement, TimelineRightElement } from '@/components/custom/timeline'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Stack - James Walsh',
   description: 'Technologies I use & tools I love.',
 }
@@ -24,7 +25,7 @@ export default function StackPage() {
 
   return (
     <>
-      <TypographyH1>Technology tools I recommend & use.</TypographyH1>
+      <TypographyH1>Technology Tools I Recommend & Use</TypographyH1>
       <Timeline>
         {Object.entries(timelineCollection).map(([key, items]) => (
           <TimelineItem key={key}>
