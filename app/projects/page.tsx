@@ -1,9 +1,15 @@
 import { LinkIcon } from 'lucide-react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1 } from '@/components/ui/typography'
+
+export const metadata: Metadata = {
+  title: 'Projects - James Walsh',
+  description: `Projects I've contributed to.`,
+}
 
 interface Project {
   title: string
@@ -13,11 +19,6 @@ interface Project {
     href: string
   }
   imageLink: string
-}
-
-export const metadata = {
-  title: 'Projects - James Walsh',
-  description: `Projects I've contributed to.`,
 }
 
 export default function ProjectsPage() {
@@ -80,7 +81,12 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <TypographyH1>Projects I&apos;ve contributed to that make me smile.</TypographyH1>
+      <TypographyH1 className="w-prose">
+        Things I&apos;ve Helped Build That&nbsp;
+        <span className="inline-block bg-gradient-to-r from-fuchsia-600 via-red-400 to-primary bg-clip-text text-5xl text-transparent">
+          Make Me Smile
+        </span>
+      </TypographyH1>
       <p>
         I&apos;ve enjoyed contributing to many projects over the years, but the following is my professional highlight
         reel. A couple of them are open-source, if you&apos;d like to learn more.

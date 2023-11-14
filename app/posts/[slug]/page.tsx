@@ -1,4 +1,5 @@
-import { CalendarDays, ChevronLeft, ChevronRight, Clock } from 'lucide-react'
+import { formatDistanceToNow } from 'date-fns'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -28,10 +29,18 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
   return {
     title: post.title,
     description: post.brief,
+    publisher: 'James Walsh',
+    creator: 'James Walsh',
+    authors: [{ url: 'https://jameswalsh.dev', name: 'James Walsh' }],
+    keywords: post.tags,
     openGraph: {
+      title: post.title,
       description: post.brief,
       images: [post.coverImage],
       type: 'article',
+      tags: post.tags,
+      publishedTime: post.publishedAt,
+      locale: 'en_us',
     },
   }
 }
@@ -61,18 +70,17 @@ export default function PostPage({ params }: PostPageProps) {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className="py-8 md:px-24">
+    <div className="py-10 md:px-24">
       <AspectRatio ratio={16 / 9}>
-        <Image src={post.coverImage} alt="Article cover image" className="rounded-xl " priority fill />
+        <Image src={post.coverImage} alt="Article cover image" className="rounded-xl" priority fill />
       </AspectRatio>
       <TypographyH1>{post.title}</TypographyH1>
       <div className="flex w-full flex-col gap-4">
         <span className="flex flex-row px-2 text-lg font-medium">
-          <CalendarDays width={24} height={24} />
           <Time dateTime={post.publishedAt} />
           <span className="ml-2 flex flex-row gap-1">
-            <Clock width={24} height={24} />
-            {calculateTimeToRead(post.body.raw)}&nbsp;min read
+            —&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read&nbsp;(
+            {formatDistanceToNow(new Date(post.publishedAt))} ago)
           </span>
         </span>
         <span className="flex flex-row gap-2">

@@ -13,12 +13,12 @@ const timeVariants = cva('', {
 
 type TimeFormatProps = {
   dateTime: string
-  format?: 'LLLL dd, yyyy'
+  format?: 'MMM dd, yyyy'
   size?: 'sm' | 'md'
 } & TimeHTMLAttributes<HTMLTimeElement> &
   PropsWithChildren
 
-export function Time({ dateTime, format = 'LLLL dd, yyyy', size = 'md', ...rest }: TimeFormatProps) {
+export function Time({ dateTime, format = 'MMM dd, yyyy', size = 'md', ...rest }: TimeFormatProps) {
   const date = new Date(dateTime)
 
   return (
