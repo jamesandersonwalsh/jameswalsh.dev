@@ -52,7 +52,6 @@ export default function Home() {
             </TypographyP>
           </AnimationOnScroll>
           <PhotoGrid />
-          {/* </AnimationOnScroll> */}
           <AnimationOnScroll
             classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
             classNameNotInView="opacity-0 translate-y-0"
