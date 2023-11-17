@@ -10,12 +10,12 @@ import { MobileMenu } from './mobile-menu'
 import { cn } from '@/lib/utils'
 
 const topNavVariants = cva(
-  'flex items-center px-5 w-18 mx-1 transition hover:bg-primary opacity-80 rounded-full h-full',
+  'flex items-center px-5 w-18 mx-1 transition hover:bg-primary opacity-80 transition-colors duration-200 rounded-full h-full',
   {
     variants: {
       variant: {
         default: '',
-        current: 'animate-in fade-in-75 bg-primary opacity-100',
+        current: 'bg-primary opacity-100',
       },
     },
     defaultVariants: {
@@ -28,7 +28,7 @@ export function TopNavbar() {
 
   return (
     <>
-      <nav className="pointer-events-auto hidden md:flex md:flex-row md:justify-between md:gap-6">
+      <nav className="pointer-events-auto mt-8 hidden md:flex md:flex-row md:justify-between md:gap-6">
         <ul className="flex h-12 items-center rounded-full border-2 py-1 text-sm font-medium">
           <li className="h-full">
             <Link href="/" className={cn(topNavVariants({ variant: pathname === '/' ? 'current' : 'default' }))}>

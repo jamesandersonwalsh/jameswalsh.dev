@@ -1,7 +1,6 @@
 import Image, { ImageProps } from 'next/image'
 import { HTMLAttributes, PropsWithChildren } from 'react'
 
-import { AspectRatio } from './ui/aspect-ratio'
 import { buttonVariants } from './ui/button'
 import { TypographyBlockquote, TypographyH1, TypographyH2, TypographyH3, TypographyP } from './ui/typography'
 
@@ -9,9 +8,13 @@ import { cn } from '@/lib/utils'
 
 export const mdxComponents = {
   img: (props: HTMLAttributes<HTMLImageElement>) => (
-    <AspectRatio ratio={16 / 9} className="bg-muted">
-      <Image {...(props as ImageProps)} alt="article-image" className="rounded-lg object-cover" fill />
-    </AspectRatio>
+    <Image
+      {...(props as ImageProps)}
+      alt="article image"
+      className="my-4 aspect-video rounded-lg object-center"
+      width={1600}
+      height={900}
+    />
   ),
   h1: (props: PropsWithChildren) => <TypographyH1 {...props} />,
   h2: (props: PropsWithChildren) => <TypographyH2 {...props} />,
@@ -24,5 +27,5 @@ export const mdxComponents = {
   code: (props: PropsWithChildren) => (
     <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
   ),
-  a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'p-0')} {...props} />,
+  a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'text-md p-0')} {...props} />,
 }
