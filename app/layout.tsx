@@ -25,7 +25,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
   return (
     <>
       <HighlightInit
-        projectId={'kgr5kype'}
+        projectId={process.env.HIGHLIGHT_PROJECT_ID}
         serviceName="jameswalsh.dev"
         tracingOrigins
         networkRecording={{
