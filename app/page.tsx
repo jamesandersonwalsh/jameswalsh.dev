@@ -23,20 +23,36 @@ export default function Home() {
     <>
       <div className="mb-10 flex flex-col items-center">
         <div className="flex max-w-prose flex-col items-center gap-2 text-center">
-          <TypographyH1 className="my-6 text-4xl md:my-3 md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
-          <TypographyP className="my-3 text-lg">
-            I&apos;m a full-stack Software Engineer, UI/UX enthusiast, full time tinkerer, & self-proclaimed developer
-            advocate.
-          </TypographyP>
-          <TypographyP className="mb-4 text-lg">
-            I currently work as a Staff Software Engineer focusing on creating web platform tools. In my free-time
-            I&apos;m also an indie developer, gamer, & developer blogger. You can read my&nbsp;
-            <Link href="#latest-blog-posts" className="inline-flex underline underline-offset-1">
-              articles&nbsp;down below&nbsp;
-              <ArrowDown />
-            </Link>
-          </TypographyP>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 opacity-100 delay-75 translate-y-0"
+            classNameNotInView="opacity-0 translate-y-[-1rem]"
+          >
+            <TypographyH1 className="my-6 text-4xl md:my-3 md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-500 opacity-100"
+            classNameNotInView="opacity-0 translate-y-[-1rem]"
+          >
+            <TypographyP className="my-3 text-lg">
+              I&apos;m a full-stack Software Engineer, UI/UX enthusiast, full time tinkerer, & self-proclaimed developer
+              advocate.
+            </TypographyP>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-700 opacity-100"
+            classNameNotInView="opacity-0 translate-y-[-1rem]"
+          >
+            <TypographyP className="mb-4 text-lg">
+              I currently work as a Staff Software Engineer focusing on creating web platform tools. In my free-time
+              I&apos;m also an indie developer, gamer, & developer blogger. You can read my&nbsp;
+              <Link href="#latest-blog-posts" className="inline-flex underline underline-offset-1">
+                articles&nbsp;down below&nbsp;
+                <ArrowDown />
+              </Link>
+            </TypographyP>
+          </AnimationOnScroll>
           <PhotoGrid />
+          {/* </AnimationOnScroll> */}
           <AnimationOnScroll
             classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
             classNameNotInView="opacity-0 translate-y-0"

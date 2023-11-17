@@ -10,7 +10,7 @@ export function PhotoGrid() {
         alt="James finishing a Spartan Race"
         width={160}
         height={160}
-        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity duration-700"
+        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-1000 duration-700"
         onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
       />
       <Image
@@ -18,7 +18,7 @@ export function PhotoGrid() {
         alt="Picture of James on a bridge"
         width={160}
         height={160}
-        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-300 duration-700"
+        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-1300 duration-700"
         onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
       />
       <Image
@@ -26,7 +26,7 @@ export function PhotoGrid() {
         alt="James playing guitar"
         width={160}
         height={160}
-        className="mb-0 aspect-square rounded-lg object-cover object-top opacity-0 shadow-xl transition-opacity delay-100 duration-700 sm:mb-4 sm:aspect-auto"
+        className="ease mb-0 aspect-square rounded-lg object-cover object-top opacity-0 shadow-xl transition-opacity delay-1100 duration-700 sm:mb-4 sm:aspect-auto"
         onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
       />
       <Image
@@ -34,7 +34,7 @@ export function PhotoGrid() {
         alt="Picture of James in NYC"
         width={160}
         height={160}
-        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-500 duration-700"
+        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-1500 duration-700"
         onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
       />
       <Image
@@ -42,7 +42,7 @@ export function PhotoGrid() {
         alt="James in a national park in southern Utah"
         width={120}
         height={120}
-        className="mb-4 w-full rounded-lg opacity-0 shadow-xl transition-opacity delay-200 duration-700"
+        className="mb-4 w-full rounded-lg opacity-0 shadow-xl transition-opacity delay-1200 duration-700"
         onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
       />
       <Image
@@ -50,7 +50,7 @@ export function PhotoGrid() {
         alt="Picture of James Skateboarding"
         width={160}
         height={160}
-        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-700 duration-700"
+        className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-1700 duration-700"
         onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
       />
     </div>
