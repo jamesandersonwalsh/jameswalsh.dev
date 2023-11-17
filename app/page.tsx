@@ -1,10 +1,12 @@
-import { Clock } from 'lucide-react'
+import { ArrowDown, Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { PhotoGrid } from './photo-grid'
 import fetchPosts from './posts/fetchPosts'
 import { ReadMore } from './posts/read-more'
 
+import { AnimationOnScroll } from '@/components/custom/animate-on-scroll'
 import { HANDLE } from '@/components/custom/app-shell/constants'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
@@ -21,87 +23,82 @@ export default function Home() {
     <>
       <div className="mb-10 flex flex-col items-center">
         <div className="flex max-w-prose flex-col items-center gap-2 text-center">
-          <TypographyH1 className="text-5xl md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
-          <div className="columns-2 gap-4 sm:columns-3">
-            <Image
-              src="/portraits/spartan-race.webp"
-              alt="James finishing a Spartan Race"
-              width={160}
-              height={160}
-              className="mb-4 rounded-lg shadow-xl"
-            />
-            <Image
-              src="/portraits/bridge.webp"
-              alt="Picture of James on a bridge"
-              width={160}
-              height={160}
-              className="mb-4 rounded-lg shadow-xl"
-            />
-            <Image
-              src="/portraits/shortboard.webp"
-              alt="James playing guitar"
-              width={160}
-              height={160}
-              className="mb-0 aspect-square rounded-lg object-cover object-top shadow-xl sm:mb-4 sm:aspect-auto"
-            />
-            <Image
-              src="/portraits/aviators.webp"
-              alt="Picture of James in NYC"
-              width={160}
-              height={160}
-              className="mb-4 rounded-lg shadow-xl"
-            />
-            <Image
-              src="/portraits/southern-utah.webp"
-              alt="James in a national park in southern Utah"
-              width={120}
-              height={120}
-              className="mb-4 w-full rounded-lg shadow-xl"
-            />
-            <Image
-              src="/portraits/guitar.webp"
-              alt="Picture of James Skateboarding"
-              width={160}
-              height={160}
-              className="mb-4 rounded-lg shadow-xl"
-            />
-          </div>
-          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
-            Software Engineer
-          </TypographyH2>
-          <TypographyP className="text-lg">
-            I&apos;m a Full Stack Software Engineer specializing in JavaScript. My career has been defined by embracing
-            JavaScript as much as possible. I&apos;ve written a few articles on the subject{' '}
-            <Link href="#latest-blog-posts">you can find down below.</Link>
+          <TypographyH1 className="my-6 text-4xl md:my-3 md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
+          <TypographyP className="my-3 text-lg">
+            I&apos;m a full-stack Software Engineer, UI/UX enthusiast, full time tinkerer, & self-proclaimed developer
+            advocate.
           </TypographyP>
-          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-indigo-600 to-blue-500 bg-clip-text text-5xl text-transparent">
-            UI / UX Enthusiast
-          </TypographyH2>
-          <TypographyP className="text-lg">
-            I care deeply about{' '}
-            <b>
-              <i>attention to detail</i>
-            </b>
-            . Whether it&apos;s building component libraries like Podium&apos;s Brickyard Design System, or
-            hand-crafting this site, my goal is to bring delight & surprise. The products I&apos;m most proud of have
-            been built hand-in-hand on <i>cross-functional</i> teams with talented Product Managers & Designers I can
-            learn from.
+          <TypographyP className="mb-4 text-lg">
+            I currently work as a Staff Software Engineer focusing on creating web platform tools. In my free-time
+            I&apos;m also an indie developer, gamer, & developer blogger. You can read my&nbsp;
+            <Link href="#latest-blog-posts" className="inline-flex underline underline-offset-1">
+              articles&nbsp;down below&nbsp;
+              <ArrowDown />
+            </Link>
           </TypographyP>
-          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-blue-600 to-fuchsia-500 bg-clip-text text-5xl text-transparent">
-            Developer Advocate
-          </TypographyH2>
-          <TypographyP className="text-lg">
-            Over the last decade I&apos;ve been a part of <b>shipping</b> new products to market, <b>scaling</b> web
-            services, <b>building</b> developer libraries, & <b>improving</b> developer experience on web platform
-            teams.
-          </TypographyP>
+          <PhotoGrid />
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
+            classNameNotInView="opacity-0 translate-y-0"
+          >
+            <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
+              Software Engineer
+            </TypographyH2>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-4"
+            classNameNotInView="opacity-0 translate-y-0"
+          >
+            <TypographyP className="text-lg">
+              Over the last decade I&apos;ve been a part of bringing new products to market, building design system
+              component libraries, scaling web services, & building developer tools. My career has been defined by
+              embracing the JavaScript Eecosystem as much as possible.
+            </TypographyP>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
+            classNameNotInView="opacity-0 translate-y-0"
+          >
+            <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-indigo-600 to-blue-500 bg-clip-text text-5xl text-transparent">
+              UI / UX Enthusiast
+            </TypographyH2>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-4"
+            classNameNotInView="opacity-0"
+          >
+            <TypographyP className="text-lg">
+              I care deeply about <i>attention to detail</i>. Whether it&apos;s on the job, a side-hustle, or
+              hand-crafting this site, my goal is awalys to bring delight & surprise. The products I&apos;m most proud
+              of have been built hand-in-hand on <i>cross-functional</i> teams with talented Product Managers &
+              Designers that I can learn from.
+            </TypographyP>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
+            classNameNotInView="opacity-0 translate-y-0"
+          >
+            <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-blue-600 to-fuchsia-500 bg-clip-text text-5xl text-transparent">
+              Developer Advocate
+            </TypographyH2>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease fade-in duration-500 delay-75 opacity-100 translate-y-4"
+            classNameNotInView="opacity-0 translate-y-0"
+          >
+            <TypographyP className="text-lg">
+              The more software I write, the more I&apos;ve come to believe a few core principles. Go slow to go fast.
+              Ship with quality baked in. Focus on customer outcomes more than daily output. Create tools and
+              infrastructure that help engineers around you fall into the pit of success.
+            </TypographyP>
+          </AnimationOnScroll>
         </div>
       </div>
       <TypographyH2 id="latest-blog-posts">Read Latest Blog Posts</TypographyH2>
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-4">
         {posts.map((post) => (
           <Link className="col-span-2 h-full" key={post._id} href={post.url}>
-            <Card className="h-full transition ease-in-out hover:scale-105">
+            <Card className="ease h-full transition hover:scale-105">
               <CardHeader>
                 <AspectRatio ratio={16 / 9}>
                   <Image className="rounded-lg" fill src={post.coverImage} alt={`${post.title} cover image`} />

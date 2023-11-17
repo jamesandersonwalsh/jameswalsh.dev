@@ -94,7 +94,7 @@ export default function ProjectsPage() {
       <div className="mt-8 grid w-full gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <Link key={project.title} href={project.externalLink.href}>
-            <Card className="h-full transition ease-in-out hover:scale-105">
+            <Card className="ease h-full transition hover:scale-105">
               <CardHeader className="flex flex-row items-center gap-4">
                 <Image src={project.imageLink} alt="Project logo" width={40} height={40} className="rounded-full" />
                 <CardTitle>{project.title}</CardTitle>

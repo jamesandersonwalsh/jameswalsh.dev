@@ -27,5 +27,5 @@ export const mdxComponents = {
   code: (props: PropsWithChildren) => (
     <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
   ),
-  a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'p-0')} {...props} />,
+  a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'text-md p-0')} {...props} />,
 }

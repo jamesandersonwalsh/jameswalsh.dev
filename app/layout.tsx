@@ -22,17 +22,12 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en" className={cn(`${GeistSans.variable} ${GeistMono.variable}`, 'dark')}>
+    <html lang="en" className={cn(`${GeistSans.variable} ${GeistMono.variable}`, 'dark scroll-smooth')}>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <body className="flex flex-col overflow-x-hidden md:w-screen md:items-center">
-        <div
-          data-testid="paper"
-          className="flex min-h-screen w-full max-w-[1024px] flex-col items-center p-4 md:w-[90vw] md:p-8 lg:w-[80vw]"
-        >
-          <TopNavbar />
-          <main className="mt-4 flex flex-col py-10">{children}</main>
-        </div>
+      <body className="flex w-screen flex-col md:items-center">
+        <TopNavbar />
+        <main className="mt-4 flex flex-col px-6 py-10 sm:px-0 md:w-[768px]">{children}</main>
         <Footer />
       </body>
     </html>
