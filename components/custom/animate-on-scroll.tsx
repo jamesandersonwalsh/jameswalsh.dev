@@ -13,7 +13,7 @@ export function AnimationOnScroll({
 }) {
   return (
     <InView triggerOnce threshold={1}>
-      {({ inView, ref, entry }) => (
+      {({ inView, ref }) => (
         <div ref={ref} className={inView ? classNameInView : classNameNotInView}>
           {children}
         </div>
