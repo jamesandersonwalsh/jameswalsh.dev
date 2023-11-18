@@ -124,15 +124,15 @@ export default function Home() {
             classNameNotInView="opacity-0 translate-y-0"
           >
             <TypographyP className="text-lg">
-              The more software I write, the more I&apos;ve come to believe a few core principles. Go slow to go fast.
-              Ship with quality baked in. Focus on customer outcomes more than daily output. Create tools and
-              infrastructure that help engineers around you fall into the pit of success.
+              As I&apos;ve written more software, I&apos;ve come to believe a few core principles. Go slow to go fast.
+              Ship with quality baked-in. Focus on customer outcomes more than technical output. Create tools that help
+              engineers around you do their jobs.
             </TypographyP>
           </AnimationOnScroll>
         </div>
       </div>
       <TypographyH2 id="latest-blog-posts">Read Latest Blog Posts</TypographyH2>
-      <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-4">
+      <section className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-4">
         {posts.map((post) => (
           <Link className="col-span-2 h-full" key={post._id} href={post.url}>
             <Card className="ease h-full transition hover:scale-105">
@@ -156,7 +156,7 @@ export default function Home() {
             </Card>
           </Link>
         ))}
-      </div>
+      </section>
       <div>
         <Separator className="my-6" />
         <TypographyH2 id="publications">Read Anywhere I Publish</TypographyH2>
