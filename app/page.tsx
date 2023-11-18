@@ -49,11 +49,11 @@ export default function Home() {
           </AnimationOnScroll>
           <PhotoGrid />
           <AnimationOnScroll
-            classNameInView="ease duration-300 delay-1700 opacity-100"
+            classNameInView="ease duration-300 delay-75 tall:delay-1700 opacity-100"
             classNameNotInView="opacity-0 translate-y-[-1rem]"
           >
             <TypographyP className="mb-4 text-lg">
-              Right now I&apos;m focused on creating rich web experiences with full-stack{' '}
+              Today I&apos;m focused on creating rich web experiences with full-stack{' '}
               <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">React</code> using tools like{' '}
               <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">Next.js</code> &{' '}
               <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">TailwindCSS</code> . I&apos;m writing
