@@ -65,6 +65,9 @@ module.exports = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      screens: {
+        tall: { raw: '(min-height: 1072px)' },
+      },
       transitionDelay: {
         '1100': '1100ms',
         '1150': '1150ms',

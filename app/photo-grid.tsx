@@ -4,14 +4,14 @@ import Image from 'next/image'
 
 export function PhotoGrid() {
   return (
-    <div className="columns-2 gap-4 sm:columns-3">
+    <div className="h-[648px] columns-2 gap-4 sm:h-auto sm:columns-3">
       <div className="relative mb-4 h-40">
         <Image
           src="/portraits/spartan-race.webp"
           alt="James finishing a Spartan Race"
           width={160}
           height={160}
-          className="mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-1000 duration-700"
+          className="ease mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-1000 duration-500"
           onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
         />
       </div>
@@ -21,7 +21,7 @@ export function PhotoGrid() {
           alt="Picture of James on a bridge"
           width={160}
           height={160}
-          className="rounded-lg opacity-0 shadow-xl transition-opacity delay-1300 duration-700"
+          className="ease rounded-lg opacity-0 shadow-xl transition-opacity delay-1300 duration-500"
           onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
         />
       </div>
@@ -31,7 +31,7 @@ export function PhotoGrid() {
           alt="James playing guitar"
           width={160}
           height={160}
-          className="ease aspect-square rounded-lg object-cover object-top opacity-0 shadow-xl transition-opacity delay-1100 duration-700 sm:aspect-auto"
+          className="ease aspect-square rounded-lg object-cover object-top opacity-0 shadow-xl transition-opacity delay-1100 duration-500 sm:aspect-auto"
           onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
         />
       </div>
@@ -41,7 +41,7 @@ export function PhotoGrid() {
           alt="Picture of James in NYC"
           width={160}
           height={160}
-          className="rounded-lg opacity-0 shadow-xl transition-opacity delay-1500 duration-700"
+          className="ease rounded-lg opacity-0 shadow-xl transition-opacity delay-1500 duration-500"
           onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
         />
       </div>
@@ -51,7 +51,7 @@ export function PhotoGrid() {
           alt="James in a national park in southern Utah"
           width={120}
           height={120}
-          className="w-full rounded-lg opacity-0 shadow-xl transition-opacity delay-1200 duration-700"
+          className="ease w-full rounded-lg opacity-0 shadow-xl transition-opacity delay-1200 duration-500"
           onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
         />
       </div>
@@ -61,7 +61,7 @@ export function PhotoGrid() {
           alt="Picture of James Skateboarding"
           width={160}
           height={160}
-          className="rounded-lg opacity-0 shadow-xl transition-opacity delay-1700 duration-700"
+          className="ease rounded-lg opacity-0 shadow-xl transition-opacity delay-1700 duration-500"
           onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
         />
       </div>
