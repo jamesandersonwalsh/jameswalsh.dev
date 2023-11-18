@@ -16,7 +16,7 @@ jobs:
         with:
           devto_key: ${{ secrets.DEVTO_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: 'posts/**/*.md'
+          files: 'posts/**/*.mdx'
           branch: main
           conventional_commits: false
           dry_run: false
