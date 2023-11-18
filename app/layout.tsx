@@ -39,7 +39,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <body className="flex w-screen flex-col md:items-center">
           <TopNavbar />
-          <main className="mt-4 flex flex-col px-6 py-10 sm:px-0 md:w-[768px]">{children}</main>
+          <main className="mt-4 flex flex-col px-6 py-10 sm:px-4 md:w-[768px]">{children}</main>
           <Footer />
         </body>
       </html>

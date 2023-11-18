@@ -44,16 +44,38 @@ export default function Home() {
           >
             <TypographyP className="mb-4 text-lg">
               I currently work as a Staff Software Engineer focusing on creating web platform tools. In my free-time
-              I&apos;m also an indie developer, gamer, & developer blogger. You can read my&nbsp;
-              <Link href="#latest-blog-posts" className="inline-flex underline underline-offset-1">
-                articles&nbsp;down below&nbsp;
-                <ArrowDown />
-              </Link>
+              I&apos;m also an indie developer, gamer, & developer blogger.
             </TypographyP>
           </AnimationOnScroll>
           <PhotoGrid />
           <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
+            classNameInView="ease duration-300 delay-1700 opacity-100"
+            classNameNotInView="opacity-0 translate-y-[-1rem]"
+          >
+            <TypographyP className="mb-4 text-lg">
+              Right now I&apos;m focused on creating rich web experiences with full-stack{' '}
+              <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">React</code> using tools like{' '}
+              <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">Next.js</code> &{' '}
+              <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">TailwindCSS</code> . I&apos;m writing
+              blog posts about the things I&apos;m learning all along the way.
+            </TypographyP>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-2000 opacity-100 w-80"
+            classNameNotInView="opacity-0 translate-y-[-1rem]"
+          >
+            <Link href="#latest-blog-posts">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="inline-flex">
+                    Read my articles below <ArrowDown />
+                  </CardTitle>
+                </CardHeader>
+              </Card>
+            </Link>
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            classNameInView="ease duration-300 delay-75 tall:delay-2200 opacity-100 translate-y-5"
             classNameNotInView="opacity-0 translate-y-0"
           >
             <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
@@ -61,7 +83,7 @@ export default function Home() {
             </TypographyH2>
           </AnimationOnScroll>
           <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-4"
+            classNameInView="ease duration-300 delay-75 tall:delay-2300 opacity-100 translate-y-4"
             classNameNotInView="opacity-0 translate-y-0"
           >
             <TypographyP className="text-lg">
@@ -143,10 +165,10 @@ export default function Home() {
         <Card>
           <CardHeader className="flex flex-row gap-4">
             <Image src="/logos/blog/hey-world.png" className="rounded-md" width={28} height={28} alt="Hey World Logo" />
-            <CardTitle>Hey World</CardTitle>
+            <CardTitle>HEY</CardTitle>
           </CardHeader>
           <CardContent>
-            Checkout my non-technical blog on HEY. Use the link below to get posts directly to your email,&nbsp;
+            Checkout non-technical posts on HEY. Use the link below to get posts directly to your email,&nbsp;
             <i>or grab the RSS feed</i>.
           </CardContent>
           <CardFooter>
@@ -172,10 +194,10 @@ export default function Home() {
         <Card>
           <CardHeader className="flex flex-row gap-4">
             <Image src="/logos/blog/dev-to.png" className="rounded-md" width={28} height={28} alt="DEV.TO Logo" />
-            <CardTitle>DEV.TO</CardTitle>
+            <CardTitle>dev.to</CardTitle>
           </CardHeader>
           <CardContent>
-            DEV.to is my all-time favorite blogging community. You can also find these posts over there. Follow for
+            dev.to is my all-time favorite blogging community. You can also find these posts over there. Follow for
             more!
           </CardContent>
           <CardFooter>
