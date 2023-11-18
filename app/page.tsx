@@ -61,7 +61,7 @@ export default function Home() {
             </TypographyP>
           </AnimationOnScroll>
           <AnimationOnScroll
-            classNameInView="ease duration-300 delay-2000 opacity-100 w-80"
+            classNameInView="ease duration-300 delay-75 tall:delay-2000 opacity-100 w-80"
             classNameNotInView="opacity-0 translate-y-[-1rem]"
           >
             <Link href="#latest-blog-posts">
