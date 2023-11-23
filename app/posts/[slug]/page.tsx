@@ -3,15 +3,12 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useMDXComponent } from 'next-contentlayer/hooks'
 
 import fetchPosts from '../fetchPosts'
 
 import { Tag } from './tag'
 
-import { Post } from '@/.contentlayer/generated'
 import { Time } from '@/components/custom/time'
-import { mdxComponents } from '@/components/mdx-components'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
