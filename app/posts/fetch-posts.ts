@@ -2,7 +2,7 @@
 
 // import { compareDesc } from 'date-fns'
 
-export async function getAllPosts(): Promise<unknown[]> {
+export async function fetchAllPosts(): Promise<unknown[]> {
   // const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
   // return posts
 

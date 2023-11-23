@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import fetchPosts from './fetchPosts'
+import { fetchAllPosts } from './fetch-posts'
 import { ReadMore } from './read-more'
 
 import { Time } from '@/components/custom/time'
@@ -16,7 +16,7 @@ export const metadata = {
 }
 
 export default function PostsIndexPage() {
-  const posts = fetchPosts()
+  const posts = fetchAllPosts()
 
   return (
     <>

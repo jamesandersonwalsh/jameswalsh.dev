@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import fetchPosts from '../fetchPosts'
+import fetchPosts from '../fetch-posts'
 
 import { Tag } from './tag'
 
