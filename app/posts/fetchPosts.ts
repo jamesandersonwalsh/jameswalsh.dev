@@ -1,8 +1,10 @@
-import { compareDesc } from 'date-fns'
+'use server'
 
-import { Post, allPosts } from 'contentlayer/generated'
+// import { compareDesc } from 'date-fns'
 
-export default function getAllPosts(): Post[] {
-  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
-  return posts
+export async function getAllPosts(): Promise<unknown[]> {
+  // const posts = allPosts.sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+  // return posts
+
+  throw new Error('Not implemented')
 }
