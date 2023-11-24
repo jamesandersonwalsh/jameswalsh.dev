@@ -4,12 +4,13 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { Suspense } from 'react'
 
 import { fetchAllPosts, fetchPostBySlug, getPreviousPost } from '../fetch-posts'
 
 import { Tag } from './tag'
 
-import { useMDXComponents } from '@/app/mdx-components'
+import { components } from '@/app/mdx-components'
 import { Time } from '@/components/custom/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
@@ -50,7 +51,6 @@ interface PostPageProps {
 export default function PostPage({ params }: PostPageProps) {
   const post = fetchPostBySlug(params.slug)
   const previousPost = getPreviousPost(params.slug)
-  // const MDXContent = useMDXComponents(post.content)
 
   return (
     <div className="py-10 md:px-24">
@@ -73,7 +73,15 @@ export default function PostPage({ params }: PostPageProps) {
         </span>
       </div>
       <article className="mt-8">
-        <MDXRemote source={post.content} components={useMDXComponents} />
+        <Suspense
+          fallback={
+            <>
+              <TypographyH1 className="animate-pulse">Loading...</TypographyH1>
+            </>
+          }
+        >
+          <MDXRemote source={post.content} components={components} />
+        </Suspense>
       </article>
       <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
         <Link href="/posts" className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
