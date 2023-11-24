@@ -37,9 +37,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Contentlayer build
-        run: pnpm contentlayer build
-
       - name: Run Typescript Compile
         id: run-build
         run: pnpm type-check

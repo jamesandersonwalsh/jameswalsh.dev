@@ -92,8 +92,8 @@ export default function AboutPage() {
               <CardTitle>How I Built This</CardTitle>
             </CardHeader>
             <CardContent>
-              This site was built with Next.js, Typescript, ContentLayer & TailwindCSS. Use the link below to checkout
-              the source code.
+              This site was built with Next.js, Typescript, & TailwindCSS. Use the link below to checkout the source
+              code.
             </CardContent>
             <CardFooter>
               <Link
