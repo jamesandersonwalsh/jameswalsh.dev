@@ -3,20 +3,19 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { PhotoGrid } from './photo-grid'
-// import fetchPosts from './posts/fetchPosts'
-// import { ReadMore } from './posts/read-more'
+import { fetchAllPosts } from './posts/fetch-posts'
+import { ReadMore } from './posts/read-more'
 
 import { HANDLE } from '@/components/custom/app-shell/constants'
-// import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
-// import { calculateTimeToRead } from '@/helpers'
-import { cn } from '@/lib/utils'
+import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export default function Home() {
-  // const posts = fetchPosts()
+  const posts = fetchAllPosts()
 
   return (
     <>
@@ -77,8 +76,8 @@ export default function Home() {
       </div>
       <TypographyH2 id="latest-blog-posts">Read Latest Blog Posts</TypographyH2>
       <section className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-4">
-        {/* {posts.map((post) => (
-          <Link className="col-span-2 h-full" key={post._id} href={post.url}>
+        {posts.map((post) => (
+          <Link className="col-span-2 h-full" key={post.title} href={`/posts/${post.slug}`}>
             <Card className="ease h-full transition hover:scale-105">
               <CardHeader>
                 <AspectRatio ratio={16 / 9}>
@@ -90,7 +89,7 @@ export default function Home() {
                 <span className="flex items-center text-muted-foreground">
                   <Clock width={16} height={16} />
                   &nbsp;
-                  {calculateTimeToRead(post.body.raw)}&nbsp;min read
+                  {calculateTimeToRead(post.content)}&nbsp;min read
                 </span>
                 <span>{post.brief}</span>
               </CardContent>
@@ -99,7 +98,7 @@ export default function Home() {
               </CardFooter>
             </Card>
           </Link>
-        ))} */}
+        ))}
       </section>
       <div>
         <Separator className="my-6" />

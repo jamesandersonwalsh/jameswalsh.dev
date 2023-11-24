@@ -4,24 +4,24 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import fetchPosts from '../fetch-posts'
+import { fetchAllPosts, fetchPostBySlug, getPreviousPost } from '../fetch-posts'
 
 import { Tag } from './tag'
 
+// import { useMDXComponents } from '@/app/mdx-components'
 import { Time } from '@/components/custom/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
-import { calculateTimeToRead } from '@/helpers'
-import { cn } from '@/lib/utils'
+import { calculateTimeToRead, cn } from '@/lib/utils'
 
-const allPosts = fetchPosts()
-
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+export const generateStaticParams = async () => fetchAllPosts().map((post) => ({ slug: post.slug }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const post = fetchPostBySlug(params.slug)
+  if (!post) {
+    throw new Error(`Post not found for slug: ${params.slug}`)
+  }
 
   return {
     title: post.title,
@@ -46,25 +46,10 @@ interface PostPageProps {
   params: { slug: string }
 }
 
-function getPostBySlug(slug: string): Post {
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
-  if (!post) throw new Error(`Post not found for slug: ${slug}`)
-
-  return post
-}
-
-function getPreviousPost(slug: string): Post | undefined {
-  const postIndex = allPosts.findIndex((post) => post._raw.flattenedPath === slug)
-
-  if (postIndex === allPosts.length - 1) return undefined
-
-  return allPosts[postIndex + 1]
-}
-
 export default function PostPage({ params }: PostPageProps) {
-  const post = getPostBySlug(params.slug)
+  const post = fetchPostBySlug(params.slug)
   const previousPost = getPreviousPost(params.slug)
-  const MDXContent = useMDXComponent(post.body.code)
+  // const MDXContent = useMDXComponents(post.content)
 
   return (
     <div className="py-10 md:px-24">
@@ -81,13 +66,14 @@ export default function PostPage({ params }: PostPageProps) {
         <span className="flex flex-row text-lg font-medium">
           <Time dateTime={post.publishedAt} />
           <span className="ml-2 flex flex-row gap-1">
-            —&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read&nbsp;(
+            —&nbsp;{calculateTimeToRead(post.content)}&nbsp;min read&nbsp;(
             {formatDistanceToNow(new Date(post.publishedAt))} ago)
           </span>
         </span>
       </div>
       <article className="mt-8">
-        <MDXContent components={mdxComponents} />
+        {post.content}
+        {/* <MDXContent components={MDXContent} /> */}
       </article>
       <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
         <Link href="/posts" className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
@@ -95,7 +81,7 @@ export default function PostPage({ params }: PostPageProps) {
           &nbsp;All posts
         </Link>
         {!!previousPost && (
-          <Link href={previousPost.url} className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
+          <Link href={`/posts/${previousPost.slug}`} className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
             <ChevronRight width={16} height={16} />
             &nbsp;Next
           </Link>
