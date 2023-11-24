@@ -1,4 +1,3 @@
-import { MDXComponents } from 'mdx/types'
 import Image, { ImageProps } from 'next/image'
 import { HTMLAttributes, PropsWithChildren } from 'react'
 
@@ -28,11 +27,4 @@ export const components = {
     <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
   ),
   a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'text-md p-0')} {...props} />,
-}
-
-export function useMDXComponents(overrides: MDXComponents): MDXComponents {
-  return {
-    ...components,
-    overrides,
-  }
 }

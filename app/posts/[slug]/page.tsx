@@ -10,8 +10,8 @@ import { fetchAllPosts, fetchPostBySlug, getPreviousPost } from '../fetch-posts'
 
 import { Tag } from './tag'
 
-import { components } from '@/app/mdx-components'
 import { Time } from '@/components/custom/time'
+import { components } from '@/components/mdx-components'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
