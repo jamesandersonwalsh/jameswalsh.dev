@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import fetchPosts from '../fetchPosts'
+import fetchPosts from '../fetch-posts'
 
 import { Tag } from './tag'
 

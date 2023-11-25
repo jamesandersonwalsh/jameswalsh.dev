@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { PhotoGrid } from './photo-grid'
-import fetchPosts from './posts/fetchPosts'
+import fetchPosts from './posts/fetch-posts'
 import { ReadMore } from './posts/read-more'
 
 import { AnimationOnScroll } from '@/components/custom/animate-on-scroll'
