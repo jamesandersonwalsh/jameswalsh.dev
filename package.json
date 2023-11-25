@@ -37,7 +37,6 @@
     "next-contentlayer": "^0.3.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-intersection-observer": "^9.5.3",
     "shiki": "^0.14.5",
     "tailwind-merge": "^2.0.0"
   },
