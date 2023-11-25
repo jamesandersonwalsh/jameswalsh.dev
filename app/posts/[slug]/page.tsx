@@ -15,8 +15,7 @@ import { mdxComponents } from '@/components/mdx-components'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
-import { calculateTimeToRead } from '@/helpers'
-import { cn } from '@/lib/utils'
+import { calculateTimeToRead, cn } from '@/lib/utils'
 
 const allPosts = fetchPosts()
 

@@ -8,8 +8,7 @@ import { Time } from '@/components/custom/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1, TypographyP } from '@/components/ui/typography'
-import { calculateTimeToRead } from '@/helpers'
-
+import { calculateTimeToRead } from '@/lib/utils'
 export const metadata = {
   title: 'Articles - James Walsh',
   description: `Articles I've written`,

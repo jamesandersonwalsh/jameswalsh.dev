@@ -13,8 +13,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
-import { calculateTimeToRead } from '@/helpers'
-import { cn } from '@/lib/utils'
+import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export default function Home() {
   const posts = fetchPosts()
