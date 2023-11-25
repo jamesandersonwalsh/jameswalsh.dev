@@ -27,12 +27,12 @@ export default function Home() {
             advocate.
           </TypographyP>
           <TypographyP className="mb-4 text-lg">
-            I currently work as a Staff Software Engineer creating both platform tools & rich web experiences with
-            full-stack <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">React</code> using tools
+            I currently work as a Staff Software Engineer creating developer tools & rich web experiences. Im interested
+            in full-stack <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">React</code> using tools
             like <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code> &{' '}
-            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">TailwindCSS</code> . I&apos;m writing
-            blog posts about the things I&apos;m learning all along the way. In my free-time I&apos;m also an indie
-            developer, gamer, & developer blogger.
+            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Remix</code>. I&apos;m writing blog
+            posts about the things I&apos;m learning along the way. In my free-time I&apos;m also an indie developer,
+            gamer, & developer blogger.
           </TypographyP>
           <PhotoGrid />
           <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
