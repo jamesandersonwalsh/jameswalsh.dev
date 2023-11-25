@@ -4,8 +4,8 @@ import { GeistSans, GeistMono } from 'geist/font'
 import { Metadata } from 'next'
 import { PropsWithChildren } from 'react'
 
-import Footer from '@/components/custom/app-shell/footer'
-import { TopNavbar } from '@/components/custom/app-shell/top-nav'
+import Footer from '@/components/app-shell/footer'
+import { TopNavbar } from '@/components/app-shell/top-nav'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {

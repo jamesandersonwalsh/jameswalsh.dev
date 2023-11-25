@@ -6,7 +6,7 @@ import { PhotoGrid } from './photo-grid'
 import fetchPosts from './posts/fetch-posts'
 import { ReadMore } from './posts/read-more'
 
-import { HANDLE } from '@/components/custom/app-shell/constants'
+import { HANDLE } from '@/components/app-shell/constants'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'

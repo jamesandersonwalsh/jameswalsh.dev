@@ -1,10 +1,9 @@
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 
-import { buttonVariants } from '../../ui/button'
-
 import { NAVIGATIONAL_ITEMS } from './constants'
 
+import { buttonVariants } from '@/components/ui/button'
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 
