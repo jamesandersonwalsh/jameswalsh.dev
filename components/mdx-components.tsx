@@ -23,7 +23,6 @@ export const mdxComponents = {
   ol: (props: PropsWithChildren) => <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />,
   ul: (props: PropsWithChildren) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
   blockquote: (props: PropsWithChildren) => <TypographyBlockquote {...props} />,
-  pre: (props: PropsWithChildren) => <pre className="my-2 rounded-xl bg-slate-800 p-1 pt-6" {...props} />,
   code: (props: PropsWithChildren) => (
     <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
   ),
