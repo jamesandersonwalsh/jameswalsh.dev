@@ -53,7 +53,7 @@ export default function PostPage({ params }: PostPageProps) {
   const previousPost = getPreviousPost(params.slug)
 
   return (
-    <div className="py-10 md:px-24">
+    <div className="py-10">
       <AspectRatio ratio={16 / 9}>
         <Image src={post.coverImage} alt="Article cover image" className="rounded-xl" priority fill />
       </AspectRatio>
