@@ -41,12 +41,12 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: 'material-theme-darker',
+          theme: 'one-dark-pro',
           keepBackground: false,
           getHighlighter: (options: HighlighterOptions) => {
             return getHighlighter({
               ...options,
-              themes: ['material-theme-darker'],
+              themes: ['one-dark-pro'],
               langs: ['js', 'ts', 'jsx', 'tsx', 'json', 'json5', 'shell', 'bash', 'astro', 'markdown'],
             })
           },
