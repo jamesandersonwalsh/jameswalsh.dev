@@ -11,8 +11,7 @@ export function PhotoGrid() {
           alt="James finishing a Spartan Race"
           width={160}
           height={160}
-          className="ease mb-4 rounded-lg opacity-0 shadow-xl transition-opacity delay-1000 duration-500"
-          onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
+          className="mb-4 rounded-lg shadow-xl"
         />
       </div>
       <div className="relative mb-4 md:h-72">
@@ -21,8 +20,7 @@ export function PhotoGrid() {
           alt="Picture of James on a bridge"
           width={160}
           height={160}
-          className="ease rounded-lg opacity-0 shadow-xl transition-opacity delay-1300 duration-500"
-          onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
+          className="mb-4 rounded-lg shadow-xl"
         />
       </div>
       <div className="relate mb-0 h-40 sm:mb-4 sm:h-72">
@@ -31,8 +29,7 @@ export function PhotoGrid() {
           alt="James playing guitar"
           width={160}
           height={160}
-          className="ease aspect-square rounded-lg object-cover object-top opacity-0 shadow-xl transition-opacity delay-1100 duration-500 sm:aspect-auto"
-          onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
+          className="aspect-square rounded-lg object-cover object-top shadow-xl sm:aspect-auto"
         />
       </div>
       <div className="relative mb-4 h-40">
@@ -41,8 +38,7 @@ export function PhotoGrid() {
           alt="Picture of James in NYC"
           width={160}
           height={160}
-          className="ease rounded-lg opacity-0 shadow-xl transition-opacity delay-1500 duration-500"
-          onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
+          className="rounded-lg shadow-xl"
         />
       </div>
       <div className="relative mb-4 h-40">
@@ -51,8 +47,7 @@ export function PhotoGrid() {
           alt="James in a national park in southern Utah"
           width={120}
           height={120}
-          className="ease w-full rounded-lg opacity-0 shadow-xl transition-opacity delay-1200 duration-500"
-          onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
+          className="w-full rounded-lg shadow-xl"
         />
       </div>
       <div className="relative mb-4 h-72">
@@ -61,8 +56,7 @@ export function PhotoGrid() {
           alt="Picture of James Skateboarding"
           width={160}
           height={160}
-          className="ease rounded-lg opacity-0 shadow-xl transition-opacity delay-1700 duration-500"
-          onLoad={(image) => image.currentTarget.classList.remove('opacity-0')}
+          className="rounded-lg shadow-xl"
         />
       </div>
     </div>
