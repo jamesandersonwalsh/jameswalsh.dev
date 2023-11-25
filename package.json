@@ -38,7 +38,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "^9.5.3",
-    "shiki": "^0.14.5"
+    "shiki": "^0.14.5",
+    "tailwind-merge": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "20.9.3",
@@ -60,7 +61,6 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^3.0.1",
     "tailwindcss": "^3.3.5",
-    "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "5.2.2"
   }
