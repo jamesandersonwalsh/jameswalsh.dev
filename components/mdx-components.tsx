@@ -24,7 +24,10 @@ export const mdxComponents = {
   ul: (props: PropsWithChildren) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
   blockquote: (props: PropsWithChildren) => <TypographyBlockquote {...props} />,
   code: (props: PropsWithChildren) => (
-    <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
+    <code className="relative rounded-lg bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
+  ),
+  pre: ({ className, ...rest }: HTMLAttributes<HTMLElement>) => (
+    <pre className={cn(className, 'my-6 [&>code:nth-child(1)]:p-4')} {...rest} />
   ),
   a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'text-md p-0')} {...props} />,
 }
