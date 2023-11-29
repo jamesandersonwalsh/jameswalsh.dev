@@ -1,20 +1,18 @@
-import { ArrowDown, Clock } from 'lucide-react'
+import { Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import { PhotoGrid } from './photo-grid'
-import fetchPosts from './posts/fetchPosts'
+import fetchPosts from './posts/fetch-posts'
 import { ReadMore } from './posts/read-more'
 
-import { AnimationOnScroll } from '@/components/custom/animate-on-scroll'
-import { HANDLE } from '@/components/custom/app-shell/constants'
+import { HANDLE } from '@/components/app-shell/constants'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
-import { calculateTimeToRead } from '@/helpers'
-import { cn } from '@/lib/utils'
+import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export default function Home() {
   const posts = fetchPosts()
@@ -23,112 +21,45 @@ export default function Home() {
     <>
       <div className="mb-10 flex flex-col items-center">
         <div className="flex max-w-prose flex-col items-center gap-2 text-center">
-          <AnimationOnScroll
-            classNameInView="ease duration-300 opacity-100 delay-75 translate-y-0"
-            classNameNotInView="opacity-0 translate-y-[-1rem]"
-          >
-            <TypographyH1 className="my-6 text-4xl md:my-3 md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-500 opacity-100"
-            classNameNotInView="opacity-0 translate-y-[-1rem]"
-          >
-            <TypographyP className="my-3 text-lg">
-              I&apos;m a full-stack Software Engineer, UI/UX enthusiast, full time tinkerer, & self-proclaimed developer
-              advocate.
-            </TypographyP>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-700 opacity-100"
-            classNameNotInView="opacity-0 translate-y-[-1rem]"
-          >
-            <TypographyP className="mb-4 text-lg">
-              I currently work as a Staff Software Engineer focusing on creating web platform tools. In my free-time
-              I&apos;m also an indie developer, gamer, & developer blogger.
-            </TypographyP>
-          </AnimationOnScroll>
+          <TypographyH1 className="my-6 text-4xl md:my-3 md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
+          <TypographyP className="my-3 text-lg">
+            I&apos;m a full-stack Software Engineer, UI/UX enthusiast, full time tinkerer, & self-proclaimed developer
+            advocate.
+          </TypographyP>
+          <TypographyP className="mb-4 text-lg">
+            I currently work as a Staff Software Engineer creating developer tools & rich web experiences. Im interested
+            in full-stack <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">React</code> using tools
+            like <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code> &{' '}
+            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Remix</code>. I&apos;m writing blog
+            posts about the things I&apos;m learning along the way. In my free-time I&apos;m also an indie developer,
+            gamer, & developer blogger.
+          </TypographyP>
           <PhotoGrid />
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 tall:delay-1700 opacity-100"
-            classNameNotInView="opacity-0 translate-y-[-1rem]"
-          >
-            <TypographyP className="mb-4 text-lg">
-              Today I&apos;m focused on creating rich web experiences with full-stack{' '}
-              <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">React</code> using tools like{' '}
-              <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">Next.js</code> &{' '}
-              <code className="gray-300 rounded-sm bg-gray-600 px-2 py-1 text-sm">TailwindCSS</code> . I&apos;m writing
-              blog posts about the things I&apos;m learning all along the way.
-            </TypographyP>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 tall:delay-2000 opacity-100 w-80"
-            classNameNotInView="opacity-0 translate-y-[-1rem]"
-          >
-            <Link href="#latest-blog-posts">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="inline-flex">
-                    Read my articles below <ArrowDown />
-                  </CardTitle>
-                </CardHeader>
-              </Card>
-            </Link>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 tall:delay-2200 opacity-100 translate-y-5"
-            classNameNotInView="opacity-0 translate-y-0"
-          >
-            <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
-              Software Engineer
-            </TypographyH2>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 tall:delay-2300 opacity-100 translate-y-4"
-            classNameNotInView="opacity-0 translate-y-0"
-          >
-            <TypographyP className="text-lg">
-              Over the last decade I&apos;ve been a part of bringing new products to market, building design system
-              component libraries, scaling web services, & building developer tools. My career has been defined by
-              embracing the JavaScript Eecosystem as much as possible.
-            </TypographyP>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
-            classNameNotInView="opacity-0 translate-y-0"
-          >
-            <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-indigo-600 to-blue-500 bg-clip-text text-5xl text-transparent">
-              UI / UX Enthusiast
-            </TypographyH2>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-4"
-            classNameNotInView="opacity-0"
-          >
-            <TypographyP className="text-lg">
-              I care deeply about <i>attention to detail</i>. Whether it&apos;s on the job, a side-hustle, or
-              hand-crafting this site, my goal is awalys to bring delight & surprise. The products I&apos;m most proud
-              of have been built hand-in-hand on <i>cross-functional</i> teams with talented Product Managers &
-              Designers that I can learn from.
-            </TypographyP>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease duration-300 delay-75 opacity-100 translate-y-5"
-            classNameNotInView="opacity-0 translate-y-0"
-          >
-            <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-blue-600 to-fuchsia-500 bg-clip-text text-5xl text-transparent">
-              Developer Advocate
-            </TypographyH2>
-          </AnimationOnScroll>
-          <AnimationOnScroll
-            classNameInView="ease fade-in duration-500 delay-75 opacity-100 translate-y-4"
-            classNameNotInView="opacity-0 translate-y-0"
-          >
-            <TypographyP className="text-lg">
-              As I&apos;ve written more software, I&apos;ve come to believe a few core principles. Go slow to go fast.
-              Ship with quality baked-in. Focus on customer outcomes more than technical output. Create tools that help
-              engineers around you do their jobs.
-            </TypographyP>
-          </AnimationOnScroll>
+          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
+            Software Engineer
+          </TypographyH2>
+          <TypographyP className="text-lg">
+            Over the last decade I&apos;ve been a part of bringing new products to market, building design system
+            component libraries, scaling web services, & building developer tools. My career has been defined by
+            embracing the JavaScript Eecosystem as much as possible.
+          </TypographyP>
+          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-indigo-600 to-blue-500 bg-clip-text text-5xl text-transparent">
+            UI / UX Enthusiast
+          </TypographyH2>
+          <TypographyP className="text-lg">
+            I care deeply about <i>attention to detail</i>. Whether it&apos;s on the job, a side-hustle, or
+            hand-crafting this site, my goal is awalys to bring delight & surprise. The products I&apos;m most proud of
+            have been built hand-in-hand on <i>cross-functional</i> teams with talented Product Managers & Designers
+            that I can learn from.
+          </TypographyP>
+          <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-blue-600 to-fuchsia-500 bg-clip-text text-5xl text-transparent">
+            Developer Advocate
+          </TypographyH2>
+          <TypographyP className="text-lg">
+            As I&apos;ve written more software, I&apos;ve come to believe a few core principles. Go slow to go fast.
+            Ship with quality baked-in. Focus on customer outcomes more than technical output. Create tools that help
+            engineers around you do their jobs.
+          </TypographyP>
         </div>
       </div>
       <TypographyH2 id="latest-blog-posts">Read Latest Blog Posts</TypographyH2>

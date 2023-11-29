@@ -5,18 +5,17 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import fetchPosts from '../fetchPosts'
+import fetchPosts from '../fetch-posts'
 
 import { Tag } from './tag'
 
 import { Post } from '@/.contentlayer/generated'
-import { Time } from '@/components/custom/time'
 import { mdxComponents } from '@/components/mdx-components'
+import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
-import { calculateTimeToRead } from '@/helpers'
-import { cn } from '@/lib/utils'
+import { calculateTimeToRead, cn } from '@/lib/utils'
 
 const allPosts = fetchPosts()
 
@@ -70,7 +69,7 @@ export default function PostPage({ params }: PostPageProps) {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className="py-10 md:px-24">
+    <div className="py-10">
       <AspectRatio ratio={16 / 9}>
         <Image src={post.coverImage} alt="Article cover image" className="rounded-xl" priority fill />
       </AspectRatio>
