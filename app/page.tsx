@@ -41,7 +41,7 @@ export default function Home() {
           <TypographyP className="text-lg">
             Over the last decade I&apos;ve been a part of bringing new products to market, building design system
             component libraries, scaling web services, & building developer tools. My career has been defined by
-            embracing the JavaScript Eecosystem as much as possible.
+            embracing the JavaScript Ecosystem as much as possible.
           </TypographyP>
           <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-indigo-600 to-blue-500 bg-clip-text text-5xl text-transparent">
             UI / UX Enthusiast
