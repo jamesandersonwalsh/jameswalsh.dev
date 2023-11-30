@@ -2,8 +2,29 @@ import { compareDesc } from 'date-fns'
 
 import { Post, allPosts } from 'contentlayer/generated'
 
+export { allPosts } from 'contentlayer/generated'
+
 export function fetchPublishedPosts(): Post[] {
   return allPosts
     .filter((post) => post.status === 'published')
     .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+}
+
+export function fetchPostBySlug(slug: string): Post {
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
+
+  if (!post) {
+    throw new Error(`Post not found for slug: ${slug}`)
+  }
+
+  return post
+}
+
+export function fetchPreviousPost(slug: string): Post | undefined {
+  const publishedPosts = fetchPublishedPosts()
+  const postIndex = publishedPosts.findIndex((post) => post._raw.flattenedPath === slug)
+
+  if (postIndex === publishedPosts.length - 1) return undefined
+
+  return publishedPosts[postIndex + 1]
 }

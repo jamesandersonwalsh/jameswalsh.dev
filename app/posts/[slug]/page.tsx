@@ -5,11 +5,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { fetchPublishedPosts } from '../fetch-posts'
+import { fetchPublishedPosts, fetchPostBySlug, fetchPreviousPost } from '../fetch-posts'
 
 import { Tag } from './tag'
 
-import { Post } from '@/.contentlayer/generated'
 import { mdxComponents } from '@/components/mdx-components'
 import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
@@ -17,13 +16,10 @@ import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
-const allPosts = fetchPublishedPosts()
-
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+export const generateStaticParams = async () => fetchPublishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const post = fetchPostBySlug(params.slug)
 
   return {
     title: post.title,
@@ -48,24 +44,9 @@ interface PostPageProps {
   params: { slug: string }
 }
 
-function getPostBySlug(slug: string): Post {
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
-  if (!post) throw new Error(`Post not found for slug: ${slug}`)
-
-  return post
-}
-
-function getPreviousPost(slug: string): Post | undefined {
-  const postIndex = allPosts.findIndex((post) => post._raw.flattenedPath === slug)
-
-  if (postIndex === allPosts.length - 1) return undefined
-
-  return allPosts[postIndex + 1]
-}
-
 export default function PostPage({ params }: PostPageProps) {
-  const post = getPostBySlug(params.slug)
-  const previousPost = getPreviousPost(params.slug)
+  const post = fetchPostBySlug(params.slug)
+  const previousPost = fetchPreviousPost(params.slug)
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
