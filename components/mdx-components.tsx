@@ -16,10 +16,10 @@ export const mdxComponents = {
       height={900}
     />
   ),
-  h1: (props: PropsWithChildren) => <TypographyH1 {...props} />,
-  h2: (props: PropsWithChildren) => <TypographyH2 {...props} />,
-  h3: (props: PropsWithChildren) => <TypographyH3 {...props} />,
-  p: (props: PropsWithChildren) => <TypographyP className="w-prose" {...props} />,
+  h1: (props: PropsWithChildren) => <TypographyH1 className="my-5" {...props} />,
+  h2: (props: PropsWithChildren) => <TypographyH2 className="my-4" {...props} />,
+  h3: (props: PropsWithChildren) => <TypographyH3 className="my-3" {...props} />,
+  p: (props: PropsWithChildren) => <TypographyP className="w-prose mb-1.5" {...props} />,
   ol: (props: PropsWithChildren) => <ol className="my-6 ml-6 list-decimal [&>li]:mt-2" {...props} />,
   ul: (props: PropsWithChildren) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
   blockquote: (props: PropsWithChildren) => <TypographyBlockquote {...props} />,
@@ -27,7 +27,7 @@ export const mdxComponents = {
     <code className="relative rounded-lg bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
   ),
   pre: ({ className, ...rest }: HTMLAttributes<HTMLElement>) => (
-    <pre className={cn(className, 'my-6 [&>code:nth-child(1)]:p-3')} {...rest} />
+    <pre className={cn(className, 'my-5 [&>code:nth-child(1)]:p-3')} {...rest} />
   ),
   a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'text-md p-0')} {...props} />,
 }
