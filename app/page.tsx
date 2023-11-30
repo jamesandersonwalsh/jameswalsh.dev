@@ -125,11 +125,10 @@ export default function Home() {
         <Card>
           <CardHeader className="flex flex-row gap-4">
             <Image src="/logos/blog/dev-to.png" className="rounded-md" width={28} height={28} alt="DEV.TO Logo" />
-            <CardTitle>dev.to</CardTitle>
+            <CardTitle>DEV</CardTitle>
           </CardHeader>
           <CardContent>
-            dev.to is my all-time favorite blogging community. You can also find these posts over there. Follow for
-            more!
+            DEV Community is my favorite blogging community. You can also find these posts over there. Follow for more!
           </CardContent>
           <CardFooter>
             <Link href={`https://dev.to/${HANDLE}`} className={cn(buttonVariants(), 'w-full')}>
