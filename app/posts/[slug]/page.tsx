@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import fetchPosts from '../fetch-posts'
+import { fetchPublishedPosts } from '../fetch-posts'
 
 import { Tag } from './tag'
 
@@ -17,7 +17,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
-const allPosts = fetchPosts()
+const allPosts = fetchPublishedPosts()
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 

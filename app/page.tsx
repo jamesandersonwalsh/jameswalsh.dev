@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { PhotoGrid } from './photo-grid'
-import fetchPosts from './posts/fetch-posts'
+import { fetchPublishedPosts } from './posts/fetch-posts'
 import { ReadMore } from './posts/read-more'
 
 import { HANDLE } from '@/components/app-shell/constants'
@@ -15,7 +15,7 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export default function Home() {
-  const posts = fetchPosts()
+  const posts = fetchPublishedPosts()
 
   return (
     <>
