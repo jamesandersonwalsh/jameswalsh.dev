@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import fetchPosts from './fetch-posts'
+import { fetchPublishedPosts } from './fetch-posts'
 import { ReadMore } from './read-more'
 
 import { Time } from '@/components/time'
@@ -9,13 +9,14 @@ import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/lib/utils'
+
 export const metadata = {
   title: 'Articles - James Walsh',
   description: `Articles I've written`,
 }
 
 export default function PostsIndexPage() {
-  const posts = fetchPosts()
+  const posts = fetchPublishedPosts()
 
   return (
     <>

@@ -14,10 +14,10 @@ export function MobileMenu() {
         <Menu className="absolute right-0 mb-4 mr-6 mt-6 h-10 w-10 cursor-pointer md:hidden" />
       </SheetTrigger>
       <SheetContent>
-        <ul className="flex flex-col gap-6">
+        <ul className="mt-6 flex flex-col gap-6">
           <li className="w-full">
             <SheetClose asChild>
-              <Link href="/" className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
+              <Link href="/" className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
                 Home
               </Link>
             </SheetClose>
@@ -26,7 +26,7 @@ export function MobileMenu() {
             return (
               <li className="w-full" key={navItem.value}>
                 <SheetClose asChild>
-                  <Link href={navItem.href} className={cn(buttonVariants({ variant: 'link' }), 'w-full')}>
+                  <Link href={navItem.href} className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
                     {navItem.value}
                   </Link>
                 </SheetClose>

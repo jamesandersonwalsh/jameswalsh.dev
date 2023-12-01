@@ -1,0 +1,162 @@
+---
+title: ES 2023 Immutable Arrays
+coverImage: /covers/linux-windows-mac.webp
+status: 'draft'
+publishedAt: 2023-11-30
+brief: Using toSpliced(), toSorted(), & toReversed()
+tags:
+  - JavaScript
+  - Arrays
+  - ES2023
+  - ES14
+  - Immutability
+---
+
+## What's New in JavaScript?
+
+If you’re anything like me it was easy to miss some small, but powerful features that were introduced in ES14 a few months before the time of this writing. For example, `Array.prototype` just got way better in some subtle, but powerful ways.
+
+## New Array Methods ✨
+
+```tsx
+Array.prototype.toSpliced()
+Array.prototype.toSorted()
+Array.prototype.toReversed()
+Array.prototype.with()
+```
+
+With the exception of `with()` all of these new methods provide similar functionality to their predecessor methods; `splice` , `sort` , & `reverse`.
+The big change here has to do with array mutations. These old-school methods act like stateful object-oriented methods, & mutate the state of the array instance they are called upon.
+
+<br />
+Conversely, each of these new array methods behave as a `Functor` _(you can check out my write-up on functors [here](/posts/tenets-of-functional-programming#tenet-5-functors-️))_.
+The resulting "mutation" always executes on a brand new copy of the array returning the new result. No mutations happen to
+the array instance the function was called upon.
+
+<br />
+
+This change is pretty useful when working with method chaining. Let’s take a look at this in action while solving the following [Code Wars Kata](https://www.codewars.com/kata/576b93db1129fcf2200001e6/solutions/typescript?filter=all&sort=best_practice&invalids=false).
+
+## Shifting from Mutable to Immutable
+
+The code wars problem we're going to solve looks like this:
+
+> Sum all the numbers of a given array, except the highest, & the lowest element (by value, not by index)
+
+First we need to sort the array, then remove the first, & last elements, then return the sum. Classically in JavaScript this could look something like this:
+
+```jsx
+export function sumArray(array) {
+  const sortedArray = array.sort((a, b) => a - b)
+
+  sortedArray.shift()
+  sortedArray.pop()
+
+  return sortedArray.reduce((a, b) => a + b, 0)
+}
+```
+
+At first glance, the code is all pretty concise, & understandable.
+
+- We sort the array in ascending order with `sort`.
+- `shift` to remove the first/smallest number.
+- `pop` to remove the last/largest number
+- `reduce` to sum the result.
+
+## Problems with Classic Array Methods
+
+For me, the code above feels stiff, & uncomfortable. Here are the problems that stand out
+
+1. The sort mutation can have negative side effects.
+1. The `shift`, & `pop` methods break up what could otherwise be accomplished with full function chaining.
+1. Most of the negative side effects of this code are happening implicitly, & need to be carefully remembered by hard lessons learned.
+
+### Sort Mutation
+
+Hot take, **JS Sort mutations kinda suck**. But they’re the best we’ve had for a long time unless you reach for libraries like `lodash` or `ramda` which offer immutable sort functions. Let’s take a look at the first line of our function body:
+
+```jsx
+const sortedArray = array.sort((a, b) => a - b)
+```
+
+While the `sort` method returns the new sorted array, it also **_mutated the parameter that was passed in_**. This is now a side effect we have to keep track of. To remove this side-effect, & make our function pure, historically we would do something like use the spread operator to copy the array inside our function body before sorting:
+
+```jsx
+const sortedArray = [...array].sort((a, b) => a - b)
+```
+
+But with the new `toSorted` method the following works just the same, & we don’t need to use the spread operator at all:
+
+```jsx
+const sortedArray = array.toSorted((a, b) => a - b)
+```
+
+### Element Removal Mutation
+
+The other portion of the function that has my eyes watery is the `shift`, & `pop` pieces up above.
+If we hadn’t just refactored our sort functionality, we would have removed items from the original array with no way to reset back to our original state.
+That old array is gone forever, so we better hope no other part of the codebase relied on it for other computations _(spoiler alert, it usually comes back to bite you)_.
+
+This isn’t as big of a problem now that we’re mutating the **_copied_** parameter via `toSorted`. Even still, we can improve this code with `toSpliced`.
+In classic JavaScript we could refactor our `shift`, & `pop` code using `splice`:
+
+```jsx
+sortedArray.splice(0, 1)
+sortedArray.splice(-1, 1)
+```
+
+But since we now have `toSpliced` which returns a copied array with the result of the splice operation, we’ve got some huge wins.
+
+1. We’ve prevented accidental deletion of array elements no matter what, without needing to depend on the previous line containing `toSorted`
+2. We can take our entire function body a step further with some sweet functional chaining.
+   Since all of these methods are functors we’ve unlocked our [Referential Transparency](https://www.sitepoint.com/what-is-referential-transparency/) badge.
+
+The final ES2024 version of the code is massively simplified, & far safer, all while using convenient function chaining 👏🏻👏🏻👏🏻.
+
+```jsx
+export function sumArray(array) {
+  return array
+    .toSorted((a, b) => a - b)
+    .toSpliced(0, 1)
+    .toSpliced(-1, 1)
+    .reduce((a, b) => a + b, 0)
+}
+```
+
+### With()
+
+If you’re curious why I didn’t talk about with, I plan to write a follow-up post later dedicated to this method, because the implications are pretty cool. In the meantime, check out the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/with)
+
+## Cost to Performance 🏃
+
+As with most things in life, these new tools involve measuring trade-offs. Technically speaking these new methods are more expensive than the older methods. Since physics is still physics, & there aren’t any breakthroughs in science that have shattered my perceptions of how computation works, _yes copying a bunch of bits is always more expensive than adding or removing specific bits to a known part of the heap_.
+
+### The known drawbacks are
+
+- Garbage collection will take longer.
+- You're using more memory at any given point in time.
+- Slower time to execute.
+
+### Mutations Are Still Useful When
+
+- You are working with incredibly large lists.
+- Working to reduce your `O^n` for a given part of your codebase.
+- You can limit, & carefully place your application side effects inside just a handful of well-tested functions.
+- At the beginning of any unit of work you have a `reset` function that can help you bounce back to your initial state for either debugging or other computations that needs to happen elsewhere.
+
+### Dont Sweat Performance Yet (Probably)
+
+Throughout the day as a full-stack web developer, my priorities are maximizing safety, & readability, while reducing customer bugs. This approach supports that.
+If you need to ship code with an incredibly small runtime footprint to a resource-constrained device like an IoT device, are dealing with a part of your codebase that's already dealing with scaling issues,
+or work in game development where resource efficiency is incredibly important; you could justify a refactor the total opposite direction.
+
+<br />
+But for most of us, the caution here is that premature optimization can cause software rot. Most of the time I'm focused
+on building cool reliable web-based things on modern devices, where we need tons of interactivity with safety baked-in. I
+see these new array methods as the natural progression of what the language should offer, which continues to get us closer
+to feature parody with open source libraries developers have reached for in the past. Until copying lists proves to be a
+problem in a particular codebase, this is my approach. We can always be more cautious as cases arise naturally. But for most
+of us, these new methods solve for bugs caused by bad mutations, with totally manageable trade-offs.
+
+<br />
+Cheers! 🤙

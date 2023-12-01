@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { PhotoGrid } from './photo-grid'
-import fetchPosts from './posts/fetch-posts'
+import { fetchPublishedPosts } from './posts/fetch-posts'
 import { ReadMore } from './posts/read-more'
 
 import { HANDLE } from '@/components/app-shell/constants'
@@ -15,7 +15,7 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export default function Home() {
-  const posts = fetchPosts()
+  const posts = fetchPublishedPosts()
 
   return (
     <>
@@ -125,11 +125,10 @@ export default function Home() {
         <Card>
           <CardHeader className="flex flex-row gap-4">
             <Image src="/logos/blog/dev-to.png" className="rounded-md" width={28} height={28} alt="DEV.TO Logo" />
-            <CardTitle>dev.to</CardTitle>
+            <CardTitle>DEV</CardTitle>
           </CardHeader>
           <CardContent>
-            dev.to is my all-time favorite blogging community. You can also find these posts over there. Follow for
-            more!
+            DEV Community is my favorite blogging community. You can also find these posts over there. Follow for more!
           </CardContent>
           <CardFooter>
             <Link href={`https://dev.to/${HANDLE}`} className={cn(buttonVariants(), 'w-full')}>

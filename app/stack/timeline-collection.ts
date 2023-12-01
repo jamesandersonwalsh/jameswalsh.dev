@@ -4,49 +4,34 @@ const TimelineCollection: TimelineCollection = {
   frontend: [
     {
       title: 'JavaScript',
-      description: `I still find it incredible that the worlds most popular programming language had such humble
-                    beginnings. Written in just 10 days by Brendan Eich, JS has gone on to dominate the web & grow in
-                    popularity across the full tech stack. Writing JS has been the bread & butter of my own career
-                    & my appreciation for it has grown as Ive contended with both it's good parts it's bad. I believe
-                    that JS is at its best when written composability in mind, in a declarative way
-                    (rather than & imperative). My favorite resources on JS are 'You Dont Know JS' & Professor
-                    Frisby's Mostly Adequete Guide to Functional Programming.`,
+      description: `I still find it incredible that the worlds most popular programming languages was written in just 10 days.
+                    Writing JS has been the bread & butter of my own career & my appreciation for it has grown as I've 
+                    contended with both it's good, & bad parts. I believe
+                    that JS is at its best when written in composable, declarative way. My favorite resources on JS
+                    are 'You Dont Know JS' & Professor Frisby's Mostly Adequete Guide to Functional Programming.`,
       imageLink: '/logos/tech/javascript.png',
     },
     {
       title: 'Typescript',
-      description: `There's a large caveat when I say "I'm a JavaScript developer". What I really mean to say is that
-                    I am a Typescript Developer. I am a firm-believer that a carefully crafted strong type system
-                    improves code quality, refactorability, readability, & your ability to underst& & fully
-                    use modules developed by other teams of developers. I'm a strong advocate for compilers, good build
-                    systems that perform static code analysis & detect isues before runtime. My favorite resource for
-                    learning more about typescript is by going through Type Level Typescript by Gabriel Vergnaud.`,
+      description: `I'm a firm-believer that a carefully crafted strong type system
+                    improves code quality, refactorability, readability, & your overall understanding of
+                    modules developed by other teams & developers. I'm a strong advocate for types & compilers, as well as
+                    static code analysis. My favorite resource for learning more about typescript is
+                    Type Level Typescript by Gabriel Vergnaud.`,
       imageLink: '/logos/tech/typescript.png',
     },
     {
       title: 'React',
-      description: `It is a long established fact that a reader will be
-                  distracted by the readable content of a page when looking at
-                  its layout. The point of using Lorem Ipsum is that it has a
-                  more-or-less normal distribution of letters, as opposed to
-                  using 'Content here, content here', making it look like
-                  readable English.`,
+      description: `What can I say, React is still G.O.A.T IMO. This whole website was built using React, and honestly
+                    working in React has defined the bulk of my career thus far. Ill be singing the praises of composability,
+                    JSX, and the expressiveness that React offers for years to come.`,
       imageLink: '/logos/tech/react.png',
-    },
-    {
-      title: 'Vue 3',
-      description: `Written as a response to both Angular & React, Evan You created a web framework which strikes a
-                    compelling balance between the strong opinions of Angular, & the expressiveness composability of
-                    React. In my opinion, Vue has the best Single File Component specification of the 3 major frontend
-                    frameworks, as well as the most pleasent developer experience I've ever had in a state
-                    management library with pinia.`,
-      imageLink: '/logos/tech/vue.png',
     },
   ],
   backend: [
     {
       title: 'Next.js',
-      description: `Full-stack React, Server Side Rendering, & an effective replacement to both tRPC & gRPC are what
+      description: `Full-stack React, SSR, and RSC, give an effective replacement to both tRPC & gRPC are what
                     make Next.js the most compelling full-stack technology framework for indie developers who want 
                     to get off the ground running with everything they need, but with the frontend cloud at the top
                     of their mind. Progressive enhancement, full compatibility with edge functions, fast load
@@ -69,9 +54,9 @@ const TimelineCollection: TimelineCollection = {
       title: 'Ruby on Rails',
       description: `Ruby on Rails was the first technology stack I ever used professionally, & in hindsight I feel
                     particularly lucky that I got to use such an expressive, concise, productive, opinionated stack
-                    as an associate engineer. While I look back on my time with Ruby romantically, thinking about how
+                    as a new engineer. While I look back on my time with Ruby romantically, thinking about how
                     quickly my entire team could spin up MVPs for CRUD applications with ease, I have to confess that
-                    I do not miss ActiveRecord at all, nor the Model component in MVC.`,
+                    I do not miss ActiveRecord at all, nor the "Model" in in MVC much at all.`,
       imageLink: '/logos/tech/rails.png',
     },
   ],
