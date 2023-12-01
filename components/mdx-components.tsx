@@ -27,7 +27,7 @@ export const mdxComponents = {
     <code className="relative rounded-lg bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold" {...props} />
   ),
   pre: ({ className, ...rest }: HTMLAttributes<HTMLElement>) => (
-    <pre className={cn(className, 'my-5 [&>code:nth-child(1)]:p-3')} {...rest} />
+    <pre className={cn(className, 'my-5 whitespace-pre-wrap', '[&>code:nth-child(1)]:p-3')} {...rest} />
   ),
   a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'text-md p-0')} {...props} />,
 }
