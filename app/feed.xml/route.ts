@@ -14,13 +14,14 @@ export async function GET() {
     webMaster: EMAIL,
     language: 'en',
     pubDate: new Date(),
+    categories: ['Web Development', 'JavaScript', 'Software Engineering', 'Coding'],
   })
 
   fetchPublishedPosts().forEach((post) => {
     feed.item({
       title: post.title,
       description: post.brief,
-      url: `${PRODUCTION_URL}/${post.url}`,
+      url: post.url,
       categories: post.tags,
       author: EMAIL,
       guid: post._raw.flattenedPath,
