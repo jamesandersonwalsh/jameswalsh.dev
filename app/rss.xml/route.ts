@@ -27,13 +27,13 @@ export async function GET() {
       },
       url: `${PRODUCTION_URL}${post.url}`,
       categories: post.tags,
-      author: EMAIL,
+      author: JAMES_WALSH,
       guid: post._raw.flattenedPath,
       date: new Date(post.publishedAt),
     })
   })
 
-  return new Response(feed.xml(), {
+  return new Response(feed.xml({ indent: true }), {
     headers: {
       'Content-Type': 'application/atom+xml; charset=utf-8',
     },
