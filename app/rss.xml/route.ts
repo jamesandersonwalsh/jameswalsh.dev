@@ -20,7 +20,7 @@ export async function GET() {
   fetchPublishedPosts().forEach((post) => {
     feed.item({
       title: post.title,
-      description: post.body.raw,
+      description: post.description,
       enclosure: {
         url: post.coverImage,
         type: post.coverImage.split('.')[1],
