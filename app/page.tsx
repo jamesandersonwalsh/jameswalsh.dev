@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { PhotoGrid } from './photo-grid'
-import { fetchPublishedPosts } from './posts/fetch-posts'
 import { ReadMore } from './posts/read-more'
 
 import { HANDLE } from '@/components/app-shell/constants'
@@ -12,6 +11,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
+import { fetchPublishedPosts } from '@/lib/posts'
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export default function Home() {
