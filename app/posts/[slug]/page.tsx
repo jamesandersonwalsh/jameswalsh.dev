@@ -39,7 +39,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
   }
 }
 
-interface PostPageProps {
+export interface PostPageProps {
   params: { slug: string }
 }
 

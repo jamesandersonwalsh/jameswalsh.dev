@@ -5,14 +5,14 @@ import { Post, allPosts } from 'contentlayer/generated'
 export { allPosts } from 'contentlayer/generated'
 
 export function fetchPublishedPosts(): Post[] {
-  return allPosts
-    .filter((post) => {
-      const isPublished = post.status === 'published'
-      const isReleased = !isFuture(new Date(post.publishedAt))
+  return allPosts.filter(isPostReleased).sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+}
 
-      return isPublished && isReleased
-    })
-    .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+export function isPostReleased(post: Post): boolean {
+  const isPublished = post.status === 'published'
+  const isReleased = !isFuture(new Date(post.publishedAt))
+
+  return isPublished && isReleased
 }
 
 export function fetchPostBySlug(slug: string): Post {
