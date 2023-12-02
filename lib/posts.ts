@@ -1,4 +1,4 @@
-import { compareDesc } from 'date-fns'
+import { compareDesc, isFuture } from 'date-fns'
 
 import { Post, allPosts } from 'contentlayer/generated'
 
@@ -6,7 +6,12 @@ export { allPosts } from 'contentlayer/generated'
 
 export function fetchPublishedPosts(): Post[] {
   return allPosts
-    .filter((post) => post.status === 'published')
+    .filter((post) => {
+      const isPublished = post.status === 'published'
+      const isReleased = !isFuture(new Date(post.publishedAt))
+
+      return isPublished && isReleased
+    })
     .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
 }
 
