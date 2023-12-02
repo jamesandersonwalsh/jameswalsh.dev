@@ -1,6 +1,6 @@
 import RSS from 'rss'
 
-import { JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
+import { EMAIL, JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
 import { fetchPublishedPosts } from '@/lib/posts'
 
 export async function GET() {
@@ -10,8 +10,8 @@ export async function GET() {
     site_url: PRODUCTION_URL,
     feed_url: `${PRODUCTION_URL}/feed.xml`,
     copyright: `${new Date().getFullYear()} ${JAMES_WALSH}}`,
-    managingEditor: JAMES_WALSH,
-    webMaster: JAMES_WALSH,
+    managingEditor: EMAIL,
+    webMaster: EMAIL,
     language: 'en',
     pubDate: new Date(),
   })
@@ -29,7 +29,7 @@ export async function GET() {
 
   return new Response(feed.xml(), {
     headers: {
-      'Content-Type': 'application/atom+xml; charset=utf-8',
+      'Content-Type': 'application/rss+xml; charset=utf-8',
     },
   })
 }
