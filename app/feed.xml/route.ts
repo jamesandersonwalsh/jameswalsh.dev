@@ -12,7 +12,7 @@ export async function GET() {
     copyright: `${new Date().getFullYear()} ${JAMES_WALSH}}`,
     managingEditor: EMAIL,
     webMaster: EMAIL,
-    language: 'en',
+    language: 'en-us',
     pubDate: new Date(),
     categories: ['Web Development', 'JavaScript', 'Software Engineering', 'Coding'],
   })
@@ -20,7 +20,11 @@ export async function GET() {
   fetchPublishedPosts().forEach((post) => {
     feed.item({
       title: post.title,
-      description: post.brief,
+      description: post.body.raw,
+      enclosure: {
+        url: post.coverImage,
+        type: post.coverImage.split('.')[1]
+      },
       url: `${PRODUCTION_URL}${post.url}`,
       categories: post.tags,
       author: EMAIL,
