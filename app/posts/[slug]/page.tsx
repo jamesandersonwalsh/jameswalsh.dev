@@ -30,7 +30,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
     openGraph: {
       title: post.title,
       description: post.brief,
-      images: [post.coverImage],
+      images: [post.thumbnail],
       type: 'article',
       tags: post.tags,
       publishedTime: post.publishedAt,
@@ -51,7 +51,7 @@ export default function PostPage({ params }: PostPageProps) {
   return (
     <div className="py-10">
       <AspectRatio ratio={16 / 9}>
-        <Image src={post.coverImage} alt="Article cover image" className="rounded-xl" priority fill />
+        <Image src={post.thumbnail} alt="Article cover image" className="rounded-xl border-2" priority fill />
       </AspectRatio>
       <TypographyH1>{post.title}</TypographyH1>
       <div className="flex w-full flex-col gap-4">

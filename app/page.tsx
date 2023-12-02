@@ -68,7 +68,7 @@ export default function Home() {
             <Card className="ease h-full transition hover:scale-105">
               <CardHeader>
                 <AspectRatio ratio={16 / 9}>
-                  <Image className="rounded-lg" fill src={post.coverImage} alt={`${post.title} cover image`} />
+                  <Image className="rounded-lg" fill src={post.thumbnail} alt={`${post.title} cover image`} />
                 </AspectRatio>
                 <CardTitle>{post.title}</CardTitle>
               </CardHeader>

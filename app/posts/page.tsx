@@ -27,7 +27,7 @@ export default function PostsIndexPage() {
             <Card className="h-full">
               <CardHeader className="gap-6">
                 <AspectRatio ratio={16 / 9}>
-                  <Image className="rounded-lg" fill src={post.coverImage} alt={`${post.title} cover image`} />
+                  <Image className="rounded-lg" fill src={post.thumbnail} alt={`${post.title} cover image`} />
                 </AspectRatio>
                 <CardTitle>{post.title}</CardTitle>
                 <span className="text-muted-foreground">

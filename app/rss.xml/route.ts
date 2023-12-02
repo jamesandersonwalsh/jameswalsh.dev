@@ -22,8 +22,8 @@ export async function GET() {
       title: post.title,
       description: post.description,
       enclosure: {
-        url: post.coverImage,
-        type: post.coverImage.split('.')[1],
+        url: post.thumbnail,
+        type: post.thumbnail.split('.')[1],
       },
       url: `${PRODUCTION_URL}${post.url}`,
       categories: post.tags,

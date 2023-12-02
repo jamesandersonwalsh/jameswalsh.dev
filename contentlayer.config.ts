@@ -12,7 +12,7 @@ export const Post = defineDocumentType(() => ({
   fields: {
     title: { type: 'string', required: true },
     description: { type: 'string', required: true },
-    coverImage: { type: 'string', required: true },
+    thumbnail: { type: 'string', required: true },
     publishedAt: { type: 'date', required: true },
     lastModified: { type: 'date', required: false },
     brief: { type: 'string', required: true },
