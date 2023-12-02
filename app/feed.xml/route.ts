@@ -21,7 +21,7 @@ export async function GET() {
     feed.item({
       title: post.title,
       description: post.brief,
-      url: post.url,
+      url: `${PRODUCTION_URL}${post.url}`,
       categories: post.tags,
       author: EMAIL,
       guid: post._raw.flattenedPath,
@@ -31,7 +31,7 @@ export async function GET() {
 
   return new Response(feed.xml(), {
     headers: {
-      'Content-Type': 'application/rss+xml; charset=utf-8',
+      'Content-Type': 'application/atom+xml; charset=utf-8',
     },
   })
 }
