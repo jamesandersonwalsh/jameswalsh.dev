@@ -22,7 +22,8 @@ export async function GET() {
       description: post.brief,
       url: `${PRODUCTION_URL}/${post.url}`,
       categories: post.tags,
-      author: JAMES_WALSH,
+      author: EMAIL,
+      guid: post._raw.flattenedPath,
       date: new Date(post.publishedAt),
     })
   })
