@@ -1,13 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { fetchPublishedPosts } from './fetch-posts'
 import { ReadMore } from './read-more'
 
 import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1, TypographyP } from '@/components/ui/typography'
+import { fetchPublishedPosts } from '@/lib/posts'
 import { calculateTimeToRead } from '@/lib/utils'
 
 export const metadata = {

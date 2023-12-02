@@ -5,8 +5,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-import { fetchPublishedPosts, fetchPostBySlug, fetchPreviousPost } from '../fetch-posts'
-
 import { Tag } from './tag'
 
 import { mdxComponents } from '@/components/mdx-components'
@@ -14,6 +12,7 @@ import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
+import { fetchPublishedPosts, fetchPostBySlug, fetchPreviousPost } from '@/lib/posts'
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export const generateStaticParams = async () => fetchPublishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))

@@ -1,10 +1,9 @@
 import { Menu } from 'lucide-react'
 import Link from 'next/link'
 
-import { NAVIGATIONAL_ITEMS } from './constants'
-
 import { buttonVariants } from '@/components/ui/button'
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from '@/components/ui/sheet'
+import { SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export function MobileMenu() {
@@ -22,7 +21,7 @@ export function MobileMenu() {
               </Link>
             </SheetClose>
           </li>
-          {NAVIGATIONAL_ITEMS.map((navItem) => {
+          {SITE_NAVIGATIONAL_ITEMS.map((navItem) => {
             return (
               <li className="w-full" key={navItem.value}>
                 <SheetClose asChild>

@@ -7,15 +7,16 @@ import { PropsWithChildren } from 'react'
 
 import Footer from '@/components/app-shell/footer'
 import { TopNavbar } from '@/components/app-shell/top-nav'
+import { JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'James Walsh',
-  description: 'Software Engineer, UI/UX Enthusiast, Developer Advocate',
-  metadataBase: new URL('https://jameswalsh.dev'),
+  title: JAMES_WALSH,
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(PRODUCTION_URL),
   openGraph: {
-    title: 'James Walsh',
-    siteName: 'James Walsh',
+    title: JAMES_WALSH,
+    siteName: JAMES_WALSH,
     locale: 'en_us',
     type: 'website',
   },

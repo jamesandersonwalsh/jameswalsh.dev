@@ -2,7 +2,7 @@ import formatDate from 'date-fns/format'
 import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 
-import { NAVIGATIONAL_ITEMS, HANDLE } from './constants'
+import { HANDLE, SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 
 interface SocialLink {
   name: string
@@ -47,7 +47,7 @@ export default function Footer() {
           ))}
         </div>
         <ul className="flex flex-row gap-6">
-          {NAVIGATIONAL_ITEMS.map((item) => (
+          {SITE_NAVIGATIONAL_ITEMS.map((item) => (
             <li className="w-full" key={item.value}>
               <Link href={item.href}>{item.value}</Link>
             </li>

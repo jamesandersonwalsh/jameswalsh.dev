@@ -4,9 +4,9 @@ import { cva } from 'class-variance-authority'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { NAVIGATIONAL_ITEMS } from './constants'
 import { MobileMenu } from './mobile-menu'
 
+import { SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 const topNavVariants = cva(
@@ -35,7 +35,7 @@ export function TopNavbar() {
               Home
             </Link>
           </li>
-          {NAVIGATIONAL_ITEMS.map((item) => {
+          {SITE_NAVIGATIONAL_ITEMS.map((item) => {
             const variant = pathname.includes(item.href) ? 'current' : 'default'
 
             return (
