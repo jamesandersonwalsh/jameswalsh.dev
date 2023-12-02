@@ -23,7 +23,7 @@ export async function GET() {
       description: post.body.raw,
       enclosure: {
         url: post.coverImage,
-        type: post.coverImage.split('.')[1]
+        type: post.coverImage.split('.')[1],
       },
       url: `${PRODUCTION_URL}${post.url}`,
       categories: post.tags,
