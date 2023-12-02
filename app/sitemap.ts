@@ -1,13 +1,12 @@
 import { MetadataRoute } from 'next'
 
-const PRODUCTION_URL = 'https://jameswalsh.dev'
-
+import { PRODUCTION_URL } from '@/lib/constants'
 import { fetchPublishedPosts } from '@/lib/posts'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogPostSiteMaps: MetadataRoute.Sitemap = fetchPublishedPosts().map((post) => ({
     url: `${PRODUCTION_URL}/${post.url}`,
-    lastModified: !!post.lastModified ? post.lastModified : post.lastModified,
+    lastModified: !!post.lastModified ? new Date(post.lastModified) : new Date(post.publishedAt),
     changeFrequency: 'weekly',
     priority: 0.9,
   }))
