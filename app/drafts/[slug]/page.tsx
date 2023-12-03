@@ -2,13 +2,21 @@ import formatDate from 'date-fns/format'
 import { RocketIcon } from 'lucide-react'
 import { RedirectType, redirect } from 'next/navigation'
 
-import PostPage, { PostPageProps } from '../../[slug]/page'
-
+import PostPage, { PostPageProps } from '@/app/posts/[slug]/page'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import { fetchPostBySlug, isPostReleased } from '@/lib/posts'
 
+/**
+ *
+ * @description The following is a development only component and will simply redirect to /posts in any other environment.
+ * @remarks returns a composed version of posts/[slug]/page.tsx that has draft information in it.
+ */
 export default async function PostDraftPage(props: PostPageProps) {
+  if (process.env.NODE_ENV === 'production') {
+    redirect('/posts')
+  }
+
   const post = fetchPostBySlug(props.params.slug)
 
   if (isPostReleased(post)) {
