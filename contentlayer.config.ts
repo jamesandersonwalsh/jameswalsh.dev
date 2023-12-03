@@ -1,8 +1,9 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypePrettyCode, { CharsElement, LineElement } from 'rehype-pretty-code'
+import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import { HighlighterOptions, getHighlighter } from 'shiki'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -10,8 +11,10 @@ export const Post = defineDocumentType(() => ({
   contentType: 'mdx',
   fields: {
     title: { type: 'string', required: true },
-    coverImage: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    thumbnail: { type: 'string', required: true },
     publishedAt: { type: 'date', required: true },
+    lastModified: { type: 'date', required: false },
     brief: { type: 'string', required: true },
     status: {
       type: 'enum',
@@ -36,34 +39,18 @@ export default makeSource({
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
+      rehypeAutolinkHeadings,
       [
         rehypePrettyCode,
         {
-          theme: 'material-theme-darker',
+          theme: 'one-dark-pro',
           keepBackground: false,
-          onVisitLine(node: LineElement) {
-            // Prevent lines from collapsing in `display: grid` mode, and allow empty
-            // lines to be copy/pasted
-            if (node.children.length === 0) {
-              node.children = [{ type: 'text', value: ' ' }]
-            }
-          },
-          onVisitHighlightedLine(node: LineElement) {
-            if (node.properties.className) {
-              node.properties.className.push('line--highlighted')
-            }
-          },
-          onVisitHighlightedWord(node: CharsElement) {
-            node.properties.className = ['word--highlighted']
-          },
-        },
-      ],
-      [
-        rehypeAutolinkHeadings,
-        {
-          properties: {
-            className: ['subheading-anchor'],
-            ariaLabel: 'Link to section',
+          getHighlighter: (options: HighlighterOptions) => {
+            return getHighlighter({
+              ...options,
+              themes: ['one-dark-pro'],
+              langs: ['js', 'ts', 'jsx', 'tsx', 'json', 'json5', 'shell', 'bash', 'astro', 'markdown'],
+            })
           },
         },
       ],

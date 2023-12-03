@@ -14,25 +14,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "todo-tree.highlights.customHighlight": {
-    "FEAT": {
-      "icon": "check",
-      "type": "line",
-      "iconColour": "#22c55e",
-      "foreground": "#a5f3fc",
-      "background": "#164e63",
-    },
-    "FIX": {
-      "icon": "beaker",
-      "iconColour": "#be123c",
-      "foreground": "#fecdd3",
-      "background": "#881337"
-    },
-    "REFACTOR": {
-      "icon": "light-bulb",
-      "iconColour": "#fde047",
-      "foreground": "#fef9c3",
-      "background": "#ca8a04"
-    },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
 }

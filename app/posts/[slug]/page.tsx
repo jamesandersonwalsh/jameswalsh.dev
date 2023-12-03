@@ -1,149 +1,88 @@
-import { ClockIcon } from '@heroicons/react/24/outline'
-import { CalendarDaysIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid'
+import { formatDistanceToNow } from 'date-fns'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { css } from 'styled-system/css'
-import { hstack, stack, container } from 'styled-system/patterns'
 
-import fetchPosts from '../fetchPosts'
+import { Tag } from './tag'
 
-import { Post } from '@/.contentlayer/generated'
-import { calculateTimeToRead } from '@/helpers'
-import { Badge } from '@ui/Badge'
-import { Button } from '@ui/Button'
-import { PageLayout } from '@ui/Layouts'
-import { mdxComponents } from '@ui/mdx-components'
-import { TimeFormat } from '@ui/TimeFormat'
+import { mdxComponents } from '@/components/mdx-components'
+import { Time } from '@/components/time'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { buttonVariants } from '@/components/ui/button'
+import { TypographyH1 } from '@/components/ui/typography'
+import { fetchPublishedPosts, fetchPostBySlug, fetchPreviousPost } from '@/lib/posts'
+import { calculateTimeToRead, cn } from '@/lib/utils'
 
-const allPosts = fetchPosts()
-
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
+export const generateStaticParams = async () => fetchPublishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
+  const post = fetchPostBySlug(params.slug)
 
   return {
     title: post.title,
     description: post.brief,
+    publisher: 'James Walsh',
+    creator: 'James Walsh',
+    authors: [{ url: 'https://jameswalsh.dev', name: 'James Walsh' }],
+    keywords: post.tags,
     openGraph: {
+      title: post.title,
       description: post.brief,
-      images: [post.coverImage],
+      images: [post.thumbnail],
       type: 'article',
+      tags: post.tags,
+      publishedTime: post.publishedAt,
+      locale: 'en_us',
     },
   }
 }
 
-const pageContainer = css({
-  px: {
-    mdTo2xl: '6rem',
-  },
-  py: '2rem',
-})
-const coverImageContainer = container({
-  width: '100%',
-  height: {
-    mdTo2xl: '400px',
-    smDown: '240px',
-  },
-})
-const coverImage = css({
-  objectFit: 'cover',
-  borderRadius: 'lg',
-  mb: '2rem',
-})
-const timestampStyles = hstack({
-  px: '0.5rem',
-  fontWeight: 'medium',
-  fontSize: 'lg',
-})
-const postMetaStyles = stack({
-  width: '100%',
-  gap: 4,
-})
-const calendar = css({
-  color: 'primaryBg',
-  borderRadius: 'md',
-})
-
-const buttonCTAs = hstack({
-  gap: 6,
-  borderTop: '1px solid',
-  borderTopColor: 'slate.600',
-  width: '100%',
-  mt: '2rem',
-  pt: '2rem',
-})
-
-interface PostPageProps {
+export interface PostPageProps {
   params: { slug: string }
 }
 
-function getPostBySlug(slug: string): Post {
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
-  if (!post) throw new Error(`Post not found for slug: ${slug}`)
-
-  return post
-}
-
-function getPreviousPost(slug: string): Post | undefined {
-  const postIndex = allPosts.findIndex((post) => post._raw.flattenedPath === slug)
-
-  if (postIndex === allPosts.length - 1) return undefined
-
-  return allPosts[postIndex + 1]
-}
-
 export default function PostPage({ params }: PostPageProps) {
-  const post = getPostBySlug(params.slug)
-  const previousPost = getPreviousPost(params.slug)
+  const post = fetchPostBySlug(params.slug)
+  const previousPost = fetchPreviousPost(params.slug)
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className={pageContainer}>
-      <div className={coverImageContainer}>
-        <Image
-          src={post.coverImage}
-          alt="Article cover image"
-          sizes="(max-width: 640px) 240px, (max-width:1536px) 400px"
-          className={coverImage}
-          priority
-          fill
-        />
+    <div className="py-10">
+      <AspectRatio ratio={16 / 9}>
+        <Image src={post.thumbnail} alt="Article cover image" className="rounded-xl border-2" priority fill />
+      </AspectRatio>
+      <TypographyH1>{post.title}</TypographyH1>
+      <div className="flex w-full flex-col gap-4">
+        <span className="flex flex-row flex-wrap gap-2">
+          {post.tags.map((tag) => (
+            <Tag key={tag} text={tag} />
+          ))}
+        </span>
+        <span className="flex flex-row text-lg font-medium">
+          <Time dateTime={post.publishedAt} />
+          <span className="ml-2 flex flex-row gap-1 text-sm md:text-lg">
+            —&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read&nbsp;(
+            {formatDistanceToNow(new Date(post.publishedAt))} ago)
+          </span>
+        </span>
       </div>
-      <PageLayout title={post.title}>
-        <div className={postMetaStyles}>
-          <span className={timestampStyles}>
-            <CalendarDaysIcon className={calendar} width={24} height={24} />
-            <TimeFormat dateTime={post.publishedAt} />
-            <span className={hstack({ gap: 1, ml: '0.5rem' })}>
-              <ClockIcon width={24} height={24} />
-              {calculateTimeToRead(post.body.raw)}&nbsp;min read
-            </span>
-          </span>
-          <span className={hstack({ gap: 2 })}>
-            {post.tags.map((tag) => (
-              <Badge key={tag} text={tag} />
-            ))}
-          </span>
-        </div>
-        <article>
-          <MDXContent components={mdxComponents} />
-        </article>
-        <div className={buttonCTAs}>
-          <Button as="a" href="/posts" variant="secondary">
-            <ChevronLeftIcon width={16} height={16} />
-            &nbsp;All posts
-          </Button>
-          {!!previousPost && (
-            <Button as="a" href={previousPost.url} variant="secondary">
-              Next&nbsp;
-              <ChevronRightIcon width={16} height={16} />
-            </Button>
-          )}
-        </div>
-      </PageLayout>
+      <article className="mt-8">
+        <MDXContent components={mdxComponents} />
+      </article>
+      <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
+        <Link href="/posts" className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
+          <ChevronLeft width={16} height={16} />
+          &nbsp;All posts
+        </Link>
+        {!!previousPost && (
+          <Link href={previousPost.url} className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
+            <ChevronRight width={16} height={16} />
+            &nbsp;Next
+          </Link>
+        )}
+      </div>
     </div>
   )
 }

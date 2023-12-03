@@ -1,85 +1,36 @@
-import './global.css'
-import formatDate from 'date-fns/format'
-import { Inter } from 'next/font/google'
-import Link from 'next/link'
+import './globals.css'
+
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
+import { Metadata } from 'next'
 import { PropsWithChildren } from 'react'
-import { flex, hstack } from 'styled-system/patterns'
 
-import { getColorModeCookie } from './actions'
+import Footer from '@/components/app-shell/footer'
+import { TopNavbar } from '@/components/app-shell/top-nav'
+import { JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
+import { cn } from '@/lib/utils'
 
-import { NAVIGATIONAL_ITEMS } from '@/components/AppShell/constants'
-import { TopNavbar, SideNavDrawer, Paper, PageAvatar, Footer } from '@ui/AppShell'
-import { ColorModeSwitcher } from '@ui/ColorModeSwitcher'
-import { UnorderedList } from '@ui/List'
-
-const inter = Inter({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-})
-
-const globalNavStack = hstack({
-  width: '100%',
-  mt: {
-    smDown: '1rem',
+export const metadata: Metadata = {
+  title: JAMES_WALSH,
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(PRODUCTION_URL),
+  openGraph: {
+    title: JAMES_WALSH,
+    siteName: JAMES_WALSH,
+    locale: 'en_us',
+    type: 'website',
   },
-  justifyContent: 'space-between',
-  '& :nth-child(1)': {
-    order: {
-      mdTo2xl: 2,
-    },
-  },
-  '& :nth-child(2)': {
-    order: {
-      mdTo2xl: 1,
-    },
-  },
-  '& :nth-child(3)': {
-    order: 3,
-  },
-  '& :nth-child(4)': {
-    order: 4,
-  },
-})
-
-const mainStyles = flex({
-  direction: 'column',
-  alignItems: 'center',
-  py: '3rem',
-  px: {
-    smDown: '1rem',
-  },
-  mt: '1rem',
-})
+}
 
 export default async function RootLayout({ children }: PropsWithChildren) {
-  const colorMode = await getColorModeCookie()
-
   return (
-    <html lang="en" data-color-mode={colorMode}>
+    <html lang="en" className={cn(`${GeistSans.variable} ${GeistMono.variable}`, 'dark scroll-smooth')}>
       <meta charSet="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <body className={inter.className}>
-        <Paper>
-          <div className={globalNavStack}>
-            <SideNavDrawer />
-            <PageAvatar />
-            <TopNavbar />
-            <ColorModeSwitcher />
-          </div>
-          <main className={mainStyles}>{children}</main>
-        </Paper>
-        <Footer>
-          <Footer.LeftElement>
-            <UnorderedList type="horizontal">
-              {NAVIGATIONAL_ITEMS.map((item) => (
-                <UnorderedList.ListItem key={item.value}>
-                  <Link href={item.href}>{item.value}</Link>
-                </UnorderedList.ListItem>
-              ))}
-            </UnorderedList>
-          </Footer.LeftElement>
-          <Footer.RightElement>©&nbsp;{formatDate(new Date(), 'yyyy')}&nbsp;James Walsh</Footer.RightElement>
-        </Footer>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <body className="flex w-screen flex-col md:items-center">
+        <TopNavbar />
+        <main className="mt-4 flex flex-col px-6 py-10 sm:px-4 md:w-[768px]">{children}</main>
+        <Footer />
       </body>
     </html>
   )

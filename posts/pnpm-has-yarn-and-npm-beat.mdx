@@ -1,9 +1,11 @@
 ---
 title: PNPM has both Yarn & NPM Beat
-coverImage: /covers/pnpm.webp
+description: With so many different Javascript package managers to choose from, it's no wonder that managing dependencies in JS can make us all feel a bit lost. This article is for developers who haven't run pnpm install yet. If you're on the fence about giving it a shot, I really think you should. Here's why.
+thumbnail: /thumbnails/pnpm-has-yarn-and-npm-beat.webp
 status: 'published'
 publishedAt: 2023-07-23
-brief: The case for switching your JS package manager... again.
+lastModified: 2023-11-10
+brief: The steel-man argument for switching your NPM package manager... yet again.
 tags:
   - pnpm
   - yarn
@@ -20,8 +22,7 @@ One of the biggest complaints you'll hear about the Javascript ecosystem is the�
 At the same time, the competition in our ecosystem is unrivaled, and it consistently pushed us forward. There is no doubt that Yarn gaining popularity led to many big enhancements to NPM, including simple things we now take for granted.
 
 1. For instance, you can thank the yarn team for the fact that NPM has a lock file. Yarn launched with a lock file out of the box with high praise.
-2. Yarn also invented the idea of a workspace, which forced NPM to support workspaces too.
-   1. The simple addition of all package managers fully supporting workspaces led to entirely new segments of libraries, frameworks, and tooling being created that never existed before. Including NX, Turborepo, & Lerna evolving to live alongside workspaces too.
+2. Yarn also invented the idea of a workspace, which forced NPM to support workspaces too. The simple addition of all package managers fully supporting workspaces led to entirely new segments of libraries, frameworks, and tooling being created that never existed before. Including NX, Turborepo, & Lerna evolving to live alongside workspaces too.
 3. **[Yarn resolutions](https://classic.yarnpkg.com/lang/en/docs/selective-version-resolutions/#toc-why-would-you-want-to-do-this)** helped get developers out of security jams when dependabot wasn't enough.
 
 All of these tools are industry standards, and we have the yarn team to thank for the pressure to get them into their current state. My point is that **_this competition is a good thing_**, and developers having a choice counts for something.
@@ -63,28 +64,24 @@ That’s right. You can completely uninstall tools like NVM or FNM and have pnpm
 
    ```sh
     curl -fsSL https://get.pnpm.io/install.sh | sh -
-
    ```
 
 3. Once you have a clean fresh machine with pnpm installed, use the `env` command to install the latest LTS version of `node` :
 
    ```sh
       pnpm env use --global lts
-
    ```
 
 4. To make sure everything is installed correctly use the following:
 
    ```sh
       pnpm env ls
-
    ```
 
 5. To double-check that your global node version is managed by pnpm directly run:
 
    ```sh
       which node
-
    ```
 
    The output should be something like `/<your-home-directory>/Library/pnpm/node`.
@@ -93,7 +90,6 @@ That’s right. You can completely uninstall tools like NVM or FNM and have pnpm
 
    ```sh
     pnpm env use --global 18.16.1
-
    ```
 
 ### **PNPM is Fast**

@@ -1,0 +1,116 @@
+'use client'
+
+import { AccordionItem } from '@radix-ui/react-accordion'
+import Image from 'next/image'
+import Link from 'next/link'
+
+import { Accordion, AccordionContent, AccordionTrigger } from '@/components/ui/accordion'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+
+interface CVItem {
+  image: React.ReactNode
+  company: string
+  role: string
+  startDate: string
+  endDate: string
+}
+
+const cvItems: CVItem[] = [
+  {
+    image: (
+      <Image
+        src="/logos/employers/vasion.png"
+        width={32}
+        height={32}
+        alt="Vasion company logo"
+        className="rounded-full"
+      />
+    ),
+    company: 'Vasion',
+    role: 'Staff Software Engineer',
+    startDate: '2022',
+    endDate: 'Present',
+  },
+  {
+    image: (
+      <Image
+        src="/logos/employers/podium.jpg"
+        width={32}
+        height={32}
+        alt="Podium company logo"
+        className="rounded-full"
+      />
+    ),
+    company: 'Podium',
+    role: 'Senior Software Engineer',
+    startDate: '2021',
+    endDate: '2022',
+  },
+  {
+    image: (
+      <Image
+        src="/logos/employers/pluralsight.png"
+        width={32}
+        height={32}
+        alt="Pluralsight company logo"
+        className="rounded-full"
+      />
+    ),
+    company: 'Pluralsight',
+    role: 'Full Stack Software Engineer',
+    startDate: '2016',
+    endDate: '2020',
+  },
+  {
+    image: (
+      <Image
+        src="/logos/employers/maersk.jpg"
+        width={32}
+        height={32}
+        alt="Maersk company logo"
+        className="rounded-full"
+      />
+    ),
+    company: 'Maersk',
+    role: 'Software Engineer',
+    startDate: '2014',
+    endDate: '2016',
+  },
+]
+
+export default function WorkHistory() {
+  return (
+    <Accordion type="single" collapsible>
+      <AccordionItem value="work-history">
+        <AccordionTrigger>View Work History</AccordionTrigger>
+        <AccordionContent>
+          <ul className="mt-4 flex flex-col gap-6">
+            {cvItems.map((cvItem) => (
+              <li className="w-full" key={cvItem.company}>
+                {cvItem.image}
+                <dl className="flex w-full flex-wrap gap-2">
+                  <dt className="hidden">Company</dt>
+                  <dd className="w-full font-semibold">{cvItem.company}</dd>
+                  <dt className="hidden">Role</dt>
+                  <dd className="text-xs">{cvItem.role}</dd>
+                  <dt className="hidden">Date</dt>
+                  <dd className="font-lighter ml-auto text-xs">
+                    <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
+                    <span aria-hidden="true"> — </span>
+                    <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
+                  </dd>
+                </dl>
+              </li>
+            ))}
+            <li className="w-full">
+              <Link href="resume.pdf" className={cn('w-full', buttonVariants())}>
+                <b>Download CV</b>
+              </Link>
+            </li>
+          </ul>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  )
+}

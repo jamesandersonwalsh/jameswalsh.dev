@@ -1,35 +1,14 @@
-import { ClockIcon } from '@heroicons/react/24/outline'
 import Image from 'next/image'
 import Link from 'next/link'
-import { css } from 'styled-system/css'
-import { container, flex } from 'styled-system/patterns'
 
-import { ArticleCTA } from './ArticleCTA'
-import fetchPosts from './fetchPosts'
+import { ReadMore } from './read-more'
 
-import { calculateTimeToRead } from '@/helpers'
-import { Card } from '@ui/Card'
-import { PageLayout } from '@ui/Layouts'
-import { TimeFormat } from '@ui/TimeFormat'
-import { Timeline } from '@ui/Timeline'
-
-const articleTitleStyles = css({
-  fontSize: 'xl',
-  fontWeight: 'semibold',
-})
-const coverImageSmallContainer = container({
-  height: '120px',
-  width: '264px',
-  marginInline: 0,
-  my: '1rem',
-})
-const coverImageSmall = css({
-  objectFit: 'cover',
-  borderRadius: 'md',
-})
-const articleBriefStyles = css({
-  fontSize: 'md',
-})
+import { Time } from '@/components/time'
+import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { TypographyH1, TypographyP } from '@/components/ui/typography'
+import { fetchPublishedPosts } from '@/lib/posts'
+import { calculateTimeToRead } from '@/lib/utils'
 
 export const metadata = {
   title: 'Articles - James Walsh',
@@ -37,50 +16,35 @@ export const metadata = {
 }
 
 export default function PostsIndexPage() {
-  const posts = fetchPosts()
+  const posts = fetchPublishedPosts()
 
   return (
     <>
-      <PageLayout.Title align="left">Articles about web development.</PageLayout.Title>
-      <PageLayout.Content>
-        <Timeline>
-          {posts.map((post) => (
-            <Timeline.Item key={post.title}>
-              <Timeline.LeftElement>
-                <div className={css({ ml: '1rem' })}>
-                  <TimeFormat size="sm" dateTime={post.publishedAt} />
-                </div>
-              </Timeline.LeftElement>
-              <Timeline.RightElement>
-                <Link href={post.url} className={css({ width: '100%' })}>
-                  <Card variant="ghost">
-                    <h2 className={articleTitleStyles}>{post.title}</h2>
-                    <Card.Body>
-                      <span className={flex({ alignItems: 'center', mb: '1rem' })}>
-                        <ClockIcon width={24} height={24} />
-                        &nbsp;
-                        {calculateTimeToRead(post.body.raw)}&nbsp;min read
-                      </span>
-                      <p className={articleBriefStyles}>{post.brief}</p>
-                      <div className={coverImageSmallContainer}>
-                        <Image
-                          className={coverImageSmall}
-                          src={post.coverImage}
-                          alt={`${post.title} cover image`}
-                          fill
-                        />
-                      </div>
-                    </Card.Body>
-                    <Card.Footer>
-                      <ArticleCTA />
-                    </Card.Footer>
-                  </Card>
-                </Link>
-              </Timeline.RightElement>
-            </Timeline.Item>
-          ))}
-        </Timeline>
-      </PageLayout.Content>
+      <TypographyH1>Latest Blog Posts</TypographyH1>
+      <div className="grid grid-cols-4 gap-8 md:grid-cols-8">
+        {posts.map((post) => (
+          <Link key={post.title} href={post.url} className="col-span-4 w-full">
+            <Card className="h-full">
+              <CardHeader className="gap-6">
+                <AspectRatio ratio={16 / 9}>
+                  <Image className="rounded-lg" fill src={post.thumbnail} alt={`${post.title} cover image`} />
+                </AspectRatio>
+                <CardTitle>{post.title}</CardTitle>
+                <span className="text-muted-foreground">
+                  <Time dateTime={post.publishedAt} />
+                  &nbsp;—&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read
+                </span>
+              </CardHeader>
+              <CardContent>
+                <TypographyP>{post.brief}</TypographyP>
+              </CardContent>
+              <CardFooter>
+                <ReadMore />
+              </CardFooter>
+            </Card>
+          </Link>
+        ))}
+      </div>
     </>
   )
 }

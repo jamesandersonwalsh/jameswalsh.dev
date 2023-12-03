@@ -15,6 +15,7 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "noUnusedLocals": true,
     "plugins": [
       {
         "name": "next"
@@ -22,8 +23,6 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@ui/*": ["./components/*"],
-      "@helpers/*": ["./helpers/*"],
       "contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
