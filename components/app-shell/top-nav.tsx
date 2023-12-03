@@ -39,7 +39,7 @@ export function TopNavbar() {
             const variant = pathname.includes(item.href) ? 'current' : 'default'
 
             return (
-              <li key={item.href} className="h-full" data-testid={`${item.value.toLowerCase()}-nav-item`}>
+              <li key={item.href} className="h-full" data-testid={`${item.value.toLowerCase()}-top-nav-item`}>
                 <Link href={item.href} className={cn(topNavVariants({ variant }))}>
                   {item.value}
                 </Link>
