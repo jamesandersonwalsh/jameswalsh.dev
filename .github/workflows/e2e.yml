@@ -32,12 +32,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
       - name: Contentlayer build
         run: pnpm contentlayer build
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          install-command: pnpm i --frozen-lockfile
+          install: false
           wait-on: 'http://localhost:3001'
           start: pnpm dev
