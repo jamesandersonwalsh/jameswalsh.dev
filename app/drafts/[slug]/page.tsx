@@ -1,11 +1,12 @@
 import formatDate from 'date-fns/format'
-import { RocketIcon } from 'lucide-react'
+import { AlertTriangle, RocketIcon } from 'lucide-react'
 import { RedirectType, redirect } from 'next/navigation'
 
 import PostPage, { PostPageProps } from '@/app/posts/[slug]/page'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import { fetchPostBySlug, isPostReleased } from '@/lib/posts'
+import { calculateTimeToRead } from '@/lib/utils'
 
 /**
  *
@@ -34,9 +35,17 @@ export default async function PostDraftPage(props: PostPageProps) {
               Status: <Badge variant="outline">{post.status}</Badge>
             </li>
             {!!post.publishedAt ? (
-              <li>Will release on: {formatDate(new Date(post.publishedAt), 'MMM dd, yy')}</li>
+              <li>
+                Release on: <Badge variant="outline">{formatDate(new Date(post.publishedAt), 'MMM-dd-yy')}</Badge>
+              </li>
             ) : (
               'No relase date'
+            )}
+            {calculateTimeToRead(post.body.raw) > 10 && (
+              <li className="mt-1">
+                <AlertTriangle className="inline-block text-yellow-600" /> Warning: this post takes longer than 10
+                minutes to read. May be too verbose.
+              </li>
             )}
           </ul>
         </AlertDescription>

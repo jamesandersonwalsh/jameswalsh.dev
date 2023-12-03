@@ -1,0 +1,318 @@
+---
+title: Why React is still G.O.A.T
+thumbnail: /thumbnails/react-is-still-goat.webp
+description: 'TODO'
+status: 'draft'
+publishedAt: 2023-12-11
+brief: The case for reducing magic in web development.
+tags:
+  - React
+  - Vue.js
+  - JavaScript
+  - Composability
+---
+
+## Intro
+
+I’ve used Vue.js professionally over the last year, _and I’m a fan_. If anyone asks me if they’d regret choosing Vue.js for their next project, I’d say with resounding confidence that the answer is no. You’ll be productive, and there’s a lot to enjoy about the DevEx. The creator, Evan You, along with the other core maintainers, have done an amazing job at promoting incredible dev tooling & pushing the web forward. From the creation of [Vite](https://vitejs.dev/guide/why.html) & [Vitest](https://vitest.dev/) that are now universally loved by frontend devs around the world, to the elegance of the Vue 3 composition API, Vue certainly deserves your attention. But React is still the framework I reach for day in and day out in all my hobby and side projects. In fact, the underlying headless CMS that powers the blog post you are currently reading is written in full-stack React with Next.js, rather than Nuxt. And I don’t see that changing anytime soon. Here’s why.
+
+**_Side Note:_** For this conversation, Im gonna stick with comparing Vue 3’s composition API against modern functional React. I understand that folks are still writing class based React in some cases, and using Vue 2 or Vue without the composition API.
+
+## TLDR; I Want To Embrace JavaScript More
+
+Yup. Im one of _those engineers_. I get it. Fully embracing JavaScript can be tricky. This language has some warts. But as my career has progressed, I’ve become increasingly wary of **_obfuscation through abstraction_**, leading to both codebase bloat, and a diminishing understanding of what our software is doing. As much as possible I want to embrace language features where I can, including all the wonderful modern built-in browser API’s. Even just between 2020-2023 the web has come such a long ways. There’s a lot to love here, and I’m trying to reach for more out of the box solutions when I can.
+
+The trick here is that modern frameworks will always provide some level of magic and obfuscation, that’s why we use them right? In that magic they make us more productive by removing typical barriers to producing real products. Both Vue & React are magical. Regardless, I have no plan today of moving toward [DHH’s No Build](https://world.hey.com/dhh/you-can-t-get-faster-than-no-build-7a44131c) quite yet.
+
+> “So how do we decide what type of “magic” we’re okay with”?
+
+My mission is to to avoid context-switching as much as possible. It’s a total productivity killer for me. Which means the more time I can spend just solving JS problems… the better! I think you’ll find the bulk of the reasons I choose React over Vue have to do the philosophy behind Vue directives & approaches how each framework handles state management. In fact, many of the same reasons I left Angular for React seem to almost rhyme with the philosophies I still fight against one year into writing Vue.
+
+## Minimizing Context Switching
+
+Modern React helps me avoid context-switching better than Vue. To make that case let’s start by talking about the different file syntaxes; `.jsx` & `.vue`
+
+## JSX vs SFC
+
+One of the things I appreciate most about `jsx` is the fact that the contextual shift between writing `js` vs `jsx` is miniscule. In comparison, when writing a Vue SFC in a `.vue` file there is far more available for you to both use, and keep track of. These extra abstractions are the “Vue way of doing things”, and when you embrace these opinions, you can move fast. However, the second you need to write vanilla JS or TS, you have to shift gears out of “Vue mode” and back into JS mode. Let’s take a closer look at the differences between the two file types down below.
+
+### JSX
+
+In JSX you can do everything you can do in a normal JS file. However there are a few simple features _(or “magic”)_ to keep track of. Let’s re-review the JSX fundamentals:
+
+**1:** A component is a function that returns markup.
+
+**2:** Inside of markup developers can use single curly braces `{}` to execute JavaScript expressions.
+
+**3:** DOM Event Handlers are attached to HTML elements through the camelCase spelling of DOM events, _i.e_ `onChange`.
+
+4: Styles can be applied through the `className` property which references a class that’s available in the DOM by some other mechanism, or written inline using a combination of JSS _(CSS in JS)_ and the native `style` element attribute.
+
+```tsx
+export const MyComponent = (props) => {
+	const buttonTitle = 'Hello World'
+
+	const handleClick = *() => { alert('You clicked me' }*
+
+	*return (
+		<button className="my-cool-button" onClick={handleClick}>
+			{buttonTitle}
+		</button>
+	)
+}
+```
+
+### SFC
+
+On the other hand, while SFCs are insanely powerful there is a lot more to know to be productive. In this sense `.jsx` feels to me like using a basic screwdriver, where `.vue` feels like pulling out power tools.
+
+An SFC is comprised of 3 component parts. A `<script>` portion that contains JS or TS. A `<template>` that contains markup. A `<style>` which contains styles or component scoped styles. _(I really enjoy the way both Vue handles styling to be honest)_
+
+Let’s look at that same example up above, but again in Vue.
+
+```tsx
+<script type="setup" lang="js">
+const buttonTitle = 'Hello World'
+const handleClick = *() => { alert('You clicked me' }*
+</script>
+<template>
+	<button class=".my-cool-button" @click="handleClick">{{buttonTitle}}</button>
+</template>
+<style scoped>
+	.my-cool-button {
+		// some CSS
+	}
+</style>
+```
+
+On the one hand, way to go Vue.js. We have a clear distinct separation of concerns, all neatly placed in one file. There is a lot to like here. But there is also a lot that needs to be implicitly parsed out through framework abstraction to understand how things work. When I look at this code I see things that immediately prompt questions, even though I understand implicitly how they work. Questions like:
+
+- How does the `template` get access to javascript variables inside of `<script>`?
+- How come we are accessing the result of javascript expression through both double quotes and double curly braces?
+- Why does script need to be passed both a `type` attribute and a `lang` attribute?
+
+Stay with me and we’ll discuss each of these and state management below.
+
+## How does Markup Access JavaScript
+
+### In Vue / SFC
+
+`button` has access to the `handleClick` function and `buttonTitle` variable through the keyword `“setup”` which magically takes everything inside the script tag and makes it a return value of the Vue components setup function, which will will tie together the available JavaScript code back to the component template through a vue SFC build step process _(typically the Vue plugin for Vite or Webpack)._
+
+### React
+
+In React, this is far simpler. Because components are just javascript functions that return markup, `button` has access to `handleClick` through function scoping. If you understand native JS functions, scoping, and variables, you are all set.
+
+DOM Event Handlers:
+
+- **In Vue SFC**: We could have written the click handler in 2 different syntaxes, which has always rubbed me the wrong way _(use a good linter here)_: `@click="handleClick"` `v-on:click="handleClick"`
+- **In React/JSX**: always use camelCase element props: `onClick`, `onChange` `onKeyDown` to hookup functionality to event handlers.
+
+## JavaScript Expressions
+
+### **In Vue**
+
+1. We access JavaScript expressions through double quotes when working with either event handlers like `@click` or component props
+2. But when rendering the result of a javascript expression inside a template, use double curly braces to parse variable value inside the element.
+
+### React
+
+We always access JS through single curly braces `{}` without exception. There are no additional rules to keep track of.
+
+## Working with Collections
+
+Let’s take a look at two of the most common scenarios you could find yourself in as a frontend developer.
+
+1. I want to iterate over an array of items and display their values in a list.
+2. I want to conditionally show a piece of UI.
+
+To demonstrate these scenarios, let’s create a todo component in both React & Vue that takes in a list of todos and:
+
+- Displays an empty message when our list is empty.
+- Filters out completed todos.
+- Shows incomplete todos.
+
+### React
+
+```tsx
+export default function List({ todos }) {
+	if !(todos.length) {
+		return (
+			<p>No Todos Yet. Please create some todos.</p>
+		)
+	}
+
+	return (
+		<ul>
+			{todos
+				.filter(todo => !todo.completed)
+				.map(todo => (
+					<li key={todo.title}>
+						{todo.title}
+					</li>
+			))}
+		</ul>
+	)
+}
+```
+
+Here we can use the combination of javascript an if statement alongside the built-in `Array.prototype.filter` and `Array.prototype.map` functions to achieve our result. Again, the only bit of magic we have to understand is the curly brace syntax. After all a function just returns markup, the rest is up to you. And all the other stylistic decisions we could have made rely on built-in language features. Maybe you want to use a ternary instead of the if statement I used above? You can just “JavaScript your way to the finish line" however you like.
+
+### Vue
+
+```tsx
+<script type="setup" lang="js">
+import { defineProps } from 'vue'
+
+defineProps({ todos })
+
+const visibleTodos = computed(() => todos.filter(todo => !todo.completed))
+</script>
+<template>
+<ul v-if="!!todos.length">
+	<li v-for="todo in visibleTodos">
+		{{todo.title}}
+	</li>
+</ul>
+<p v-else>
+	No Todos Yet. Please create some todos.
+</p>
+</template>
+```
+
+On the one hand the Vue code is very concise. And I can understand how incredible that syntactic sugar is. In many ways it’s a **_joy to write_**.
+
+But let’s take a deeper look:
+
+- Instead of using JavaScript ternaries, we make use the `v-if` `v-else` & `v-show` directives which do all the heavy lifting for you.
+  - PS: `v-show` works better for scenarios where there isn’t an else case, and when you care about CSS, as v-show uses the CSS `display` property to toggle visibility. Understanding the CSS portion is something I constantly forget about, which is yet another piece of magic to remember.
+- Instead of using `Array.prototype.map` in Vue we have the `v-for` directive which is an abstraction that does the same thing; “loop over this data set and return markup for each iteration”.
+- We have to offload `Array.prototype.filter` functionality to a different location in the code since `v-for` would expect to loop over an already filtered list. So we can do something like:
+  1. Nest a `v-show` or directive underneath the `v-for` directive that can act as a filter.
+  2. Use `computed` from Vue to recompute the filter any time the props change, and filter down the todos. For the React devs, `computed` ties into Vue’s Reactivity API, which is what enables it to recompute its value when props change.
+
+Again, there is nothing inherently bad here with this code, and I understand the appeal looking at it at face value. But the second I shift gears into working with unit tests, pinia, regular JS/TS files or have to do any sort of state management up in the script section of the SFC, I need to switch gears in to “the JavaScript way”. And this is where Vue directives and pragmatic JavaScript code tend to work differently.
+
+When you _read_ the code produced by combination the `v-for` and `v-show/v-if` directives, you have to read it in an **_imperative &_** stateful way to understand it. Which in vanilla JavaScript would looks something like:
+
+```tsx
+let visibleTodos = []
+
+for (i in items) {
+  if (!i.completed) {
+    visibleTodos.push(i.title)
+  }
+}
+```
+
+But the concise declarative, far simpler, fully FP way to achieve the same result in JavaScript would look like:
+
+```tsx
+const visibleTodos = items.filter((i) => !i.completed).map((i) => i.title)
+```
+
+At the end of the day this is an itch that I’ve never been able to scratch with Vue, even though on the _whole I still like using it_.
+
+What I don’t want you to hear is that I think Vue engineers need to write imperative code to do their job well. That’s certainly not the case, nor my experience. My point is that writing clean pragmatic Vue code and writing clean pragmatic JavaScript/Typescript code can sometimes feel like entirely different contexts/skillsets. And Im not convinced that writing better Vue makes me a better JavaScript engineer. Whereas in React often times the easiest ways to express yourself tends to feel closer to embracing writing JavaScript.
+
+## Event Handlers
+
+### Vue
+
+Event handlers are attached to the DOM elements through `v-on:event-name` . So `v-on:click` or `@click` which is a shortcut. But I have a few nit picks here too.
+
+1. These shortcuts can be taken a step further, through event modifiers like `@click.prevent` which is a wrapper around `event.preventDefault()`. Needing to concretely care about DOM event bubbling is totally abstracted away from you.
+2. Event handlers are allowed to be written as though they are executing in real time, and passed parameters all at once. For example: `@click="resetPassword(newPassword)"` is totally valid Vue code. Vue does some magic that delays execution of your function until click is actually called. It’s powerful, but it totally obfuscates what’s happening.
+
+### React
+
+Whereas in React, if I want to stop event propagation you need to explicitely do that using the native Browser DOM API like so:
+
+```tsx
+const clickHandler = (event) => {
+  event.stopPropagation()
+
+  // do all the things I wanted to do after stopping event propagation
+}
+```
+
+if I need to pass a parameter to an event handler, I need to use JavaScript **_currying_** so that my function doesn’t execute until it’s actually clicked. Otherwise the code breaks:
+
+```tsx
+const curriedOnClick = async (newPassword) => () => {
+  await resetUserPassword(newPassword)
+}
+return <button onClick={curriedOnClick(newPassword)} />
+```
+
+There’s no obfuscation here, which I like. Im forced to reckon with the fact that I need to develop an understanding of how to work with event bubbling, and that event handlers need to be callbacks, because callbacks exist in JavaScript to help us delay execution of code until a future point in time. These thing are important to the core language, and IMO don’t need abstractions, they need to be embraced.
+
+As a side note, I also don’t like that event handlers get passed functions through double quotes in Vue. It’s honestly not a big deal, but I wish Vue went all in on double curly braces. There should be only one way to hook up JavaScript things to HTML things.
+
+## State Management
+
+- Let’s ditch that `todos` prop and make todos internal to the component state.
+- Let’s also setup an `addTodo` function which marks todos as completed.
+- Let’s setup a side effect that waits for todos to be completed and optimistically removes them from the UI.
+
+### React
+
+```tsx
+import { useState } from 'react'
+
+const [todos, setTodos] = useState([])
+
+const addTodo = (todo) => {
+  const newTodos = [...todos, todo]
+  setTodos(newTodos)
+}
+
+useEffect(() => {
+  setTodos(todos.filter((todo) => !todo.completed))
+}, [todos])
+```
+
+### Vue
+
+```tsx
+<script type="setup" lang="js">
+import { ref, watch } from 'vue'
+
+const todos = ref([]) // could also be reactive
+
+const addTodo = (todo) => {
+	todos.value.push(todo)
+}
+
+watch([todos], () => {
+	todos.value = todos.filter(todo => !todo.completed)
+}, { deep: true })
+</script>
+```
+
+- Both `watch` and `useEffect` behave more or less the same in this example. But anytime we are dealing with collections, we have to need to pass the `deep` option to the watch function. Watches are inherently shallow until specified otherwise. This is a problem I’ve watched plague my own development flow.
+- To set the new todo value, we can update the reactive state through the `.value` key. Under the hood, reactive variables are immutable. So value acts as a setter. However value also acts as a getter. In this case developers can treat `.value` like it’s a `var` or a `let` and mutate the value whenever/however they like _(even though its technically not a mutation, a new version of the ref is returned)_.
+
+I vastly prefer Reacts `useState()` approach to `ref()` . The tuple that’s returned is explicit. The first thing in the tuple will always be the getter, the second thing will always be the setter. If you’re ever confused about how your component state is being updated, you can search for your setter function and get all the answers you need. There is no mutation, and no chance of treating your code like it works with mutations.
+
+Conversely in Vue the fact that I can both set and get values through `.value` has become one of my biggest pet peeves. That behavior eliminates a large portion of the benefit of working with immutable objects, because the code you end up writing feels **_imperative_** not **_declarative_**. It’s my opinion that `.value` can turn into the same mutational “foot-gun” as scattering `var` and `let` throughout your codebase.
+
+While there are some nuances between `useEffect()` and `watch()`, my own experience has been that it’s like choosing between Diet Coke or Coke Zero. There will be some folks who will swear by one or the other. But to me, they are both slightly different flavors of the exact same thing.
+
+## The Big Picture
+
+Overall after 1 year of using Vue, even though I like the language, and love the community even more, my feeling is that React **_just embraces JavaScript more_**. And while magic still definitely exists in React _(AKA the entire virtual DOM is magic)_, the abstractions are more lightweight by design. In comparison to its counterparts, React markets itself as a meta-framework. This is a pretty critical decision and the reason why a gap exists that can be filled by the likes of both Remix & Next.js.
+
+## I Enjoy React’s Lack of Opinions
+
+React is still the G.O.A.T not because its developers are trying to create an infinite number of abstractions that keep you away from the DOM, but because its not very opinionated. And that gives you a doorway to embrace whatever solution or tool that pairs best with the rest of your codebase, rather than the strongly opinionated approach.
+
+> WIP: include a blurb here to the other article I want to write about what Vue does better than React
+
+Since we’ve established React is more of a meta framework, React wins hands down when it comes to discovering new ways of doing things. It’s just such a big wide world out there when it comes to React. You can find an approach to just about everything, even if a preferred approach isn’t handed to you on a silver plate. For me, I like that. As a full time tinkerer:
+
+- I want have the spirited debate around the merits of Redux vs Zustand rather than pulling Pinia off the shelf.
+- I want to spend time considering the finer points around why someone might pickup TailwindCSS, PandaCSS, or instead use CSS Modules.
+- I want my app to break when I accidentally _call the callback_, rather than the framework stepping in and purging the error without me ever knowing I mis-stepped.
+
+I understand that while all some of the things I mentioned above are still possible in Vue, its difficult not to just use the strong opinions that are handed to you in both the Vue Docs & CLI, especially when most of the community effort is spent maintaining the “one preferred approach”. On the one hand this makes you more productive, but it feels like something intangible is lost when it comes to flexibility.
