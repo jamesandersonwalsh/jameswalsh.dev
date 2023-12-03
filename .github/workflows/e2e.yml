@@ -10,11 +10,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
@@ -33,11 +28,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
-        run: pnpm ci
-
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          install: false
+          install-command: pnpm i --frozen-lockfile
+          wait-on: 'http://localhost:3000'
           start: pnpm dev
