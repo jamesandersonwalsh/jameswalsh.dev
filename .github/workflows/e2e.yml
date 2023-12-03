@@ -1,4 +1,4 @@
-name: End-to-end Tests
+name: E2E
 
 on:
   - pull_request
@@ -23,7 +23,9 @@ jobs:
       - uses: actions/cache@v3
         name: Setup pnpm cache
         with:
-          path: ${{ env.STORE_PATH }}
+          path: |
+            ~/.cache/Cypress
+            ${{ env.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
@@ -32,5 +34,5 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           install-command: pnpm i --frozen-lockfile
-          wait-on: 'http://localhost:3000'
+          wait-on: 'http://localhost:3001'
           start: pnpm dev
