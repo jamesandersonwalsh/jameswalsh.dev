@@ -37,5 +37,3 @@ next-env.d.ts
 # contentlayer
 .contentlayer
 
-# Sentry Config File
-.sentryclirc
