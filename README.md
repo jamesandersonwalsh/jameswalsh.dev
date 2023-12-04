@@ -4,7 +4,7 @@
 ![Typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 ![Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge)
 
-Built using Next.js, PandaCSS, & Typescript.
+Built with React, Next.js, TailwindCSS, & Typescript.
 
 ## Getting Started 🤔
 
