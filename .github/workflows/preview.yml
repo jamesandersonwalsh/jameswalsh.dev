@@ -6,9 +6,7 @@ on:
   workflow_run:
     workflows: [E2E]
     types: [completed]
-  # push:
-  #   branches-ignore:
-  #     - main
+    branches-ignore: [main]
 
 jobs:
   Deploy-Preview:
