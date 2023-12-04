@@ -7,6 +7,8 @@
   },
   "packageManager": "pnpm@8.6.12",
   "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "dev": "next dev --port=3001",
     "dev:force": "rm -rf .next && pnpm dev",
     "type-check": "tsc --noEmit --incremental",
@@ -51,6 +53,7 @@
     "@types/rss": "^0.0.32",
     "@typescript-eslint/parser": "^6.9.0",
     "autoprefixer": "^10.4.16",
+    "cypress": "^13.6.0",
     "eslint": "8.51.0",
     "eslint-config-next": "14.0.3",
     "eslint-import-resolver-typescript": "^3.6.1",
