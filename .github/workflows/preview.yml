@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: preview
+      name: Preview
       url: ${{ steps.set-url.outputs.url }}
 
     steps:

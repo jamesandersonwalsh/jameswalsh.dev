@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: production
+      name: Production
       url: ${{ steps.set-url.outputs.url }}
 
     steps:
