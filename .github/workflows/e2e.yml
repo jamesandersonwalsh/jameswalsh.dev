@@ -1,18 +1,17 @@
-name: Lint
+name: E2E
 
 on:
   - pull_request
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-
+  cypress-run:
+    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - uses: pnpm/action-setup@v2
+        name: Install pnpm
         with:
           version: 8
 
@@ -22,8 +21,13 @@ jobs:
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
       - uses: actions/cache@v3
+        name: Setup pnpm, cypress, contentlayer, & next.js cache
         with:
-          path: ${{ env.STORE_PATH }}
+          path: |
+            ~/.cache/Cypress
+            .next
+            .contentlayer
+            ${{ env.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
@@ -34,10 +38,9 @@ jobs:
       - name: Contentlayer build
         run: pnpm contentlayer build
 
-      - name: Run ESLint
-        id: run-lint
-        run: pnpm lint
-
-      - name: Run Prettier Check
-        id: run-format-check
-        run: pnpm format:check
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          install: false
+          wait-on: 'http://localhost:3001'
+          start: pnpm dev

@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
         <ul className="flex flex-row gap-6">
           {SITE_NAVIGATIONAL_ITEMS.map((item) => (
-            <li className="w-full" key={item.value}>
+            <li className="w-full" key={item.value} data-testid={`${item.value.toLowerCase()}-footer-nav-item`}>
               <Link href={item.href}>{item.value}</Link>
             </li>
           ))}
