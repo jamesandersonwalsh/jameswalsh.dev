@@ -91,7 +91,7 @@ export default function ProjectsPage() {
         I&apos;ve enjoyed contributing to many projects over the years, but the following is my professional highlight
         reel. A couple of them are open-source, if you&apos;d like to learn more.
       </p>
-      <div className="mt-8 grid w-full gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid w-full gap-8 sm:grid-cols-1 md:grid-cols-2">
         {projects.map((project) => (
           <Link key={project.title} href={project.externalLink.href}>
             <Card className="ease h-full transition hover:scale-105">
