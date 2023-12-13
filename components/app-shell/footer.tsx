@@ -1,5 +1,5 @@
 import formatDate from 'date-fns/format'
-import { Github, Linkedin } from 'lucide-react'
+import { Github, Linkedin, Rss } from 'lucide-react'
 import Link from 'next/link'
 
 import { HANDLE, SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
@@ -45,6 +45,9 @@ export default function Footer() {
               {icon}
             </Link>
           ))}
+          <Link href="/rss.xml">
+            <Rss width={24} height={24} />
+          </Link>
         </div>
         <ul className="flex flex-row gap-6">
           {SITE_NAVIGATIONAL_ITEMS.map((item) => (
