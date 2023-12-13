@@ -127,11 +127,13 @@ export function sumArray(array) {
 
 ### With()
 
-If you’re curious why I didn’t talk about with, I plan to write a follow-up post later dedicated to this method, because the implications are pretty cool. In the meantime, check out the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/with)
+If you’re curious why I didn’t talk about with, I plan to write a follow-up post later dedicated to this method,
+because the implications are pretty cool. In the meantime, check out the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/with).
 
 ## Cost to Performance 🏃
 
-As with most things in life, these new tools involve measuring trade-offs. Technically speaking these new methods are more expensive than the older methods. Since physics is still physics, & there aren’t any breakthroughs in science that have shattered my perceptions of how computation works, _yes copying a bunch of bits is always more expensive than adding or removing specific bits to a known part of the heap_.
+As with most things in life, these new tools involve measuring trade-offs. Technically speaking these new methods are more expensive than the older methods.
+Since physics is still physics, & there aren’t any breakthroughs in science that have shattered my perceptions of how computation works, _yes copying a bunch of bits is always more expensive than adding or removing specific bits to a known part of the heap_.
 
 ### The known drawbacks are
 
@@ -148,9 +150,9 @@ As with most things in life, these new tools involve measuring trade-offs. Techn
 
 ### Dont Sweat Performance Yet (Probably)
 
-Throughout the day as a full-stack web developer, my priorities are maximizing safety, & readability, while reducing customer bugs. This approach supports that.
-If you need to ship code with an incredibly small runtime footprint to a resource-constrained device like an IoT device, are dealing with a part of your codebase that's already dealing with scaling issues,
-or work in game development where resource efficiency is incredibly important; you could justify a refactor the total opposite direction.
+Throughout the day my priorities are maximizing safety, & readability, while reducing customer bugs. This approach supports that.
+If you need to ship code with an incredibly small footprint to a resource-constrained device _(like an IoT device)_,
+or you are dealing with a part of your codebase that's having scaling issues; you could justify a refactor the total opposite direction.
 
 <br />
 But for most of us, the caution here is that premature optimization can cause software rot. Most of the time I'm focused
