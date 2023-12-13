@@ -26,8 +26,8 @@ export default function Home() {
             advocate.
           </TypographyP>
           <TypographyP className="mb-4 text-lg">
-            I&apos;m currently building developer tools to create rich web experiences. Im interested in full-stack{' '}
-            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">React</code> using tools like{' '}
+            I&apos;m currently building developer tools to create rich web experiences. Im interested in full-stack
+            front-end focused frameworks like{' '}
             <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code>,
             <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Remix</code>, &{' '}
             <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Sveltekit</code>. I&apos;m writing
