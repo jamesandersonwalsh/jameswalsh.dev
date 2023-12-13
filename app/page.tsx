@@ -5,13 +5,10 @@ import Link from 'next/link'
 import { ReadMore } from './posts/read-more'
 
 import { AspectRatio } from '@/components/ui/aspect-ratio'
-import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
-import { HANDLE } from '@/lib/constants'
 import { fetchPublishedPosts } from '@/lib/posts'
-import { calculateTimeToRead, cn } from '@/lib/utils'
+import { calculateTimeToRead } from '@/lib/utils'
 
 export default function Home() {
   const posts = fetchPublishedPosts()
@@ -88,55 +85,6 @@ export default function Home() {
           </Link>
         ))}
       </section>
-      <div>
-        <Separator className="my-6" />
-        <TypographyH2 id="publications">Read Anywhere I Publish</TypographyH2>
-      </div>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Card>
-          <CardHeader className="flex flex-row gap-4">
-            <Image src="/logos/blog/hey-world.png" className="rounded-md" width={28} height={28} alt="Hey World Logo" />
-            <CardTitle>HEY</CardTitle>
-          </CardHeader>
-          <CardContent>
-            Checkout non-technical posts on HEY. Use the link below to get posts directly to your email,&nbsp;
-            <i>or grab the RSS feed</i>.
-          </CardContent>
-          <CardFooter>
-            <Link href="https://world.hey.com/jameswalsh" className={cn(buttonVariants(), 'w-full')}>
-              <b>View</b>
-            </Link>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row gap-4">
-            <Image src="/logos/blog/hashnode.png" className="rounded-md" width={28} height={28} alt="Hashnode Logo" />
-            <CardTitle>Hashnode</CardTitle>
-          </CardHeader>
-          <CardContent>
-            Blog posts on this website are cross-posted to Hashnode. Get notified when I publish a new article.
-          </CardContent>
-          <CardFooter>
-            <Link href="https://jameswalsh.hashnode.dev/newsletter" className={cn(buttonVariants(), 'w-full')}>
-              <b>Subscribe</b>
-            </Link>
-          </CardFooter>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row gap-4">
-            <Image src="/logos/blog/dev-to.png" className="rounded-md" width={28} height={28} alt="DEV.TO Logo" />
-            <CardTitle>DEV</CardTitle>
-          </CardHeader>
-          <CardContent>
-            DEV Community is my favorite blogging community. You can also find these posts over there. Follow for more!
-          </CardContent>
-          <CardFooter>
-            <Link href={`https://dev.to/${HANDLE}`} className={cn(buttonVariants(), 'w-full')}>
-              <b>Follow</b>
-            </Link>
-          </CardFooter>
-        </Card>
-      </div>
     </>
   )
 }

@@ -1,8 +1,11 @@
 'use client'
 
 import { cva } from 'class-variance-authority'
+import { RssIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip'
 
 import { MobileMenu } from './mobile-menu'
 
@@ -10,12 +13,12 @@ import { SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 const topNavVariants = cva(
-  'flex items-center px-5 w-18 mx-1 transition hover:bg-primary opacity-80 transition-colors duration-200 rounded-full h-full',
+  'flex items-center px-5 w-18 mx-1 transition opacity-80 transition-colors duration-200 h-full',
   {
     variants: {
       variant: {
         default: '',
-        current: 'bg-primary opacity-100',
+        current: 'border-b-2 border-primary opacity-100',
       },
     },
     defaultVariants: {
@@ -29,7 +32,7 @@ export function TopNavbar() {
   return (
     <>
       <nav className="pointer-events-auto mt-8 hidden md:flex md:flex-row md:justify-between md:gap-6">
-        <ul className="flex h-12 items-center rounded-full border-2 py-1 text-sm font-medium">
+        <ul className="flex h-12 items-center text-sm font-medium">
           <li className="h-full">
             <Link href="/" className={cn(topNavVariants({ variant: pathname === '/' ? 'current' : 'default' }))}>
               Home
@@ -46,6 +49,20 @@ export function TopNavbar() {
               </li>
             )
           })}
+          <li className="h-full">
+            <Link href="/rss.xml" className={cn(topNavVariants({ variant: 'default' }))}>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <RssIcon />
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom">
+                    <p>Get the RSS Feed</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </Link>
+          </li>
         </ul>
       </nav>
       <MobileMenu />
