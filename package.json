@@ -38,7 +38,7 @@
     "date-fns": "^2.30.0",
     "eslint": "8.51.0",
     "eslint-config-next": "14.0.3",
-    "geist": "^1.1.0",
+    "geist": "^1.2.0",
     "lucide-react": "^0.295.0",
     "next": "14.0.3",
     "next-contentlayer": "^0.3.4",
