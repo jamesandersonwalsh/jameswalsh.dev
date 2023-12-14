@@ -1,6 +1,6 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
+  "name": "jameswalsh.dev",
+  "version": "1.0.0",
   "private": true,
   "engines": {
     "node": ">=v18.17.1"
