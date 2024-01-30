@@ -1,4 +1,4 @@
-import formatDate from 'date-fns/format'
+import { formatDate } from 'date-fns/format'
 import { PropsWithChildren, TimeHTMLAttributes } from 'react'
 
 type TimeFormatProps = {

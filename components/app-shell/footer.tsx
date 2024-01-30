@@ -1,4 +1,4 @@
-import formatDate from 'date-fns/format'
+import { formatDate } from 'date-fns/format'
 import { Github, Linkedin, Rss } from 'lucide-react'
 import Link from 'next/link'
 
