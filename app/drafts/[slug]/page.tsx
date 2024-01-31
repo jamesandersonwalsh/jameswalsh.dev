@@ -1,4 +1,4 @@
-import formatDate from 'date-fns/format'
+import { formatDate } from 'date-fns/format'
 import { RocketIcon } from 'lucide-react'
 import { RedirectType, redirect } from 'next/navigation'
 
