@@ -1,0 +1,37 @@
+---
+title: Fast API development with Thunder Client
+description: ES2023 was released in September of this year. And this release ships with a handful of incredibly useful array methods that solve for some of JavaScripts bigger side-effects that are also easy to miss. In today's post we'll talk about those methods, and why they can save you lots of time, and headaches.
+thumbnail: /thumbnails/todo.webp
+status: 'draft'
+publishedAt: 2024-02-05
+lastModified: 2024-02-05
+brief: Still need to add a brief
+tags:
+  - ThunderClient
+  - ApiDevelopment
+  - Rest
+  - HTTP
+  -
+---
+
+In the world of API development, we’ve already got some wonderful heavy hitters you can reach for to test and develop APIs locally. A lot of these tools are somewhat ubiquitous, and for good reason. They work well, have brilliant UI/UXs, and scale well with growing teams who need more than just simple manual API tests, they need something fully-featured.
+
+## Enter the Competition
+
+Especially [with the recent Insomnia drama](https://www.google.com/search?q=insomnia+api+drama&sca_esv=590699485&ei=rzx6ZbikA72uur8Pn6q1oAE&ved=0ahUKEwj4t9iDx42DAxU9l-4BHR9VDRQQ4dUDCBE&uact=5&oq=insomnia+api+drama&gs_lp=Egxnd3Mtd2l6LXNlcnAiEmluc29tbmlhIGFwaSBkcmFtYTIIECEYoAEYwwRIiw1Q7wVYxAhwAXgBkAEAmAF0oAG-A6oBAzAuNLgBA8gBAPgBAcICChAAGEcY1gQYsAPiAwQYACBBiAYBkAYI&sclient=gws-wiz-serp), there’s been a ton of chatter in the webdev sphere around new open source tools like [Bruno](https://github.com/usebruno/bruno) & [Hopscotch](https://github.com/hoppscotch/hoppscotch). I particularly like Bruno because collections get stored as files on your file system. So there is nothing stopping you from embedding collections in a git repo and getting automatic git support without any of the extra subscription/membership hoops. If you’re into self-hosting open solutions, Hopscotch looks like it’s spending more time going after the self-hosting crowd.
+
+Putting these other solutions aside; there is a totally sweet new tool that flew onto my radar thanks to [Jeff Delaney](https://fireship.io/contributors/jeff-delaney/), & his [Fireship.io](https://fireship.io/courses) learning platform. And for now, this is the tool I’m ready to make stick. Why? It’s lightweight, and exactly what I need for indie development. If you need something simple, fast, without ever leaving your text editor, I cannot recommend the [ThunderClient extension for VS Code](https://www.thunderclient.com/) highly enough.
+
+## ThunderClient is G.O.A.T
+
+At the risk of turning this into a marketing post instead of a technical post, I’ll share my aha moment and keep this one short.
+
+1. Similar to Bruno, ThunderClient stores collections on your file system.
+2. Unlike Bruno & Hopscotch, the main value add here is never needing to leave your editor.
+3. If you have a good wide monitor setup, there is no better DevEx than dedicating one VSCode tab to ThunderClient, with the corresponding API endpoint source code on the opposite side. This mimics how I unit test, and it “just works” for me.
+
+I’m trying to reduce needing tons of apps and tools to build cool stuff in my spare time. I’ll gladly double up on my VSCode extensions if it means saving another download to my applications directory and I’m cool with that right now.
+
+## Other Tools You Might Like
+
+I had been exposed to similar tools like the [HTTP Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) in the past, and it operates in much the same way, but I would say leans even further in on doing things as light-weight as possible. It essentially auto picks up things like cURL commands that are listed in documentation files. I’ve seen folks on my team also use this to great success. ThunderClient gives you a bit more while also delivering on the promise of just being a disposable text editor tab at the end of the day, so they are two sides of the same coin, and each will work well for different personality types.
