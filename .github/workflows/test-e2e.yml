@@ -1,47 +1,27 @@
 name: E2E Tests
-
 on:
-  - pull_request
-
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3
-        name: Setup pnpm, cypress, contentlayer, & next.js cache
-        with:
-          path: |
-            ~/.cache/Cypress
-            .next
-            .contentlayer
-            ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install dependencies
-        run: pnpm i --frozen-lockfile
-
-      - name: Contentlayer build
-        run: pnpm contentlayer build
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
+        run: npm install -g pnpm && pnpm install
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+      - name: Run Playwright tests
+        run: pnpm exec playwright test
+      - uses: actions/upload-artifact@v3
+        if: always()
         with:
-          install: false
-          wait-on: 'http://localhost:3001'
-          start: pnpm dev
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
