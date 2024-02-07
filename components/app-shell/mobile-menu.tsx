@@ -17,7 +17,7 @@ export function MobileMenu() {
       </SheetTrigger>
       <SheetContent>
         <ul className="mt-6 flex flex-col gap-6">
-          <li className="w-full" data-testid="home-mobile-nav-item">
+          <li className="w-full" data-testid="home-nav-item">
             <SheetClose asChild>
               <Link href="/" className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
                 Home
@@ -26,7 +26,7 @@ export function MobileMenu() {
           </li>
           {SITE_NAVIGATIONAL_ITEMS.map((navItem) => {
             return (
-              <li className="w-full" key={navItem.value} data-testid={`${navItem.value.toLowerCase()}-mobile-nav-item`}>
+              <li className="w-full" key={navItem.value} data-testid={`${navItem.value.toLowerCase()}-nav-item`}>
                 <SheetClose asChild>
                   <Link href={navItem.href} className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
                     {navItem.value}

@@ -18,7 +18,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
-    baseURL: 'http://127.0.0.1:3000',
+    baseURL: process.env.CI ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3001',
   },
 
   projects: [
@@ -38,14 +38,14 @@ export default defineConfig({
     },
 
     /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 13'] },
-    // },
+    {
+      name: 'Mobile Chrome',
+      use: { ...devices['Pixel 5'] },
+    },
+    {
+      name: 'Mobile Safari',
+      use: { ...devices['iPhone 13'] },
+    },
 
     /* Test against branded browsers. */
     // {
@@ -60,8 +60,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm build && pnpm start',
-    url: 'http://127.0.0.1:3000',
+    command: !process.env.CI ? 'pnpm build && pnpm start' : 'pnpm dev',
+    url: process.env.CI ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3001',
     reuseExistingServer: !process.env.CI,
   },
 })
