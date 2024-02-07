@@ -18,9 +18,11 @@ describe('global navigation smokescreen', () => {
     cy.get('h1').contains(`Technology Tools I Recommend & Use`)
 
     cy.get('[data-testid="portfolio-top-nav-item"]').click()
-
     cy.url().should('include', '/projects')
     cy.get('h1').contains(`Things I've Helped Build That`)
+
+    cy.get('[data-testid="rss-feed-top-nav-item"]').click()
+    cy.url().should('include', '/rss.xml')
   })
 
   it('navigates the footer', () => {

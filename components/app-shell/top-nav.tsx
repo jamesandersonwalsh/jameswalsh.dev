@@ -49,7 +49,7 @@ export function TopNavbar() {
               </li>
             )
           })}
-          <li className="h-full">
+          <li className="h-full" data-testid="rss-feed-top-nav-item">
             <Link href="/rss.xml" className={cn(topNavVariants({ variant: 'default' }))}>
               <TooltipProvider>
                 <Tooltip>
