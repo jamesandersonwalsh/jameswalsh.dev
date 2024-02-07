@@ -1,4 +1,5 @@
 import { compareDesc, isFuture } from 'date-fns'
+import { notFound } from 'next/navigation'
 
 import { Post, allPosts } from 'contentlayer/generated'
 
@@ -19,7 +20,7 @@ export function fetchPostBySlug(slug: string): Post {
   const post = allPosts.find((post) => post._raw.flattenedPath === slug)
 
   if (!post) {
-    throw new Error(`Post not found for slug: ${slug}`)
+    notFound()
   }
 
   return post
