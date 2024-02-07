@@ -13,7 +13,6 @@
     "dev:force": "rm -rf .next && pnpm dev",
     "build": "next build",
     "format": "prettier --write .",
-    "format:mdx": "prettier --parser=mdx --write posts/",
     "format:check": "prettier --check .",
     "lint": "next lint",
     "lint:fix": "pnpm lint -- --fix",
