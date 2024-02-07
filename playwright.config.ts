@@ -1,14 +1,8 @@
 import { defineConfig, devices } from '@playwright/test'
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
+const PORT = process.env.PORT || 3000
+const baseURL = `http://localhost:${PORT}`
 
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
 export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
@@ -16,9 +10,14 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'html',
+  webServer: {
+    command: 'pnpm dev',
+    url: baseURL,
+    reuseExistingServer: !process.env.CI,
+  },
   use: {
-    trace: 'on-first-retry',
-    baseURL: process.env.CI ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3001',
+    baseURL,
+    trace: 'retry-with-trace',
   },
 
   projects: [
@@ -57,11 +56,4 @@ export default defineConfig({
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
   ],
-
-  /* Run your local dev server before starting the tests */
-  webServer: {
-    command: process.env.CI ? 'pnpm build && pnpm start' : 'pnpm dev',
-    url: process.env.CI ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3001',
-    reuseExistingServer: !process.env.CI,
-  },
 })
