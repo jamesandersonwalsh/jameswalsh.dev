@@ -1,0 +1,60 @@
+---
+title: Fast API Development with Thunder Client
+description: In the world of API development, we’ve already got some wonderful heavy hitters you can reach for to test and develop APIs in a sandbox. Today I want to make the case for why you might be time to set some of your existing tools back up on the shelf in favor of simple VSCode Extensions, or easy to use open source alternatives.
+thumbnail: /thumbnails/fast-api-dev-with-thunder-client.webp
+status: 'published'
+publishedAt: 2024-02-08
+lastModified: 2024-02-08
+brief: Test & Develop APIs without ever leaving VSCode.
+tags:
+  - ThunderClient
+  - HTTP
+  - API
+  - VSCodeExtensions
+---
+
+In the world of API development, we’ve already got some wonderful heavy hitters you can reach for to test and develop APIs in a sandbox.
+A lot of these tools are somewhat ubiquitous, and for good reason. They work well, have great UI/UXs, and scale well with growing teams who need easy ways to share and develop API resources.
+
+## Enter New Competition
+
+Especially [with the Insomnia drama last year](https://github.com/Kong/insomnia/issues/6577), there’s been a ton of chatter in the webdev sphere around new open source tools like [Bruno](https://github.com/usebruno/bruno) & [Hopscotch](https://github.com/hoppscotch/hoppscotch).
+Putting these other solutions aside; there is a totally sweet new tool that flew onto my radar thanks to a sveltekit course published by [Jeff Delaney](https://fireship.io/contributors/jeff-delaney/). For now, this is the tool I’m ready to make stick. Why? It’s lightweight, and exactly what I need for indie development.
+If you need something simple and fast; I highly recommend checking out [ThunderClient for VS Code](https://www.thunderclient.com/).
+
+## ThunderClient is G.O.A.T
+
+At the risk of turning this into a marketing post instead of a technical post, I’ll share my "aha moment" and keep this one short.
+ThunderClient is incredibly simple, but in keeping it simple there is tons of power.
+It brings the richness of a standalone API development app right to a tab inside of VSCode.
+
+There is no better DevEx than dedicating one half of VSCode to ThunderClient, with the corresponding API endpoint source code on the opposite side. This mimics how I write unit tests, and it “just works” _(especially if you have a good wide monitor setup)_.
+
+**That's it, that's the whole blog post**.
+
+It's simple, but a game changer all at once. Sometimes the best ideas seem like small changes, but greatly improve your life.
+
+## Competing Tools You Might Like
+
+### Bruno 🐶
+
+I particularly like Bruno because its open source, and stores collections as files on your file system in an open format.
+There is nothing stopping you from embedding collections in a git repo and getting automatic git support without any of the extra subscription/membership hoops.
+
+### Hopscotch
+
+Hopscotch markets itself as an open source developer _ecosystem_ (ecosystem being key here).
+If you’re into self-hosting open solutions, Hopscotch looks like it’s spending more time going after teams and individuals who want to take on the time to figure out how to deploy Hopsscotch instead of paying another subscription.
+It's fairly comparable to Bruno & Insomnia, with the major difference being that you feel comfortable spending the time standing up your own instance.
+
+### HTTP Rest Client
+
+Earlier last year my team used this [VSCode extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) in the early alpha stages of building out a new user-facing REST service.
+It operates in much the same way as the tools above, but I would say leans even further in on doing things as light-weight as possible.
+HTTP Rest Client automatically picks up things like cURL commands that are listed in documentation files.
+
+## Bring on the Thunder ⚡️
+
+Personally I’m trying to reduce needing tons of different apps and tools to build cool stuff in my spare time.
+At the end of the day ThunderClient is a simple disposable text editor tab, and I have come to really like that.
+I’ll gladly double up on my VSCode extensions if it means saving another download to my applications directory and I’m cool with that right now.

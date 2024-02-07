@@ -11,14 +11,14 @@
     "cypress:run": "cypress run",
     "dev": "next dev --port=3001",
     "dev:force": "rm -rf .next && pnpm dev",
-    "type-check": "tsc --noEmit --incremental",
     "build": "next build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "next lint",
     "lint:fix": "pnpm lint -- --fix",
     "prepare": "husky install",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --pretty"
   },
   "dependencies": {
     "@highlight-run/next": "^7.2.5",

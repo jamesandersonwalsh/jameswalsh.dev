@@ -24,12 +24,12 @@ export default function Home() {
           </TypographyP>
           <TypographyP className="mb-4 text-lg">
             I&apos;m currently building developer tools to create rich web experiences. Im interested in full-stack
-            front-end focused frameworks like{' '}
+            front-end focused web frameworks like{' '}
             <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code>,
             <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Remix</code>, &{' '}
             <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Sveltekit</code>. I&apos;m writing
             blog posts about the things I&apos;m learning along the way. In my free-time I&apos;m also an indie
-            developer, gamer, & blogger.
+            developer, & blogger.
           </TypographyP>
           <PhotoGrid />
           <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
@@ -45,9 +45,9 @@ export default function Home() {
           </TypographyH2>
           <TypographyP className="text-lg">
             I care deeply about <i>attention to detail</i>. Whether it&apos;s on the job, a side-hustle, or
-            hand-crafting this site, my goal is awalys to bring delight & surprise. The products I&apos;m most proud of
-            have been built hand-in-hand on <i>cross-functional</i> teams with talented Product Managers & Designers
-            that I can learn from.
+            hand-crafting this site, my goal is to bring delight & surprise. The products I&apos;m most proud of have
+            been built hand-in-hand on <i>cross-functional</i> teams with talented Product Managers & Designers that I
+            can learn from.
           </TypographyP>
           <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-blue-600 to-fuchsia-500 bg-clip-text text-5xl text-transparent">
             Developer Advocate
