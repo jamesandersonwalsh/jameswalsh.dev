@@ -18,7 +18,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     trace: 'on-first-retry',
-    baseURL: 'http://127.0.0.1:3001',
+    baseURL: 'http://127.0.0.1:3000',
   },
 
   projects: [
@@ -60,8 +60,8 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run start',
-    url: 'http://127.0.0.1:3001',
+    command: 'pnpm build && pnpm start',
+    url: 'http://127.0.0.1:3000',
     reuseExistingServer: !process.env.CI,
   },
 })
