@@ -3,7 +3,7 @@ import path from 'path'
 
 import fm from 'front-matter'
 
-import { Post } from './types'
+import type { Post } from './types'
 
 export async function getPostFromMdx(filePath: string): Promise<Post> {
   const slug = path.basename(filePath, path.extname(filePath))
