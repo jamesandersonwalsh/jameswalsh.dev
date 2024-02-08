@@ -36,25 +36,18 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
 
-    /* Test against mobile viewports. */
-    // TODO: testing if this is the source of the slowness.
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 13'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
+    // ? As of Feb 7, 2024 testing against mobile browsers in github actions is too slow. Locally it's encouraged.
+    ...(process.env.CI
+      ? []
+      : [
+          {
+            name: 'Mobile Chrome',
+            use: { ...devices['Pixel 5'] },
+          },
+          {
+            name: 'Mobile Safari',
+            use: { ...devices['iPhone 13'] },
+          },
+        ]),
   ],
 })
