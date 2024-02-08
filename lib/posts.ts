@@ -1,36 +1,74 @@
-import { compareDesc, isFuture } from 'date-fns'
+'use server'
+
+import fs from 'fs/promises'
+import path from 'path'
+
+import { compareDesc } from 'date-fns'
+import fm from 'front-matter'
 import { notFound } from 'next/navigation'
 
-import { Post, allPosts } from 'contentlayer/generated'
+import { isPostReleased } from './utils'
 
-export { allPosts } from 'contentlayer/generated'
-
-export function fetchPublishedPosts(): Post[] {
-  return allPosts.filter(isPostReleased).sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+export interface Post {
+  slug: string
+  source: string
+  title: string
+  description: string
+  thumbnail: string
+  status: 'published' | 'draft'
+  publishedAt: string
+  lastModified: string
+  brief: string
+  tags: string[]
 }
 
-export function isPostReleased(post: Post): boolean {
-  const isPublished = post.status === 'published'
-  const isReleased = !isFuture(new Date(post.publishedAt))
+export async function fetchPublishedPosts(): Promise<Post[]> {
+  const files = await fs.readdir(path.join(process.cwd(), 'posts'))
 
-  return isPublished && isReleased
+  const filePaths = files
+    .filter((file) => path.extname(file) === '.mdx')
+    .map(fileName => path.join(process.cwd(), 'posts', fileName))
+
+  const allPosts = await Promise.all(filePaths.map((filePath) => getPostFromMdx(filePath)))
+
+  return allPosts
+    .filter(isPostReleased)
+    .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
 }
 
-export function fetchPostBySlug(slug: string): Post {
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
+export async function fetchPostBySlug(slug: string): Promise<Post> {
+  const filePath = path.join(process.cwd(), 'posts', `${slug}.mdx`)
 
-  if (!post) {
-    notFound()
+  try {
+    return await getPostFromMdx(filePath)
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+      notFound()
+    } else {
+      throw new Error(`Something went wrong. Unable to fetch a blog post for ${slug}`)
+    }
   }
-
-  return post
 }
 
-export function fetchPreviousPost(slug: string): Post | undefined {
-  const publishedPosts = fetchPublishedPosts()
-  const postIndex = publishedPosts.findIndex((post) => post._raw.flattenedPath === slug)
+async function getPostFromMdx(filePath: string): Promise<Post> {
+  const slug = path.basename(filePath, path.extname(filePath))
+  const rawContent = await fs.readFile(filePath, 'utf-8')
+  const { attributes, body } = fm<Omit<Post, 'slug' | 'source'>>(rawContent)
 
-  if (postIndex === publishedPosts.length - 1) return undefined
+  return {
+    slug,
+    source: body,
+    ...attributes,
+  }
+}
 
-  return publishedPosts[postIndex + 1]
+export async function fetchPreviousPost(slug: string): Promise<Post | undefined> {
+  // const publishedPosts = fetchPublishedPosts()
+  // const postIndex = publishedPosts.findIndex((post) => post.slug === slug)
+
+  // if (postIndex === publishedPosts.length - 1) return undefined
+
+  // return publishedPosts[postIndex + 1]
+
+  return undefined
 }
