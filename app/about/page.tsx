@@ -4,11 +4,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import AboutMe from './about-me'
+import PhotoGrid from './photo-grid'
 import WorkHistory from './work-history'
 
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { TypographyH1, TypographyP } from '@/components/ui/typography'
+import { Separator } from '@/components/ui/separator'
+import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
@@ -19,14 +21,38 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <div className="flex max-w-prose flex-col items-center gap-2 text-center">
+        <TypographyH1 className="my-6 text-4xl md:my-3">Hey 👋🏻 I&apos;m James</TypographyH1>
+        <PhotoGrid />
+        <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
+          Software Engineer
+        </TypographyH2>
+        <TypographyP className="text-lg">
+          Over the last decade I&apos;ve been a part of bringing new products to market, building design system
+          component libraries, scaling web services, & building developer tools. My career has been defined by embracing
+          the JavaScript Ecosystem as much as possible.
+        </TypographyP>
+        <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-indigo-600 to-blue-500 bg-clip-text text-5xl text-transparent">
+          UI / UX Enthusiast
+        </TypographyH2>
+        <TypographyP className="text-lg">
+          I care deeply about <i>attention to detail</i>. Whether it&apos;s on the job, a side-hustle, or hand-crafting
+          this site, my goal is to bring delight & surprise. The products I&apos;m most proud of have been built
+          hand-in-hand on <i>cross-functional</i> teams with talented Product Managers & Designers that I can learn
+          from.
+        </TypographyP>
+        <TypographyH2 className="inline-block bg-gradient-to-r from-primary via-blue-600 to-fuchsia-500 bg-clip-text text-5xl text-transparent">
+          Developer Advocate
+        </TypographyH2>
+        <TypographyP className="mb-6 text-lg">
+          As I&apos;ve written more software, I&apos;ve come to believe a few core principles. Go slow to go fast. Ship
+          with quality baked-in. Focus on customer outcomes more than technical output. Create tools that help engineers
+          around you do their jobs.
+        </TypographyP>
+      </div>
+      <Separator />
       <div className="mt-8 grid grid-cols-12 gap-10">
         <div className="col-span-12 flex flex-col justify-start md:col-span-7">
-          <TypographyH1>
-            <span className="inline-block bg-gradient-to-r from-primary via-fuchsia-600 to-red-400 bg-clip-text text-5xl text-transparent">
-              Hey 👋🏻
-            </span>
-            &nbsp;I&apos;m James
-          </TypographyH1>
           <TypographyP className="my-3 break-normal text-xl">
             I live in Utah where I write software & enjoy the outdoors.
           </TypographyP>

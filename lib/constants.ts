@@ -11,6 +11,6 @@ export const EMAIL = 'jameswalsh@hey.com'
 export const SITE_NAVIGATIONAL_ITEMS = [
   { href: '/posts', value: 'Blog' },
   { href: '/about', value: 'About' },
-  { href: '/stack', value: 'Stack' },
-  { href: '/projects', value: 'Portfolio' },
+  { href: '/stack', value: 'Skills' },
+  { href: '/projects', value: 'Projects' },
 ]
