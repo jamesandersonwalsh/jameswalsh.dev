@@ -16,6 +16,7 @@
     "lint": "next lint",
     "lint:fix": "pnpm lint -- --fix",
     "prepare": "husky install",
+    "preview": "pnpm build && pnpm start",
     "start": "next start",
     "test:unit": "vitest",
     "test:unit:ci": "vitest --run",
