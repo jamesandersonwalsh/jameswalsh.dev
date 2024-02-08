@@ -6,14 +6,14 @@ import { notFound } from 'next/navigation'
 
 import { fetchPublishedPosts } from '../actions'
 
-import { getPostFromMdx } from '@/lib/mdx'
+import { getPostFromMDX } from '@/lib/mdx'
 import type { Post } from '@/lib/types'
 
 export async function fetchPostBySlug(slug: string): Promise<Post> {
   const filePath = path.join(process.cwd(), 'posts', `${slug}.mdx`)
 
   try {
-    return await getPostFromMdx(filePath)
+    return await getPostFromMDX(filePath)
   } catch (error) {
     if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
       notFound()
@@ -23,7 +23,6 @@ export async function fetchPostBySlug(slug: string): Promise<Post> {
   }
 }
 
-// TODO: implement this
 export async function fetchPreviousPost(slug: string): Promise<Post | undefined> {
   const publishedPosts = await fetchPublishedPosts()
   const postIndex = publishedPosts.findIndex((post) => post.slug === slug)

@@ -10,3 +10,8 @@ export interface Post {
   brief: string
   tags: string[]
 }
+
+export type PostFrontmatter = Pick<
+  Post,
+  'title' | 'description' | 'thumbnail' | 'status' | 'publishedAt' | 'lastModified' | 'brief' | 'tags'
+>
