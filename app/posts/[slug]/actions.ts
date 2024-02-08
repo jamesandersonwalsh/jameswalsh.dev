@@ -30,6 +30,4 @@ export async function fetchPreviousPost(slug: string): Promise<Post | undefined>
   if (postIndex === publishedPosts.length - 1) return undefined
 
   return publishedPosts[postIndex + 1]
-
-  return undefined
 }
