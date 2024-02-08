@@ -4,6 +4,9 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { fetchPublishedPosts } from '../actions'
+
+import { fetchPostBySlug, fetchPreviousPost } from './actions'
 import MDXContent from './mdx-content'
 import { Tag } from './tag'
 
@@ -11,7 +14,6 @@ import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
-import { fetchPublishedPosts, fetchPostBySlug, fetchPreviousPost } from '@/lib/posts'
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export async function generateStaticParams() {

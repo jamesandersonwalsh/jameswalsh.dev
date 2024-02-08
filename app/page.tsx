@@ -2,12 +2,12 @@ import { Clock } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { fetchPublishedPosts } from './posts/actions'
 import { ReadMore } from './posts/read-more'
 
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
-import { fetchPublishedPosts } from '@/lib/posts'
 import { calculateTimeToRead } from '@/lib/utils'
 
 export default async function Home() {

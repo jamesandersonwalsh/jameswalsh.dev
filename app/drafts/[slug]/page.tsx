@@ -2,10 +2,10 @@ import { formatDate } from 'date-fns/format'
 import { RocketIcon } from 'lucide-react'
 import { RedirectType, redirect } from 'next/navigation'
 
+import { fetchPostBySlug } from '@/app/posts/[slug]/actions'
 import PostPage, { PostPageProps } from '@/app/posts/[slug]/page'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
-import { fetchPostBySlug } from '@/lib/posts'
 import { isPostReleased } from '@/lib/utils'
 
 /**

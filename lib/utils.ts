@@ -2,7 +2,7 @@ import { type ClassValue, clsx } from 'clsx'
 import { isFuture } from 'date-fns'
 import { twMerge } from 'tailwind-merge'
 
-import type { Post } from './posts'
+import type { Post } from './types'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
