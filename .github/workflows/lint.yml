@@ -18,6 +18,5 @@ jobs:
           cache: 'pnpm'
       - run: pnpm i --frozen-lockfile
 
-      - run: pnpm contentlayer build
       - run: pnpm lint
       - run: pnpm format:check
