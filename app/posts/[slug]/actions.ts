@@ -4,6 +4,8 @@ import path from 'path'
 
 import { notFound } from 'next/navigation'
 
+import { fetchPublishedPosts } from '../actions'
+
 import { getPostFromMdx } from '@/lib/mdx'
 import type { Post } from '@/lib/types'
 
@@ -23,12 +25,12 @@ export async function fetchPostBySlug(slug: string): Promise<Post> {
 
 // TODO: implement this
 export async function fetchPreviousPost(slug: string): Promise<Post | undefined> {
-  // const publishedPosts = fetchPublishedPosts()
-  // const postIndex = publishedPosts.findIndex((post) => post.slug === slug)
+  const publishedPosts = await fetchPublishedPosts()
+  const postIndex = publishedPosts.findIndex((post) => post.slug === slug)
 
-  // if (postIndex === publishedPosts.length - 1) return undefined
+  if (postIndex === publishedPosts.length - 1) return undefined
 
-  // return publishedPosts[postIndex + 1]
+  return publishedPosts[postIndex + 1]
 
   return undefined
 }
