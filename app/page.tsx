@@ -6,7 +6,9 @@ import { fetchPublishedPosts } from './posts/actions'
 import { ReadMore } from './posts/read-more'
 
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/lib/utils'
 
@@ -29,11 +31,10 @@ export default async function Home() {
             advocate.
           </TypographyP>
           <TypographyP className="mb-4 text-lg">
-            I&apos;m currently building developer tools to create rich web experiences. Im interested in full-stack
-            front-end focused web frameworks like{' '}
-            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code>,
+            I&apos;m currently building rich frontend-focused experiences using full-stack web frameworks like{' '}
+            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code>, &{' '}
             <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Remix</code>. I&apos;m writing blog
-            posts about the things I&apos;m learning along the way.
+            posts about the things I&apos;m learning every step along the way.
           </TypographyP>
         </div>
       </div>
@@ -63,6 +64,16 @@ export default async function Home() {
           </Link>
         ))}
       </section>
+      <TypographyH2 id="latest-blog-posts">Subscribe</TypographyH2>
+      <TypographyP className="mb-6 max-w-lg tracking-tight">
+        Want to get notified direct to your email? I&apos;ve got you covered. My goal with this newsletter is to share
+        exciting content with other web devs. My newsletter will deliver a brief synopsis of new content I&apos;ve
+        published right when it goes live. It&apos;s always high quality, with zero noise.
+      </TypographyP>
+      <form className="flex w-full max-w-lg items-center space-x-2">
+        <Input type="email" placeholder="Email" />
+        <Button type="submit">Subscribe</Button>
+      </form>
     </>
   )
 }
