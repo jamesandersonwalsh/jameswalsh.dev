@@ -3,11 +3,10 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 
+import MDXContent from './mdx-content'
 import { Tag } from './tag'
 
-import { mdxComponents } from '@/components/mdx-components'
 import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
@@ -74,7 +73,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </span>
       </div>
       <article className="mt-8">
-        <MDXRemote source={post.source} components={mdxComponents} />
+        <MDXContent source={post.source} />
       </article>
       <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
         <Link href="/posts" className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
