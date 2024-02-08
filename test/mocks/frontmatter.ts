@@ -1,14 +1,15 @@
 import { PostFrontmatter } from '@/lib/types'
 
-export function getMockFrontmatter(): PostFrontmatter {
+export function getMockFrontmatter(overrides: Partial<PostFrontmatter> = {}): PostFrontmatter {
   return {
     title: 'My Test Blog Post',
     description: 'How to write a blog',
     thumbnail: '/assets/images/thumbnail.webp',
     status: 'draft',
-    publishedAt: '2024-02-08',
-    lastModified: '2024-02-08',
+    publishedAt: '2023-12-06',
+    lastModified: '2023-12-08',
     brief: 'Wanna get good at blogging?',
     tags: ['content-management', 'nextjs', 'javascript'],
+    ...overrides,
   }
 }
