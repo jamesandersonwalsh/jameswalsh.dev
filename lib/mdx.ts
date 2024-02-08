@@ -3,12 +3,12 @@ import path from 'path'
 
 import fm from 'front-matter'
 
-import type { Post } from './types'
+import type { Post, PostFrontmatter } from './types'
 
-export async function getPostFromMdx(filePath: string): Promise<Post> {
+export async function getPostFromMDX(filePath: string): Promise<Post> {
   const slug = path.basename(filePath, path.extname(filePath))
   const rawContent = await fs.readFile(filePath, 'utf-8')
-  const { attributes, body } = fm<Omit<Post, 'slug' | 'source'>>(rawContent)
+  const { attributes, body } = fm<PostFrontmatter>(rawContent)
 
   return {
     slug,
