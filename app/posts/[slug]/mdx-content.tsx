@@ -1,12 +1,17 @@
 import Image, { ImageProps } from 'next/image'
+import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote/rsc'
 import { HTMLAttributes, PropsWithChildren } from 'react'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
+import { HighlighterOptions, getHighlighter } from 'shiki'
 
-import { buttonVariants } from './ui/button'
-import { TypographyBlockquote, TypographyH1, TypographyH2, TypographyH3, TypographyP } from './ui/typography'
-
+import { buttonVariants } from '@/components/ui/button'
+import { TypographyBlockquote, TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 import { cn } from '@/lib/utils'
 
-export const mdxComponents = {
+const components: MDXRemoteProps['components'] = {
   img: (props: HTMLAttributes<HTMLImageElement>) => (
     <Image
       {...(props as ImageProps)}
@@ -30,4 +35,35 @@ export const mdxComponents = {
     <pre className={cn(className, 'my-5 whitespace-pre-wrap', '[&>code:nth-child(1)]:p-3')} {...rest} />
   ),
   a: (props: PropsWithChildren) => <a className={cn(buttonVariants({ variant: 'link' }), 'text-md p-0')} {...props} />,
+}
+const options: MDXRemoteProps['options'] = {
+  mdxOptions: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [
+      rehypeSlug,
+      rehypeAutolinkHeadings,
+      [
+        rehypePrettyCode,
+        {
+          theme: 'one-dark-pro',
+          keepBackground: false,
+          getHighlighter: (options: HighlighterOptions) => {
+            return getHighlighter({
+              ...options,
+              themes: ['one-dark-pro'],
+              langs: ['js', 'ts', 'jsx', 'tsx', 'json', 'json5', 'shell', 'bash', 'astro', 'markdown'],
+            })
+          },
+        },
+      ],
+    ],
+  },
+}
+
+type MdxContentProps = {
+  source: string
+}
+
+export default function MDXContent({ source }: MdxContentProps) {
+  return <MDXRemote source={source} components={components} options={options} />
 }

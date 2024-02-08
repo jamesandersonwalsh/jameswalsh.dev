@@ -3,22 +3,29 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useMDXComponent } from 'next-contentlayer/hooks'
 
+import { fetchPublishedPosts } from '../actions'
+
+import { fetchPostBySlug, fetchPreviousPost } from './actions'
+import MDXContent from './mdx-content'
 import { Tag } from './tag'
 
-import { mdxComponents } from '@/components/mdx-components'
 import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
-import { fetchPublishedPosts, fetchPostBySlug, fetchPreviousPost } from '@/lib/posts'
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
-export const generateStaticParams = async () => fetchPublishedPosts().map((post) => ({ slug: post._raw.flattenedPath }))
+export async function generateStaticParams() {
+  const publishedPosts = await fetchPublishedPosts()
 
-export const generateMetadata = ({ params }: { params: { slug: string } }): Metadata => {
-  const post = fetchPostBySlug(params.slug)
+  return publishedPosts.map((post) => ({
+    slug: post.slug,
+  }))
+}
+
+export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
+  const post = await fetchPostBySlug(params.slug)
 
   return {
     title: post.title,
@@ -43,10 +50,9 @@ export interface PostPageProps {
   params: { slug: string }
 }
 
-export default function PostPage({ params }: PostPageProps) {
-  const post = fetchPostBySlug(params.slug)
-  const previousPost = fetchPreviousPost(params.slug)
-  const MDXContent = useMDXComponent(post.body.code)
+export default async function PostPage({ params }: PostPageProps) {
+  const post = await fetchPostBySlug(params.slug)
+  const previousPost = await fetchPreviousPost(params.slug)
 
   return (
     <div className="py-10">
@@ -63,13 +69,13 @@ export default function PostPage({ params }: PostPageProps) {
         <span className="flex flex-row text-lg font-medium">
           <Time dateTime={post.publishedAt} />
           <span className="ml-2 flex flex-row gap-1 text-sm md:text-lg">
-            —&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read&nbsp;(
+            —&nbsp;{calculateTimeToRead(post.source)}&nbsp;min read&nbsp;(
             {formatDistanceToNow(new Date(post.publishedAt))} ago)
           </span>
         </span>
       </div>
       <article className="mt-8">
-        <MDXContent components={mdxComponents} />
+        <MDXContent source={post.source} />
       </article>
       <div className="border-color mt-8 flex w-full flex-row justify-between gap-6 border-t pt-8">
         <Link href="/posts" className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
@@ -77,7 +83,7 @@ export default function PostPage({ params }: PostPageProps) {
           &nbsp;All posts
         </Link>
         {!!previousPost && (
-          <Link href={previousPost.url} className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
+          <Link href={`/posts/${previousPost.slug}`} className={cn(buttonVariants({ variant: 'outline' }), 'w-full')}>
             <ChevronRight width={16} height={16} />
             &nbsp;Next
           </Link>

@@ -1,0 +1,32 @@
+name: E2E Tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'pnpm'
+      - run: pnpm i --frozen-lockfile
+
+      - name: Install Playwright Browsers
+        run: pnpm exec playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: pnpm exec playwright test
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

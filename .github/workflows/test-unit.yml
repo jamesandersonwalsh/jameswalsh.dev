@@ -1,10 +1,10 @@
-name: Build
+name: Unit Tests
 
 on:
   - pull_request
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,4 +17,4 @@ jobs:
           node-version: 18
           cache: 'pnpm'
       - run: pnpm i --frozen-lockfile
-      - run: pnpm build
+      - run: pnpm test:unit:ci

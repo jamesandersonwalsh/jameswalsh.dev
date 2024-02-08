@@ -1,22 +1,12 @@
 {
   "npm.packageManager": "pnpm",
   "editor.formatOnSave": true,
+  "eslint.validate": ["javascript", "typescript", "javascriptreact", "typescriptreact", "markdown"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.format.enable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.options": {
-    "extensions": [".js", ".jsx", ".md", ".mdx", ".ts", ".tsx"]
-  },
-  "eslint.validate": [
-    "markdown",
-    "mdx",
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.format.enable": true,
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
   },

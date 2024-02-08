@@ -42,14 +42,14 @@ export function TopNavbar() {
             const variant = pathname.includes(item.href) ? 'current' : 'default'
 
             return (
-              <li key={item.href} className="h-full" data-testid={`${item.value.toLowerCase()}-top-nav-item`}>
+              <li key={item.href} className="h-full" data-testid={`${item.value.toLowerCase()}-nav-item`}>
                 <Link href={item.href} className={cn(topNavVariants({ variant }))}>
                   {item.value}
                 </Link>
               </li>
             )
           })}
-          <li className="h-full">
+          <li className="h-full" data-testid="rss-feed-nav-item">
             <Link href="/rss.xml" className={cn(topNavVariants({ variant: 'default' }))}>
               <TooltipProvider>
                 <Tooltip>

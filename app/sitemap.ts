@@ -1,11 +1,13 @@
 import { MetadataRoute } from 'next'
 
+import { fetchPublishedPosts } from '@/app/posts/actions'
 import { PRODUCTION_URL } from '@/lib/constants'
-import { fetchPublishedPosts } from '@/lib/posts'
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const blogPostSiteMaps: MetadataRoute.Sitemap = fetchPublishedPosts().map((post) => ({
-    url: `${PRODUCTION_URL}/${post.url}`,
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const publishedPosts = await fetchPublishedPosts()
+
+  const blogPostSiteMaps: MetadataRoute.Sitemap = publishedPosts.map((post) => ({
+    url: `${PRODUCTION_URL}/posts/${post.slug}`,
     lastModified: !!post.lastModified ? new Date(post.lastModified) : new Date(post.publishedAt),
     changeFrequency: 'weekly',
     priority: 0.9,

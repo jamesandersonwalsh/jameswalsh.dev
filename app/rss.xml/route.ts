@@ -1,7 +1,7 @@
 import RSS from 'rss'
 
+import { fetchPublishedPosts } from '@/app/posts/actions'
 import { EMAIL, JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
-import { fetchPublishedPosts } from '@/lib/posts'
 
 export async function GET() {
   const feed = new RSS({
@@ -17,7 +17,8 @@ export async function GET() {
     categories: ['Web Development', 'JavaScript', 'Software Engineering', 'Coding'],
   })
 
-  fetchPublishedPosts().forEach((post) => {
+  const publishedPosts = await fetchPublishedPosts()
+  publishedPosts.forEach((post) => {
     feed.item({
       title: post.title,
       description: post.description,
@@ -25,10 +26,10 @@ export async function GET() {
         url: post.thumbnail,
         type: post.thumbnail.split('.')[1],
       },
-      url: `${PRODUCTION_URL}${post.url}`,
+      url: `${PRODUCTION_URL}/posts/${post.slug}`,
       categories: post.tags,
       author: JAMES_WALSH,
-      guid: post._raw.flattenedPath,
+      guid: post.slug,
       date: new Date(post.publishedAt),
     })
   })
