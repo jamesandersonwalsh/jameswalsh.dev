@@ -1,7 +1,7 @@
 import RSS from 'rss'
 
+import { fetchPublishedPosts } from '@/app/posts/actions'
 import { EMAIL, JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
-import { fetchPublishedPosts } from '@/lib/posts'
 
 export async function GET() {
   const feed = new RSS({
