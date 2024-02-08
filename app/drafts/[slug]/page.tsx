@@ -5,7 +5,8 @@ import { RedirectType, redirect } from 'next/navigation'
 import PostPage, { PostPageProps } from '@/app/posts/[slug]/page'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
-import { fetchPostBySlug, isPostReleased } from '@/lib/posts'
+import { fetchPostBySlug } from '@/lib/posts'
+import { isPostReleased } from '@/lib/utils'
 
 /**
  *
@@ -17,7 +18,7 @@ export default async function PostDraftPage(props: PostPageProps) {
     redirect('/posts')
   }
 
-  const post = fetchPostBySlug(props.params.slug)
+  const post = await fetchPostBySlug(props.params.slug)
 
   if (isPostReleased(post)) {
     redirect(`/posts/${props.params.slug}`, RedirectType.replace)

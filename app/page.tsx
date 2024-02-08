@@ -10,8 +10,8 @@ import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typogra
 import { fetchPublishedPosts } from '@/lib/posts'
 import { calculateTimeToRead } from '@/lib/utils'
 
-export default function Home() {
-  const posts = fetchPublishedPosts()
+export default async function Home() {
+  const posts = await fetchPublishedPosts()
 
   return (
     <>
@@ -62,7 +62,7 @@ export default function Home() {
       <TypographyH2 id="latest-blog-posts">Read Latest Blog Posts</TypographyH2>
       <section className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-4">
         {posts.map((post) => (
-          <Link className="col-span-2 h-full" key={post._id} href={post.url}>
+          <Link className="col-span-2 h-full" key={post.slug} href={`/posts/${post.slug}`}>
             <Card className="ease h-full transition hover:scale-105">
               <CardHeader>
                 <AspectRatio ratio={16 / 9}>
@@ -74,7 +74,7 @@ export default function Home() {
                 <span className="flex items-center text-muted-foreground">
                   <Clock width={16} height={16} />
                   &nbsp;
-                  {calculateTimeToRead(post.body.raw)}&nbsp;min read
+                  {calculateTimeToRead(post.source)}&nbsp;min read
                 </span>
                 <span>{post.brief}</span>
               </CardContent>

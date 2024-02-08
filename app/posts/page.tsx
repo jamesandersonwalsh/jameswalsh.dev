@@ -15,15 +15,15 @@ export const metadata = {
   description: `Articles I've written`,
 }
 
-export default function PostsIndexPage() {
-  const posts = fetchPublishedPosts()
+export default async function PostsIndexPage() {
+  const posts = await fetchPublishedPosts()
 
   return (
     <>
       <TypographyH1>Latest Blog Posts</TypographyH1>
       <div className="grid grid-cols-4 gap-8 md:grid-cols-8">
         {posts.map((post) => (
-          <Link key={post.title} href={post.url} className="col-span-4 w-full">
+          <Link key={post.title} href={`/posts/${post.slug}`} className="col-span-4 w-full">
             <Card className="h-full">
               <CardHeader className="gap-6">
                 <AspectRatio ratio={16 / 9}>
@@ -32,7 +32,7 @@ export default function PostsIndexPage() {
                 <CardTitle>{post.title}</CardTitle>
                 <span className="text-muted-foreground">
                   <Time dateTime={post.publishedAt} />
-                  &nbsp;—&nbsp;{calculateTimeToRead(post.body.raw)}&nbsp;min read
+                  &nbsp;—&nbsp;{calculateTimeToRead(post.source)}&nbsp;min read
                 </span>
               </CardHeader>
               <CardContent>
