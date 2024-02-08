@@ -34,8 +34,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# contentlayer
-.contentlayer
+# e2e testing
 /test-results/
 /playwright-report/
 /blob-report/

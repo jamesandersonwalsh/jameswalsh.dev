@@ -31,9 +31,6 @@ jobs:
       - name: Install dependencies
         run: pnpm i --frozen-lockfile
 
-      - name: Contentlayer build
-        run: pnpm contentlayer build
-
       - name: Run Typescript Compile
         id: run-build
         run: pnpm typecheck
