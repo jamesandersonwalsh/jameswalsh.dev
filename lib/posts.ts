@@ -27,13 +27,11 @@ export async function fetchPublishedPosts(): Promise<Post[]> {
 
   const filePaths = files
     .filter((file) => path.extname(file) === '.mdx')
-    .map(fileName => path.join(process.cwd(), 'posts', fileName))
+    .map((fileName) => path.join(process.cwd(), 'posts', fileName))
 
   const allPosts = await Promise.all(filePaths.map((filePath) => getPostFromMdx(filePath)))
 
-  return allPosts
-    .filter(isPostReleased)
-    .sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
+  return allPosts.filter(isPostReleased).sort((a, b) => compareDesc(new Date(a.publishedAt), new Date(b.publishedAt)))
 }
 
 export async function fetchPostBySlug(slug: string): Promise<Post> {
