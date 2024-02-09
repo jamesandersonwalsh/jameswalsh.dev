@@ -12,6 +12,10 @@ vi.mock('fs/promises')
 vi.mock('@/lib/mdx')
 
 describe('/posts/actions', () => {
+  afterEach(() => {
+    vi.resetAllMocks()
+  })
+
   describe('#fetchPublishedPosts', () => {
     const mockFiles = getMockFiles()
 

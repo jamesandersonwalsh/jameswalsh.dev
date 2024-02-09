@@ -8,13 +8,13 @@ export const newsletterEmails = sqliteTable(
     status: text('status', { enum: ['verified', 'unverified', 'unsubscribed', 'bounced'] })
       .notNull()
       .$defaultFn(() => 'unverified'),
-    verifyAttempts: integer('verify_attempts', { mode: 'number' }),
+    verifyAttempts: integer('verify_attempts', { mode: 'number' }).notNull(),
 
     createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
     updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
   },
   (table) => ({
-    statusIdx: index("status_idx").on(table.status),
+    statusIdx: index('status_idx').on(table.status),
   }),
 )
 

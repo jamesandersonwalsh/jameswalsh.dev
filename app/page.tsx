@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
-import { requestEmailVerification } from '@/lib/resend'
+import { signup } from '@/lib/newsletter'
 import { calculateTimeToRead } from '@/lib/utils'
 
 export default async function Home() {
@@ -71,7 +71,7 @@ export default async function Home() {
         exciting content with other web devs. My newsletter will deliver a brief synopsis of new content I&apos;ve
         published right when it goes live. It&apos;s always high quality, with zero noise.
       </TypographyP>
-      <form action={requestEmailVerification} className="mt-6 flex w-full max-w-lg items-center space-x-2">
+      <form action={signup} className="mt-6 flex w-full max-w-lg items-center space-x-2">
         <Input type="email" name="email" placeholder="Email" />
         <Button type="submit">Subscribe</Button>
       </form>

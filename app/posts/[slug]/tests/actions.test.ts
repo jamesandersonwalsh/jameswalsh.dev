@@ -10,6 +10,10 @@ vi.mock('@/lib/mdx')
 vi.mock('../../actions')
 
 describe('/posts/[slug]/actions', () => {
+  afterEach(() => {
+    vi.resetAllMocks()
+  })
+
   describe('#fetchPostBySlug', () => {
     const slug = 'project-hail-mary'
     const mockPost: Post = {
