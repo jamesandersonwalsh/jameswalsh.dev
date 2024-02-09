@@ -1,14 +1,22 @@
 import { sql } from 'drizzle-orm'
-import { text, sqliteTable } from 'drizzle-orm/sqlite-core'
-import { nanoid } from 'nanoid'
+import { text, sqliteTable, index } from 'drizzle-orm/sqlite-core'
 
-export const newsletterEmails = sqliteTable('newsletter_emails', {
-  id: text('id')
-    .primaryKey()
-    .$defaultFn(() => nanoid()),
-  emailAddress: text('email_address').notNull().unique(),
-  createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
-})
+export const newsletterEmails = sqliteTable(
+  'newsletter_emails',
+  {
+    address: text('address').primaryKey(),
+    status: text('status', { enum: ['verified', 'unverified', 'unsubscribed', 'bounced'] })
+      .notNull()
+      .$defaultFn(() => 'unverified'),
 
+    createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
+    updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+  },
+  (table) => ({
+    statusIdx: index("status_idx").on(table.status),
+  }),
+)
+
+export type EmailVerificationStatus = 'verified' | 'unverified' | 'unsubscribed' | 'bounced'
 export type NewsletterEmail = typeof newsletterEmails.$inferSelect
 export type CreateNewsletterEmail = typeof newsletterEmails.$inferInsert
