@@ -8,7 +8,9 @@ export const newsletterEmails = sqliteTable(
     status: text('status', { enum: ['verified', 'unverified', 'unsubscribed', 'bounced'] })
       .notNull()
       .$defaultFn(() => 'unverified'),
-    verifyAttempts: integer('verify_attempts', { mode: 'number' }).notNull(),
+    verifyAttempts: integer('verify_attempts', { mode: 'number' })
+      .notNull()
+      .$defaultFn(() => 0),
 
     createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
     updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),

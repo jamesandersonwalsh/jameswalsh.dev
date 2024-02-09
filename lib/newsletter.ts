@@ -13,17 +13,21 @@ const newsletterEmailSchema = z.object({
 })
 
 export async function signup(formData: FormData) {
-  const email = formData.get('email') as string
-  if (!email) {
-    return {
-      message: 'Please provide a valid email',
-    }
+  const emailAddress = formData.get('email') as string
+  if (!emailAddress) {
+    return { message: 'Please provide a valid email address' }
   }
 
-  const newsletterRecord = await newsLetterRepo.get(email)
+  const newsletterRecord = await newsLetterRepo.get(emailAddress)
   if (!newsletterRecord) {
-    await newsLetterRepo.create(email)
-    return await sendVerificationEmail(email)
+    await Promise.all([
+      newsLetterRepo.create(emailAddress),
+      sendVerificationEmail(emailAddress)
+    ])
+
+    return {
+      message: 'Verification email sent',
+    }
   }
 
   const { success } = newsletterEmailSchema.safeParse(newsletterRecord)
@@ -36,11 +40,11 @@ export async function signup(formData: FormData) {
   }
 
   await Promise.all([
-    newsLetterRepo.updateVerifyAttempts(newsletterRecord.verifyAttempts + 1),
-    sendVerificationEmail(email),
+    newsLetterRepo.updateVerifyAttempts(emailAddress, newsletterRecord.verifyAttempts + 1),
+    sendVerificationEmail(emailAddress),
   ])
 
   return {
-    message: 'Verification email sent'
+    message: 'Verification email sent',
   }
 }

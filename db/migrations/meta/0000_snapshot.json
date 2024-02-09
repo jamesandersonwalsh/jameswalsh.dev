@@ -1,7 +1,7 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "36e2ee8a-5ea2-481d-b25e-bc5d2274eeeb",
+  "id": "6146b2f8-532c-4404-9d98-f447e0012192",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "newsletter_emails": {
@@ -25,7 +25,7 @@
           "name": "verify_attempts",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "autoincrement": false
         },
         "created_at": {
