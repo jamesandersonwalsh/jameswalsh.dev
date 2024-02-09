@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
+import { requestEmailVerification } from '@/lib/resend'
 import { calculateTimeToRead } from '@/lib/utils'
 
 export default async function Home() {
@@ -65,13 +66,13 @@ export default async function Home() {
         ))}
       </section>
       <TypographyH2 id="latest-blog-posts">Subscribe</TypographyH2>
-      <TypographyP className="mb-6 max-w-lg tracking-tight">
+      <TypographyP className="max-w-lg tracking-tight">
         Want to get notified direct to your email? I&apos;ve got you covered. My goal with this newsletter is to share
         exciting content with other web devs. My newsletter will deliver a brief synopsis of new content I&apos;ve
         published right when it goes live. It&apos;s always high quality, with zero noise.
       </TypographyP>
-      <form className="flex w-full max-w-lg items-center space-x-2">
-        <Input type="email" placeholder="Email" />
+      <form action={requestEmailVerification} className="mt-6 flex w-full max-w-lg items-center space-x-2">
+        <Input type="email" name="email" placeholder="Email" />
         <Button type="submit">Subscribe</Button>
       </form>
     </>

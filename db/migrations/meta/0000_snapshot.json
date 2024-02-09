@@ -1,24 +1,31 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "562b37f7-ef17-4905-8ff1-3d896f0062fa",
+  "id": "36e2ee8a-5ea2-481d-b25e-bc5d2274eeeb",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "newsletter_emails": {
       "name": "newsletter_emails",
       "columns": {
-        "id": {
-          "name": "id",
+        "address": {
+          "name": "address",
           "type": "text",
           "primaryKey": true,
           "notNull": true,
           "autoincrement": false
         },
-        "email_address": {
-          "name": "email_address",
+        "status": {
+          "name": "status",
           "type": "text",
           "primaryKey": false,
           "notNull": true,
+          "autoincrement": false
+        },
+        "verify_attempts": {
+          "name": "verify_attempts",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false,
           "autoincrement": false
         },
         "created_at": {
@@ -28,13 +35,23 @@
           "notNull": false,
           "autoincrement": false,
           "default": "CURRENT_TIMESTAMP"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false,
+          "default": "CURRENT_TIMESTAMP"
         }
       },
       "indexes": {
-        "newsletter_emails_email_address_unique": {
-          "name": "newsletter_emails_email_address_unique",
-          "columns": ["email_address"],
-          "isUnique": true
+        "status_idx": {
+          "name": "status_idx",
+          "columns": [
+            "status"
+          ],
+          "isUnique": false
         }
       },
       "foreignKeys": {},
