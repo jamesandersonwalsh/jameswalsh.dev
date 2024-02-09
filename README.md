@@ -31,10 +31,33 @@ pnpm dev
 
 Open [http://localhost:3001](http://localhost:3001) and take a look around.
 
+## Build 🔨
+
+To run a prod build
+
+```sh
+pnpm build
+```
+
+To build & serve a prod preview run the following & navigate to [http://localhost:3001](http://localhost:3001).
+
+```sh
+pnpm preview
+```
+
+To analyze the size of the bundle
+
+```sh
+pnpm build:analyze
+```
+
 ## Testing 🧪
 
 ```sh
+# vitest
 pnpm test:unit
+
+# playwright
 pnpm test:e2e:run
 ```
 
