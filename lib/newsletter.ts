@@ -2,7 +2,7 @@
 
 import { z } from 'zod'
 
-import { sendVerificationEmail } from './resend'
+import { ResendEmailTypeOptions, sendEmail } from './resend'
 
 import * as newsLetterRepo from '@/db/repositories/newsletter'
 
@@ -20,7 +20,10 @@ export async function signup(formData: FormData) {
 
   const newsletterRecord = await newsLetterRepo.get(emailAddress)
   if (!newsletterRecord) {
-    await Promise.all([newsLetterRepo.create(emailAddress), sendVerificationEmail(emailAddress)])
+    await Promise.all([
+      newsLetterRepo.create(emailAddress),
+      sendEmail(emailAddress, ResendEmailTypeOptions.VerificationRequested),
+    ])
 
     return {
       message: 'Verification email sent',
@@ -38,7 +41,7 @@ export async function signup(formData: FormData) {
 
   await Promise.all([
     newsLetterRepo.updateVerifyAttempts(emailAddress, newsletterRecord.verifyAttempts + 1),
-    sendVerificationEmail(emailAddress),
+    sendEmail(emailAddress, ResendEmailTypeOptions.VerificationRequested),
   ])
 
   return {
