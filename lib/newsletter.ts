@@ -20,10 +20,7 @@ export async function signup(formData: FormData) {
 
   const newsletterRecord = await newsLetterRepo.get(emailAddress)
   if (!newsletterRecord) {
-    await Promise.all([
-      newsLetterRepo.create(emailAddress),
-      sendVerificationEmail(emailAddress)
-    ])
+    await Promise.all([newsLetterRepo.create(emailAddress), sendVerificationEmail(emailAddress)])
 
     return {
       message: 'Verification email sent',
