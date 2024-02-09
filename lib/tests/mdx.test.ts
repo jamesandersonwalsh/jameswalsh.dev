@@ -11,6 +11,10 @@ import { getMockSource } from '@/test/mocks/source'
 vi.mock('front-matter')
 
 describe('lib/mdx', () => {
+  afterEach(() => {
+    vi.resetAllMocks()
+  })
+
   describe('#getPostFromMDX', () => {
     const slug = 'hipster-blog-post'
     const filePath = path.join(process.cwd(), '/test/mocks/posts', `${slug}.mdx`)

@@ -35,9 +35,9 @@ test.describe('when navigating the top nav bar', () => {
   test('navigates to /stack', async ({ page, isMobile }) => {
     if (isMobile) {
       await page.locator('data-testid=mobile-menu-trigger').click()
-      await page.getByRole('list').getByTestId('stack-nav-item').click()
+      await page.getByRole('list').getByTestId('skills-nav-item').click()
     } else {
-      await page.locator('nav').getByTestId('stack-nav-item').click()
+      await page.locator('nav').getByTestId('skills-nav-item').click()
     }
 
     await expect(page).toHaveURL('/stack')
@@ -48,9 +48,9 @@ test.describe('when navigating the top nav bar', () => {
   test('navigates to /projects', async ({ page, isMobile }) => {
     if (isMobile) {
       await page.locator('data-testid=mobile-menu-trigger').click()
-      await page.getByRole('list').getByTestId('portfolio-nav-item').click()
+      await page.getByRole('list').getByTestId('projects-nav-item').click()
     } else {
-      await page.locator('nav').getByTestId('portfolio-nav-item').click()
+      await page.locator('nav').getByTestId('projects-nav-item').click()
     }
 
     await expect(page).toHaveURL('/projects')
@@ -83,7 +83,7 @@ test.describe('when navigating the footer', () => {
   })
 
   test('navigates to /stack', async ({ page }) => {
-    await page.getByTestId('stack-footer-nav-item').click()
+    await page.getByTestId('skills-footer-nav-item').click()
 
     await expect(page).toHaveURL('/stack')
     await expect(page).toHaveTitle('Stack - James Walsh')
@@ -91,7 +91,7 @@ test.describe('when navigating the footer', () => {
   })
 
   test('navigates to /projects', async ({ page }) => {
-    await page.getByTestId('portfolio-footer-nav-item').click()
+    await page.getByTestId('projects-footer-nav-item').click()
 
     await expect(page).toHaveURL('/projects')
     await expect(page).toHaveTitle('Projects - James Walsh')
