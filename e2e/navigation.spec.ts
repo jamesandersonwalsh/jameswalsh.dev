@@ -35,9 +35,9 @@ test.describe('when navigating the top nav bar', () => {
   test('navigates to /stack', async ({ page, isMobile }) => {
     if (isMobile) {
       await page.locator('data-testid=mobile-menu-trigger').click()
-      await page.getByRole('list').getByTestId('stack-nav-item').click()
+      await page.getByRole('list').getByTestId('skills-nav-item').click()
     } else {
-      await page.locator('nav').getByTestId('stack-nav-item').click()
+      await page.locator('nav').getByTestId('skills-nav-item').click()
     }
 
     await expect(page).toHaveURL('/stack')
@@ -83,7 +83,7 @@ test.describe('when navigating the footer', () => {
   })
 
   test('navigates to /stack', async ({ page }) => {
-    await page.getByTestId('stack-footer-nav-item').click()
+    await page.getByTestId('skills-footer-nav-item').click()
 
     await expect(page).toHaveURL('/stack')
     await expect(page).toHaveTitle('Stack - James Walsh')
