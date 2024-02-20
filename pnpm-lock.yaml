@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@highlight-run/next':
     specifier: ^7.2.5
-    version: 7.2.5(@opentelemetry/api@1.4.1)(postcss@8.4.34)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
+    version: 7.2.5(@opentelemetry/api@1.4.1)(postcss@8.4.35)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3)
   '@radix-ui/react-accordion':
     specifier: ^1.1.2
     version: 1.1.2(@types/react-dom@18.2.17)(@types/react@18.2.48)(react-dom@18.2.0)(react@18.2.0)
@@ -99,7 +99,7 @@ devDependencies:
     version: 6.14.0(eslint@8.56.0)(typescript@5.3.3)
   autoprefixer:
     specifier: ^10.4.17
-    version: 10.4.17(postcss@8.4.34)
+    version: 10.4.17(postcss@8.4.35)
   eslint:
     specifier: 8.56.0
     version: 8.56.0
@@ -119,8 +119,8 @@ devDependencies:
     specifier: ^8.0.3
     version: 8.0.3
   postcss:
-    specifier: ^8.4.34
-    version: 8.4.34
+    specifier: ^8.4.35
+    version: 8.4.35
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -651,10 +651,10 @@ packages:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
     dev: false
 
-  /@highlight-run/cloudflare@2.1.3(@opentelemetry/api@1.4.1)(postcss@8.4.34)(typescript@5.3.3):
+  /@highlight-run/cloudflare@2.1.3(@opentelemetry/api@1.4.1)(postcss@8.4.35)(typescript@5.3.3):
     resolution: {integrity: sha512-k3v5WutkhQfDy0TY+rUwDZH3f4BejG2Isg8qW7LqcjIZ3gA0kfrXvZQw26vUhMx6ItTFlLYPD9R5oCtCCLOnKA==}
     dependencies:
-      '@highlight-run/opentelemetry-sdk-workers': 1.0.3(postcss@8.4.34)(typescript@5.3.3)
+      '@highlight-run/opentelemetry-sdk-workers': 1.0.3(postcss@8.4.35)(typescript@5.3.3)
       '@opentelemetry/resources': 1.17.0(@opentelemetry/api@1.4.1)
     transitivePeerDependencies:
       - '@opentelemetry/api'
@@ -665,14 +665,14 @@ packages:
       - typescript
     dev: false
 
-  /@highlight-run/next@7.2.5(@opentelemetry/api@1.4.1)(postcss@8.4.34)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3):
+  /@highlight-run/next@7.2.5(@opentelemetry/api@1.4.1)(postcss@8.4.35)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.3):
     resolution: {integrity: sha512-d+a1leAVeXyAkJOzUBc5NyvUUGZ/60uoqY9CpNbl9LFmA8adM6D6wI4x1z1dudYUUGm8AZsdCnrLURH2nKKbaw==}
     peerDependencies:
       react: '>=17'
     dependencies:
-      '@highlight-run/cloudflare': 2.1.3(@opentelemetry/api@1.4.1)(postcss@8.4.34)(typescript@5.3.3)
+      '@highlight-run/cloudflare': 2.1.3(@opentelemetry/api@1.4.1)(postcss@8.4.35)(typescript@5.3.3)
       '@highlight-run/node': 3.6.5
-      '@highlight-run/opentelemetry-sdk-workers': 1.0.3(postcss@8.4.34)(typescript@5.3.3)
+      '@highlight-run/opentelemetry-sdk-workers': 1.0.3(postcss@8.4.35)(typescript@5.3.3)
       '@highlight-run/react': 3.2.1(react-dom@18.2.0)(react@18.2.0)
       '@highlight-run/sourcemap-uploader': 0.6.0
       highlight.run: 8.3.0
@@ -692,7 +692,7 @@ packages:
     resolution: {integrity: sha512-wo1P1zmVnWIM3L7QkzrjOtbOgNEZL2pER+yivNmF0kPGHBBj6j+arcT8dU2sPvfPMkiVvQprwE4Xbeorq5rFfA==}
     dev: false
 
-  /@highlight-run/opentelemetry-sdk-workers@1.0.3(postcss@8.4.34)(typescript@5.3.3):
+  /@highlight-run/opentelemetry-sdk-workers@1.0.3(postcss@8.4.35)(typescript@5.3.3):
     resolution: {integrity: sha512-HX+P3Kky8MBKzKM2mhGxRx6c8U8mbuX0RLTgAVCttxwCUtNvaGrBnYtP4tiN4SADXDqLa/Kl7HRWZXvO5h8jAg==}
     engines: {node: '>=14'}
     dependencies:
@@ -705,7 +705,7 @@ packages:
       '@opentelemetry/sdk-trace-base': 1.18.1(@opentelemetry/api@1.7.0)
       '@opentelemetry/semantic-conventions': 1.18.1
       protobufjs: 7.2.4
-      tsup: 7.2.0(postcss@8.4.34)(typescript@5.3.3)
+      tsup: 7.2.0(postcss@8.4.35)(typescript@5.3.3)
     transitivePeerDependencies:
       - '@swc/core'
       - postcss
@@ -2371,7 +2371,7 @@ packages:
       has-symbols: 1.0.3
     dev: true
 
-  /autoprefixer@10.4.17(postcss@8.4.34):
+  /autoprefixer@10.4.17(postcss@8.4.35):
     resolution: {integrity: sha512-/cpVNRLSfhOtcGflT13P2794gVSgmPgTR+erw5ifnMLZb0UnSlkK4tquLmkd3BhA+nLo5tX8Cu0upUsGKvKbmg==}
     engines: {node: ^10 || ^12 || >=14}
     hasBin: true
@@ -2383,7 +2383,7 @@ packages:
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
-      postcss: 8.4.34
+      postcss: 8.4.35
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -4900,12 +4900,6 @@ packages:
       object-assign: 4.1.1
       thenify-all: 1.6.0
 
-  /nanoid@3.3.6:
-    resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-    dev: false
-
   /nanoid@3.3.7:
     resolution: {integrity: sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -5256,29 +5250,29 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /postcss-import@15.1.0(postcss@8.4.34):
+  /postcss-import@15.1.0(postcss@8.4.35):
     resolution: {integrity: sha512-hpr+J05B2FVYUAXHeK1YyI267J/dDDhMU6B6civm8hSY1jYJnBXxzKDKDswzJmtLHryrjhnDjqqp/49t8FALew==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.34
+      postcss: 8.4.35
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.4
     dev: true
 
-  /postcss-js@4.0.1(postcss@8.4.34):
+  /postcss-js@4.0.1(postcss@8.4.35):
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.4.21
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.34
+      postcss: 8.4.35
     dev: true
 
-  /postcss-load-config@4.0.1(postcss@8.4.34):
+  /postcss-load-config@4.0.1(postcss@8.4.35):
     resolution: {integrity: sha512-vEJIc8RdiBRu3oRAI0ymerOn+7rPuMvRXslTvZUKZonDHFIczxztIyJ1urxM1x9JXEikvpWWTUUqal5j/8QgvA==}
     engines: {node: '>= 14'}
     peerDependencies:
@@ -5291,16 +5285,16 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.1.0
-      postcss: 8.4.34
+      postcss: 8.4.35
       yaml: 2.3.3
 
-  /postcss-nested@6.0.1(postcss@8.4.34):
+  /postcss-nested@6.0.1(postcss@8.4.35):
     resolution: {integrity: sha512-mEp4xPMi5bSWiMbsgoPfcP74lsWLHkQbZc3sY+jWYd65CUwXrUaTp0fmNpa01ZcETKlIgUdFN/MpS2xZtqL9dQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.34
+      postcss: 8.4.35
       postcss-selector-parser: 6.0.13
     dev: true
 
@@ -5320,13 +5314,13 @@ packages:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
-      nanoid: 3.3.6
+      nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: false
 
-  /postcss@8.4.34:
-    resolution: {integrity: sha512-4eLTO36woPSocqZ1zIrFD2K1v6wH7pY1uBh0JIM2KKfrVtGvPFiAku6aNOP0W1Wr9qwnaCsF0Z+CrVnryB2A8Q==}
+  /postcss@8.4.35:
+    resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.7
@@ -6101,11 +6095,11 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.34
-      postcss-import: 15.1.0(postcss@8.4.34)
-      postcss-js: 4.0.1(postcss@8.4.34)
-      postcss-load-config: 4.0.1(postcss@8.4.34)
-      postcss-nested: 6.0.1(postcss@8.4.34)
+      postcss: 8.4.35
+      postcss-import: 15.1.0(postcss@8.4.35)
+      postcss-js: 4.0.1(postcss@8.4.35)
+      postcss-load-config: 4.0.1(postcss@8.4.35)
+      postcss-nested: 6.0.1(postcss@8.4.35)
       postcss-selector-parser: 6.0.13
       resolve: 1.22.4
       sucrase: 3.34.0
@@ -6212,7 +6206,7 @@ packages:
     resolution: {integrity: sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==}
     dev: false
 
-  /tsup@7.2.0(postcss@8.4.34)(typescript@5.3.3):
+  /tsup@7.2.0(postcss@8.4.35)(typescript@5.3.3):
     resolution: {integrity: sha512-vDHlczXbgUvY3rWvqFEbSqmC1L7woozbzngMqTtL2PGBODTtWlRwGDDawhvWzr5c1QjKe4OAKqJGfE1xeXUvtQ==}
     engines: {node: '>=16.14'}
     hasBin: true
@@ -6236,8 +6230,8 @@ packages:
       execa: 5.1.1
       globby: 11.1.0
       joycon: 3.1.1
-      postcss: 8.4.34
-      postcss-load-config: 4.0.1(postcss@8.4.34)
+      postcss: 8.4.35
+      postcss-load-config: 4.0.1(postcss@8.4.35)
       resolve-from: 5.0.0
       rollup: 3.29.4
       source-map: 0.8.0-beta.0
@@ -6612,7 +6606,7 @@ packages:
     dependencies:
       '@types/node': 20.10.7
       esbuild: 0.19.5
-      postcss: 8.4.34
+      postcss: 8.4.35
       rollup: 4.9.6
     optionalDependencies:
       fsevents: 2.3.3
