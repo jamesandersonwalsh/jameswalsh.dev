@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "next dev --port=3001",
     "dev:force": "rm -rf .next && pnpm dev",
+    "db:migrate": "echo 'no migrations yet'",
     "build": "next build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
