@@ -6,7 +6,18 @@
 
 Built with React, Next.js, TailwindCSS, & Typescript.
 
-## Getting Started 🤔
+## Setup
+
+1. `pnpm i`
+
+1. Create a `.env.local` and add the following:
+
+   ```sh
+   NEXT_PUBLIC_POSTHOG_KEY=<ph_project_api_key>
+   NEXT_PUBLIC_POSTHOG_HOST=<ph_client_api_host>
+   ```
+
+## Dev
 
 To start the development server:
 
@@ -20,10 +31,10 @@ Open [http://localhost:3001](http://localhost:3001) and take a look around.
 
 ### Continous Integration
 
-Powered by some basic build, lint, and testing tools on Github Actions.
+Powered by some basic build, lint, and test actions on Github.
 
 ### Continuous Development
 
-This project is deployed using the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
+This project is deployed using [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-[Checkout my portfolio running live on Vercel](https://jameswalsh.dev)
+[Checkout my portfolio running live](https://jameswalsh.dev).

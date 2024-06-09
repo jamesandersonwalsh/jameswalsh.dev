@@ -1,6 +1,6 @@
 namespace NodeJS {
   interface ProcessEnv {
-    HIGHLIGHT_SERVICE_NAME: string
-    HIGHLIGHT_PROJECT_ID: string
+    NEXT_PUBLIC_POSTHOG_KEY: string
+    NEXT_PUBLIC_POSTHOG_HOST: string
   }
 }
