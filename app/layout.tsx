@@ -31,6 +31,10 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <AnalyticsProvider>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="ahrefs-site-verification"
+            content="91e1441f7228c69eeb9367bfbbda2c6284d19816253d8178d9087f42f95ab801"
+          />
           <body className="flex w-screen flex-col md:items-center">
             <TopNavbar />
             <main className="mt-4 flex flex-col px-6 py-10 sm:px-4 md:w-[768px]">{children}</main>
