@@ -17,7 +17,7 @@ export default function AboutMe() {
           rushing home from class to play Runescape on our shared family Windows XP machine. Or receiving my first 30GB
           Video iPod which absolutely changed my relationship to music forever. At least at a subtle level, I&apos;ve
           always been drawn to the intersection of hardware, software, & artistic expression. But I had no idea who was
-          building these machines & applications I was using, or how they worked. I thought it was actual magi, which I
+          building these machines & applications I was using, or how they worked. I thought it was actual magic, which I
           was happy to be the beneficiary of my entire life.
         </AccordionContent>
       </AccordionItem>
