@@ -1,6 +1,5 @@
 import './globals.css'
 
-import { Analytics } from '@vercel/analytics/react'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import { Metadata } from 'next'
@@ -33,7 +32,6 @@ export default async function RootLayout({ children }: PropsWithChildren) {
           <TopNavbar />
           <main className="mt-4 flex flex-col px-6 py-10 sm:px-4 md:w-[768px]">{children}</main>
           <Footer />
-          <Analytics />
         </body>
       </html>
     </>
