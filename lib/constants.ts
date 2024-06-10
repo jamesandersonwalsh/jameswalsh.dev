@@ -1,4 +1,4 @@
-export const PRODUCTION_URL = 'https://jameswalsh.dev'
+export const PRODUCTION_URL = 'https://www.jameswalsh.dev'
 
 export const JAMES_WALSH = 'James Walsh'
 
