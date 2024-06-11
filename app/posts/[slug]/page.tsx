@@ -1,4 +1,3 @@
-import { formatDistanceToNow } from 'date-fns'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -9,13 +8,13 @@ import { fetchPublishedPosts } from '../actions'
 import { fetchPostBySlug, fetchPreviousPost } from './actions'
 import MDXContent from './mdx-content'
 import { Tag } from './tag'
+import TimeInformation from './time-information'
 
-import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
 import { PRODUCTION_URL } from '@/lib/constants'
-import { calculateTimeToRead, cn } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 export async function generateStaticParams() {
   const publishedPosts = await fetchPublishedPosts()
@@ -67,13 +66,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <Tag key={tag} text={tag} />
           ))}
         </span>
-        <span className="flex flex-row text-lg font-medium">
-          <Time dateTime={post.publishedAt} />
-          <span className="ml-2 flex flex-row gap-1 text-sm md:text-lg">
-            —&nbsp;{calculateTimeToRead(post.source)}&nbsp;min read&nbsp;(
-            {formatDistanceToNow(new Date(post.publishedAt))} ago)
-          </span>
-        </span>
+        <TimeInformation post={post} />
       </div>
       <article className="mt-8">
         <MDXContent source={post.source} />
