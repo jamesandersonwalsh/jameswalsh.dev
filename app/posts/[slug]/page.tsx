@@ -14,6 +14,7 @@ import { Time } from '@/components/time'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
+import { PRODUCTION_URL } from '@/lib/constants'
 import { calculateTimeToRead, cn } from '@/lib/utils'
 
 export async function generateStaticParams() {
@@ -32,7 +33,7 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
     description: post.brief,
     publisher: 'James Walsh',
     creator: 'James Walsh',
-    authors: [{ url: 'https://jameswalsh.dev', name: 'James Walsh' }],
+    authors: [{ url: PRODUCTION_URL, name: 'James Walsh' }],
     keywords: post.tags,
     openGraph: {
       title: post.title,
