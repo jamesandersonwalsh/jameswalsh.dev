@@ -28,7 +28,7 @@ export default async function Home() {
           </TypographyP>
           <TypographyP>
             I&apos;m interested in full-stack, front-end focused web frameworks like{' '}
-            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code>&{' '}
+            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code> &{' '}
             <code className="gray-300 mr-0.5 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Remix</code>. I&apos;m writing
             blog posts about the things I&apos;m learning along the way. In my free-time I&apos;m also an indie
             developer, & blogger.

@@ -1,4 +1,4 @@
-export const PRODUCTION_URL = 'https://jameswalsh.dev'
+export const PRODUCTION_URL = 'https://www.jameswalsh.dev' // ? This value is what gets read by web crawlers for indexing. Avoid statically linking with www reference which will cause 308 redirects.
 
 export const JAMES_WALSH = 'James Walsh'
 
