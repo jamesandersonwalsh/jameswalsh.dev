@@ -5,7 +5,7 @@ export function Timeline(props: PropsWithChildren) {
 }
 
 export function TimelineItem(props: PropsWithChildren) {
-  return <li className=" grid grid-cols-1 gap-6 md:grid-cols-4" {...props} />
+  return <li className="grid grid-cols-1 gap-6 md:grid-cols-4" {...props} />
 }
 
 export function TimelineLeftElement(props: PropsWithChildren) {
