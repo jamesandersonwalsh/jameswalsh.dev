@@ -30,7 +30,7 @@ export default function ProjectsPage() {
         title: 'vasion.com',
         href: 'https://vasion.com',
       },
-      imageLink: '/logos/employers/vasion.png',
+      imageLink: '/logos/employers/vasion.webp',
     },
     {
       title: 'Brickyard',
@@ -39,7 +39,7 @@ export default function ProjectsPage() {
         title: 'Brickyard Design System',
         href: 'https://brickyarddesign.com',
       },
-      imageLink: '/logos/employers/podium.jpg',
+      imageLink: '/logos/employers/podium.webp',
     },
     {
       title: 'Advanced Analytics',
@@ -48,7 +48,7 @@ export default function ProjectsPage() {
         title: 'Advanced Analytics',
         href: 'https://www.pluralsight.com/product/advanced-analytics',
       },
-      imageLink: '/logos/employers/pluralsight.png',
+      imageLink: '/logos/employers/pluralsight.webp',
     },
     {
       title: 'Channels',
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
         title: 'Channels',
         href: 'https://www.pluralsight.com/product/channels',
       },
-      imageLink: '/logos/employers/pluralsight.png',
+      imageLink: '/logos/employers/pluralsight.webp',
     },
     {
       title: 'Git Collaborate',
@@ -66,7 +66,7 @@ export default function ProjectsPage() {
         title: 'github.com',
         href: 'https://github.com/pluralsight/git-collaborate',
       },
-      imageLink: '/logos/tech/github-white.jpeg',
+      imageLink: '/logos/tech/github-white.webp',
     },
     {
       title: 'Shopify Integrations',
@@ -75,7 +75,7 @@ export default function ProjectsPage() {
         title: 'Maersk VisibleCSM',
         href: 'https://portal.visiblescm.com',
       },
-      imageLink: '/logos/employers/maersk.jpg',
+      imageLink: '/logos/employers/maersk.webp',
     },
   ]
 
