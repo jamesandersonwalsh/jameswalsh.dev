@@ -18,3 +18,4 @@ jobs:
           cache: 'pnpm'
       - run: pnpm i --frozen-lockfile
       - run: pnpm test:unit:ci
+      - uses: davelosert/vitest-coverage-report-action@v2

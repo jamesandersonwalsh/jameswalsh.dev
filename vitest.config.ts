@@ -8,8 +8,9 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'istanbul',
+      reporter: ['text', 'json-summary', 'json'],
       exclude: [
-        './components/ui/**',
+        './components/ui/**', // ignore shadcn directory
         './app/posthog.ts',
         './app/PostHogPageView.tsx',
         '*.config.*',
