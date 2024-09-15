@@ -20,7 +20,7 @@ export function calculateTimeToRead(text: string): number {
   return time
 }
 
-export function isPostReleased(post: Post): boolean {
+export function isPostReleased(post: Pick<Post, 'status' | 'publishedAt'>): boolean {
   const isPublished = post.status === 'published'
   const isReleased = !isFuture(new Date(post.publishedAt))
 
