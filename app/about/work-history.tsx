@@ -8,19 +8,28 @@ import { Accordion, AccordionContent, AccordionTrigger } from '@/components/ui/a
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
-interface CVItem {
+export interface CVItem {
   image: React.ReactNode
   company: string
   role: string
   startDate: string
-  endDate: string
+  endDate: string | 'Present'
 }
 
-const cvItems: CVItem[] = [
+export const cvItems: CVItem[] = [
+  {
+    image: (
+      <Image src="/logos/employers/tomo.webp" width={32} height={32} alt="Tomo company logo" className="rounded-full" />
+    ),
+    company: 'Tomo',
+    role: 'Senior Software Engineer',
+    startDate: '2024',
+    endDate: 'Present',
+  },
   {
     image: (
       <Image
-        src="/logos/employers/vasion.png"
+        src="/logos/employers/vasion.webp"
         width={32}
         height={32}
         alt="Vasion company logo"
@@ -30,12 +39,12 @@ const cvItems: CVItem[] = [
     company: 'Vasion',
     role: 'Staff Software Engineer',
     startDate: '2022',
-    endDate: 'Present',
+    endDate: '2024',
   },
   {
     image: (
       <Image
-        src="/logos/employers/podium.jpg"
+        src="/logos/employers/podium.webp"
         width={32}
         height={32}
         alt="Podium company logo"
@@ -50,7 +59,7 @@ const cvItems: CVItem[] = [
   {
     image: (
       <Image
-        src="/logos/employers/pluralsight.png"
+        src="/logos/employers/pluralsight.webp"
         width={32}
         height={32}
         alt="Pluralsight company logo"
@@ -65,7 +74,7 @@ const cvItems: CVItem[] = [
   {
     image: (
       <Image
-        src="/logos/employers/maersk.jpg"
+        src="/logos/employers/maersk.webp"
         width={32}
         height={32}
         alt="Maersk company logo"
@@ -87,7 +96,7 @@ export default function WorkHistory() {
         <AccordionContent>
           <ul className="mt-4 flex flex-col gap-6">
             {cvItems.map((cvItem) => (
-              <li className="w-full" key={cvItem.company}>
+              <li className="w-full" key={cvItem.company} data-testid={`${cvItem.company.toLowerCase()}-cv-item`}>
                 {cvItem.image}
                 <dl className="flex w-full flex-wrap gap-2">
                   <dt className="hidden">Company</dt>
@@ -98,7 +107,11 @@ export default function WorkHistory() {
                   <dd className="font-lighter ml-auto text-xs">
                     <time dateTime={cvItem.startDate}>{cvItem.startDate}</time>
                     <span aria-hidden="true"> — </span>
-                    <time dateTime={cvItem.startDate}>{cvItem.endDate}</time>
+                    <time
+                      dateTime={cvItem.endDate === 'Present' ? new Date().getFullYear().toString() : cvItem.endDate}
+                    >
+                      {cvItem.endDate}
+                    </time>
                   </dd>
                 </dl>
               </li>
