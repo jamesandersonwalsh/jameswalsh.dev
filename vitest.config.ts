@@ -9,6 +9,12 @@ export default defineConfig({
     coverage: {
       provider: 'istanbul',
       reporter: ['text', 'json-summary', 'json'],
+      thresholds: {
+        lines: 50,
+        branches: 50,
+        functions: 50,
+        statements: 50,
+      },
       exclude: [
         './components/ui/**', // ignore shadcn directory
         './app/posthog.ts',
