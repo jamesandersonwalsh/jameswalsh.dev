@@ -19,8 +19,17 @@ interface CVItem {
 const cvItems: CVItem[] = [
   {
     image: (
+      <Image src="/logos/employers/tomo.webp" width={32} height={32} alt="Tomo company logo" className="rounded-full" />
+    ),
+    company: 'Tomo',
+    role: 'Senior Software Engineer',
+    startDate: '2024',
+    endDate: 'Present',
+  },
+  {
+    image: (
       <Image
-        src="/logos/employers/vasion.png"
+        src="/logos/employers/vasion.webp"
         width={32}
         height={32}
         alt="Vasion company logo"
@@ -30,12 +39,12 @@ const cvItems: CVItem[] = [
     company: 'Vasion',
     role: 'Staff Software Engineer',
     startDate: '2022',
-    endDate: 'Present',
+    endDate: '2024',
   },
   {
     image: (
       <Image
-        src="/logos/employers/podium.jpg"
+        src="/logos/employers/podium.webp"
         width={32}
         height={32}
         alt="Podium company logo"
@@ -50,7 +59,7 @@ const cvItems: CVItem[] = [
   {
     image: (
       <Image
-        src="/logos/employers/pluralsight.png"
+        src="/logos/employers/pluralsight.webp"
         width={32}
         height={32}
         alt="Pluralsight company logo"
@@ -65,7 +74,7 @@ const cvItems: CVItem[] = [
   {
     image: (
       <Image
-        src="/logos/employers/maersk.jpg"
+        src="/logos/employers/maersk.webp"
         width={32}
         height={32}
         alt="Maersk company logo"
@@ -87,7 +96,7 @@ export default function WorkHistory() {
         <AccordionContent>
           <ul className="mt-4 flex flex-col gap-6">
             {cvItems.map((cvItem) => (
-              <li className="w-full" key={cvItem.company}>
+              <li className="w-full" key={cvItem.company} data-testid={`${cvItem.company.toLowerCase()}-cv-item`}>
                 {cvItem.image}
                 <dl className="flex w-full flex-wrap gap-2">
                   <dt className="hidden">Company</dt>
