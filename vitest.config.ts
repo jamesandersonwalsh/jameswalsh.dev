@@ -16,9 +16,9 @@ export default defineConfig({
         statements: 50,
       },
       exclude: [
-        './components/ui/**', // ignore shadcn directory
-        './app/posthog.ts',
-        './app/PostHogPageView.tsx',
+        'components/ui/**', // ignore shadcn directory
+        'app/posthog.ts',
+        'app/PostHogPageView.tsx',
         '*.config.*',
         './**/constants.*',
         ...coverageConfigDefaults.exclude,
