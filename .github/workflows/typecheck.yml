@@ -14,7 +14,7 @@ jobs:
           node-version: 18
       - uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9.10.0 # match package.json:packageManager version.
 
       - name: Get pnpm store directory
         shell: bash
