@@ -20,6 +20,7 @@ export default defineConfig({
         './app/posthog.ts',
         './app/PostHogPageView.tsx',
         '*.config.*',
+        './**/constants.*',
         ...coverageConfigDefaults.exclude,
       ],
     },
