@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   metadataBase: new URL(PRODUCTION_URL),
   openGraph: {
+    images: ['/portraits/front-profile.webp'],
     title: JAMES_WALSH,
     siteName: JAMES_WALSH,
     locale: 'en_us',
