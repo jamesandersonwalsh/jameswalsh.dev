@@ -1,4 +1,4 @@
-import { act, render, screen } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { usePathname } from 'next/navigation'
 
 import { TopNavbar } from '../top-nav'
