@@ -1,7 +1,7 @@
-import { calculateTimeToRead } from '../utils'
+import { calculateTimeToRead, isPostReleased } from '../utils'
 
 describe('lib/utils', () => {
-  describe('#calculateTimeToRead', () => {
+  describe('calculateTimeToRead', () => {
     it('calculates correct time to read', () => {
       const twoMinTestCase = `
     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
@@ -23,5 +23,44 @@ describe('lib/utils', () => {
     it('rounds up to the nearest minute', () => {
       expect(calculateTimeToRead('This would only take a few moments to read')).toEqual(1)
     })
+  })
+
+  describe('isPostReleased', () => {
+    const today = new Date(2024, 8, 1)
+    beforeEach(() => {
+      vi.useFakeTimers()
+      vi.setSystemTime(today)
+    })
+
+    afterAll(() => {
+      vi.useRealTimers()
+    })
+
+    it('returns true if the post is in the past', () => {
+      const actual = isPostReleased({ status: 'published', publishedAt: new Date(2024, 7, 24).toString() })
+
+      expect(actual).toBeTruthy()
+    })
+
+    it('returns false if post is in the future', () => {
+      const actual = isPostReleased({ status: 'published', publishedAt: new Date(2024, 8, 2).toString() })
+
+      expect(actual).toBeFalsy()
+    })
+
+    it('returns true if post is today', () => {
+      const actual = isPostReleased({ status: 'published', publishedAt: today.toString() })
+
+      expect(actual).toBeTruthy()
+    })
+
+    it.each([today, new Date(2024, 7, 24), new Date(2024, 7, 24)])(
+      'returns false if post is not published for %s',
+      (date: Date) => {
+        const actual = isPostReleased({ status: 'draft', publishedAt: date.toString() })
+
+        expect(actual).toBeFalsy()
+      },
+    )
   })
 })

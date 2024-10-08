@@ -10,7 +10,7 @@ vi.mock('@/lib/mdx')
 vi.mock('../../actions')
 
 describe('/posts/[slug]/actions', () => {
-  describe('#fetchPostBySlug', () => {
+  describe('fetchPostBySlug', () => {
     const slug = 'project-hail-mary'
     const mockPost: Post = {
       slug,
@@ -56,7 +56,7 @@ describe('/posts/[slug]/actions', () => {
     })
   })
 
-  describe('#fetchPreviousPost', () => {
+  describe('fetchPreviousPost', () => {
     const mockPosts: Post[] = [
       { slug: 'slug-1', ...getMockFrontmatter(), source: getMockSource() },
       { slug: 'slug-2', ...getMockFrontmatter(), source: getMockSource() },

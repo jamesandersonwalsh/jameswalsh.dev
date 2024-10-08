@@ -7,6 +7,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      # required by coverage reporter.
+      pull-requests: write
+
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -18,3 +23,6 @@ jobs:
           cache: 'pnpm'
       - run: pnpm i --frozen-lockfile
       - run: pnpm test:unit:ci
+      - name: 'Report Coverage'
+        if: always()
+        uses: davelosert/vitest-coverage-report-action@v2
