@@ -12,7 +12,7 @@ vi.mock('fs/promises')
 vi.mock('@/lib/mdx')
 
 describe('/posts/actions', () => {
-  describe('#fetchPublishedPosts', () => {
+  describe('fetchPublishedPosts', () => {
     const mockFiles = getMockFiles()
 
     beforeEach(() => {
