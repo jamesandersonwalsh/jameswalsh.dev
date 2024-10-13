@@ -27,7 +27,7 @@ I’d like to start with a soft elevator pitch on why embracing FP concepts is g
 Much like OOP, FP really starts to shine when you start focusing on crafting code by following some basic tenants. By adhering to these tenets I believe you will win:
 
 1. Testability
-2. Refactorability
+2. Ability to refactor
 3. Readability
 4. Better Control Flow
 
@@ -255,8 +255,8 @@ const cats = [
   { name: 'Tinkerbell', coat: 'short', gender: 'female', isIndoorCat: true },
   { name: 'Whiskers', coat: 'short', gender: 'male', isIndoorCat: false },
   { name: 'Snickers', coat: 'short', gender: 'female', isIndoorCat: true },
-  { name: 'Nala', coat: 'long', gender: 'female', isIndoorCat: false },
-  { name: 'Selina', coat: 'short', gender: 'female', isIndoorCat: false },
+  { name: 'Jenny', coat: 'long', gender: 'female', isIndoorCat: false },
+  { name: 'Garfield', coat: 'short', gender: 'female', isIndoorCat: false },
   { name: 'Gusto', coat: 'short', gender: 'male', isIndoorCat: true },
 ]
 ```
@@ -264,7 +264,7 @@ const cats = [
 ### Imperative Code 🤮
 
 ```js
-let catsToShow = [] //mutatable state we can reference from inside our loop
+let catsToShow = [] //mutable state we can reference from inside our loop
 for (let cat of cats) {
   if (cat.gender === 'female' && cat.coat === 'short') {
     if (cat.isIndoorCat === true) {

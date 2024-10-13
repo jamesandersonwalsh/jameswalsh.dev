@@ -14,7 +14,7 @@ describe('/posts/[slug]/actions', () => {
     const slug = 'project-hail-mary'
     const mockPost: Post = {
       slug,
-      source: '#MyCoolHeading\nsomeothercoolstuff',
+      source: '#MyCoolHeading',
       ...getMockFrontmatter(),
     }
 
@@ -49,7 +49,7 @@ describe('/posts/[slug]/actions', () => {
     describe('when an unexpected error occurs', () => {
       it('handles it gracefully', async () => {
         const expectedErrorMessage = `Something went wrong. Unable to fetch a blog post for ${slug}`
-        vi.mocked(mdx.getPostFromMDX).mockRejectedValue(new Error('ASTROPHAGE DETECTED!'))
+        vi.mocked(mdx.getPostFromMDX).mockRejectedValue(new Error('Uncaught exception'))
 
         await expect(() => fetchPostBySlug(slug)).rejects.toThrowError(expectedErrorMessage)
       })

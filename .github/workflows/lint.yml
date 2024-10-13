@@ -18,5 +18,6 @@ jobs:
           cache: 'pnpm'
       - run: pnpm i --frozen-lockfile
 
+      - run: pnpm spell
       - run: pnpm lint
       - run: pnpm format:check
