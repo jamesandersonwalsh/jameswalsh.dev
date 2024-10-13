@@ -13,7 +13,7 @@ import { SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 const topNavVariants = cva(
-  'flex items-center px-5 w-18 mx-1 transition opacity-80 transition-colors duration-200 h-full',
+  'flex items-center px-5 w-18 mx-1 transition opacity-80 transition-colors duration-200 h-full border-b-2 border-transparent',
   {
     variants: {
       variant: {
