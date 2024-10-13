@@ -1,5 +1,7 @@
 'use client'
 
+/* cspell:disable */
+
 // eslint-disable-next-line import/no-named-as-default
 import posthog from 'posthog-js'
 import { PostHogProvider } from 'posthog-js/react'

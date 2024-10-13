@@ -1,0 +1,29 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "astro",
+    "automations",
+    "corepack",
+    "choco",
+    "clrf",
+    "distros",
+    "functors",
+    "iterm",
+    "integracore",
+    "kata",
+    "lf",
+    "macbook",
+    "hackathon",
+    "linq",
+    "maersk",
+    "pluralsight",
+    "posthog",
+    "tomo",
+    "turborepo",
+    "turso",
+    "webstorm",
+    "vasion"
+  ],
+  "files": ["app/**", "posts/**", "components/**", "e2e/**", "lib/**"]
+}

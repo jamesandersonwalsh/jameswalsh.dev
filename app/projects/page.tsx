@@ -34,7 +34,7 @@ export default function ProjectsPage() {
     },
     {
       title: 'Brickyard',
-      description: `Beautiful, composable, fully accessible React Design System built on top of the full power of Chakra UI. Available publically with Storybook.`,
+      description: `Beautiful, composable, fully accessible React Design System built on top of the full power of Chakra UI. Available publicly with Storybook.`,
       externalLink: {
         title: 'Brickyard Design System',
         href: 'https://brickyarddesign.com',

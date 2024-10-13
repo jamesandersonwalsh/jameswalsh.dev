@@ -13,7 +13,7 @@ describe('components/app-shell/footer', () => {
     expect(socialLink).toHaveAttribute('href', href)
   })
 
-  it.each(SITE_NAVIGATIONAL_ITEMS)('displays a site navigatim item for $href', ({ href, value }) => {
+  it.each(SITE_NAVIGATIONAL_ITEMS)('displays a site navigation item for $href', ({ href, value }) => {
     render(<Footer />)
 
     const siteNavItem = screen.getByRole('link', { name: value })

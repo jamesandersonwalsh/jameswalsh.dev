@@ -8,22 +8,22 @@ const TimelineCollection: TimelineCollectionRecord = {
                     Writing JS has been the bread & butter of my own career & my appreciation for it has grown as I've
                     contended with both it's good, & bad parts. I believe
                     that JS is at its best when written in composable, declarative way. My favorite resources on JS
-                    are 'You Dont Know JS' & Professor Frisby's Mostly Adequete Guide to Functional Programming.`,
+                    are 'You Don't Know JS' & Professor Frisby's Mostly Adequate Guide to Functional Programming.`,
       imageLink: '/logos/tech/javascript.webp',
     },
     {
       title: 'Typescript',
       description: `I'm a firm-believer that a carefully crafted strong type system
-                    improves code quality, refactorability, readability, & your overall understanding of
-                    modules developed by other teams & developers. I'm a strong advocate for types & compilers, as well as
-                    static code analysis. My favorite resource for learning more about typescript is
+                    improves code quality, ability to refactor, readability, & your overall understanding of
+                    modules developed by other teams & developers. I'm a strong advocate for types & compilers, as well
+                    as static code analysis. My favorite resource for learning more about typescript is
                     Type Level Typescript by Gabriel Vergnaud.`,
       imageLink: '/logos/tech/typescript.webp',
     },
     {
       title: 'React',
       description: `What can I say, React is still G.O.A.T IMO. This whole website was built using React, and honestly
-                    working in React has defined the bulk of my career thus far. Ill be singing the praises of composability,
+                    working in React has defined the bulk of my career thus far. I'll be singing the praises of composability,
                     JSX, and the expressiveness that React offers for years to come.`,
       imageLink: '/logos/tech/react.webp',
     },
@@ -87,7 +87,7 @@ const TimelineCollection: TimelineCollectionRecord = {
                     at the start of a new project. First class support for popular
                     Node.js libraries like Prisma, Drizzle, & sequalize are all icing on top. MySQL remains one of my top database choices, & continues to power many of the
                     APIs I use both in my side projects & professionally. MySQL has earned its place as the obvious top
-                    contendor to PostgreSQL in OSS db popularity.`,
+                    contender to PostgreSQL in OSS db popularity.`,
       imageLink: '/logos/tech/planetscale-white.webp',
     },
   ],
@@ -96,7 +96,7 @@ const TimelineCollection: TimelineCollectionRecord = {
       title: 'RabbitMQ',
       description: `The 1st time I ever worked in a micro-services architecture much of my day was spent writing
                     subscribers & publishers to power the eventual consistency that would allow totally separate
-                    domains to talk to one another with grace. Rabbit is a no brainer, & a perfect fit with Node.js
+                    domains to talk to one another with grace. Rabbit is a no-brainer, & a perfect fit with Node.js
                     which was fundamentally built on top of an 'event loop' architecture. My only complaint with
                     rabbit is that h&ling dead-lettering can be cumbersome & hard, which leads us to kafka.`,
       imageLink: '/logos/tech/rabbitmq.webp',
@@ -107,7 +107,7 @@ const TimelineCollection: TimelineCollectionRecord = {
                     get right. Kafka consumers can do what RabbitMQ consumers cannot in that they re-read history from
                     the beginning of time, getting you every event that was ever fired. The real time analytics
                     abilities from tools that are built on top of kafka are second to none, & powered
-                    analytics dashboards I helped create in Scala during the 2020 global p&emic.`,
+                    analytics dashboards I helped create in Scala during the 2020 global pandemic.`,
       imageLink: '/logos/tech/kafka.webp',
     },
     {
@@ -138,7 +138,7 @@ const TimelineCollection: TimelineCollectionRecord = {
     },
     {
       title: 'iTerm 2',
-      description: `A great modern terminal that doesn't get in your way, doesnt track you with data analytics,
+      description: `A great modern terminal that doesn't get in your way, doesn't track you with data analytics,
                     & doesn't require you to login. Its tried, true, & stable. Keep being you, iTerm.`,
       imageLink: '/logos/tech/iterm2.webp',
     },
@@ -165,7 +165,7 @@ const TimelineCollection: TimelineCollectionRecord = {
       description: `Ive been an outspoken critic of the way that most implement agile. The agile manifesto
                     (which was written about 30 minutes up the road from my childhood home) is
                     only 4 short simple sentences. Yet the meaning largely appears to be lost as teams spend copious
-                    amounts of time managing sAFE, SCRUM, & spending signficant energy figuring out how long something is
+                    amounts of time managing sAFE, SCRUM, & spending significant energy figuring out how long something is
                     going to take, rather than spending time delivering customer value. Linear reduces waste, cuts
                     through the cruft, and is hands down the most powerful, simple, and fun project management
                     tool I've ever used.`,

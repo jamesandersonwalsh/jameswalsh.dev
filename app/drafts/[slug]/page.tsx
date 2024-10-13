@@ -37,7 +37,7 @@ export default async function PostDraftPage(props: PostPageProps) {
             {!!post.publishedAt ? (
               <li>Will release on: {formatDate(new Date(post.publishedAt), 'MMM dd, yy')}</li>
             ) : (
-              'No relase date'
+              'No release date'
             )}
           </ul>
         </AlertDescription>
