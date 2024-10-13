@@ -1,6 +1,6 @@
-import { TimelineCollection } from './types'
+import { TimelineCollectionRecord } from './types'
 
-const TimelineCollection: TimelineCollection = {
+const TimelineCollection: TimelineCollectionRecord = {
   frontend: [
     {
       title: 'JavaScript',
@@ -151,11 +151,12 @@ const TimelineCollection: TimelineCollection = {
       imageLink: '/logos/tech/tableplus.webp',
     },
     {
-      title: 'Insomnia',
-      description: `Insomnia does its job really well, without layering on lots of extra pricey abstractions, bells,
-                    & whistles like some of its competitors. A good network protocol tool gets you back into your
-                    browser or editor as fast as possible, & that is insomnia at its core.`,
-      imageLink: '/logos/tech/insomnia.webp',
+      title: 'Bruno',
+      description: `Bruno does its job really well, however unlike it's competition (i.e Postman & Insomnia), its free,
+                    open source, can be checked into git, and bases collections on your local file system without
+                    layering on lots of extra pricey abstractions, bells, & whistles. A great API management tool gets
+                    you back into your browser or editor as fast as possible, & that is Bruno at its core.`,
+      imageLink: '/logos/tech/bruno.webp',
     },
   ],
   principles: [
@@ -163,7 +164,7 @@ const TimelineCollection: TimelineCollection = {
       title: 'Kanban with Linear',
       description: `Ive been an outspoken critic of the way that most implement agile. The agile manifesto
                     (which was written about 30 minutes up the road from my childhood home) is
-                    only 4 short simple sentences. Yet its meaning largely appears to be lost as teams spend copious
+                    only 4 short simple sentences. Yet the meaning largely appears to be lost as teams spend copious
                     amounts of time managing sAFE, SCRUM, & spending signficant energy figuring out how long something is
                     going to take, rather than spending time delivering customer value. Linear reduces waste, cuts
                     through the cruft, and is hands down the most powerful, simple, and fun project management

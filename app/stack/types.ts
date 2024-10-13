@@ -6,4 +6,4 @@ export interface TimelineItem {
   imageLink: string
 }
 
-export type TimelineCollection = Record<TimelineTypes, TimelineItem[]>
+export type TimelineCollectionRecord = Record<TimelineTypes, TimelineItem[]>
