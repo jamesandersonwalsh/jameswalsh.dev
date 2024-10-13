@@ -16,6 +16,8 @@
     "format:check": "prettier --check .",
     "lint": "next lint",
     "lint:fix": "pnpm lint -- --fix",
+    "precommit": "pnpm spell && pnpm lint && pnpm format",
+    "prepush": "pnpm typecheck && vitest --run",
     "prepare": "husky install",
     "preview": "pnpm build && pnpm start",
     "start": "next start",
