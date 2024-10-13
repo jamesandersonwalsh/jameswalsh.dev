@@ -11,19 +11,26 @@
     "functors",
     "iterm",
     "integracore",
+    "jpmc",
     "kata",
     "lf",
     "macbook",
     "hackathon",
+    "hashnode",
     "linq",
+    "libsql",
     "maersk",
+    "no-brainer",
     "pluralsight",
     "posthog",
+    "runescape",
     "tomo",
     "turborepo",
     "turso",
     "webstorm",
-    "vasion"
+    "vasion",
+    "vergnaud"
   ],
-  "files": ["app/**", "posts/**", "components/**", "e2e/**", "lib/**"]
+  "files": ["app/**", "posts/**", "components/**", "e2e/**", "lib/**"],
+  "ignoreRegExpList": ["/import\\s+[^'\";]+\\s+from\\s+['\"][^'\"]+['\"]/i", "/\\b\\S+\\.(webp|avif)\\b/"]
 }

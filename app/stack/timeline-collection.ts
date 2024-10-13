@@ -8,7 +8,7 @@ const TimelineCollection: TimelineCollectionRecord = {
                     Writing JS has been the bread & butter of my own career & my appreciation for it has grown as I've
                     contended with both it's good, & bad parts. I believe
                     that JS is at its best when written in composable, declarative way. My favorite resources on JS
-                    are 'You Don't Know JS' & Professor Frisby's Mostly Adequate Guide to Functional Programming.`,
+                    are 'You Don't Know JS' & Professor Frisby's Mostly Adequate Guide to Functional Programming.`, // cspell:disable-line
       imageLink: '/logos/tech/javascript.webp',
     },
     {
@@ -85,7 +85,7 @@ const TimelineCollection: TimelineCollectionRecord = {
                     ideas. Migrations in PlanetScale are so easy to work with that it feels like the logical choice
                     for teams that want to iterate quickly, & don't know the exact data shape they're working with
                     at the start of a new project. First class support for popular
-                    Node.js libraries like Prisma, Drizzle, & sequalize are all icing on top. MySQL remains one of my top database choices, & continues to power many of the
+                    Node.js libraries like Prisma, & Drizzle are all icing on top. MySQL remains one of my top database choices, & continues to power many of the
                     APIs I use both in my side projects & professionally. MySQL has earned its place as the obvious top
                     contender to PostgreSQL in OSS db popularity.`,
       imageLink: '/logos/tech/planetscale-white.webp',
