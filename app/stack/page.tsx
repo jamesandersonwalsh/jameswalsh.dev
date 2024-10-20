@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Image from 'next/image'
 
-import TimelineCollection from './timeline-collection'
+import { stackCollection } from './stack-collection'
 
 import { Timeline, TimelineItem, TimelineLeftElement, TimelineRightElement } from '@/components/timeline'
 import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
@@ -12,8 +12,6 @@ export const metadata: Metadata = {
 }
 
 export default function StackPage() {
-  const timelineCollection = TimelineCollection
-
   const sectionTitleMap: Record<string, string> = {
     frontend: 'Front end',
     backend: 'Full Stack / Back end',
@@ -27,7 +25,7 @@ export default function StackPage() {
     <>
       <TypographyH1>Technology Tools I Recommend & Use</TypographyH1>
       <Timeline>
-        {Object.entries(timelineCollection).map(([key, items]) => (
+        {Object.entries(stackCollection).map(([key, items]) => (
           <TimelineItem key={key}>
             <TimelineLeftElement>
               <TypographyH2>{sectionTitleMap[key]}</TypographyH2>

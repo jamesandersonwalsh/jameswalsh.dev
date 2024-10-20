@@ -1,6 +1,6 @@
 import { TimelineCollectionRecord } from './types'
 
-const TimelineCollection: TimelineCollectionRecord = {
+export const stackCollection: TimelineCollectionRecord = {
   frontend: [
     {
       title: 'JavaScript',
@@ -194,5 +194,3 @@ const TimelineCollection: TimelineCollectionRecord = {
     },
   ],
 }
-
-export default TimelineCollection
