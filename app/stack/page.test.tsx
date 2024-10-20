@@ -7,7 +7,7 @@ import { TimelineTypes } from './types'
 const stackCollectionKeys = Object.keys(stackCollection) as TimelineTypes[]
 
 describe('stack/page', () => {
-  it('renders proper page heading', () => {
+  it('displays page heading', () => {
     render(<StackPage />)
 
     expect(screen.getByRole('heading', { name: /technology tools i recommend & use/i })).toBeInTheDocument()
