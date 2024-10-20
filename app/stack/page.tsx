@@ -31,15 +31,21 @@ export default function StackPage() {
               <TypographyH2>{sectionTitleMap[key]}</TypographyH2>
             </TimelineLeftElement>
             <TimelineRightElement>
-              <ul className="flex flex-col gap-6">
+              <ul className="flex flex-col gap-6" data-testid={`${key}-list`}>
                 {items.map((item) => (
-                  <ul className="w-full" key={item.title}>
+                  <li className="w-full" key={item.title}>
                     <div className="flex flex-row items-center gap-4">
-                      <Image className="rounded-md" width={36} height={36} src={item.imageLink} alt="technology logo" />
+                      <Image
+                        className="rounded-md"
+                        width={36}
+                        height={36}
+                        src={item.imageLink}
+                        alt={`technology logo for ${item.title}`}
+                      />
                       <TypographyH3>{item.title}</TypographyH3>
                     </div>
-                    <TypographyP>{item.description}</TypographyP>
-                  </ul>
+                    <TypographyP data-testid={`${item.title}-text`}>{item.description}</TypographyP>
+                  </li>
                 ))}
               </ul>
             </TimelineRightElement>
