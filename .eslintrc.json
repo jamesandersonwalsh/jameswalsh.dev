@@ -9,7 +9,8 @@
         "alphabetize": { "order": "asc", "caseInsensitive": true },
         "groups": ["builtin", "external", "parent", "sibling", "index"]
       }
-    ]
+    ],
+    "import/no-named-as-default": 0
   },
   "settings": {
     "import/resolver": {
