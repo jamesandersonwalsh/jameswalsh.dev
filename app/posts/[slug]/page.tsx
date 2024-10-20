@@ -66,7 +66,7 @@ export default async function PostPage({ params }: PostPageProps) {
             <Tag key={tag} text={tag} />
           ))}
         </span>
-        <TimeInformation post={post} />
+        <TimeInformation metadata={{ publishedAt: post.publishedAt, source: post.source }} />
       </div>
       <article className="mt-8">
         <MDXContent source={post.source} />

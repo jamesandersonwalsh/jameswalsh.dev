@@ -6,17 +6,17 @@ import { Time } from '@/components/time'
 import { type Post } from '@/lib/types'
 import { calculateTimeToRead } from '@/lib/utils'
 
-interface PublishedAtParams {
-  post: Post
+interface TimeInformationProps {
+  metadata: Pick<Post, 'publishedAt' | 'source'>
 }
 
-export default function TimeInformation({ post }: PublishedAtParams) {
+export default function TimeInformation({ metadata }: TimeInformationProps) {
   return (
     <span className="flex flex-row text-lg font-medium">
-      <Time dateTime={post.publishedAt} />
+      <Time dateTime={metadata.publishedAt} />
       <span className="ml-2 flex flex-row gap-1 text-sm md:text-lg">
-        —&nbsp;{calculateTimeToRead(post.source)}&nbsp;min read&nbsp;(
-        {formatDistanceToNow(new Date(post.publishedAt))} ago)
+        —&nbsp;{calculateTimeToRead(metadata.source)}&nbsp;min read&nbsp;(
+        {formatDistanceToNow(new Date(metadata.publishedAt))} ago)
       </span>
     </span>
   )
