@@ -66,6 +66,25 @@ describe('posts/[slug]/page', () => {
     expect(screen.getByText(/about 2 months ago/i)).toBeInTheDocument()
   })
 
-  it.todo('renders a link to all posts')
-  it.todo('renders a link to the previous blog post')
+  it('renders a link to all posts', async () => {
+    vi.mocked(slugPageActions.fetchPostBySlug).mockResolvedValue(mockPost)
+
+    render(await PostPage({ params: { slug: mockSlug } }))
+
+    expect(screen.getByRole('link', { name: /all posts/i })).toBeInTheDocument()
+  })
+
+  it('renders a link to the previous blog post', async () => {
+    const mockPreviousPostSlug = 'previous-post-slug'
+    const mockPreviousPost = getMockPost({ slug: mockPreviousPostSlug })
+    vi.mocked(slugPageActions.fetchPostBySlug).mockResolvedValue(mockPost)
+    vi.mocked(slugPageActions.fetchPreviousPost).mockResolvedValue(mockPreviousPost)
+
+    render(await PostPage({ params: { slug: mockSlug } }))
+
+    const linkToPreviousPost = screen.getByRole('link', { name: /next/i })
+
+    expect(linkToPreviousPost).toBeInTheDocument()
+    expect(linkToPreviousPost).toHaveAttribute('href', `/posts/${mockPreviousPost.slug}`)
+  })
 })
