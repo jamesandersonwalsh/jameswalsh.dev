@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import ProjectsPage from './page'
 import { projectsCollection } from './project-collection'
 
-describe('/projects/page', () => {
+describe('/projects/ProjectsPage', () => {
   it('displays page heading', () => {
     render(<ProjectsPage />)
 

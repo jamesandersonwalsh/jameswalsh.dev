@@ -8,7 +8,7 @@ import { getMockPost } from '@/test/mocks/post'
 vi.mock('../actions', () => ({
   fetchPublishedPosts: vi.fn(),
 }))
-describe('posts/page', () => {
+describe('posts/PostsIndexPage', () => {
   const mockPosts = [
     getMockPost({ slug: 'slug-1', title: 'Title 1', brief: 'this is brief 1', publishedAt: '2020-01-02' }),
     getMockPost({ slug: 'slug-2', title: 'Title 2', brief: 'this is brief 2', publishedAt: '2020-01-03' }),

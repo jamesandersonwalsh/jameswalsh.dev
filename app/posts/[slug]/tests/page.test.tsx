@@ -23,7 +23,7 @@ vi.mock('date-fns/format', () => ({
   formatDate: vi.fn((_dateString) => 'Sep 14, 2024'),
 }))
 
-describe('posts/[slug]/page', () => {
+describe('posts/[slug]/PostPage', () => {
   const mockSlug = 'my-slug'
   const tags = ['typescript', 'javascript', 'nextjs', 'ssr', 'ssg']
   const mockPost = getMockPost({

@@ -6,7 +6,7 @@ import { TimelineTypes } from './types'
 
 const stackCollectionKeys = Object.keys(stackCollection) as TimelineTypes[]
 
-describe('stack/page', () => {
+describe('stack/StackPage', () => {
   it('displays page heading', () => {
     render(<StackPage />)
 

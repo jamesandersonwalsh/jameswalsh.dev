@@ -10,7 +10,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 import { calculateTimeToRead } from '@/lib/utils'
 
-export default async function Home() {
+export default async function HomePage() {
   const posts = await fetchPublishedPosts()
 
   return (
