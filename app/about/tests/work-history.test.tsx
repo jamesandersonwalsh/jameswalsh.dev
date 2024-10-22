@@ -5,9 +5,13 @@ import WorkflowHistory, { type CVItem, cvItems } from '../work-history'
 const mockPresentYear = 2024
 
 describe('about/WorkHistory', () => {
-  beforeEach(() => {
+  beforeAll(() => {
     vi.useFakeTimers()
     vi.setSystemTime(new Date(mockPresentYear, 0, 1))
+  })
+
+  afterEach(() => {
+    vi.clearAllMocks()
   })
 
   afterAll(() => {
