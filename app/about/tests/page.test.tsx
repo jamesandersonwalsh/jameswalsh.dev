@@ -27,6 +27,16 @@ describe('about/AboutPage', () => {
     ).toBeInTheDocument()
   })
 
+  it('displays profile image', async () => {
+    render(await AboutPage())
+
+    const profileImage = screen.getByAltText(/picture of james side profile/i)
+    const encodedUriImageSrc = encodeURIComponent('/portraits/side-profile.webp')
+
+    expect(profileImage).toBeInTheDocument()
+    expect(profileImage.getAttribute('src')).toContain(encodedUriImageSrc)
+  })
+
   it('displays Get To Know Me card', async () => {
     render(await AboutPage())
 
