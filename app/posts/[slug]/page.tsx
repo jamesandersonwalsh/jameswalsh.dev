@@ -13,7 +13,7 @@ import TimeInformation from './time-information'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { buttonVariants } from '@/components/ui/button'
 import { TypographyH1 } from '@/components/ui/typography'
-import { PRODUCTION_URL } from '@/lib/constants'
+import { JAMES_WALSH, PRODUCTION_URL } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export async function generateStaticParams() {
@@ -30,9 +30,9 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
   return {
     title: post.title,
     description: post.brief,
-    publisher: 'James Walsh',
-    creator: 'James Walsh',
-    authors: [{ url: PRODUCTION_URL, name: 'James Walsh' }],
+    publisher: JAMES_WALSH,
+    creator: JAMES_WALSH,
+    authors: [{ url: PRODUCTION_URL, name: JAMES_WALSH }],
     keywords: post.tags,
     openGraph: {
       title: post.title,

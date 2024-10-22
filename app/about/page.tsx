@@ -9,6 +9,7 @@ import WorkHistory from './work-history'
 import { buttonVariants } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { TypographyH1, TypographyP } from '@/components/ui/typography'
+import { GITHUB_REPO_LINK } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export const metadata: Metadata = {
@@ -96,11 +97,7 @@ export default function AboutPage() {
               code.
             </CardContent>
             <CardFooter>
-              <Link
-                href="https://github.com/jamesandersonwalsh/portfolio"
-                download
-                className={cn('w-full', buttonVariants())}
-              >
+              <Link href={GITHUB_REPO_LINK} download className={cn('w-full', buttonVariants())}>
                 <b>Visit Github</b>
               </Link>
             </CardFooter>

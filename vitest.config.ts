@@ -10,10 +10,10 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text', 'json-summary', 'json'],
       thresholds: {
-        statements: 65,
-        branches: 60,
-        functions: 65,
-        lines: 65,
+        statements: 95,
+        branches: 95,
+        functions: 95,
+        lines: 95,
       },
       exclude: [
         'components/ui/**', // ignore shadcn directory
