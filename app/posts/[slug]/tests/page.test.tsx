@@ -1,20 +1,25 @@
 import { render, screen } from '@testing-library/react'
 import { PropsWithChildren } from 'react'
 
+import { fetchPublishedPosts } from '../../actions'
 import * as slugPageActions from '../actions'
-import PostPage from '../page'
+import PostPage, { generateMetadata, generateStaticParams } from '../page'
 
+import { JAMES_WALSH, PRODUCTION_URL } from '@/lib/constants'
 import { getMockPost } from '@/test/mocks/post'
 
 vi.mock('../actions', () => ({
   fetchPostBySlug: vi.fn(),
   fetchPreviousPost: vi.fn(() => Promise.resolve(undefined)),
 }))
-// vi.doMock('../actions')
+vi.mock('../../actions', () => ({
+  fetchPublishedPosts: vi.fn(() => Promise.resolve([])),
+}))
 vi.mock('../mdx-content', () => ({
   __esModule: true,
   default: vi.fn(({ children }: PropsWithChildren) => <div>{children}</div>),
 }))
+
 describe('posts/[slug]/page', () => {
   const mockSlug = 'my-slug'
   const tags = ['typescript', 'javascript', 'nextjs', 'ssr', 'ssg']
@@ -86,5 +91,42 @@ describe('posts/[slug]/page', () => {
 
     expect(linkToPreviousPost).toBeInTheDocument()
     expect(linkToPreviousPost).toHaveAttribute('href', `/posts/${mockPreviousPost.slug}`)
+  })
+
+  describe('generateMetadata', () => {
+    it('generates page metadata based on current post slug', async () => {
+      const metadata = await generateMetadata({ params: { slug: mockSlug } })
+
+      expect(metadata).toEqual({
+        title: mockPost.title,
+        description: mockPost.brief,
+        publisher: JAMES_WALSH,
+        creator: JAMES_WALSH,
+        authors: [{ url: PRODUCTION_URL, name: JAMES_WALSH }],
+        keywords: mockPost.tags,
+        openGraph: {
+          title: mockPost.title,
+          description: mockPost.brief,
+          images: [mockPost.thumbnail],
+          type: 'article',
+          tags: mockPost.tags,
+          publishedTime: mockPost.publishedAt,
+          locale: 'en_us',
+        },
+      })
+    })
+  })
+
+  describe('generateStaticParams', () => {
+    it('returns all available post slugs', async () => {
+      vi.mocked(fetchPublishedPosts).mockResolvedValue([
+        getMockPost({ slug: 'slug-1' }),
+        getMockPost({ slug: 'slug-2' }),
+        getMockPost({ slug: 'slug-3' }),
+      ])
+      const staticParams = await generateStaticParams()
+
+      expect(staticParams).toEqual([{ slug: 'slug-1' }, { slug: 'slug-2' }, { slug: 'slug-3' }])
+    })
   })
 })
