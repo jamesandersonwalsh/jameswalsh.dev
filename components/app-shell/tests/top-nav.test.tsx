@@ -27,4 +27,13 @@ describe('components/app-shell/top-nav', () => {
     expect(siteNavItem).toHaveClass('border-b-2')
     expect(siteNavItem).toHaveClass('border-primary')
   })
+
+  it('displays a nav item with a tooltip for /rss.xml', () => {
+    vi.mocked(usePathname).mockReturnValueOnce('/')
+
+    render(<TopNavbar />)
+
+    const rssFeedNavItem = screen.getByTestId('rss-feed-nav-item')
+    expect(rssFeedNavItem).toBeInTheDocument()
+  })
 })
