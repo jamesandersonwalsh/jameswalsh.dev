@@ -1,6 +1,8 @@
 import { GET, SITE_MAP_CATEGORIES } from '../route'
 
+import { fetchPublishedPosts } from '@/app/posts/actions'
 import { EMAIL, JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
+import { getMockPost } from '@/test/mocks/post'
 
 vi.mock('@/app/posts/actions', () => ({
   fetchPublishedPosts: vi.fn().mockResolvedValue([]),
@@ -22,7 +24,6 @@ describe('rss.xml', () => {
       const response = await GET()
       const blob = await response.blob()
       const text = await blob.text()
-      console.log('text:', text)
 
       expect(response.ok).toBeTruthy()
       expect(blob.type).toEqual('application/atom+xml; charset=utf-8')
@@ -42,6 +43,25 @@ describe('rss.xml', () => {
       })
     })
 
-    it.todo('adds blog posts as xml feed items')
+    it('adds blog posts as xml feed items', async () => {
+      const mockPosts = [
+        getMockPost({ title: 'blog post 1', slug: 'slug-1', thumbnail: '/blog-thumbnails/post-1-thumbnail.webp' }),
+        getMockPost({ title: 'blog post 2', slug: 'slug-2', thumbnail: '/blog-thumbnails/post-2-thumbnail.webp' }),
+      ]
+      vi.mocked(fetchPublishedPosts).mockResolvedValue(mockPosts)
+      const response = await GET()
+      const blob = await response.blob()
+      const text = await blob.text()
+
+      expect(text).toContain('<item>')
+      mockPosts.forEach((post) => {
+        expect(text).toContain(`<title><![CDATA[${post.title}]]></title>`)
+        expect(text).toContain(`<link>${PRODUCTION_URL}/posts/${post.slug}</link>`)
+        expect(text).toContain(`<guid isPermaLink="false">${post.slug}</guid>`)
+        expect(text).toContain(`<dc:creator><![CDATA[${JAMES_WALSH}]]></dc:creator>`)
+        expect(text).toContain(`<pubDate>Sat, 14 Sep 2024 00:00:00 GMT</pubDate>`)
+        expect(text).toContain(`<enclosure url="${post.thumbnail}" length="0" type="webp"/>`)
+      })
+    })
   })
 })

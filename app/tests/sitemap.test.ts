@@ -3,6 +3,7 @@ import sitemap from '../sitemap'
 
 import { PRODUCTION_URL } from '@/lib/constants'
 import { Post } from '@/lib/types'
+import { getMockPost } from '@/test/mocks/post'
 
 vi.mock('@/app/posts/actions', () => ({
   fetchPublishedPosts: vi.fn().mockResolvedValue([]),
@@ -52,19 +53,18 @@ describe('sitemap', () => {
   })
 
   it.only('contains sitemap record for all blog posts', async () => {
+    // TODO: generate proper post mocks
     const mockPublishedPosts = [
-      {
+      getMockPost({
         slug: 'my-cool-slug-1',
         lastModified: '2024-09-14',
         publishedAt: '2024-09-14',
-        source: 'How now brown cow.',
-      },
-      {
+      }),
+      getMockPost({
         slug: 'my-cool-slug-2',
         lastModified: '2024-09-16',
         publishedAt: '2024-09-16',
-        source: 'Brown cow how now.',
-      },
+      }),
     ] as Post[]
     vi.mocked(fetchPublishedPosts).mockResolvedValue(mockPublishedPosts)
 
