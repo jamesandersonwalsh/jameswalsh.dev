@@ -3,6 +3,7 @@ import RSS from 'rss'
 import { fetchPublishedPosts } from '@/app/posts/actions'
 import { EMAIL, JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
 
+export const SITE_MAP_CATEGORIES = ['Web Development', 'JavaScript', 'Software Engineering', 'Coding']
 export async function GET() {
   const feed = new RSS({
     title: JAMES_WALSH,
@@ -14,7 +15,7 @@ export async function GET() {
     webMaster: EMAIL,
     language: 'en-us',
     pubDate: new Date(),
-    categories: ['Web Development', 'JavaScript', 'Software Engineering', 'Coding'],
+    categories: SITE_MAP_CATEGORIES,
   })
 
   const publishedPosts = await fetchPublishedPosts()
