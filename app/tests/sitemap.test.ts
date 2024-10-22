@@ -1,9 +1,16 @@
+import { fetchPublishedPosts } from '../posts/actions'
 import sitemap from '../sitemap'
 
 import { PRODUCTION_URL } from '@/lib/constants'
+import { Post } from '@/lib/types'
+
+vi.mock('@/app/posts/actions', () => ({
+  fetchPublishedPosts: vi.fn().mockResolvedValue([]),
+}))
 
 describe('sitemap', () => {
   const mockDateTime = new Date(2024, 10, 31) // happy halloween
+
   beforeEach(() => {
     vi.setSystemTime(mockDateTime)
   })
@@ -44,5 +51,37 @@ describe('sitemap', () => {
     })
   })
 
-  it.todo('contains sitemap record for all blog posts')
+  it.only('contains sitemap record for all blog posts', async () => {
+    const mockPublishedPosts = [
+      {
+        slug: 'my-cool-slug-1',
+        lastModified: '2024-09-14',
+        publishedAt: '2024-09-14',
+        source: 'How now brown cow.',
+      },
+      {
+        slug: 'my-cool-slug-2',
+        lastModified: '2024-09-16',
+        publishedAt: '2024-09-16',
+        source: 'Brown cow how now.',
+      },
+    ] as Post[]
+    vi.mocked(fetchPublishedPosts).mockResolvedValue(mockPublishedPosts)
+
+    const sitemapList = await sitemap()
+
+    expect(sitemapList[1]).toEqual({
+      url: `${PRODUCTION_URL}/posts/${mockPublishedPosts[0].slug}`,
+      lastModified: new Date(mockPublishedPosts[0].publishedAt),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    })
+
+    expect(sitemapList[2]).toEqual({
+      url: `${PRODUCTION_URL}/posts/${mockPublishedPosts[1].slug}`,
+      lastModified: new Date(mockPublishedPosts[1].publishedAt),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    })
+  })
 })
