@@ -15,3 +15,5 @@ export const SITE_NAVIGATIONAL_ITEMS = [
   { href: '/stack', value: 'Stack' },
   { href: '/projects', value: 'Portfolio' },
 ]
+
+export const GITHUB_REPO_LINK = 'https://github.com/jamesandersonwalsh/jameswalsh.dev'
