@@ -52,8 +52,7 @@ describe('sitemap', () => {
     })
   })
 
-  it.only('contains sitemap record for all blog posts', async () => {
-    // TODO: generate proper post mocks
+  it('contains sitemap record for all blog posts', async () => {
     const mockPublishedPosts = [
       getMockPost({
         slug: 'my-cool-slug-1',
