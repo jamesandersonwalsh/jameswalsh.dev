@@ -19,17 +19,29 @@ vi.mock('../mdx-content', () => ({
   __esModule: true,
   default: vi.fn(({ children }: PropsWithChildren) => <div>{children}</div>),
 }))
+vi.mock('date-fns/format', () => ({
+  formatDate: vi.fn((_dateString) => 'Sep 14, 2024'),
+}))
 
 describe('posts/[slug]/page', () => {
   const mockSlug = 'my-slug'
   const tags = ['typescript', 'javascript', 'nextjs', 'ssr', 'ssg']
-  const mockPost = getMockPost({ slug: mockSlug, title: 'How to win friends & influence people', tags })
+  const mockPost = getMockPost({
+    slug: mockSlug,
+    title: 'How to win friends & influence people',
+    publishedAt: '2024-09-14',
+    tags,
+  })
 
   const mockDateTime = new Date(Date.UTC(2024, 9, 31, 0, 0, 0)) // happy halloween 🎃
 
   beforeAll(() => {
     vi.useFakeTimers()
     vi.setSystemTime(mockDateTime)
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
   })
 
   it('renders H1 for blog post', async () => {
@@ -66,9 +78,9 @@ describe('posts/[slug]/page', () => {
 
     render(await PostPage({ params: { slug: mockSlug } }))
 
-    expect(screen.getByText('Sep 13, 2024')).toHaveAttribute('datetime', '2024-09-14')
+    expect(screen.getByText('Sep 14, 2024')).toHaveAttribute('datetime', '2024-09-14')
     expect(screen.getByText(/1 min read/i)).toBeInTheDocument()
-    expect(screen.getByText(/about 2 months ago/i)).toBeInTheDocument()
+    expect(screen.getByText(/1 month ago/i)).toBeInTheDocument()
   })
 
   it('renders a link to all posts', async () => {
