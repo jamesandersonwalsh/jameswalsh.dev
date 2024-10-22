@@ -1,9 +1,10 @@
 import RSS from 'rss'
 
+import { SITE_MAP_CATEGORIES } from './constants'
+
 import { fetchPublishedPosts } from '@/app/posts/actions'
 import { EMAIL, JAMES_WALSH, PRODUCTION_URL, SITE_DESCRIPTION } from '@/lib/constants'
 
-export const SITE_MAP_CATEGORIES = ['Web Development', 'JavaScript', 'Software Engineering', 'Coding']
 export async function GET() {
   const feed = new RSS({
     title: JAMES_WALSH,
