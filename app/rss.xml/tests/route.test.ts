@@ -11,7 +11,7 @@ vi.mock('@/app/posts/actions', () => ({
 
 describe('rss.xml', () => {
   describe('GET', () => {
-    const mockDateTime = new Date(2024, 10, 31)
+    const mockDateTime = new Date(2024, 9, 31) // happy halloween 🎃
 
     beforeAll(() => {
       vi.useFakeTimers()
@@ -21,6 +21,7 @@ describe('rss.xml', () => {
     afterAll(() => {
       vi.useRealTimers()
     })
+
     it('returns properly formatted atom+xml rss response', async () => {
       const response = await GET()
       const blob = await response.blob()
@@ -38,7 +39,7 @@ describe('rss.xml', () => {
       expect(text).toContain(`<managingEditor><![CDATA[${EMAIL}]]></managingEditor>`)
       expect(text).toContain(`<webMaster><![CDATA[${EMAIL}]]></webMaster>`)
       expect(text).toContain(`<language><![CDATA[en-us]]></language>`)
-      expect(text).toContain(`<pubDate>Sun, 01 Dec 2024 07:00:00 GMT</pubDate>`)
+      expect(text).toContain(`<pubDate>Thu, 31 Oct 2024 06:00:00 GMT</pubDate>`)
       SITE_MAP_CATEGORIES.forEach((category) => {
         expect(text).toContain(`<category><![CDATA[${category}]]></category>`)
       })

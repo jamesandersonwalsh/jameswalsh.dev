@@ -10,7 +10,7 @@ vi.mock('@/app/posts/actions', () => ({
 }))
 
 describe('sitemap', () => {
-  const mockDateTime = new Date(2024, 10, 31) // happy halloween
+  const mockDateTime = new Date(2024, 9, 31) // happy halloween 🎃
 
   beforeEach(() => {
     vi.setSystemTime(mockDateTime)
