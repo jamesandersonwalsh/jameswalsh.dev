@@ -10,15 +10,16 @@ export default defineConfig({
       provider: 'istanbul',
       reporter: ['text', 'json-summary', 'json'],
       thresholds: {
-        lines: 55,
+        lines: 65,
         branches: 60,
-        functions: 50,
-        statements: 55,
+        functions: 65,
+        statements: 65,
       },
       exclude: [
         'components/ui/**', // ignore shadcn directory
         'app/posthog.ts',
         'app/PostHogPageView.tsx',
+        './**/mdx-content.tsx', // ignore next-mdx-remote component
         '*.config.*',
         './**/constants.*',
         ...coverageConfigDefaults.exclude,
