@@ -71,7 +71,7 @@ describe('posts/[slug]/PostPage', () => {
     })
   })
 
-  it.only('renders blog time information', async () => {
+  it('renders blog time information', async () => {
     vi.mocked(dateFns.formatDistanceToNow).mockReturnValue('1 month')
     vi.mocked(dateFnsFormat.formatDate).mockReturnValue('Oct 31, 2024')
     vi.mocked(slugPageActions.fetchPostBySlug).mockResolvedValue(mockPost)
