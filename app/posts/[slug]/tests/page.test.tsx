@@ -1,4 +1,6 @@
 import { render, screen } from '@testing-library/react'
+import * as dateFns from 'date-fns'
+import * as dateFnsFormat from 'date-fns/format'
 import { PropsWithChildren } from 'react'
 
 import { fetchPublishedPosts } from '../../actions'
@@ -19,9 +21,8 @@ vi.mock('../mdx-content', () => ({
   __esModule: true,
   default: vi.fn(({ children }: PropsWithChildren) => <div>{children}</div>),
 }))
-vi.mock('date-fns/format', () => ({
-  formatDate: vi.fn((_dateString) => 'Sep 14, 2024'),
-}))
+vi.mock('date-fns')
+vi.mock('date-fns/format')
 
 describe('posts/[slug]/PostPage', () => {
   const mockSlug = 'my-slug'
@@ -29,15 +30,12 @@ describe('posts/[slug]/PostPage', () => {
   const mockPost = getMockPost({
     slug: mockSlug,
     title: 'How to win friends & influence people',
-    publishedAt: '2024-09-14',
+    publishedAt: '2024-10-31',
     tags,
   })
 
-  const mockDateTime = new Date(Date.UTC(2024, 9, 31, 0, 0, 0)) // happy halloween 🎃
-
   beforeAll(() => {
     vi.useFakeTimers()
-    vi.setSystemTime(mockDateTime)
   })
 
   afterEach(() => {
@@ -73,12 +71,14 @@ describe('posts/[slug]/PostPage', () => {
     })
   })
 
-  it('renders blog time information', async () => {
+  it.only('renders blog time information', async () => {
+    vi.mocked(dateFns.formatDistanceToNow).mockReturnValue('1 month')
+    vi.mocked(dateFnsFormat.formatDate).mockReturnValue('Oct 31, 2024')
     vi.mocked(slugPageActions.fetchPostBySlug).mockResolvedValue(mockPost)
 
     render(await PostPage({ params: { slug: mockSlug } }))
 
-    expect(screen.getByText('Sep 14, 2024')).toHaveAttribute('datetime', '2024-09-14')
+    expect(screen.getByText('Oct 31, 2024')).toHaveAttribute('datetime', '2024-10-31')
     expect(screen.getByText(/1 min read/i)).toBeInTheDocument()
     expect(screen.getByText(/1 month ago/i)).toBeInTheDocument()
   })
