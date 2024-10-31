@@ -18,9 +18,11 @@ vi.mock('next/navigation', () => ({
   ...vi.importActual('next/navigation'),
   usePathname: vi.fn(),
 }))
-// TODO: migrate to latest posthog setup @see https://linear.app/jdub/issue/JDUB-31/migrate-to-new-posthog-setup
 vi.mock('../providers', () => ({
-  AnalyticsProvider: ({ children }: PropsWithChildren) => <div>{children}</div>,
+  AnalyticsProvider: ({ children }: PropsWithChildren) => children,
+}))
+vi.mock('../PostHogPageView', () => ({
+  default: (_props: unknown) => null,
 }))
 
 const TestComponent = () => {
