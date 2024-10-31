@@ -3,9 +3,13 @@ import './globals.css'
 import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 import { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { PropsWithChildren } from 'react'
 
-import PostHogPageView from './PostHogPageView'
+const PostHogPageView = dynamic(() => import('./PostHogPageView'), {
+  ssr: false,
+})
+
 import { AnalyticsProvider } from './providers'
 
 import Footer from '@/components/app-shell/footer'
