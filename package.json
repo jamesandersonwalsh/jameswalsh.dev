@@ -71,7 +71,7 @@
     "eslint": "8.57.1",
     "eslint-config-next": "14.1.0",
     "eslint-import-resolver-typescript": "^3.6.3",
-    "eslint-plugin-import": "^2.30.0",
+    "eslint-plugin-import": "^2.31.0",
     "happy-dom": "^15.7.4",
     "husky": "^8.0.3",
     "postcss": "^8.4.38",
