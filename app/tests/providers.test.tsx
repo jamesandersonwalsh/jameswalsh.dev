@@ -35,6 +35,7 @@ describe('providers', () => {
     expect(posthog.init).toHaveBeenCalledWith(MOCK_NEXT_PUBLIC_POSTHOG_KEY, {
       api_host: '/ingest',
       ui_host: 'https://us.posthog.com',
+      person_profiles: 'identified_only',
       capture_pageview: false,
     })
   })
