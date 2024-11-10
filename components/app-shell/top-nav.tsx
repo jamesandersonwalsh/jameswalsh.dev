@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip'
 
 import { MobileMenu } from './mobile-menu'
+import { ModeToggleMenu } from './mode-toggle-menu'
 
 import { SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
@@ -62,6 +63,16 @@ export function TopNavbar() {
                 </Tooltip>
               </TooltipProvider>
             </Link>
+          </li>
+          <li>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <ModeToggleMenu />
+                </TooltipTrigger>
+                <TooltipContent side="bottom">Toggle light / dark mode.</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </li>
         </ul>
       </nav>
