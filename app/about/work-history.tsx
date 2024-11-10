@@ -1,10 +1,9 @@
 'use client'
 
-import { AccordionItem } from '@radix-ui/react-accordion'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { Accordion, AccordionContent, AccordionTrigger } from '@/components/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 

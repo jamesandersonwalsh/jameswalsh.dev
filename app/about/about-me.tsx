@@ -1,12 +1,10 @@
 'use client'
 
-import { AccordionContent } from '@radix-ui/react-accordion'
-
-import { Accordion, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import { Accordion, AccordionItem, AccordionContent, AccordionTrigger } from '@/components/ui/accordion'
 
 export default function AboutMe() {
   return (
-    <Accordion type="multiple">
+    <Accordion type="single" collapsible>
       <AccordionItem value="who-i-am">
         <AccordionTrigger>Who I Am 🤙</AccordionTrigger>
         <AccordionContent className="my-4">
