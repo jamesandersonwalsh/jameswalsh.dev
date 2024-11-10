@@ -8,15 +8,13 @@ describe('about/AboutMe', () => {
 
     expect(screen.getByText(/who i am/i)).toBeInTheDocument()
     expect(screen.getByText(/how i got started/i)).toBeInTheDocument()
-    expect(screen.getByText(/career growth/i)).toBeInTheDocument()
     expect(screen.getByText(/today/i)).toBeInTheDocument()
   })
 
   it.each([
-    ['Who I Am', /growing up i was always/i],
-    ['How I Got Started', /fast forward to summer of 2014/i],
-    ['Career Growth', /by January of 2015 I had landed/i],
-    ['Today', /today i/i],
+    ['Who I Am', /growing up i was drawn/i],
+    ['How I Got Started', /in summer 2014/i],
+    ['Today', /today i'm a seasoned/i],
   ])('clicks on accordion displays content for %s', async (text, expectedContent) => {
     const textSelector = new RegExp(text.toLowerCase(), 'i')
 

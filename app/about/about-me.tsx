@@ -8,52 +8,33 @@ export default function AboutMe() {
       <AccordionItem value="who-i-am">
         <AccordionTrigger>Who I Am 🤙</AccordionTrigger>
         <AccordionContent className="my-4">
-          Growing up I was always drawn to music, art, video games, & writing. In retrospect, it&apos;s easy to see the
-          natural velocity that ended up eventually becoming a career. For as long as I can remember I&apos;ve had a
-          sincere intrigue for computers. My earliest memory of using a computer was booting up <b>The Oregon Trail</b>{' '}
-          from a floppy disk at my Grandma&apos;s house during the summer of 2001. As the years went on I remember
-          rushing home from class to play Runescape on our shared family Windows XP machine. Or receiving my first 30GB
-          Video iPod which absolutely changed my relationship to music forever. At least at a subtle level, I&apos;ve
-          always been drawn to the intersection of hardware, software, & artistic expression. But I had no idea who was
-          building these machines & applications I was using, or how they worked. I thought it was actual magic, which I
-          was happy to be the beneficiary of my entire life.
+          Growing up I was drawn to music, art, video games, technology, & writing - creative pursuits that naturally
+          led me to web development. I&apos;ve always been fascinated by computers, from playing The Oregon Trail on
+          floppy disks to Runescape on our family PC. The intersection of technology and artistic expression captivated
+          me, even though I {`didn't`} yet understand how it all worked. To me, it was pure magic.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="how-i-got-started">
-        <AccordionTrigger>How I Got Started 🤓</AccordionTrigger>
+        <AccordionTrigger>How I Got Started 💻</AccordionTrigger>
         <AccordionContent className="my-4">
-          Fast forward to summer of 2014, I was working full-time while taking a semester off from my business
-          management major. Spring Semester had left me feeling like I was approaching an intersection in life. I knew
-          my major {`wasn't`} a great fit, but I {`didn't`} know what was next. One night in early June 2014, I was
-          driving home bursting with excitement because for the first time ever I was going to boot up my new{' '}
-          <b>Gaming PC</b>. As I thought about pressing the power button on my new gaming rig, a thought popped into my
-          head that I {`couldn't`} get rid of. Instead of playing games tonight, What if I sat down at the keyboard &
-          just tried to build something... Earlier that day, one of my teammates had mentioned that they were
-          transitioning onto the software development team. & hearing that made something spark in my brain. Rather than
-          rushing home every night to tinker with computers, I wanted to understand how they worked. I wanted to see if
-          it was viable for me to make a career out of this, not a night time hobby. What came next was a summers long
-          blur of mastering HTML, CSS, & beginning to read a books on JavaScript & Ruby. Before I knew it summer had
-          ended, Fall was here & I was enrolled in DevMountain, a fully immersive full stack JavaScript boot camp. Each
-          day & I felt newfound excitement every time I walked out the front door to catch the train & head to class.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="career-growth">
-        <AccordionTrigger>Career Growth 💻</AccordionTrigger>
-        <AccordionContent className="my-4">
-          By January of 2015 I had landed my first job as an Associate Software Engineer at IntegraCore{' '}
-          <i>(now Maersk)</i>. Where I felt fortunate & lucky to be mentored by some of the best Ruby on Rails
-          Developers in my area. That foundation blossomed into a decades long full-stack career in web development,
-          where I am baffled & proud to say that Im still learning new things that challenge my thinking to this day.
-          Thanks for being here & for stopping by.
+          In summer 2014, while taking a break from my business degree, I had a pivotal moment. The night I built my
+          first gaming PC, I chose to begin the process of learning how to code instead of playing games. Inspired by a
+          coworker&apos;s journey into software development, I spent that summer learning HTML, CSS, JavaScript, & Ruby
+          on Rails. By fall, I had enrolled in DevMountain&apos;s full-stack boot camp, and by January 2015, I landed my
+          first role as an Associate Engineer at IntegraCore <i>(now Maersk)</i>. There, I was fortunate to be mentored
+          by exceptional Ruby on Rails developers who shaped my foundations. That beginning has grown into a decade-long
+          full-stack career where I&apos;m still amazed by how much there is to learn and create.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="today">
         <AccordionTrigger>Today 🎧</AccordionTrigger>
         <AccordionContent className="my-4">
-          Today I&apos;m a seasoned full stack software engineer who loves frontend web development. I&apos;ve been
-          fortunate enough to gain experience in monoliths, monorepos, & microservices. I&apos;ve learned both the easy
-          way & the hard way about what can go right & wrong with all of them. I&apos;ve contributed to scaling Node.js
-          APIs from Go to Market to Enterprise SaaS. I&apos;ve co-founded & contributed to hand crafted Design Systems.
+          Today I&apos;m a seasoned full-stack software engineer with a passion for frontend development. Through both
+          successes and challenges, I&apos;ve learned that while modern software is never truly &quot;done&quot;,
+          it&apos;s the people behind it and processes that drive success. I&apos;ve scaled Node.js APIs from launch to
+          enterprise-level and helped craft Design Systems. As we enter the age of AI, I&apos;m excited by how these new
+          tools can enhance our productivity. The landscape keeps evolving, and I&apos;m thrilled to continue growing
+          alongside it.
         </AccordionContent>
       </AccordionItem>
     </Accordion>
