@@ -65,14 +65,7 @@ export function TopNavbar() {
             </Link>
           </li>
           <li>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger>
-                  <ModeToggleMenu />
-                </TooltipTrigger>
-                <TooltipContent side="bottom">Toggle light / dark mode.</TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
+            <ModeToggleMenu />
           </li>
         </ul>
       </nav>
