@@ -35,6 +35,13 @@ export function MobileMenu() {
               </li>
             )
           })}
+          <li data-testid="rss-feed-text-nav-item">
+            <SheetClose asChild>
+              <Link target="_blank" href="/rss.xml" className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
+                Get RSS Feed
+              </Link>
+            </SheetClose>
+          </li>
         </ul>
       </SheetContent>
     </Sheet>
