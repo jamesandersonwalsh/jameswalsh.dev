@@ -50,6 +50,9 @@ export function TopNavbar() {
               </li>
             )
           })}
+          <li data-testid="mode-toggle-menu">
+            <ModeToggleMenu />
+          </li>
           <li className="h-full" data-testid="rss-feed-nav-item">
             <Link href="/rss.xml" className={cn(topNavVariants({ variant: 'default' }))}>
               <TooltipProvider>
@@ -63,9 +66,6 @@ export function TopNavbar() {
                 </Tooltip>
               </TooltipProvider>
             </Link>
-          </li>
-          <li data-testid="mode-toggle-menu">
-            <ModeToggleMenu />
           </li>
         </ul>
       </nav>
