@@ -16,10 +16,13 @@ export function MobileMenu() {
         />
       </SheetTrigger>
       <SheetContent>
-        <ul className="mt-6 flex flex-col gap-6">
-          <li className="w-full" data-testid="home-nav-item">
+        <ul className="mt-8 flex flex-col gap-6">
+          <li className="h-full w-full" data-testid="home-nav-item">
             <SheetClose asChild>
-              <Link href="/" className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
+              <Link
+                href="/"
+                className={cn(buttonVariants({ variant: 'ghost' }), 'w-full justify-start rounded-none border-b')}
+              >
                 Home
               </Link>
             </SheetClose>
@@ -28,7 +31,10 @@ export function MobileMenu() {
             return (
               <li className="w-full" key={navItem.value} data-testid={`${navItem.value.toLowerCase()}-nav-item`}>
                 <SheetClose asChild>
-                  <Link href={navItem.href} className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
+                  <Link
+                    href={navItem.href}
+                    className={cn(buttonVariants({ variant: 'ghost' }), 'w-full justify-start rounded-none border-b')}
+                  >
                     {navItem.value}
                   </Link>
                 </SheetClose>
@@ -37,7 +43,11 @@ export function MobileMenu() {
           })}
           <li data-testid="rss-feed-text-nav-item">
             <SheetClose asChild>
-              <Link target="_blank" href="/rss.xml" className={cn(buttonVariants({ variant: 'ghost' }), 'w-full')}>
+              <Link
+                target="_blank"
+                href="/rss.xml"
+                className={cn(buttonVariants({ variant: 'ghost' }), 'w-full justify-start rounded-none border-b')}
+              >
                 Get RSS Feed
               </Link>
             </SheetClose>
