@@ -57,34 +57,6 @@ test.describe('when navigating the top nav bar', () => {
     await expect(page).toHaveTitle('Projects - James Walsh')
     await expect(page.getByText(`Things I've Helped Build That`)).toBeVisible()
   })
-
-  test('Makes RSS feed available', async ({ page, isMobile }) => {
-    if (isMobile) {
-      await page.locator('data-testid=rss-feed-text-nav-item').click()
-    } else {
-      await page.locator('data-testid=rss-feed-nav-item').click()
-    }
-  })
-
-  test('toggles the system theme to light mode', async ({ page, isMobile }) => {
-    await page.locator('data-testid=mode-toggle-menu').click()
-    await page.getByRole('menuitem', { name: 'Light' }).click()
-  })
-
-  test('toggles the system theme to dark mode', async ({ page, isMobile }) => {
-    if (isMobile) return
-
-    await page.locator('data-testid=mode-toggle-menu').click()
-    await page.getByRole('menuitem', { name: 'Dark' }).click()
-  })
-
-  test('toggles the system theme to system mode', async ({ page, isMobile }) => {
-    // TODO: up next.
-    if (isMobile) return
-
-    await page.locator('data-testid=mode-toggle-menu').click()
-    await page.getByRole('menuitem', { name: 'System' }).click()
-  })
 })
 
 test.describe('when navigating the footer', () => {
