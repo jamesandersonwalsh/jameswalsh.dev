@@ -20,6 +20,7 @@ vi.mock('next/navigation', () => ({
 }))
 vi.mock('../providers', () => ({
   AnalyticsProvider: ({ children }: PropsWithChildren) => children,
+  ThemeProvider: ({ children }: PropsWithChildren) => children,
 }))
 vi.mock('../PostHogPageView', () => ({
   default: (_props: unknown) => null,
@@ -45,7 +46,7 @@ describe('RootLayout', () => {
   })
 
   afterAll(() => {
-    vi.unstubAllGlobals() // Restore all global stubs
+    vi.unstubAllGlobals()
   })
 
   it('displays the TopNavBar', async () => {
