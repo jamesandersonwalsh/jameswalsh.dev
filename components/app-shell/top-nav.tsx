@@ -64,7 +64,7 @@ export function TopNavbar() {
               </TooltipProvider>
             </Link>
           </li>
-          <li>
+          <li data-testid="mode-toggle-menu">
             <ModeToggleMenu />
           </li>
         </ul>

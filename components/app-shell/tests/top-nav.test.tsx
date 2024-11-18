@@ -36,4 +36,13 @@ describe('components/app-shell/top-nav', () => {
     const rssFeedNavItem = screen.getByTestId('rss-feed-nav-item')
     expect(rssFeedNavItem).toBeInTheDocument()
   })
+
+  it('displays a mode toggle menu', () => {
+    vi.mocked(usePathname).mockReturnValueOnce('/')
+
+    render(<TopNavbar />)
+
+    const modeToggle = screen.getByTestId('mode-toggle-menu')
+    expect(modeToggle).toBeInTheDocument()
+  })
 })
