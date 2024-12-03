@@ -22,6 +22,10 @@ describe('components/app-shell/MobileMenu', () => {
     })
   })
 
+  afterEach(() => {
+    vi.clearAllMocks()
+  })
+
   it('renders the mobile menu as a sheet', () => {
     render(<MobileMenu />)
     expect(screen.getByTestId('mobile-menu-trigger')).toBeInTheDocument()
@@ -53,19 +57,24 @@ describe('components/app-shell/MobileMenu', () => {
   })
 
   it.each([
-    { currentTheme: 'light', expectedText: /toggle dark mode/i },
-    { currentTheme: 'dark', expectedText: /toggle light mode/i },
-  ])('user can select $expectedText when current theme is $currentTheme', async ({ currentTheme, expectedText }) => {
-    vi.mocked(useTheme).mockReturnValue({
-      theme: 'light',
-      setTheme: mockSetTheme,
-      themes: ['light', 'dark', 'system'],
-    })
-    const user = userEvent.setup()
-    render(<MobileMenu />)
+    { currentTheme: 'light', expectedText: /toggle dark mode/i, expectedNewTheme: 'dark' },
+    { currentTheme: 'dark', expectedText: /toggle light mode/i, expectedNewTheme: 'light' },
+  ])(
+    'user can select $expectedText when current theme is $currentTheme',
+    async ({ currentTheme, expectedText, expectedNewTheme }) => {
+      vi.mocked(useTheme).mockReturnValue({
+        theme: currentTheme,
+        setTheme: mockSetTheme,
+        themes: ['light', 'dark', 'system'],
+      })
+      const user = userEvent.setup()
+      render(<MobileMenu />)
 
-    await user.click(screen.getByTestId('mobile-menu-trigger'))
+      await user.click(screen.getByTestId('mobile-menu-trigger'))
+      await user.click(screen.getByText(expectedText))
 
-    await user.click(screen.getByText(/toggle dark mode/i))
-  })
+      expect(mockSetTheme).toHaveBeenCalledOnce()
+      expect(mockSetTheme).toHaveBeenCalledWith(expectedNewTheme)
+    },
+  )
 })
