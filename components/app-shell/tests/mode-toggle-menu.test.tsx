@@ -1,7 +1,10 @@
-import { render, screen, act, waitFor } from '@testing-library/react'
+import { render, screen, waitFor, act } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import { useTheme } from 'next-themes'
 
 import { ModeToggleMenu } from '../mode-toggle-menu'
+
+const mockSetTheme = vi.fn()
 
 vi.mock('next-themes', () => ({
   useTheme: vi.fn(),
@@ -11,23 +14,43 @@ describe('components/app-shell/ModeToggleMenu', () => {
   beforeEach(() => {
     vi.mocked(useTheme).mockReturnValue({
       theme: 'light',
-      setTheme: vi.fn(),
+      setTheme: mockSetTheme,
       themes: ['light', 'dark', 'system'],
     })
   })
 
-  // TODO: fix me.
-  it.skip('displays a dropdown menu with light, dark, and system options', async () => {
-    render(<ModeToggleMenu />)
-
-    act(() => screen.getByRole('button').click())
-
-    screen.getByRole('menuitem', { name: /light/i })
-    screen.getByRole('menuitem', { name: /dark/i })
-    screen.getByRole('menuitem', { name: /system/i })
+  afterEach(() => {
+    vi.clearAllMocks()
   })
 
-  it.todo('uses the system theme as the default')
+  it('displays a dropdown menu with light, dark, and system options', async () => {
+    const user = userEvent.setup()
+    render(<ModeToggleMenu />)
+    await user.click(screen.getByRole('button'))
+    await waitFor(() => {
+      screen.getByRole('menu')
+    })
 
-  it.todo('calls setTheme with the selected theme when an option is clicked')
+    expect(screen.getByRole('menuitem', { name: /light/i })).toBeInTheDocument()
+    expect(screen.getByRole('menuitem', { name: /dark/i })).toBeInTheDocument()
+  })
+
+  it.each([
+    { input: /dark/i, expected: 'dark' },
+    { input: /light/i, expected: 'light' },
+    { input: /system/i, expected: 'system' },
+  ])('calls setTheme with $expected when $input option is clicked', async ({ input, expected }) => {
+    const user = userEvent.setup()
+    render(<ModeToggleMenu />)
+    await user.click(screen.getByRole('button'))
+
+    await waitFor(() => {
+      screen.getByRole('menu')
+    })
+
+    await act(async () => await user.click(screen.getByRole('menuitem', { name: input })))
+
+    expect(mockSetTheme).toHaveBeenCalledOnce()
+    expect(mockSetTheme).toHaveBeenCalledWith(expected)
+  })
 })
