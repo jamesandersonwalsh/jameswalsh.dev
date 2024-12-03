@@ -20,9 +20,9 @@ export default async function HomePage() {
           <TypographyH1 className="my-6 text-4xl md:my-3 md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
           <TypographyP className="my-3 text-lg">
             I&apos;m a full-stack Software Engineer, UI/UX enthusiast, tinkerer, & self-proclaimed developer advocate.
-            I&apos;m currently helping improve the home-buying experience over at{' '}
-            <Link href="https://tomo.com" className="mr-0.5 text-primary hover:underline">
-              Tomo
+            I&apos;m currently dedicated to enhancing personalized learning for every student at{' '}
+            <Link href="https://schoolai.com" className="mr-0.5 text-primary hover:underline">
+              SchoolAI
             </Link>
             .
           </TypographyP>
