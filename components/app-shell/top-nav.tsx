@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip'
 
 import { MobileMenu } from './mobile-menu'
+import { ModeToggleMenu } from './mode-toggle-menu'
 
 import { SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 import { cn } from '@/lib/utils'
@@ -49,6 +50,9 @@ export function TopNavbar() {
               </li>
             )
           })}
+          <li data-testid="mode-toggle-menu">
+            <ModeToggleMenu />
+          </li>
           <li className="h-full" data-testid="rss-feed-nav-item">
             <Link href="/rss.xml" className={cn(topNavVariants({ variant: 'default' }))}>
               <TooltipProvider>

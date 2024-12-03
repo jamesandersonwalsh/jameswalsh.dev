@@ -27,6 +27,23 @@ pnpm i && pnpm dev
 
 Open [http://localhost:3001](http://localhost:3001) and take a look around.
 
+## Testing
+
+### Run unit tests
+
+```sh
+pnpm test:unit
+```
+
+### Run integration tests
+
+```sh
+npx playwright install
+pnpm test:e2e:run
+# or to run headed
+pnpm test:e2e:open
+```
+
 ## CI/CD 🚀
 
 ### Continous Integration

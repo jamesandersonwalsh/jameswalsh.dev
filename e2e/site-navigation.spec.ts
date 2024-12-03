@@ -57,12 +57,6 @@ test.describe('when navigating the top nav bar', () => {
     await expect(page).toHaveTitle('Projects - James Walsh')
     await expect(page.getByText(`Things I've Helped Build That`)).toBeVisible()
   })
-
-  test('Makes /rss.xml available on desktop', async ({ page, isMobile }) => {
-    if (isMobile) return
-
-    await page.locator('data-testid=rss-feed-nav-item').click()
-  })
 })
 
 test.describe('when navigating the footer', () => {

@@ -20,18 +20,18 @@ export default async function HomePage() {
           <TypographyH1 className="my-6 text-4xl md:my-3 md:text-6xl">Hey 👋🏻 I&apos;m James</TypographyH1>
           <TypographyP className="my-3 text-lg">
             I&apos;m a full-stack Software Engineer, UI/UX enthusiast, tinkerer, & self-proclaimed developer advocate.
-            I&apos;m currently helping improve the home-buying experience over at{' '}
-            <Link href="https://tomo.com" className="mr-0.5 text-primary hover:underline">
-              Tomo
+            I&apos;m currently dedicated to enhancing personalized learning for every student at{' '}
+            <Link href="https://schoolai.com" className="mr-0.5 text-primary hover:underline">
+              SchoolAI
             </Link>
             .
           </TypographyP>
           <TypographyP>
             I&apos;m interested in full-stack, front-end focused web frameworks like{' '}
-            <code className="gray-300 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Next.js</code> &{' '}
-            <code className="gray-300 mr-0.5 rounded-sm bg-gray-600 px-2 py-0.5 text-sm">Remix</code>. I&apos;m writing
-            blog posts about the things I&apos;m learning along the way. In my free-time I&apos;m also an indie
-            developer, & blogger.
+            <code className="gray-300 rounded-sm bg-gray-300 px-2 py-0.5 text-sm dark:bg-gray-600">Next.js</code> &{' '}
+            <code className="gray-300 mr-0.5 rounded-sm bg-gray-300 px-2 py-0.5 text-sm dark:bg-gray-600">Remix</code>.
+            I&apos;m writing blog posts about the things I&apos;m learning along the way. In my free-time I&apos;m also
+            an indie developer, & blogger.
           </TypographyP>
         </div>
       </div>
