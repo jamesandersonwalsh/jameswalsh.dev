@@ -6,6 +6,18 @@ test.beforeEach(async ({ page }, testInfo) => {
 })
 
 test.describe('when getting the RSS feed', () => {
+  test.beforeEach(({ browserName }) => {
+    /*
+    ? NOTE: Firefox unfortunately required explicit use of the `view-source` prefix to open RSS feeds. But this breaks the links in other browsers.
+    ? I don't believe we should be optimizing this code for a dual edge case (Not many users use RSS, even fewer use firefox).
+    */
+
+    test.skip(
+      browserName === 'firefox',
+      'RSS feeds cannot be opened on firefox without setting modifications or view-source prefix',
+    )
+  })
+
   test('Makes RSS feed available', async ({ page, context, isMobile }) => {
     if (isMobile) {
       const newPagePromise = context.waitForEvent('page')
