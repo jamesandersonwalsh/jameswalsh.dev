@@ -4,9 +4,6 @@ export const JAMES_WALSH = 'James Walsh'
 
 export const SITE_DESCRIPTION = 'Software Engineer, UI/UX Enthusiast, Developer Advocate'
 
-// cspell:disable-next-line
-export const HANDLE = 'jamesandersonwalsh'
-
 export const EMAIL = 'jameswalsh@hey.com'
 
 export const SITE_NAVIGATIONAL_ITEMS = [

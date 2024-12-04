@@ -2,8 +2,8 @@ import { formatDate } from 'date-fns/format'
 import { Rss } from 'lucide-react'
 import Link from 'next/link'
 
-import { Discord, LinkedIn, Github } from '@/components/icons'
-import { HANDLE, SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
+import { LinkedIn, Github, BlueSky } from '@/components/icons'
+import { SITE_NAVIGATIONAL_ITEMS } from '@/lib/constants'
 
 interface SocialLink {
   name: string
@@ -14,19 +14,19 @@ interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     name: 'Github',
-    href: `https://github.com/BuiltByWalsh`,
+    href: 'https://github.com/BuiltByWalsh',
     ariaLabel: 'Visit my Github',
     icon: <Github />,
   },
   {
-    name: 'Discord',
-    href: `https://discordapp.com/users/${HANDLE}`,
-    ariaLabel: 'Add me on Discord',
-    icon: <Discord />,
+    name: 'BlueSky',
+    href: 'https://bsky.app/profile/jameswalsh.bsky.social',
+    ariaLabel: 'Follow me on BlueSky',
+    icon: <BlueSky />,
   },
   {
     name: 'LinkedIn',
-    href: `https://www.linkedin.com/in/${HANDLE}`,
+    href: 'https://www.linkedin.com/in/jamesandersonwalsh',
     ariaLabel: 'Go to my LinkedIn',
     icon: <LinkedIn />,
   },
