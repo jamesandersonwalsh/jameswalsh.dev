@@ -13,7 +13,7 @@ interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     name: 'Github',
-    href: `https://github.com/${HANDLE}`,
+    href: `https://github.com/BuiltByWalsh`,
     ariaLabel: 'Visit my Github',
     icon: <Github width={24} height={24} />,
   },
