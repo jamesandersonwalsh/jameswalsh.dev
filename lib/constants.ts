@@ -13,4 +13,4 @@ export const SITE_NAVIGATIONAL_ITEMS = [
   { href: '/projects', value: 'Portfolio' },
 ]
 
-export const GITHUB_REPO_LINK = 'https://github.com/jamesandersonwalsh/jameswalsh.dev'
+export const GITHUB_REPO_LINK = 'https://github.com/BuiltByWalsh/jameswalsh.dev'
